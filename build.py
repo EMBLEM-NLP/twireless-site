@@ -9,6 +9,18 @@
                                           public demo for GitHub Pages: a "preview" banner, forms that
                                           don't send, no search indexing, and a 404 page that works under
                                           the project path
+    python3 build.py --design design-2
+                                          build another design into dist-design-2/ from designs/design-2/ (its own pages,
+                                          partials, CSS, fonts and photos) with the same store content
+
+Demo extras: --switch "Design 1=/twireless-site/=design-1;Design 2=/twireless-site/design-2/=design-2" adds links to
+the other designs in the preview banner, and --public-url https://emblem-nlp.github.io/twireless-site
+gives shared links a preview image (og:image) without a canonical link.
+
+Designs: design 1 lives in src/. Each other design has designs/<id>/design.json, pages/, partials/
+(any partial it doesn't have comes from src/partials), assets/ (copied over the shared scripts and
+images from src/assets) and an optional design.py whose extend(page_context, kit) adds that
+design's own snippets. Photos come from assets/img/photos/photos.json, written by rsi/imagery.py.
 
 Carrier logos: put the official files in src/assets/img/brands/ as bell, virgin-plus and
 lucky-mobile (.svg preferred, or .png on a transparent background, optionally with a .webp twin
@@ -32,6 +44,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent
 SRC = ROOT / "src"
 DIST = ROOT / "dist"
+DESIGNS = ROOT / "designs"
 
 WEEK = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
 JS_DAY = {"Sunday": 0, "Monday": 1, "Tuesday": 2, "Wednesday": 3, "Thursday": 4, "Friday": 5, "Saturday": 6}
@@ -167,6 +180,101 @@ class Logos:
         return None
 
 
+class Photos:
+    """Responsive photos listed in a design's photos.json (written by rsi/imagery.py render)."""
+
+    def __init__(self, path):
+        self.m = json.loads(path.read_text(encoding="utf-8")) if path and path.exists() else {"photos": {}, "cards": {}}
+
+    def picture(self, pid, crop, root, sizes, alt=None, cls="", priority=False):
+        """<picture> with AVIF and WebP sources and a JPEG fallback. Lazy unless it's the priority image."""
+        entry = self.m["photos"].get(pid)
+        if not entry or crop not in entry["crops"]:
+            raise SystemExit(f"Photo {pid} ({crop}) isn't in photos.json: run python3 rsi/imagery.py render")
+        files = entry["crops"][crop]["files"]
+
+        def srcset(fmt):
+            return ", ".join(f'{root}assets/img/photos/{esc(f["file"])} {f["w"]}w' for f in files[fmt])
+        big = max(files["jpg"], key=lambda f: f["w"])
+        fallback = min(files["jpg"], key=lambda f: abs(f["w"] - 800))
+        text = entry["alt"] if alt is None else alt
+        img = [f'src="{root}assets/img/photos/{esc(fallback["file"])}"', f'srcset="{srcset("jpg")}"',
+               f'sizes="{esc(sizes)}"', f'width="{big["w"]}"', f'height="{big["h"]}"', f'alt="{esc(text)}"',
+               'decoding="async"', 'fetchpriority="high"' if priority else 'loading="lazy"']
+        cls_attr = f' class="{esc(cls)}"' if cls else ""
+        return (f'<picture{cls_attr}>'
+                f'<source type="image/avif" srcset="{srcset("avif")}" sizes="{esc(sizes)}">'
+                f'<source type="image/webp" srcset="{srcset("webp")}" sizes="{esc(sizes)}">'
+                f'<img {" ".join(img)}></picture>')
+
+    def credits(self):
+        """One entry per photo: who took it, where it's from and its licence."""
+        return [dict(e["source"], id=pid, alt=e["alt"]) for pid, e in self.m["photos"].items()]
+
+
+def load_design(name):
+    """Design 1 is src/ as it has always been; any other design is designs/<name>/."""
+    if not name or name == "design-1":
+        return {"id": "design-1", "label": "Design 1", "pages": SRC / "pages", "partials": [SRC / "partials"],
+                "assets": SRC / "assets", "skip": [], "og_image": "assets/img/og-image.png", "module": None,
+                "photos": None}
+    folder = DESIGNS / name
+    if not (folder / "design.json").is_file():
+        raise SystemExit(f"No design called {name}: designs/{name}/design.json is missing")
+    cfg = json.loads((folder / "design.json").read_text(encoding="utf-8"))
+    return {"id": cfg["id"], "label": cfg["label"], "pages": folder / "pages",
+            "partials": [SRC / "partials", folder / "partials"], "assets": folder / "assets",
+            "skip": cfg.get("skip_shared_assets", ["css", "fonts", "img/og-image.png"]),
+            "og_image": cfg.get("og_image", ""), "module": folder / cfg["module"] if cfg.get("module") else None,
+            "photos": folder / "assets" / "img" / "photos" / "photos.json"}
+
+
+def load_module(path):
+    import importlib.util
+    spec = importlib.util.spec_from_file_location("design_" + path.parent.name.replace("-", "_"), path)
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
+
+
+def copy_assets(design, dist):
+    """Shared scripts and images from src/assets, then the design's own assets on top."""
+    skip = {Path(s) for s in design["skip"]}
+
+    def ignore(folder, names):
+        rel = Path(folder).relative_to(SRC / "assets")
+        return [n for n in names if rel / n in skip]
+    shutil.copytree(SRC / "assets", dist / "assets", ignore=ignore if skip else None)
+    if design["assets"] != SRC / "assets":
+        shutil.copytree(design["assets"], dist / "assets", dirs_exist_ok=True)
+
+
+def parse_switch(value):
+    """'Design 1=/twireless-site/=design-1;Design 2=/twireless-site/design-2/=design-2'
+    -> [(label, base path, page file names)]. The design id is optional; with it, a page that the
+    other design doesn't have links to its home page instead."""
+    pairs = []
+    for part in (value or "").split(";"):
+        bits = [b.strip() for b in part.split("=")]
+        if len(bits) >= 2:
+            pages = None
+            if len(bits) > 2 and bits[2]:
+                pages = {p.name for p in load_design(bits[2])["pages"].glob("*.html")}
+            pairs.append((bits[0], bits[1], pages))
+    return pairs
+
+
+def switch_banner(pairs, current, page_name):
+    links = []
+    for label, path, pages in pairs:
+        same = page_name != "404.html" and (pages is None or page_name in pages)
+        target = path + (page_name if same else "index.html")
+        here = ' aria-current="page"' if label == current else ""
+        links.append(f'<a href="{esc(target)}"{here}>{esc(label)}</a>')
+    return ('\n<div class="demo-banner"><p>Preview of the new T Wireless website. It isn\'t live yet, so forms here don\'t send.</p>'
+            f'<p class="demo-banner__designs">Compare designs: {" ".join(links)}</p></div>')
+
+
 def offer_brand(brand, logos, root):
     carrier = logos.by_name.get(brand)
     if carrier:
@@ -284,16 +392,22 @@ def footer_nav(root):
     return "\n".join(f'<li><a href="{root}{href}">{esc(label)}</a></li>' for href, label in links)
 
 
-def head_extra(base, out_name, noindex):
+def head_extra(base, out_name, noindex, og_image="assets/img/og-image.png", public_url=""):
+    """Robots, canonical and social-preview tags. A demo gets preview tags from --public-url, no canonical."""
     parts = []
     if noindex:
         parts.append('<meta name="robots" content="noindex">')
+    page = "" if out_name == "index.html" else out_name
     if base:
-        url = base + "/" + ("" if out_name == "index.html" else out_name)
+        url = base + "/" + page
         parts.append(f'<link rel="canonical" href="{esc(url)}">')
         parts.append(f'<meta property="og:url" content="{esc(url)}">')
-        parts.append(f'<meta property="og:image" content="{esc(base)}/assets/img/og-image.png">')
-        parts.append(f'<meta name="twitter:image" content="{esc(base)}/assets/img/og-image.png">')
+    elif public_url:
+        parts.append(f'<meta property="og:url" content="{esc(public_url + "/" + page)}">')
+    prefix = base or public_url
+    if prefix and og_image:
+        parts.append(f'<meta property="og:image" content="{esc(prefix)}/{esc(og_image)}">')
+        parts.append(f'<meta name="twitter:image" content="{esc(prefix)}/{esc(og_image)}">')
     return "\n".join(parts)
 
 
@@ -306,7 +420,12 @@ def main():
         raise SystemExit("--base-path must start and end with /, for example /twireless-site/")
     if demo and release:
         raise SystemExit("--demo and --release can't be combined")
-    dist = Path(sys.argv[sys.argv.index("--out") + 1]).resolve() if "--out" in sys.argv else DIST
+    design = load_design(sys.argv[sys.argv.index("--design") + 1] if "--design" in sys.argv else None)
+    default_out = DIST if design["id"] == "design-1" else ROOT / f"dist-{design['id']}"
+    dist = Path(sys.argv[sys.argv.index("--out") + 1]).resolve() if "--out" in sys.argv else default_out
+    switch = parse_switch(sys.argv[sys.argv.index("--switch") + 1]) if "--switch" in sys.argv and demo else []
+    public_url = (sys.argv[sys.argv.index("--public-url") + 1].rstrip("/")
+                  if "--public-url" in sys.argv and demo else "")
     data = json.loads((SRC / "site.json").read_text(encoding="utf-8"))
     # A demo never points search engines or social previews at the real domain.
     base = "" if demo else (data["site"].get("base_url") or "").rstrip("/")
@@ -331,7 +450,7 @@ def main():
 
     if dist.exists():
         shutil.rmtree(dist)
-    shutil.copytree(SRC / "assets", dist / "assets")
+    copy_assets(design, dist)
     if demo:
         (dist / ".nojekyll").write_text("", encoding="utf-8")  # GitHub Pages: serve the files as they are
     else:
@@ -342,12 +461,16 @@ def main():
         css.write_text(minify_css(css.read_text(encoding="utf-8")), encoding="utf-8")
 
     digest = hashlib.sha1()
-    for f in sorted((SRC / "assets" / "css").glob("*.css")) + sorted((SRC / "assets" / "js").glob("*.js")):
+    for f in sorted((design["assets"] / "css").glob("*.css")) + sorted((SRC / "assets" / "js").glob("*.js")):
         if f.name == "demo.css" and not demo:
             continue
         digest.update(f.read_bytes())
 
-    partials = {p.stem: p.read_text(encoding="utf-8") for p in (SRC / "partials").glob("*.html")}
+    partials = {}
+    for folder in design["partials"]:  # a design's own partials replace the shared ones of the same name
+        partials.update({p.stem: p.read_text(encoding="utf-8") for p in folder.glob("*.html")})
+    photos = Photos(design["photos"])
+    module = load_module(design["module"]) if design["module"] else None
     summary, phrase = hours_text(data["hours"])
     form_action = data["site"].get("form_action") or ""
     form_attrs = (f'action="{esc(form_action)}"' if form_action
@@ -388,8 +511,10 @@ def main():
         for f in data["faq"])
 
     booking = data["site"].get("booking_url") or "visit.html#book"
+    kit = {"esc": esc, "render": render, "logos": logos, "photos": photos, "data": data, "nav": NAV,
+           "day_span": day_span, "design": design, "demo": demo}
     built, sitemap = [], []
-    for path in sorted((SRC / "pages").glob("*.html")):
+    for path in sorted(design["pages"].glob("*.html")):
         raw = path.read_text(encoding="utf-8")
         match = PAGE_META.match(raw)
         if not match:
@@ -408,9 +533,11 @@ def main():
             "booking_href": booking if booking.startswith("http") else root + booking,
             "nav": nav_html(page["nav"], root),
             "footer_nav": footer_nav(root),
-            "head_extra": head_extra(base, path.name, meta.get("noindex") or demo),
+            "head_extra": head_extra(base, path.name, meta.get("noindex") or demo, design["og_image"], public_url),
             "sprite": partials["sprite"],
         })
+        if switch:
+            pctx["demo_banner"] = switch_banner(switch, design["label"], path.name)
         pctx["family_cards"] = brand_cards(data["family"], root, logos)
         pctx["mobile_cards"] = brand_cards(data["family"], root, logos, 3)
         pctx["carrier_strip"] = carrier_strip(data.get("carriers", []), logos, root)
@@ -419,6 +546,8 @@ def main():
                                         or f'<span class="detail__icon"><svg class="icon" aria-hidden="true"><use href="#{esc(b["icon"])}"></use></svg></span>')
             for b in data["family"]}
         pctx["demo_head"] = (f'\n<link rel="stylesheet" href="{root}assets/css/demo.css?v={ctx["version"]}">' if demo else "")
+        if module:
+            pctx.update(module.extend(pctx, kit))
         pctx["storefront"] = render(partials["storefront"], pctx, "storefront")
         pctx["store_card"] = render(partials["store-card"], pctx, "store-card")
         pctx["map"] = render(partials["map"], pctx, "map")

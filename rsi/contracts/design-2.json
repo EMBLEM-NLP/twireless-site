@@ -1,0 +1,223 @@
+{
+  "schema": "web.design.contract.v2",
+  "measurement_series": "WEB-DESIGN-RSI-2.0",
+  "target_id": "T-WIRELESS-SITE-D2",
+  "design_id": "design-2",
+  "producer_id": "emblem-nlp-producer",
+  "approved_for_production": false,
+  "weights": {
+    "first_impression": 10,
+    "imagery_quality": 10,
+    "logo_integration": 8,
+    "service_clarity": 10,
+    "navigation_wayfinding": 9,
+    "conversion_paths": 9,
+    "distinctiveness": 8,
+    "brand_identity": 7,
+    "trust_signals": 7,
+    "information_economy": 6,
+    "typography_hierarchy": 7,
+    "grid_whitespace_rhythm": 5,
+    "mobile_ergonomics": 4
+  },
+  "critical_dimensions": [
+    "first_impression",
+    "imagery_quality",
+    "logo_integration",
+    "service_clarity",
+    "navigation_wayfinding",
+    "conversion_paths",
+    "distinctiveness"
+  ],
+  "accuracy_gates": [
+    "content_matches_sources",
+    "no_fabricated_offers_or_reviews",
+    "unverified_flagged_for_owner",
+    "photos_licensed_for_commercial_use",
+    "no_photo_implies_store_staff_or_customers",
+    "carrier_logos_unaltered_on_clean_plates",
+    "no_third_party_brand_marks_in_photos"
+  ],
+  "min_overall_score": 85,
+  "min_dimension_score": 70,
+  "min_page_role_score": 70,
+  "min_promotion_gain": 1,
+  "max_dimension_regression": 3,
+  "pages": {
+    "index.html": "home",
+    "brands.html": "brand_family",
+    "deals.html": "deals",
+    "mobile.html": "mobile",
+    "internet-tv.html": "home_services",
+    "repairs.html": "repairs",
+    "visit.html": "visit"
+  },
+  "required_page_roles": [
+    "home",
+    "brand_family",
+    "deals",
+    "repairs",
+    "visit"
+  ],
+  "measure": {
+    "lighthouse_min": {
+      "performance": 90,
+      "accessibility": 100,
+      "best-practices": 95,
+      "seo": 100
+    },
+    "max_cls": 0.1,
+    "max_lcp_ms": 2500,
+    "max_transfer_kib": 1500,
+    "max_outside_domains": 5,
+    "h1_exactly": 1,
+    "max_type_sizes": 10,
+    "min_text_px": 12,
+    "min_hero_hierarchy_ratio": 2.0,
+    "viewports": {
+      "phone": [
+        390,
+        844
+      ],
+      "small_phone": [
+        360,
+        740
+      ],
+      "desktop": [
+        1440,
+        900
+      ]
+    },
+    "required_text": {
+      "home": [
+        "Bell Authorised Retailer",
+        "647-707-1093",
+        "Virgin Plus",
+        "Lucky Mobile"
+      ],
+      "brand_family": [
+        "Bell",
+        "Virgin Plus",
+        "Lucky Mobile",
+        "[Ii]nternet",
+        "TV",
+        "[Hh]ome phone"
+      ],
+      "deals": [
+        "deals",
+        "taxes"
+      ],
+      "mobile": [
+        "Bell",
+        "Virgin Plus",
+        "Lucky Mobile",
+        "keep your (phone )?number"
+      ],
+      "home_services": [
+        "[Ii]nternet",
+        "TV",
+        "[Hh]ome phone"
+      ],
+      "repairs": [
+        "[Ss]creen",
+        "[Bb]atter",
+        "quote"
+      ],
+      "visit": [
+        "965 Bovaird",
+        "647-707-1093",
+        "10 a\\.m\\. to 8 p\\.m\\."
+      ]
+    },
+    "hide_in_screenshots": [
+      ".actionbar"
+    ]
+  },
+  "imagery": {
+    "manifest": "assets/img/photos/photos.json",
+    "sources": "designs/design-2/imagery/sources.json",
+    "allowed_licenses": [
+      "Pexels License",
+      "Unsplash License"
+    ],
+    "logo_safe_people": [
+      "none",
+      "no faces"
+    ],
+    "min_photos": {
+      "home": 5,
+      "brand_family": 5,
+      "deals": 4,
+      "mobile": 4,
+      "home_services": 3,
+      "repairs": 2,
+      "visit": 0
+    },
+    "formats": [
+      "avif",
+      "webp"
+    ],
+    "fallback": "jpg",
+    "min_srcset": 2,
+    "min_sharpness": 0.85,
+    "max_oversize": 2.2,
+    "max_photo_kib": 200,
+    "max_page_image_kib": 900
+  },
+  "logos": {
+    "files": {
+      "assets/img/brands/bell.svg": "539b9b71138950e3d7ca1271f271a2065a6ffe3c269e0e9e6b3988cc21eb498d",
+      "assets/img/brands/virgin-plus.png": "3cb74c5ee6df31d5e4786d5c725697265d73fac639a897434c17401c64b7c8e9",
+      "assets/img/brands/virgin-plus.webp": "07dad97a32e75c3e0aeb494da69bae931cc06c6c072f7fb782b88fcb936b965c",
+      "assets/img/brands/lucky-mobile.svg": "4001a26378442d45b7971557a35ff6856f0bf2de3b7c7f77721194bdecc82258",
+      "assets/img/t-wireless-logo-480.png": "ef2d07f6396f5bd9742761a7e8f9ba565a5d42625f37e569b0b1422ad198e7d4",
+      "assets/img/t-wireless-logo-480.webp": "0f9168611553ad454c063da71a61d8f501d24f73c98c9ef4db89253369ab36b2",
+      "assets/img/t-wireless-logo-960.png": "d64890c9776a40ef7ee8bc58ab155a7506c52f7a9fa4a098f67c2ba1ca76d5d7",
+      "assets/img/t-wireless-logo-960.webp": "703c83d31db03dde9ac2e753f68b36b98876e90dc8d4297cc69abcd24bdda668"
+    },
+    "required": {
+      "home": [
+        "t-wireless",
+        "bell",
+        "virgin-plus",
+        "lucky-mobile"
+      ],
+      "brand_family": [
+        "bell",
+        "virgin-plus",
+        "lucky-mobile"
+      ],
+      "mobile": [
+        "bell",
+        "virgin-plus",
+        "lucky-mobile"
+      ],
+      "deals": [
+        "bell",
+        "virgin-plus",
+        "lucky-mobile"
+      ]
+    },
+    "min_px": 16,
+    "plate_min_rgb": 245,
+    "composite_required": {
+      "home": [
+        "t-wireless",
+        "bell",
+        "virgin-plus",
+        "lucky-mobile"
+      ]
+    }
+  },
+  "distinctness": {
+    "siblings": [
+      {
+        "design_id": "design-1",
+        "run": "rsi/runs/design-1/v6-candidate"
+      }
+    ],
+    "max_visual_similarity": 0.45,
+    "min_palette_distance": 12,
+    "require_different_headline_font": true
+  }
+}

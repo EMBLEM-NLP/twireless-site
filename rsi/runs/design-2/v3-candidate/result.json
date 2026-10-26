@@ -1,0 +1,83 @@
+{
+  "schema": "web.design.result.v1",
+  "measurement_series": "WEB-DESIGN-RSI-2.0",
+  "target_id": "T-WIRELESS-SITE-D2",
+  "candidate_sha256": "05507c9f2c490770f074b69ff298aa1043ca6f5e09cfe14c271670662c484fd5",
+  "reviewer_id": "emblem-nlp-producer",
+  "reviewer_role": "producer_diagnostic",
+  "independent_review": false,
+  "measured_checks_failed": 0,
+  "measured_failed_checks": [],
+  "declaration_blockers": [],
+  "dimension_scores": {
+    "first_impression": 90.0,
+    "imagery_quality": 90.0,
+    "logo_integration": 90.0,
+    "service_clarity": 90.0,
+    "navigation_wayfinding": 90.0,
+    "conversion_paths": 90.0,
+    "distinctiveness": 90.0,
+    "brand_identity": 80.0,
+    "trust_signals": 90.0,
+    "information_economy": 90.0,
+    "typography_hierarchy": 90.0,
+    "grid_whitespace_rhythm": 80.0,
+    "mobile_ergonomics": 90.0
+  },
+  "overall_score": 88.8,
+  "page_role_scores": [
+    {
+      "role": "home",
+      "page": "index.html",
+      "score": 88.0
+    },
+    {
+      "role": "brand_family",
+      "page": "brands.html",
+      "score": 90.0
+    },
+    {
+      "role": "deals",
+      "page": "deals.html",
+      "score": 86.0
+    },
+    {
+      "role": "mobile",
+      "page": "mobile.html",
+      "score": 88.0
+    },
+    {
+      "role": "home_services",
+      "page": "internet-tv.html",
+      "score": 90.0
+    },
+    {
+      "role": "repairs",
+      "page": "repairs.html",
+      "score": 90.0
+    },
+    {
+      "role": "visit",
+      "page": "visit.html",
+      "score": 90.0
+    }
+  ],
+  "weakest_dimension": "brand_identity",
+  "weakest_dimension_score": 80.0,
+  "gates": {
+    "measured_layer": true,
+    "evidence_complete": true,
+    "overall": true,
+    "critical_dimensions": true,
+    "page_roles": true,
+    "accuracy": true
+  },
+  "diagnostic_pass": true,
+  "release_eligible": false,
+  "blockers": [],
+  "release_blockers": [
+    "Independent reviewer evidence not supplied.",
+    "Design contract is not approved_for_production."
+  ],
+  "score_note": "Review-derived design score plus Lighthouse and Playwright measurements; not a visitor-behaviour measurement."
+}

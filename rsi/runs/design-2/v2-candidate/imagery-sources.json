@@ -1,0 +1,673 @@
+{
+  "schema": "web.design.imagery.sources.v1",
+  "design_id": "design-2",
+  "licenses": {
+    "Pexels License": {
+      "url": "https://www.pexels.com/license/",
+      "commercial": true,
+      "attribution_required": false,
+      "conditions": [
+        "Don't imply that people or brands in a photo endorse T Wireless.",
+        "Identifiable people may not appear in a bad light or in a way that is offensive.",
+        "Don't use a photo as part of a trademark, design mark, trade name, business name or service mark.",
+        "Don't sell unaltered copies or redistribute the photos on stock or wallpaper platforms."
+      ]
+    }
+  },
+  "allowed_hosts": [
+    "images.pexels.com",
+    "images.unsplash.com"
+  ],
+  "grade": {
+    "saturation": 0.96,
+    "contrast": 1.03
+  },
+  "encode": {
+    "avif": {
+      "quality": 52,
+      "speed": 6
+    },
+    "webp": {
+      "quality": 76
+    },
+    "jpg": {
+      "quality": 80
+    }
+  },
+  "photos": [
+    {
+      "id": "hand-phone",
+      "provider": "Pexels",
+      "provider_id": "9164565",
+      "page_url": "https://www.pexels.com/photo/person-holding-mobile-phone-9164565/",
+      "download_url": "https://images.pexels.com/photos/9164565/pexels-photo-9164565.jpeg",
+      "author": "Nandhu Kumar",
+      "author_url": "https://www.pexels.com/@nandhukumar/",
+      "license": "Pexels License",
+      "retrieved": "2026-10-26",
+      "original": "originals/pexels-9164565.jpg",
+      "original_sha256": "b2083bbbc544262a578a9247d702e2055d6bb2d4492aeb1458060e3a07399a69",
+      "people": "no faces",
+      "description": "Hand holding a smartphone with a blank screen outdoors",
+      "alt": "A hand holding up a phone. On its screen: the T Wireless logo, Bell Authorised Retailer in Brampton, and the Bell, Virgin Plus and Lucky Mobile logos.",
+      "screen": {
+        "ui": "screens/hand-phone.html",
+        "css_width": 540,
+        "logos": [
+          "t-wireless",
+          "bell",
+          "virgin-plus",
+          "lucky-mobile"
+        ]
+      },
+      "crops": {
+        "4x5": {
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "widths": [
+            480,
+            720,
+            960,
+            1280,
+            1600
+          ]
+        }
+      },
+      "original_size": [
+        3200,
+        4896
+      ],
+      "people_note": "one hand"
+    },
+    {
+      "id": "hand-new-phones",
+      "provider": "Pexels",
+      "provider_id": "30909364",
+      "page_url": "https://www.pexels.com/photo/hand-holding-smartphone-with-blank-screen-30909364/",
+      "download_url": "https://images.pexels.com/photos/30909364/pexels-photo-30909364.jpeg",
+      "author": "Jakub Zerdzicki",
+      "author_url": "https://www.pexels.com/@jakubzerdzicki/",
+      "license": "Pexels License",
+      "retrieved": "2026-10-26",
+      "original": "originals/pexels-30909364.jpg",
+      "original_sha256": "8e100e9ce4362e10d8e3bff77515529ca6978b25b7b4fe3e9bb6f23ffb7d5906",
+      "people": "no faces",
+      "people_note": "one hand",
+      "description": "A hand holding a smartphone with a blank screen",
+      "alt": "A hand holding up a phone. Its screen shows the T Wireless logo and New phones, iPhone and Android.",
+      "screen": {
+        "ui": "screens/new-phones.html",
+        "css_width": 540,
+        "logos": [
+          "t-wireless"
+        ]
+      },
+      "crops": {
+        "16x10": {
+          "focus": [
+            0.56,
+            0.44
+          ],
+          "widths": [
+            640,
+            960,
+            1280
+          ]
+        }
+      },
+      "original_size": [
+        2800,
+        2800
+      ]
+    },
+    {
+      "id": "two-phones",
+      "provider": "Pexels",
+      "provider_id": "5398928",
+      "page_url": "https://www.pexels.com/photo/person-holding-two-cellphones-5398928/",
+      "download_url": "https://images.pexels.com/photos/5398928/pexels-photo-5398928.jpeg",
+      "author": "Kaboompics",
+      "author_url": "https://www.pexels.com/@karola-g/",
+      "license": "Pexels License",
+      "retrieved": "2026-10-26",
+      "original": "originals/pexels-5398928.jpg",
+      "original_sha256": "e31f2295fb6f6f28b71a20886960b416776050591b72ba4ed75ed291ee4860ec",
+      "people": "no faces",
+      "description": "Close-up of hands holding two smartphones",
+      "alt": "Hands holding two smartphones side by side.",
+      "crops": {
+        "4x5": {
+          "focus": [
+            0.5,
+            0.42
+          ],
+          "zoom": 1.25,
+          "widths": [
+            400,
+            600,
+            800,
+            1000
+          ]
+        },
+        "16x9": {
+          "focus": [
+            0.5,
+            0.42
+          ],
+          "widths": [
+            480,
+            720,
+            960
+          ]
+        }
+      },
+      "original_size": [
+        4245,
+        6367
+      ],
+      "people_note": "hands only"
+    },
+    {
+      "id": "concert",
+      "provider": "Pexels",
+      "provider_id": "17964711",
+      "page_url": "https://www.pexels.com/photo/a-person-holding-a-smartphone-at-a-concert-17964711/",
+      "download_url": "https://images.pexels.com/photos/17964711/pexels-photo-17964711.jpeg",
+      "author": "Chase R. Smith",
+      "author_url": "https://www.pexels.com/@crsphoto/",
+      "license": "Pexels License",
+      "retrieved": "2026-10-26",
+      "original": "originals/pexels-17964711.jpg",
+      "original_sha256": "f0d8fe5650fc5fba77a09933760397ec68189006e5b807509a882f7918120612",
+      "people": "no faces",
+      "description": "An audience member recording a concert on a smartphone",
+      "alt": "A phone held up to record a concert.",
+      "crops": {
+        "4x5": {
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "widths": [
+            400,
+            600,
+            800,
+            1000
+          ]
+        },
+        "16x9": {
+          "focus": [
+            0.5,
+            0.48
+          ],
+          "widths": [
+            480,
+            720,
+            960
+          ]
+        }
+      },
+      "original_size": [
+        5120,
+        3200
+      ],
+      "people_note": "crowd seen from behind"
+    },
+    {
+      "id": "train",
+      "provider": "Pexels",
+      "provider_id": "7251087",
+      "page_url": "https://www.pexels.com/photo/person-using-a-smartphone-while-riding-a-train-7251087/",
+      "download_url": "https://images.pexels.com/photos/7251087/pexels-photo-7251087.jpeg",
+      "author": "MART PRODUCTION",
+      "author_url": "https://www.pexels.com/@mart-production/",
+      "license": "Pexels License",
+      "retrieved": "2026-10-26",
+      "original": "originals/pexels-7251087.jpg",
+      "original_sha256": "6f133af3300ec24d5906232b9f077b483f9f30da45fb3c2334c7d5562bab78e2",
+      "people": "no faces",
+      "people_note": "one adult; the crops start below the face",
+      "description": "Adult in a black coat checking a smartphone while commuting on public transport",
+      "alt": "Someone on a train checking their phone.",
+      "crops": {
+        "4x5": {
+          "focus": [
+            0.45,
+            0.55
+          ],
+          "zoom": 1.3,
+          "widths": [
+            400,
+            600,
+            800,
+            1000
+          ]
+        },
+        "16x9": {
+          "focus": [
+            0.5,
+            0.62
+          ],
+          "zoom": 1.35,
+          "widths": [
+            480,
+            720,
+            960
+          ]
+        }
+      },
+      "original_size": [
+        6000,
+        4000
+      ],
+      "retouch": [
+        {
+          "box": [
+            1460,
+            3070,
+            1910,
+            3360
+          ],
+          "why": "transit operator's logo on the ticket machine"
+        },
+        {
+          "box": [
+            2110,
+            3060,
+            2380,
+            3260
+          ],
+          "why": "sticker on the ticket machine"
+        }
+      ]
+    },
+    {
+      "id": "family-tv",
+      "provider": "Pexels",
+      "provider_id": "14798018",
+      "page_url": "https://www.pexels.com/photo/a-family-watching-together-in-the-living-room-14798018/",
+      "download_url": "https://images.pexels.com/photos/14798018/pexels-photo-14798018.jpeg",
+      "author": "World Sikh Organization of Canada",
+      "author_url": "https://www.pexels.com/@worldsikhorg/",
+      "license": "Pexels License",
+      "retrieved": "2026-10-26",
+      "original": "originals/pexels-14798018.jpg",
+      "original_sha256": "d802d7e962d87e2483a584ffb8f3f1c140e1d1b54493d1f18ea5ad61b3d89574",
+      "people": "identifiable",
+      "description": "A family sitting and enjoying leisure time together on the sofa in a living room",
+      "alt": "A family on a living room sofa, smiling as they watch TV together.",
+      "crops": {
+        "16x10": {
+          "focus": [
+            0.5,
+            0.52
+          ],
+          "zoom": 1.1,
+          "widths": [
+            640,
+            960,
+            1280,
+            1600
+          ]
+        },
+        "4x5": {
+          "focus": [
+            0.52,
+            0.55
+          ],
+          "zoom": 1.05,
+          "widths": [
+            400,
+            600,
+            800,
+            1000
+          ]
+        }
+      },
+      "original_size": [
+        7952,
+        5304
+      ],
+      "people_note": "three adults"
+    },
+    {
+      "id": "living-room",
+      "provider": "Pexels",
+      "provider_id": "19899066",
+      "page_url": "https://www.pexels.com/photo/modern-living-room-with-tv-19899066/",
+      "download_url": "https://images.pexels.com/photos/19899066/pexels-photo-19899066.jpeg",
+      "author": "Lisa Anna",
+      "author_url": "https://www.pexels.com/@lisa-anna-901356985/",
+      "license": "Pexels License",
+      "retrieved": "2026-10-26",
+      "original": "originals/pexels-19899066.jpg",
+      "original_sha256": "bb72be3b5869df9b287016ab09e404bd315984161171e4889618fdc79adeb2b0",
+      "people": "none",
+      "description": "Stylish modern living room with a grey couch, white walls and a TV",
+      "alt": "A bright living room with a grey sofa and a TV.",
+      "crops": {
+        "16x10": {
+          "focus": [
+            0.55,
+            0.55
+          ],
+          "widths": [
+            640,
+            960,
+            1280,
+            1600
+          ]
+        },
+        "4x5": {
+          "focus": [
+            0.62,
+            0.55
+          ],
+          "widths": [
+            400,
+            600,
+            800,
+            1000
+          ]
+        },
+        "16x9": {
+          "focus": [
+            0.55,
+            0.58
+          ],
+          "widths": [
+            480,
+            720,
+            960
+          ]
+        }
+      },
+      "original_size": [
+        5999,
+        4000
+      ]
+    },
+    {
+      "id": "video-call",
+      "provider": "Pexels",
+      "provider_id": "4049991",
+      "page_url": "https://www.pexels.com/photo/happy-woman-video-chatting-on-laptop-in-kitchen-4049991/",
+      "download_url": "https://images.pexels.com/photos/4049991/pexels-photo-4049991.jpeg",
+      "author": "Katrin Bolovtsova",
+      "author_url": "https://www.pexels.com/@ekaterina-bolovtsova/",
+      "license": "Pexels License",
+      "retrieved": "2026-10-26",
+      "original": "originals/pexels-4049991.jpg",
+      "original_sha256": "09654f1e1136af52d17cf64b0781abcf91d5413c16113ad7cbcbe7bbeb606409",
+      "people": "identifiable",
+      "description": "A woman enjoys a video call on her laptop in a kitchen",
+      "alt": "A woman on a video call at her kitchen table.",
+      "crops": {
+        "16x10": {
+          "focus": [
+            0.56,
+            0.6
+          ],
+          "zoom": 1.15,
+          "widths": [
+            640,
+            960,
+            1280
+          ]
+        },
+        "16x9": {
+          "focus": [
+            0.56,
+            0.6
+          ],
+          "zoom": 1.15,
+          "widths": [
+            480,
+            720,
+            960
+          ]
+        }
+      },
+      "original_size": [
+        6720,
+        4480
+      ],
+      "people_note": "one adult"
+    },
+    {
+      "id": "repair-mat",
+      "provider": "Pexels",
+      "provider_id": "31862950",
+      "page_url": "https://www.pexels.com/photo/disassembled-smartphone-on-repair-workbench-31862950/",
+      "download_url": "https://images.pexels.com/photos/31862950/pexels-photo-31862950.jpeg",
+      "author": "Fotografia Lui Vlad",
+      "author_url": "https://www.pexels.com/@fotografia-lui-vlad-1445510816/",
+      "license": "Pexels License",
+      "retrieved": "2026-10-26",
+      "original": "originals/pexels-31862950.jpg",
+      "original_sha256": "1f33a773942f37c1b2bba1d61571abd72b352dfee880e6be6cebdee8170ad7e5",
+      "people": "none",
+      "description": "Disassembled smartphone parts on a blue repair mat with tools",
+      "alt": "An opened phone and its parts on a blue repair mat, with a screwdriver and tweezers.",
+      "crops": {
+        "16x10": {
+          "focus": [
+            0.6,
+            0.6
+          ],
+          "widths": [
+            640,
+            960,
+            1280,
+            1600
+          ]
+        },
+        "4x5": {
+          "focus": [
+            0.66,
+            0.62
+          ],
+          "zoom": 1.1,
+          "widths": [
+            400,
+            600,
+            800,
+            1000
+          ]
+        }
+      },
+      "original_size": [
+        6000,
+        4000
+      ],
+      "retouch": [
+        {
+          "box": [
+            605,
+            1815,
+            735,
+            1945
+          ],
+          "why": "Apple logo on the battery"
+        },
+        {
+          "box": [
+            2140,
+            1830,
+            2250,
+            1930
+          ],
+          "why": "Apple logo on the logic board chip"
+        }
+      ]
+    },
+    {
+      "id": "cracked-screen",
+      "provider": "Pexels",
+      "provider_id": "11921157",
+      "page_url": "https://www.pexels.com/photo/cracked-screen-of-a-smartphone-11921157/",
+      "download_url": "https://images.pexels.com/photos/11921157/pexels-photo-11921157.jpeg",
+      "author": "Towfiqu barbhuiya",
+      "author_url": "https://www.pexels.com/@towfiqu-barbhuiya-3440682/",
+      "license": "Pexels License",
+      "retrieved": "2026-10-26",
+      "original": "originals/pexels-11921157.jpg",
+      "original_sha256": "a7b9b6c5e94b01d17945b389392a817847ec1274ccef3f4c722b051858267638",
+      "people": "none",
+      "description": "Two broken smartphone screens on an orange background",
+      "alt": "Two phones with cracked screens.",
+      "crops": {
+        "16x9": {
+          "focus": [
+            0.45,
+            0.45
+          ],
+          "widths": [
+            480,
+            720,
+            960
+          ]
+        },
+        "1x1": {
+          "focus": [
+            0.42,
+            0.45
+          ],
+          "widths": [
+            400,
+            600,
+            800
+          ]
+        }
+      },
+      "original_size": [
+        4592,
+        3064
+      ]
+    },
+    {
+      "id": "cafe-business",
+      "provider": "Pexels",
+      "provider_id": "10375885",
+      "page_url": "https://www.pexels.com/photo/smiling-woman-using-smart-phone-at-cafe-10375885/",
+      "download_url": "https://images.pexels.com/photos/10375885/pexels-photo-10375885.jpeg",
+      "author": "RDNE Stock project",
+      "author_url": "https://www.pexels.com/@rdne/",
+      "license": "Pexels License",
+      "retrieved": "2026-10-26",
+      "original": "originals/pexels-10375885.jpg",
+      "original_sha256": "2675241558110feffdcd757fe5a472631f8138f6322338dd1bbbae49d8fc750d",
+      "people": "identifiable",
+      "description": "Young woman using a smartphone and laptop inside a cafe",
+      "alt": "A woman in a café checking her phone, with her laptop open.",
+      "crops": {
+        "4x5": {
+          "focus": [
+            0.6,
+            0.52
+          ],
+          "widths": [
+            400,
+            600,
+            800,
+            1000
+          ]
+        },
+        "16x10": {
+          "focus": [
+            0.66,
+            0.45
+          ],
+          "widths": [
+            640,
+            960,
+            1280
+          ]
+        }
+      },
+      "original_size": [
+        4377,
+        6565
+      ],
+      "people_note": "one adult"
+    },
+    {
+      "id": "seniors-phone",
+      "provider": "Pexels",
+      "provider_id": "6975187",
+      "page_url": "https://www.pexels.com/photo/an-elderly-couple-using-a-smart-phone-6975187/",
+      "download_url": "https://images.pexels.com/photos/6975187/pexels-photo-6975187.jpeg",
+      "author": "T Leish",
+      "author_url": "https://www.pexels.com/@leish/",
+      "license": "Pexels License",
+      "retrieved": "2026-10-26",
+      "original": "originals/pexels-6975187.jpg",
+      "original_sha256": "8fc1d1a88326d3f259e04937ea338bfa055985cc7706b565401d58d5dbc8a15f",
+      "people": "identifiable",
+      "description": "Senior couple at a kitchen table looking at a smartphone together",
+      "alt": "An older couple at their kitchen table, smiling at a phone.",
+      "crops": {
+        "16x10": {
+          "focus": [
+            0.56,
+            0.5
+          ],
+          "zoom": 1.1,
+          "widths": [
+            640,
+            960,
+            1280,
+            1600
+          ]
+        },
+        "4x5": {
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "widths": [
+            400,
+            600,
+            800,
+            1000
+          ]
+        }
+      },
+      "original_size": [
+        6720,
+        4480
+      ],
+      "people_note": "two adults"
+    }
+  ],
+  "cards": [
+    {
+      "id": "og-image",
+      "html": "cards/og.html",
+      "size": [
+        1200,
+        630
+      ],
+      "formats": [
+        "jpg"
+      ],
+      "uses": [
+        "hand-phone"
+      ],
+      "logos": [
+        "t-wireless",
+        "bell",
+        "virgin-plus",
+        "lucky-mobile"
+      ],
+      "alt": "T Wireless, Bell Authorised Retailer in Brampton, with a phone showing the T Wireless logo."
+    }
+  ],
+  "people_vocabulary": {
+    "none": "no people",
+    "no faces": "hands, backs or a crowd; nobody can be recognised",
+    "identifiable": "someone could be recognised; never put a logo on the photo or present them as a customer"
+  }
+}

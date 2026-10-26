@@ -1,0 +1,2331 @@
+{
+  "schema": "web.design.imagery.manifest.v1",
+  "measurement_series": "WEB-DESIGN-RSI-2.0",
+  "design_id": "design-2",
+  "generated": "2026-10-26",
+  "photos": {
+    "hand-phone": {
+      "source": {
+        "provider": "Pexels",
+        "provider_id": "9164565",
+        "page_url": "https://www.pexels.com/photo/person-holding-mobile-phone-9164565/",
+        "author": "Nandhu Kumar",
+        "author_url": "https://www.pexels.com/@nandhukumar/",
+        "license": "Pexels License",
+        "license_url": "https://www.pexels.com/license/",
+        "retrieved": "2026-10-26"
+      },
+      "alt": "A hand holding up a phone. On its screen: the T Wireless logo, Bell Authorised Retailer in Brampton, and the Bell, Virgin Plus and Lucky Mobile logos.",
+      "people": "no faces",
+      "logo_safe": true,
+      "description": "Hand holding a smartphone with a blank screen outdoors",
+      "logos": [
+        "t-wireless",
+        "bell",
+        "virgin-plus",
+        "lucky-mobile"
+      ],
+      "kind": "composite",
+      "crops": {
+        "4x5": {
+          "aspect": 0.8,
+          "box": [
+            0,
+            448,
+            3200,
+            4448
+          ],
+          "files": {
+            "avif": [
+              {
+                "file": "hand-phone-4x5-480.avif",
+                "w": 480,
+                "h": 600,
+                "bytes": 8566,
+                "sha256": "11e0c5b6567ec23f5dee5b3ddfc5483a169e9b01592267e454713b380137ae5d"
+              },
+              {
+                "file": "hand-phone-4x5-720.avif",
+                "w": 720,
+                "h": 900,
+                "bytes": 14139,
+                "sha256": "470fa26c55af8718e76a6cc6c0c52bb2357d9acb9dd3864deddcd9333e6cda47"
+              },
+              {
+                "file": "hand-phone-4x5-960.avif",
+                "w": 960,
+                "h": 1200,
+                "bytes": 19974,
+                "sha256": "ed4695b73aa39184342c03691a3b8846f5837c3327201523f9ba74de8ac5b98b"
+              },
+              {
+                "file": "hand-phone-4x5-1280.avif",
+                "w": 1280,
+                "h": 1600,
+                "bytes": 29646,
+                "sha256": "20a69b68b13776e762a96b780cad415f37ba96bbfe3a878e1c1486d4cf4a8524"
+              },
+              {
+                "file": "hand-phone-4x5-1600.avif",
+                "w": 1600,
+                "h": 2000,
+                "bytes": 40804,
+                "sha256": "8f6ddd8f6cd39565f3e068fbf30809da77ceada1abe0d8347d4341ae89119683"
+              }
+            ],
+            "webp": [
+              {
+                "file": "hand-phone-4x5-480.webp",
+                "w": 480,
+                "h": 600,
+                "bytes": 11348,
+                "sha256": "53470bfe3f5eb4d0ba8f26e693ac0b85d64dbf99bdd6548f4132f17f430b76d4"
+              },
+              {
+                "file": "hand-phone-4x5-720.webp",
+                "w": 720,
+                "h": 900,
+                "bytes": 18762,
+                "sha256": "485d691d8054c6c9f0c5c9dec9d57e88fec3b97be28b3e32d9c8f08bc76ec20f"
+              },
+              {
+                "file": "hand-phone-4x5-960.webp",
+                "w": 960,
+                "h": 1200,
+                "bytes": 27144,
+                "sha256": "488f6db7d7d8b4b9fd522726ffba35625d900ffbb8a41dd389555a67900c7020"
+              },
+              {
+                "file": "hand-phone-4x5-1280.webp",
+                "w": 1280,
+                "h": 1600,
+                "bytes": 38632,
+                "sha256": "000c8031221cf22a902fc28c96b86c306a6b948d3b96ee2fc55af8248c778714"
+              },
+              {
+                "file": "hand-phone-4x5-1600.webp",
+                "w": 1600,
+                "h": 2000,
+                "bytes": 52560,
+                "sha256": "8d507c19e43e94f0428966b4cda3cf6a85c5df97874c7bb387662309eec37b6d"
+              }
+            ],
+            "jpg": [
+              {
+                "file": "hand-phone-4x5-480.jpg",
+                "w": 480,
+                "h": 600,
+                "bytes": 23773,
+                "sha256": "5f57c3bad5ae3d15d585f2618cc7f34ea9efdea04fcae2c9bae0da7633a331c9"
+              },
+              {
+                "file": "hand-phone-4x5-720.jpg",
+                "w": 720,
+                "h": 900,
+                "bytes": 43223,
+                "sha256": "22811222dda2454ff6c1db9a8663b5ddb6353de82986e374d774c6ea5f88f7a6"
+              },
+              {
+                "file": "hand-phone-4x5-960.jpg",
+                "w": 960,
+                "h": 1200,
+                "bytes": 66290,
+                "sha256": "fbfcea3b73cd76031ed35454bb797d825e5fbecf645602efae83638ec4d38ecf"
+              },
+              {
+                "file": "hand-phone-4x5-1280.jpg",
+                "w": 1280,
+                "h": 1600,
+                "bytes": 102348,
+                "sha256": "8519f93f1f2681fd25a95e37bd539278b1e58386df6a9891b27a10aba83afee8"
+              },
+              {
+                "file": "hand-phone-4x5-1600.jpg",
+                "w": 1600,
+                "h": 2000,
+                "bytes": 148582,
+                "sha256": "15b49d069f8fa9897cd1010939ee2dedfd24bf9be7ebdaa2625a0b47327e1595"
+              }
+            ]
+          }
+        }
+      },
+      "screen_quad": [
+        [
+          1041.0,
+          1193.5
+        ],
+        [
+          2114.1,
+          1175.5
+        ],
+        [
+          2157.8,
+          3621.7
+        ],
+        [
+          1041.0,
+          3630.4
+        ]
+      ]
+    },
+    "two-phones": {
+      "source": {
+        "provider": "Pexels",
+        "provider_id": "5398928",
+        "page_url": "https://www.pexels.com/photo/person-holding-two-cellphones-5398928/",
+        "author": "Kaboompics",
+        "author_url": "https://www.pexels.com/@karola-g/",
+        "license": "Pexels License",
+        "license_url": "https://www.pexels.com/license/",
+        "retrieved": "2026-10-26"
+      },
+      "alt": "Hands holding two smartphones side by side.",
+      "people": "no faces",
+      "logo_safe": true,
+      "description": "Close-up of hands holding two smartphones",
+      "logos": [],
+      "kind": "photo",
+      "crops": {
+        "4x5": {
+          "aspect": 0.8,
+          "box": [
+            424,
+            552,
+            3820,
+            4797
+          ],
+          "files": {
+            "avif": [
+              {
+                "file": "two-phones-4x5-400.avif",
+                "w": 400,
+                "h": 500,
+                "bytes": 6177,
+                "sha256": "f051f9d955706bbc6afed927029bc1b8a4f502fcb871b6e814729e2361a77705"
+              },
+              {
+                "file": "two-phones-4x5-600.avif",
+                "w": 600,
+                "h": 750,
+                "bytes": 9892,
+                "sha256": "0fb7a7cfd72af072a0b2c60e6c439a6911785f86d9176262d06036fc81afe7ca"
+              },
+              {
+                "file": "two-phones-4x5-800.avif",
+                "w": 800,
+                "h": 1000,
+                "bytes": 14087,
+                "sha256": "e298410c968128580259c78c71c9bf3d67ff40d41f8d1860d54dd26cd6ed7bdd"
+              },
+              {
+                "file": "two-phones-4x5-1000.avif",
+                "w": 1000,
+                "h": 1250,
+                "bytes": 18555,
+                "sha256": "7b480d2e0f68fd705c718ead9eb422198a4cb1d1518d385b2c5fb423c93171e2"
+              }
+            ],
+            "webp": [
+              {
+                "file": "two-phones-4x5-400.webp",
+                "w": 400,
+                "h": 500,
+                "bytes": 7992,
+                "sha256": "33fd9e710ee3c94219557cd4e1f913416029d349c99e6ee7cdba35f81597edee"
+              },
+              {
+                "file": "two-phones-4x5-600.webp",
+                "w": 600,
+                "h": 750,
+                "bytes": 13266,
+                "sha256": "5c32322f2a71d0bf9bee4cf7be40fb60aee14f2ad54a5b2deb78fe924805beac"
+              },
+              {
+                "file": "two-phones-4x5-800.webp",
+                "w": 800,
+                "h": 1000,
+                "bytes": 18860,
+                "sha256": "06ec1ace4c48589898a62e3b7c583b1425beee7fdf6dc1eaf14cbef1f84ce2d1"
+              },
+              {
+                "file": "two-phones-4x5-1000.webp",
+                "w": 1000,
+                "h": 1250,
+                "bytes": 25112,
+                "sha256": "f4d20ae9c2aeea6186dfc2e0d106d13861bdab1a3588597bd18d8b24c04a45a5"
+              }
+            ],
+            "jpg": [
+              {
+                "file": "two-phones-4x5-400.jpg",
+                "w": 400,
+                "h": 500,
+                "bytes": 17517,
+                "sha256": "95e0e31c6c5d6f9cc5ffdd495e554c377c27176a38dc6de760d05668d0df8051"
+              },
+              {
+                "file": "two-phones-4x5-600.jpg",
+                "w": 600,
+                "h": 750,
+                "bytes": 30740,
+                "sha256": "2e51196f70cdf5d3c7366cd12572d33d2e7843fef27b2d213039b9132c924b8e"
+              },
+              {
+                "file": "two-phones-4x5-800.jpg",
+                "w": 800,
+                "h": 1000,
+                "bytes": 46230,
+                "sha256": "5fc7d9fc6342b20cedb0e2be7ed9c42834454b252ad901df770e20b02dee35b0"
+              },
+              {
+                "file": "two-phones-4x5-1000.jpg",
+                "w": 1000,
+                "h": 1250,
+                "bytes": 64765,
+                "sha256": "ab3b798dd018552c1d2b6a2d3d7ff85c7b639fdd111079e0ce997474058fc63e"
+              }
+            ]
+          }
+        },
+        "16x9": {
+          "aspect": 1.77778,
+          "box": [
+            0,
+            1480,
+            4245,
+            3868
+          ],
+          "files": {
+            "avif": [
+              {
+                "file": "two-phones-16x9-480.avif",
+                "w": 480,
+                "h": 270,
+                "bytes": 6284,
+                "sha256": "4d5c8e87f67aee7e05d2a332ea90ddcca974c5e918c7c8147be919a05a1a4875"
+              },
+              {
+                "file": "two-phones-16x9-720.avif",
+                "w": 720,
+                "h": 405,
+                "bytes": 10006,
+                "sha256": "49d380b1e7a893e57f11f148d40e0e3e04fd37945a8927a934c9c0d6e69836e9"
+              },
+              {
+                "file": "two-phones-16x9-960.avif",
+                "w": 960,
+                "h": 540,
+                "bytes": 13970,
+                "sha256": "e7e806db11c775c51460c2967552cfa6709b95eba1f962d19368a6a78bb50515"
+              }
+            ],
+            "webp": [
+              {
+                "file": "two-phones-16x9-480.webp",
+                "w": 480,
+                "h": 270,
+                "bytes": 8182,
+                "sha256": "ff657e6d163f719278e5a2fffffdddfbe15b4dbb71b6e1a40b138147c6fe9e3c"
+              },
+              {
+                "file": "two-phones-16x9-720.webp",
+                "w": 720,
+                "h": 405,
+                "bytes": 13104,
+                "sha256": "d76e7227ec48dafd688349ce10bba5ce924266ca5e45e14901dc57098cadd6bd"
+              },
+              {
+                "file": "two-phones-16x9-960.webp",
+                "w": 960,
+                "h": 540,
+                "bytes": 18776,
+                "sha256": "945da81c82c3741d044273bfd1d8f066bed9a369731b99703841dcebfa781e65"
+              }
+            ],
+            "jpg": [
+              {
+                "file": "two-phones-16x9-480.jpg",
+                "w": 480,
+                "h": 270,
+                "bytes": 16076,
+                "sha256": "a4f9b92035273546541b9231b752b8321bc4e353db8c567f389bc849235a3104"
+              },
+              {
+                "file": "two-phones-16x9-720.jpg",
+                "w": 720,
+                "h": 405,
+                "bytes": 28173,
+                "sha256": "b44958f05197b34dd1c4383ee5497d20ded02279694c3aa5a908007c0cc14836"
+              },
+              {
+                "file": "two-phones-16x9-960.jpg",
+                "w": 960,
+                "h": 540,
+                "bytes": 42491,
+                "sha256": "17e3d4f15b792ace37defd8033a446aa9e76a88a8af99e81b89b2a93b69300f3"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "concert": {
+      "source": {
+        "provider": "Pexels",
+        "provider_id": "17964711",
+        "page_url": "https://www.pexels.com/photo/a-person-holding-a-smartphone-at-a-concert-17964711/",
+        "author": "Chase R. Smith",
+        "author_url": "https://www.pexels.com/@crsphoto/",
+        "license": "Pexels License",
+        "license_url": "https://www.pexels.com/license/",
+        "retrieved": "2026-10-26"
+      },
+      "alt": "A phone held up to record a concert.",
+      "people": "no faces",
+      "logo_safe": true,
+      "description": "An audience member recording a concert on a smartphone",
+      "logos": [],
+      "kind": "photo",
+      "crops": {
+        "4x5": {
+          "aspect": 0.8,
+          "box": [
+            1280,
+            0,
+            3840,
+            3200
+          ],
+          "files": {
+            "avif": [
+              {
+                "file": "concert-4x5-400.avif",
+                "w": 400,
+                "h": 500,
+                "bytes": 7276,
+                "sha256": "5b490300f1a5cf3666deea1dea19364b2483bea89971292b27b66b507bd1840a"
+              },
+              {
+                "file": "concert-4x5-600.avif",
+                "w": 600,
+                "h": 750,
+                "bytes": 12070,
+                "sha256": "c295ad1c162ddbec51b1474101c9c289b2ebe503b066be268db5e47f28eb3ba6"
+              },
+              {
+                "file": "concert-4x5-800.avif",
+                "w": 800,
+                "h": 1000,
+                "bytes": 18029,
+                "sha256": "730a414cfa20ac6d8cf61e35256fb241911cfe7edc0707c27ddd4af835f8524d"
+              },
+              {
+                "file": "concert-4x5-1000.avif",
+                "w": 1000,
+                "h": 1250,
+                "bytes": 27325,
+                "sha256": "4cebc8e2c57bd5ceeae4d877a011dc440978668e033fb20328c015c47103ce4e"
+              }
+            ],
+            "webp": [
+              {
+                "file": "concert-4x5-400.webp",
+                "w": 400,
+                "h": 500,
+                "bytes": 9606,
+                "sha256": "9977dd5d32f78f6de1193327c9e6c50982561126aec90f99eae4d5638abeb9dc"
+              },
+              {
+                "file": "concert-4x5-600.webp",
+                "w": 600,
+                "h": 750,
+                "bytes": 15742,
+                "sha256": "375d29582ffff6f6b368bbb98ad8d6ddc4e9f46e388141b712cdbc9ebb9e2cb3"
+              },
+              {
+                "file": "concert-4x5-800.webp",
+                "w": 800,
+                "h": 1000,
+                "bytes": 22484,
+                "sha256": "08c7c4336a3f432be08763d066ad69973bfa819d0f8b8500963cdb692bcc5fcc"
+              },
+              {
+                "file": "concert-4x5-1000.webp",
+                "w": 1000,
+                "h": 1250,
+                "bytes": 31674,
+                "sha256": "dd83a6f8b137d265731d7683072f268605cb8563f00777dfdaba54f4ce574e27"
+              }
+            ],
+            "jpg": [
+              {
+                "file": "concert-4x5-400.jpg",
+                "w": 400,
+                "h": 500,
+                "bytes": 19709,
+                "sha256": "562e29d6f0bd6ed6c77d356e14f3f0455e72c6228e1cfb46404003f0c66b045f"
+              },
+              {
+                "file": "concert-4x5-600.jpg",
+                "w": 600,
+                "h": 750,
+                "bytes": 36881,
+                "sha256": "69fe44e3bdd0f47fc87f13055da19d269b08f159da62ca428d675866f28b71a3"
+              },
+              {
+                "file": "concert-4x5-800.jpg",
+                "w": 800,
+                "h": 1000,
+                "bytes": 61416,
+                "sha256": "a3b36ce99f205bb43b9ad3344967c42ae8ac24e6eead7252c974ff7819af16dc"
+              },
+              {
+                "file": "concert-4x5-1000.jpg",
+                "w": 1000,
+                "h": 1250,
+                "bytes": 100056,
+                "sha256": "2e1f0a8abd236edb4b8a851dafd3edd192dafab725ad767dcc5c5d77729fa11c"
+              }
+            ]
+          }
+        },
+        "16x9": {
+          "aspect": 1.77778,
+          "box": [
+            0,
+            96,
+            5120,
+            2976
+          ],
+          "files": {
+            "avif": [
+              {
+                "file": "concert-16x9-480.avif",
+                "w": 480,
+                "h": 270,
+                "bytes": 5925,
+                "sha256": "060f4880db5a2d8937d7776c36920ccb916ad278043360890cfe1fa2667cc429"
+              },
+              {
+                "file": "concert-16x9-720.avif",
+                "w": 720,
+                "h": 405,
+                "bytes": 9658,
+                "sha256": "392428b192e69c19360f2e666f550b161c2d898b80b59cd252a8ba3588e4f301"
+              },
+              {
+                "file": "concert-16x9-960.avif",
+                "w": 960,
+                "h": 540,
+                "bytes": 13293,
+                "sha256": "538de062584b424d7791bb228cd75447b5cf10e979d6ed9b7896011a0758f5d3"
+              }
+            ],
+            "webp": [
+              {
+                "file": "concert-16x9-480.webp",
+                "w": 480,
+                "h": 270,
+                "bytes": 7850,
+                "sha256": "4f92a0752e8be79c540916ed5e6c21d3a8adcf6d3f8ef254d497e2bb81430b53"
+              },
+              {
+                "file": "concert-16x9-720.webp",
+                "w": 720,
+                "h": 405,
+                "bytes": 12706,
+                "sha256": "bf13afdd68cbab468a99e189af7dcf2f9ed2bf5864e835663db8e252cea9405a"
+              },
+              {
+                "file": "concert-16x9-960.webp",
+                "w": 960,
+                "h": 540,
+                "bytes": 17928,
+                "sha256": "afc162853253fa2bbfd6f697321cea268e93110284dadaba1727d7f357c30d0c"
+              }
+            ],
+            "jpg": [
+              {
+                "file": "concert-16x9-480.jpg",
+                "w": 480,
+                "h": 270,
+                "bytes": 14897,
+                "sha256": "69f0e66e8ea59d888bca802429824652d071819affdb0ac979eb8704de751f50"
+              },
+              {
+                "file": "concert-16x9-720.jpg",
+                "w": 720,
+                "h": 405,
+                "bytes": 26508,
+                "sha256": "d9387d0316c4882ad0535d56c37cd4e2517ae7fe4984073e5809061eed424767"
+              },
+              {
+                "file": "concert-16x9-960.jpg",
+                "w": 960,
+                "h": 540,
+                "bytes": 40678,
+                "sha256": "5af5212c6d41eb47537f44b742c0d69685fab02885ecd430df7334e0eb14dec2"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "train": {
+      "source": {
+        "provider": "Pexels",
+        "provider_id": "7251087",
+        "page_url": "https://www.pexels.com/photo/person-using-a-smartphone-while-riding-a-train-7251087/",
+        "author": "MART PRODUCTION",
+        "author_url": "https://www.pexels.com/@mart-production/",
+        "license": "Pexels License",
+        "license_url": "https://www.pexels.com/license/",
+        "retrieved": "2026-10-26"
+      },
+      "alt": "Someone on a train checking their phone.",
+      "people": "no faces",
+      "logo_safe": true,
+      "description": "Adult in a black coat checking a smartphone while commuting on public transport",
+      "logos": [],
+      "kind": "photo",
+      "crops": {
+        "4x5": {
+          "aspect": 0.8,
+          "box": [
+            1469,
+            662,
+            3931,
+            3738
+          ],
+          "files": {
+            "avif": [
+              {
+                "file": "train-4x5-400.avif",
+                "w": 400,
+                "h": 500,
+                "bytes": 7210,
+                "sha256": "7380a1af676c8435b2e010af2d86d3c6a26971251ca225442b4a5ac01ca7c757"
+              },
+              {
+                "file": "train-4x5-600.avif",
+                "w": 600,
+                "h": 750,
+                "bytes": 12222,
+                "sha256": "a75d59435587bbc120ed938ff82bdaac3ee96f8e991ad3f99ba353cb36a0727a"
+              },
+              {
+                "file": "train-4x5-800.avif",
+                "w": 800,
+                "h": 1000,
+                "bytes": 18026,
+                "sha256": "fa3c5ab4bb3cbb664287cd1eb88d569248cb65db0f533e3bb8270c30ced2d6c7"
+              },
+              {
+                "file": "train-4x5-1000.avif",
+                "w": 1000,
+                "h": 1249,
+                "bytes": 25559,
+                "sha256": "5b64f60176975fcfd0e4a123c28367fe1a61e4c19deb7be11864d0a60cf3c491"
+              }
+            ],
+            "webp": [
+              {
+                "file": "train-4x5-400.webp",
+                "w": 400,
+                "h": 500,
+                "bytes": 8778,
+                "sha256": "968b912121de79a0d352be29be0cafaab229d4a820d0a798181cc885f586eccd"
+              },
+              {
+                "file": "train-4x5-600.webp",
+                "w": 600,
+                "h": 750,
+                "bytes": 13986,
+                "sha256": "fe50e8f519dc97be9fd517750ff68381144de6755c8e750b887aa1886fb987ca"
+              },
+              {
+                "file": "train-4x5-800.webp",
+                "w": 800,
+                "h": 1000,
+                "bytes": 20258,
+                "sha256": "0bec519925b588a578fe5387620b11137b2467768fb9ddd4796caeeff4035be7"
+              },
+              {
+                "file": "train-4x5-1000.webp",
+                "w": 1000,
+                "h": 1249,
+                "bytes": 27866,
+                "sha256": "b7a49684ff10f9e3d411c6228668a0143ab56f6ab2f2c10db57b80e96746b08c"
+              }
+            ],
+            "jpg": [
+              {
+                "file": "train-4x5-400.jpg",
+                "w": 400,
+                "h": 500,
+                "bytes": 20694,
+                "sha256": "a8beda66d3351e8c8a9e519bdca08ffa6142bdbb5d3297793e5ee1e9cf523dde"
+              },
+              {
+                "file": "train-4x5-600.jpg",
+                "w": 600,
+                "h": 750,
+                "bytes": 37303,
+                "sha256": "b61bfbc27f5d39c0ba15d52cf17b6641a318400da75ca9a99610fe9e1cbcc184"
+              },
+              {
+                "file": "train-4x5-800.jpg",
+                "w": 800,
+                "h": 1000,
+                "bytes": 58787,
+                "sha256": "a67d87b08db9a71a7be4d9c95a720a701858a7a3f15dbb14c81ed6ba39794f2b"
+              },
+              {
+                "file": "train-4x5-1000.jpg",
+                "w": 1000,
+                "h": 1249,
+                "bytes": 85897,
+                "sha256": "774bfe87b0e74be4724c34bf7a742e1e33f6117ec02ee0572ded93b0b5e81849"
+              }
+            ]
+          }
+        },
+        "16x9": {
+          "aspect": 1.77778,
+          "box": [
+            778,
+            1230,
+            5222,
+            3730
+          ],
+          "files": {
+            "avif": [
+              {
+                "file": "train-16x9-480.avif",
+                "w": 480,
+                "h": 270,
+                "bytes": 5294,
+                "sha256": "799d9527ba6e826e19fff3c7138cd319064d41b22cf54be65318461d52bad19d"
+              },
+              {
+                "file": "train-16x9-720.avif",
+                "w": 720,
+                "h": 405,
+                "bytes": 9044,
+                "sha256": "c040f6130f1ad7dd9f27c4f8a0256216c58f0ccfe9ce41abccafacddb0cec57f"
+              },
+              {
+                "file": "train-16x9-960.avif",
+                "w": 960,
+                "h": 540,
+                "bytes": 13373,
+                "sha256": "ed6f64d8a36f6b1489c7aff29f4e898b1f2d5bb61c72683b7efeb979113f82df"
+              }
+            ],
+            "webp": [
+              {
+                "file": "train-16x9-480.webp",
+                "w": 480,
+                "h": 270,
+                "bytes": 6434,
+                "sha256": "e739844644300c0778cd2d31f1619d784a882c946d61aedf1cbd04805a092bee"
+              },
+              {
+                "file": "train-16x9-720.webp",
+                "w": 720,
+                "h": 405,
+                "bytes": 10568,
+                "sha256": "61b57f4f9a7ed8a4b30289e671ec7e8af2fe61e3adb79f9ca46df518cb8035c6"
+              },
+              {
+                "file": "train-16x9-960.webp",
+                "w": 960,
+                "h": 540,
+                "bytes": 15326,
+                "sha256": "2b429a905a4182c39a8f328451c4e8f1305e32357b67b7dbea8d067f6cd1d920"
+              }
+            ],
+            "jpg": [
+              {
+                "file": "train-16x9-480.jpg",
+                "w": 480,
+                "h": 270,
+                "bytes": 14821,
+                "sha256": "1a6f41aeb90192b9b4c327e2b14afb3c246b159248438ddde2383bd2d760aa17"
+              },
+              {
+                "file": "train-16x9-720.jpg",
+                "w": 720,
+                "h": 405,
+                "bytes": 27113,
+                "sha256": "d0257ecdec531fe9111b310e23d58525f779d8d127bdea68b31deb9bdbece90c"
+              },
+              {
+                "file": "train-16x9-960.jpg",
+                "w": 960,
+                "h": 540,
+                "bytes": 42325,
+                "sha256": "2ed70cc60bc8f2bdbb1a2de1822dca1cad9baab5c0619723ed70daaba437adf1"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "family-tv": {
+      "source": {
+        "provider": "Pexels",
+        "provider_id": "14798018",
+        "page_url": "https://www.pexels.com/photo/a-family-watching-together-in-the-living-room-14798018/",
+        "author": "World Sikh Organization of Canada",
+        "author_url": "https://www.pexels.com/@worldsikhorg/",
+        "license": "Pexels License",
+        "license_url": "https://www.pexels.com/license/",
+        "retrieved": "2026-10-26"
+      },
+      "alt": "A family on a living room sofa, smiling as they watch TV together.",
+      "people": "identifiable",
+      "logo_safe": false,
+      "description": "A family sitting and enjoying leisure time together on the sofa in a living room",
+      "logos": [],
+      "kind": "photo",
+      "crops": {
+        "16x10": {
+          "aspect": 1.6,
+          "box": [
+            361,
+            499,
+            7591,
+            5017
+          ],
+          "files": {
+            "avif": [
+              {
+                "file": "family-tv-16x10-640.avif",
+                "w": 640,
+                "h": 400,
+                "bytes": 16158,
+                "sha256": "1f680b88eefa5c5a0b3fa99bca8370df02209a79c8976a5ed15d35e9e1a7d65a"
+              },
+              {
+                "file": "family-tv-16x10-960.avif",
+                "w": 960,
+                "h": 600,
+                "bytes": 29717,
+                "sha256": "b7c4fcd37990a52bf447280ede1be9200e26fb575a19f51942bdde8b2e33ddbe"
+              },
+              {
+                "file": "family-tv-16x10-1280.avif",
+                "w": 1280,
+                "h": 800,
+                "bytes": 46256,
+                "sha256": "90df037475a1b6eb8a74135c7ebe99fb72c45415930038555ac5294ee476bf22"
+              },
+              {
+                "file": "family-tv-16x10-1600.avif",
+                "w": 1600,
+                "h": 1000,
+                "bytes": 64974,
+                "sha256": "824f01967227682e173705944e0321c3d3602cf7c8a733fb4f0e5143796d58c9"
+              }
+            ],
+            "webp": [
+              {
+                "file": "family-tv-16x10-640.webp",
+                "w": 640,
+                "h": 400,
+                "bytes": 22374,
+                "sha256": "76546e7b7941d174e1918181af2b46fccaae2231dbaea389fa0c75bcfd5d4ec3"
+              },
+              {
+                "file": "family-tv-16x10-960.webp",
+                "w": 960,
+                "h": 600,
+                "bytes": 40028,
+                "sha256": "603f50b042a8e1dc21a4c7c054408f7adce07a99adde956ac2af715d4461a76e"
+              },
+              {
+                "file": "family-tv-16x10-1280.webp",
+                "w": 1280,
+                "h": 800,
+                "bytes": 60106,
+                "sha256": "758543e9ab7d90be66e5b2ef14059b7a3cca650e5c8be671843e173859de2c3d"
+              },
+              {
+                "file": "family-tv-16x10-1600.webp",
+                "w": 1600,
+                "h": 1000,
+                "bytes": 83028,
+                "sha256": "6cde23d94e9873c99ae1997c47b5496d3ed0640a758868e9f1d495c587b9ebe7"
+              }
+            ],
+            "jpg": [
+              {
+                "file": "family-tv-16x10-640.jpg",
+                "w": 640,
+                "h": 400,
+                "bytes": 39479,
+                "sha256": "5b960a9d81fdbddbad215af7205751f9f3f0e753ca6fc7998a1c9a9bfad17e04"
+              },
+              {
+                "file": "family-tv-16x10-960.jpg",
+                "w": 960,
+                "h": 600,
+                "bytes": 75582,
+                "sha256": "3a1b533c78b56b3f4a05e5ae3444aff1ff866d57112cc3f8f3bfbaabe776e84e"
+              },
+              {
+                "file": "family-tv-16x10-1280.jpg",
+                "w": 1280,
+                "h": 800,
+                "bytes": 119812,
+                "sha256": "6fa6d0f4090b804ac951dd22847b7780a3bb54a7e7c914c1039416194d8fbaff"
+              },
+              {
+                "file": "family-tv-16x10-1600.jpg",
+                "w": 1600,
+                "h": 1000,
+                "bytes": 172299,
+                "sha256": "253953ddad0ce5332082514ce79bd70c07e03537234071e7489f8d9dc750bf61"
+              }
+            ]
+          }
+        },
+        "4x5": {
+          "aspect": 0.8,
+          "box": [
+            2114,
+            253,
+            6156,
+            5304
+          ],
+          "files": {
+            "avif": [
+              {
+                "file": "family-tv-4x5-400.avif",
+                "w": 400,
+                "h": 500,
+                "bytes": 13345,
+                "sha256": "ac796ebf4241ac54ac8a5464c71bfbfe7d50bff55436787dd821309f1fec22bc"
+              },
+              {
+                "file": "family-tv-4x5-600.avif",
+                "w": 600,
+                "h": 750,
+                "bytes": 24219,
+                "sha256": "8289fb57abc635a1718fe19448585e4b3a275352a27a3ea7f96ff3f498dfa86e"
+              },
+              {
+                "file": "family-tv-4x5-800.avif",
+                "w": 800,
+                "h": 1000,
+                "bytes": 36956,
+                "sha256": "0847d4e9b9fa9d30473eb068ec149a6b69dd5309400b947fa0878426c736d261"
+              },
+              {
+                "file": "family-tv-4x5-1000.avif",
+                "w": 1000,
+                "h": 1250,
+                "bytes": 50574,
+                "sha256": "351896cb5026f7936d8ee25a5486f9bba5d01b00ca57d358dd6ec4c479011deb"
+              }
+            ],
+            "webp": [
+              {
+                "file": "family-tv-4x5-400.webp",
+                "w": 400,
+                "h": 500,
+                "bytes": 18450,
+                "sha256": "64d00a5024e316f9e95e504b437eccdc9691ade39defa9fd0948af0e491c34c2"
+              },
+              {
+                "file": "family-tv-4x5-600.webp",
+                "w": 600,
+                "h": 750,
+                "bytes": 32998,
+                "sha256": "2efd453f94be8af96732b7f2e544e4e132fa4afd121cb7c20f2f3c1964348f51"
+              },
+              {
+                "file": "family-tv-4x5-800.webp",
+                "w": 800,
+                "h": 1000,
+                "bytes": 49396,
+                "sha256": "dfa5eb33bf3f4d2c5f3b26dbce5a3368c44c6e9f1656903f1f926f284eedfda6"
+              },
+              {
+                "file": "family-tv-4x5-1000.webp",
+                "w": 1000,
+                "h": 1250,
+                "bytes": 67544,
+                "sha256": "a29404d14e25ea6caa6d0d13f1d572bb4cef107c2c818a99e6198ff6ae079bfb"
+              }
+            ],
+            "jpg": [
+              {
+                "file": "family-tv-4x5-400.jpg",
+                "w": 400,
+                "h": 500,
+                "bytes": 32476,
+                "sha256": "086eab4bf5feaaa6bb6aff3323c60a71e26971677dea345e16506621a7e0d5e4"
+              },
+              {
+                "file": "family-tv-4x5-600.jpg",
+                "w": 600,
+                "h": 750,
+                "bytes": 61108,
+                "sha256": "4d41645f3d1f25f18e184c2d325b938a4ad533c6bc395fd9abbe71d95b453414"
+              },
+              {
+                "file": "family-tv-4x5-800.jpg",
+                "w": 800,
+                "h": 1000,
+                "bytes": 95744,
+                "sha256": "138a561df1669645311df17a3d8c68976c6e8883f9ac5045c6e9372a3bed2fcf"
+              },
+              {
+                "file": "family-tv-4x5-1000.jpg",
+                "w": 1000,
+                "h": 1250,
+                "bytes": 136477,
+                "sha256": "3114a0c839af5c5d1a7eda5ced708d53ac9f63595df251110d223f0d0fbefc1c"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "living-room": {
+      "source": {
+        "provider": "Pexels",
+        "provider_id": "19899066",
+        "page_url": "https://www.pexels.com/photo/modern-living-room-with-tv-19899066/",
+        "author": "Lisa Anna",
+        "author_url": "https://www.pexels.com/@lisa-anna-901356985/",
+        "license": "Pexels License",
+        "license_url": "https://www.pexels.com/license/",
+        "retrieved": "2026-10-26"
+      },
+      "alt": "A bright living room with a grey sofa and a TV.",
+      "people": "none",
+      "logo_safe": true,
+      "description": "Stylish modern living room with a grey couch, white walls and a TV",
+      "logos": [],
+      "kind": "photo",
+      "crops": {
+        "16x10": {
+          "aspect": 1.6,
+          "box": [
+            0,
+            251,
+            5999,
+            4000
+          ],
+          "files": {
+            "avif": [
+              {
+                "file": "living-room-16x10-640.avif",
+                "w": 640,
+                "h": 400,
+                "bytes": 14414,
+                "sha256": "394dd14e32a2c697a311b3508e8dca172d360a448f9cacef4ed6d98bb855a78b"
+              },
+              {
+                "file": "living-room-16x10-960.avif",
+                "w": 960,
+                "h": 600,
+                "bytes": 27849,
+                "sha256": "d1441b61b7cc775a8a73b71f86a4e60652b38c621f33d610e0ea6469e53b0e7d"
+              },
+              {
+                "file": "living-room-16x10-1280.avif",
+                "w": 1280,
+                "h": 800,
+                "bytes": 45172,
+                "sha256": "e68218562f13d21a33ae3e2660a2435295132ede9b2a28a408262819b046c8b5"
+              },
+              {
+                "file": "living-room-16x10-1600.avif",
+                "w": 1600,
+                "h": 1000,
+                "bytes": 67432,
+                "sha256": "8dd91a7cfd10bebb90cf746d29fbf37d1e0d1afb530f230efa0fdee170ea095e"
+              }
+            ],
+            "webp": [
+              {
+                "file": "living-room-16x10-640.webp",
+                "w": 640,
+                "h": 400,
+                "bytes": 20586,
+                "sha256": "3b41471df89e5feb7132accf8ad417d0622dd281266abd842368113826636415"
+              },
+              {
+                "file": "living-room-16x10-960.webp",
+                "w": 960,
+                "h": 600,
+                "bytes": 40406,
+                "sha256": "9f6dc43047e987a9b03492a26c8b67967e9fa7cdae199dadf8cd345905555f18"
+              },
+              {
+                "file": "living-room-16x10-1280.webp",
+                "w": 1280,
+                "h": 800,
+                "bytes": 64926,
+                "sha256": "08080dad8491985665583c89fc7342059f0032a329816e288996873cda2d7b8e"
+              },
+              {
+                "file": "living-room-16x10-1600.webp",
+                "w": 1600,
+                "h": 1000,
+                "bytes": 96570,
+                "sha256": "c6ec871f8746f8413787224bd295a38250e090cbe335f5f07430d7dbfc8ae7c9"
+              }
+            ],
+            "jpg": [
+              {
+                "file": "living-room-16x10-640.jpg",
+                "w": 640,
+                "h": 400,
+                "bytes": 37973,
+                "sha256": "2664bd73e6c147a58643e7aa637bc926e549d558cd7af1ac1e601d9d09809373"
+              },
+              {
+                "file": "living-room-16x10-960.jpg",
+                "w": 960,
+                "h": 600,
+                "bytes": 75681,
+                "sha256": "8695599a22f1392bfeac292618715f2de8e81124bbb96057561779d750142918"
+              },
+              {
+                "file": "living-room-16x10-1280.jpg",
+                "w": 1280,
+                "h": 800,
+                "bytes": 125244,
+                "sha256": "d6dd46e155e989df3ae80bbadd9e36e94082bcc6442a5e3cdd8745ded9eaa577"
+              },
+              {
+                "file": "living-room-16x10-1600.jpg",
+                "w": 1600,
+                "h": 1000,
+                "bytes": 186834,
+                "sha256": "64d7a8cede7153379a42c9c4f7fe602bafa235ac1ff238da92cf4bb6dfb57b8c"
+              }
+            ]
+          }
+        },
+        "4x5": {
+          "aspect": 0.8,
+          "box": [
+            2119,
+            0,
+            5319,
+            4000
+          ],
+          "files": {
+            "avif": [
+              {
+                "file": "living-room-4x5-400.avif",
+                "w": 400,
+                "h": 500,
+                "bytes": 11728,
+                "sha256": "3993e9fa36fb2ae2c27371253ad2b52f7cafca16429954748f6b30403c486d38"
+              },
+              {
+                "file": "living-room-4x5-600.avif",
+                "w": 600,
+                "h": 750,
+                "bytes": 22438,
+                "sha256": "2d2905180b00b4beb01042fc46044c235f34de4dfc279866b4ab0dcb4ae97b26"
+              },
+              {
+                "file": "living-room-4x5-800.avif",
+                "w": 800,
+                "h": 1000,
+                "bytes": 36285,
+                "sha256": "45b997d24392685fbb5b11ba541f3b347fcd3f77dd01eb2e0489fcb25a2bdfee"
+              },
+              {
+                "file": "living-room-4x5-1000.avif",
+                "w": 1000,
+                "h": 1250,
+                "bytes": 53885,
+                "sha256": "f330a2a74cc7bb65c7954b0ef21c23018136b4853d4e32d3f699ebea9dc3bdf6"
+              }
+            ],
+            "webp": [
+              {
+                "file": "living-room-4x5-400.webp",
+                "w": 400,
+                "h": 500,
+                "bytes": 17028,
+                "sha256": "2a25767a432a106eeb096f45596dd1dddd4fc10f2d2d9f7bfe032a275402dd89"
+              },
+              {
+                "file": "living-room-4x5-600.webp",
+                "w": 600,
+                "h": 750,
+                "bytes": 31974,
+                "sha256": "75ccc87c1b678213ca82d94377071dcc35e9d2094cbe5a8f97fe6727aa2321df"
+              },
+              {
+                "file": "living-room-4x5-800.webp",
+                "w": 800,
+                "h": 1000,
+                "bytes": 52744,
+                "sha256": "550a03bf9493e4def5748fef9b2c029d5b2ce27c19ad84198a15b915c91d1e32"
+              },
+              {
+                "file": "living-room-4x5-1000.webp",
+                "w": 1000,
+                "h": 1250,
+                "bytes": 78404,
+                "sha256": "f1b2515d57b4da7ef2ab0c88a9a21d421939708f6e2605b33d0b92be2d31d984"
+              }
+            ],
+            "jpg": [
+              {
+                "file": "living-room-4x5-400.jpg",
+                "w": 400,
+                "h": 500,
+                "bytes": 30374,
+                "sha256": "65b6ddd284d2a6f730e4c182a2eb642af70661e4fa0312cdcfb7d6de5b42eb88"
+              },
+              {
+                "file": "living-room-4x5-600.jpg",
+                "w": 600,
+                "h": 750,
+                "bytes": 60292,
+                "sha256": "d87c2315da48c74a4acdd8cea783c5a3c0be188320b2f62d3d46fc9d191b8237"
+              },
+              {
+                "file": "living-room-4x5-800.jpg",
+                "w": 800,
+                "h": 1000,
+                "bytes": 99471,
+                "sha256": "64c7ed444a6aed9830f621920cbcbb524e32f48afcf0c8469408a543120e509b"
+              },
+              {
+                "file": "living-room-4x5-1000.jpg",
+                "w": 1000,
+                "h": 1250,
+                "bytes": 148997,
+                "sha256": "d2c187e96658adc85fd70f3d969807b2c9b690fb593e0ebb22a68d18fdcb2c0a"
+              }
+            ]
+          }
+        },
+        "16x9": {
+          "aspect": 1.77778,
+          "box": [
+            0,
+            626,
+            5999,
+            4000
+          ],
+          "files": {
+            "avif": [
+              {
+                "file": "living-room-16x9-480.avif",
+                "w": 480,
+                "h": 270,
+                "bytes": 8777,
+                "sha256": "fa3ed1a45b695ad491c6a433f7eedea76e9d6a2f85d275f3245f39403b0af6a1"
+              },
+              {
+                "file": "living-room-16x9-720.avif",
+                "w": 720,
+                "h": 405,
+                "bytes": 16620,
+                "sha256": "8ac2e231dfb8902e992ed33d149c8860d08f2bca21f4f8c5693e0a2e92049f74"
+              },
+              {
+                "file": "living-room-16x9-960.avif",
+                "w": 960,
+                "h": 540,
+                "bytes": 27026,
+                "sha256": "70de6cc7715236ea26af54c3e53151efa1f2a7d4f0748dc67934349f6027c764"
+              }
+            ],
+            "webp": [
+              {
+                "file": "living-room-16x9-480.webp",
+                "w": 480,
+                "h": 270,
+                "bytes": 12852,
+                "sha256": "2bd1e7e9dd22181c24866cd80b9b4de497c32d2ccd0dd7f5ad2f4b616bc57f71"
+              },
+              {
+                "file": "living-room-16x9-720.webp",
+                "w": 720,
+                "h": 405,
+                "bytes": 24300,
+                "sha256": "ab63be009719203ae20b6397b9981bd290d6aff9b743d47301efc54d166a8e66"
+              },
+              {
+                "file": "living-room-16x9-960.webp",
+                "w": 960,
+                "h": 540,
+                "bytes": 39012,
+                "sha256": "5fe01e3aba775b79f81e1cdc512df832519ab02c014630f2544b4cdb3a1819cf"
+              }
+            ],
+            "jpg": [
+              {
+                "file": "living-room-16x9-480.jpg",
+                "w": 480,
+                "h": 270,
+                "bytes": 22678,
+                "sha256": "183ea7ea1ea2389f77d6da1fbaf2d3489a929d4f09d3012d838020ef69bda1a1"
+              },
+              {
+                "file": "living-room-16x9-720.jpg",
+                "w": 720,
+                "h": 405,
+                "bytes": 44376,
+                "sha256": "c5f234bdcbd3ca576cb402a3e46e36eeb629ba1b1600192b5be414947df5279a"
+              },
+              {
+                "file": "living-room-16x9-960.jpg",
+                "w": 960,
+                "h": 540,
+                "bytes": 72670,
+                "sha256": "90d3ad3583ca9c11f6224d5a174e9c3fbfc6d3704650436d97e519a5bc37493a"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "video-call": {
+      "source": {
+        "provider": "Pexels",
+        "provider_id": "4049991",
+        "page_url": "https://www.pexels.com/photo/happy-woman-video-chatting-on-laptop-in-kitchen-4049991/",
+        "author": "Katrin Bolovtsova",
+        "author_url": "https://www.pexels.com/@ekaterina-bolovtsova/",
+        "license": "Pexels License",
+        "license_url": "https://www.pexels.com/license/",
+        "retrieved": "2026-10-26"
+      },
+      "alt": "A woman on a video call at her kitchen table.",
+      "people": "identifiable",
+      "logo_safe": false,
+      "description": "A woman enjoys a video call on her laptop in a kitchen",
+      "logos": [],
+      "kind": "photo",
+      "crops": {
+        "16x10": {
+          "aspect": 1.6,
+          "box": [
+            841,
+            828,
+            6685,
+            4480
+          ],
+          "files": {
+            "avif": [
+              {
+                "file": "video-call-16x10-640.avif",
+                "w": 640,
+                "h": 400,
+                "bytes": 13761,
+                "sha256": "300c4a2777f92e0d8681dc5fb6665a91a46225ff8de997bae0acb32a655c9f6d"
+              },
+              {
+                "file": "video-call-16x10-960.avif",
+                "w": 960,
+                "h": 600,
+                "bytes": 24694,
+                "sha256": "1e879729f151a51c44aed5eae332875cc609d3d0d56d8c9932b396403264e8ab"
+              },
+              {
+                "file": "video-call-16x10-1280.avif",
+                "w": 1280,
+                "h": 800,
+                "bytes": 37730,
+                "sha256": "b117779087115d286920d114309131f6aefe0ed385b776d37b3615a00021e8f2"
+              }
+            ],
+            "webp": [
+              {
+                "file": "video-call-16x10-640.webp",
+                "w": 640,
+                "h": 400,
+                "bytes": 20168,
+                "sha256": "aa14db1a54189377cbd484eddc963848d92b406e2c561ff0badbd370a94614f0"
+              },
+              {
+                "file": "video-call-16x10-960.webp",
+                "w": 960,
+                "h": 600,
+                "bytes": 34946,
+                "sha256": "05501c929b55a48505e547d06a7bd37db66d76a968af8dd21d90fb1ce0a42b00"
+              },
+              {
+                "file": "video-call-16x10-1280.webp",
+                "w": 1280,
+                "h": 800,
+                "bytes": 50450,
+                "sha256": "de230061bd994dc5babe378ae86054cb1c1d9ff35348bdafff3974931a3b56ea"
+              }
+            ],
+            "jpg": [
+              {
+                "file": "video-call-16x10-640.jpg",
+                "w": 640,
+                "h": 400,
+                "bytes": 37112,
+                "sha256": "7bf40aa1760d9ad767453e63463a402d9ed6b6f81341c3aecfa10d5cd5403c33"
+              },
+              {
+                "file": "video-call-16x10-960.jpg",
+                "w": 960,
+                "h": 600,
+                "bytes": 69778,
+                "sha256": "33d4d58c4121efbd9674f4cf17a0ca108ff13f86b09ff4186ea7a2e058cbbf85"
+              },
+              {
+                "file": "video-call-16x10-1280.jpg",
+                "w": 1280,
+                "h": 800,
+                "bytes": 110284,
+                "sha256": "e8b3fe7bdab2e43a514c64013f8e5430462671a5db307f689e336afa2f06372f"
+              }
+            ]
+          }
+        },
+        "16x9": {
+          "aspect": 1.77778,
+          "box": [
+            841,
+            1045,
+            6685,
+            4331
+          ],
+          "files": {
+            "avif": [
+              {
+                "file": "video-call-16x9-480.avif",
+                "w": 480,
+                "h": 270,
+                "bytes": 8940,
+                "sha256": "9ea62de7f97ee6f66ecb0fb9292a3a32a97c47a4fe2420a5eb162ff11815b539"
+              },
+              {
+                "file": "video-call-16x9-720.avif",
+                "w": 720,
+                "h": 405,
+                "bytes": 15666,
+                "sha256": "f86edd54421ea499e5089ad82b1f588d1ff8c7e652bc75a92ba24f54468576fb"
+              },
+              {
+                "file": "video-call-16x9-960.avif",
+                "w": 960,
+                "h": 540,
+                "bytes": 23607,
+                "sha256": "8ad5778674c6d8d8a7840709711731cae280bcd7f70f6c467e2caf644ed62ef0"
+              }
+            ],
+            "webp": [
+              {
+                "file": "video-call-16x9-480.webp",
+                "w": 480,
+                "h": 270,
+                "bytes": 13002,
+                "sha256": "d928602617d2f0385feea3ea4626f104083a041e7535da40437e8e722fa35d32"
+              },
+              {
+                "file": "video-call-16x9-720.webp",
+                "w": 720,
+                "h": 405,
+                "bytes": 22300,
+                "sha256": "19db564556243e0187f14c01249bfdbd56c352f12079afb0b09c30f908ff79f7"
+              },
+              {
+                "file": "video-call-16x9-960.webp",
+                "w": 960,
+                "h": 540,
+                "bytes": 33322,
+                "sha256": "a33cb5ef6e37a4ef996e8058e7c1b7f4bf238fbbcfa8b2fd295e16c64be78bd3"
+              }
+            ],
+            "jpg": [
+              {
+                "file": "video-call-16x9-480.jpg",
+                "w": 480,
+                "h": 270,
+                "bytes": 22699,
+                "sha256": "f2bffa967411d7936c36d23a60584aabd415a6ca2ac7314e6e3752a6bfe3413b"
+              },
+              {
+                "file": "video-call-16x9-720.jpg",
+                "w": 720,
+                "h": 405,
+                "bytes": 42031,
+                "sha256": "94c09641f3b3f43361fc4d6676bf9d296cfdfcc7d031e5d148b03b6d22425bf1"
+              },
+              {
+                "file": "video-call-16x9-960.jpg",
+                "w": 960,
+                "h": 540,
+                "bytes": 65769,
+                "sha256": "4680ddf0c31abe3033ba49c266ecd803786a34b14d8724df59e56570b2151997"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "repair-mat": {
+      "source": {
+        "provider": "Pexels",
+        "provider_id": "31862950",
+        "page_url": "https://www.pexels.com/photo/disassembled-smartphone-on-repair-workbench-31862950/",
+        "author": "Fotografia Lui Vlad",
+        "author_url": "https://www.pexels.com/@fotografia-lui-vlad-1445510816/",
+        "license": "Pexels License",
+        "license_url": "https://www.pexels.com/license/",
+        "retrieved": "2026-10-26"
+      },
+      "alt": "An opened phone and its parts on a blue repair mat, with a screwdriver and tweezers.",
+      "people": "none",
+      "logo_safe": true,
+      "description": "Disassembled smartphone parts on a blue repair mat with tools",
+      "logos": [],
+      "kind": "photo",
+      "crops": {
+        "16x10": {
+          "aspect": 1.6,
+          "box": [
+            0,
+            250,
+            6000,
+            4000
+          ],
+          "files": {
+            "avif": [
+              {
+                "file": "repair-mat-16x10-640.avif",
+                "w": 640,
+                "h": 400,
+                "bytes": 15023,
+                "sha256": "ce061f0a866b1c01918ba2ec4cd2c0963ac1c980bb03ba8264949a804f6af7cb"
+              },
+              {
+                "file": "repair-mat-16x10-960.avif",
+                "w": 960,
+                "h": 600,
+                "bytes": 26141,
+                "sha256": "ac28301dc2fff8fbf72cfc1d3879c62f8f1f77d82f597fa1eaf68d9fbeb9c831"
+              },
+              {
+                "file": "repair-mat-16x10-1280.avif",
+                "w": 1280,
+                "h": 800,
+                "bytes": 39403,
+                "sha256": "63a9f2e4a571649a9423cec05574b81ed2665cb6e9f35e8c413828e8bd0039c4"
+              },
+              {
+                "file": "repair-mat-16x10-1600.avif",
+                "w": 1600,
+                "h": 1000,
+                "bytes": 55735,
+                "sha256": "7a9c89f125d0f6ad4109f68971588bf6c9fa3bcb404d1cfab598f31f4d1dd8f0"
+              }
+            ],
+            "webp": [
+              {
+                "file": "repair-mat-16x10-640.webp",
+                "w": 640,
+                "h": 400,
+                "bytes": 25462,
+                "sha256": "bf6c1ce7e7b40eca42ef9c099d2952c0ec94846ce008e64341a3fabfdda22e3b"
+              },
+              {
+                "file": "repair-mat-16x10-960.webp",
+                "w": 960,
+                "h": 600,
+                "bytes": 42616,
+                "sha256": "e9742ae123cf64cfcce73480e26e915e87ad02ee92ddbe45e7d60979eb7523c3"
+              },
+              {
+                "file": "repair-mat-16x10-1280.webp",
+                "w": 1280,
+                "h": 800,
+                "bytes": 61418,
+                "sha256": "2e5180db376cd164290e598dedb7d29f5e8d06b21c52416e24af0f54ac8f5b05"
+              },
+              {
+                "file": "repair-mat-16x10-1600.webp",
+                "w": 1600,
+                "h": 1000,
+                "bytes": 83282,
+                "sha256": "5d06fcb57f1cddb0331f9e49b3cf6fd1ee47d3e2a9b8ee5172deb8a72a876c2d"
+              }
+            ],
+            "jpg": [
+              {
+                "file": "repair-mat-16x10-640.jpg",
+                "w": 640,
+                "h": 400,
+                "bytes": 43023,
+                "sha256": "51fc1b6e1446c60ef2ac822a82bbf23ff96737b967e13b891423132d3c52b885"
+              },
+              {
+                "file": "repair-mat-16x10-960.jpg",
+                "w": 960,
+                "h": 600,
+                "bytes": 78494,
+                "sha256": "ba1b5f78704b773bbdc74b5533f5dcdf5cc2e248bc91ea589f2b37443488a76f"
+              },
+              {
+                "file": "repair-mat-16x10-1280.jpg",
+                "w": 1280,
+                "h": 800,
+                "bytes": 123632,
+                "sha256": "974fb468371365dcff7a76830a364a5fe9393772614e5f78556e42ebed28929a"
+              },
+              {
+                "file": "repair-mat-16x10-1600.jpg",
+                "w": 1600,
+                "h": 1000,
+                "bytes": 180853,
+                "sha256": "01dba9300c2fff0f63a9457ed9d3c025899bb337b1904eaafbce4e7ddbab9cfc"
+              }
+            ]
+          }
+        },
+        "4x5": {
+          "aspect": 0.8,
+          "box": [
+            2505,
+            364,
+            5415,
+            4000
+          ],
+          "files": {
+            "avif": [
+              {
+                "file": "repair-mat-4x5-400.avif",
+                "w": 400,
+                "h": 500,
+                "bytes": 11527,
+                "sha256": "d5bd7d1273da88851459ddecf9473d86d5e9baa347a2c52b89e0a9f3e91e9e4c"
+              },
+              {
+                "file": "repair-mat-4x5-600.avif",
+                "w": 600,
+                "h": 750,
+                "bytes": 20805,
+                "sha256": "987881030c0fffdec748e76fce8679bee4013931f681bdcc5e15ac34d41242ef"
+              },
+              {
+                "file": "repair-mat-4x5-800.avif",
+                "w": 800,
+                "h": 1000,
+                "bytes": 32491,
+                "sha256": "2ccf195021909b0fc0512c5c25714e099812dc165326405598e943fb18121845"
+              },
+              {
+                "file": "repair-mat-4x5-1000.avif",
+                "w": 1000,
+                "h": 1249,
+                "bytes": 47815,
+                "sha256": "bc7fd43be8d6de318094e0ecf9ad0450a22a176bae8ed857aaeac1492c8605b5"
+              }
+            ],
+            "webp": [
+              {
+                "file": "repair-mat-4x5-400.webp",
+                "w": 400,
+                "h": 500,
+                "bytes": 20010,
+                "sha256": "7d9add9ad97d34f07ae30fc25e5ab804ce05732f0c77667b1a0c45eb4ccd439e"
+              },
+              {
+                "file": "repair-mat-4x5-600.webp",
+                "w": 600,
+                "h": 750,
+                "bytes": 33458,
+                "sha256": "be5f7009102e146a364466539abe43ef6b8f5df65cd6ff8ee29ce3378208e34d"
+              },
+              {
+                "file": "repair-mat-4x5-800.webp",
+                "w": 800,
+                "h": 1000,
+                "bytes": 48918,
+                "sha256": "36f25b7be218fd814392487325ebb045a79147bf302eac55b0c7cd9b7864eb16"
+              },
+              {
+                "file": "repair-mat-4x5-1000.webp",
+                "w": 1000,
+                "h": 1249,
+                "bytes": 68858,
+                "sha256": "9039944bbf46c56987f47f1a661227171ca31b60b3f6bf3a906dde20ae16268a"
+              }
+            ],
+            "jpg": [
+              {
+                "file": "repair-mat-4x5-400.jpg",
+                "w": 400,
+                "h": 500,
+                "bytes": 34009,
+                "sha256": "6c1d8a143e50204546dc753c0c4248e5b58f21747289cc55817bcc25dcdc9895"
+              },
+              {
+                "file": "repair-mat-4x5-600.jpg",
+                "w": 600,
+                "h": 750,
+                "bytes": 63214,
+                "sha256": "0879c94542a6f4541a905a1073e43d9b428ad2883bf230ad73d8571e1d3f1bef"
+              },
+              {
+                "file": "repair-mat-4x5-800.jpg",
+                "w": 800,
+                "h": 1000,
+                "bytes": 101835,
+                "sha256": "2861d4dc347933de9bd1ee7d54475bc93c03e07d4d4660c2825214b5e374d599"
+              },
+              {
+                "file": "repair-mat-4x5-1000.jpg",
+                "w": 1000,
+                "h": 1249,
+                "bytes": 151633,
+                "sha256": "c0dcfb5f5284d8b3e6318c2856726373a3494f5d5b8d10cb8492935014c4e79d"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "cracked-screen": {
+      "source": {
+        "provider": "Pexels",
+        "provider_id": "11921157",
+        "page_url": "https://www.pexels.com/photo/cracked-screen-of-a-smartphone-11921157/",
+        "author": "Towfiqu barbhuiya",
+        "author_url": "https://www.pexels.com/@towfiqu-barbhuiya-3440682/",
+        "license": "Pexels License",
+        "license_url": "https://www.pexels.com/license/",
+        "retrieved": "2026-10-26"
+      },
+      "alt": "Two phones with cracked screens.",
+      "people": "none",
+      "logo_safe": true,
+      "description": "Two broken smartphone screens on an orange background",
+      "logos": [],
+      "kind": "photo",
+      "crops": {
+        "16x9": {
+          "aspect": 1.77778,
+          "box": [
+            0,
+            87,
+            4592,
+            2670
+          ],
+          "files": {
+            "avif": [
+              {
+                "file": "cracked-screen-16x9-480.avif",
+                "w": 480,
+                "h": 270,
+                "bytes": 6886,
+                "sha256": "b37e36cba7cb55d05f20b2dc9362875bbbeb1ba6d6855912e276d82f5f9b6b25"
+              },
+              {
+                "file": "cracked-screen-16x9-720.avif",
+                "w": 720,
+                "h": 405,
+                "bytes": 11879,
+                "sha256": "4692c53668c70b80e3295c5be4fd82cfada5bd3599c94b119eb122b79cce5f72"
+              },
+              {
+                "file": "cracked-screen-16x9-960.avif",
+                "w": 960,
+                "h": 540,
+                "bytes": 17258,
+                "sha256": "3691184d9b62fd52d82f1113da9f10199895f72431da8b1d671d7dab70af2e0c"
+              }
+            ],
+            "webp": [
+              {
+                "file": "cracked-screen-16x9-480.webp",
+                "w": 480,
+                "h": 270,
+                "bytes": 9884,
+                "sha256": "9bf622a7732ed7a53ff64f69213c6bde07d85e724da0f2007f0672f133ea84c7"
+              },
+              {
+                "file": "cracked-screen-16x9-720.webp",
+                "w": 720,
+                "h": 405,
+                "bytes": 17100,
+                "sha256": "e75c9d05c2e592d11f98da5cd4e845fd0f7aed8fc36468224a396b967382419b"
+              },
+              {
+                "file": "cracked-screen-16x9-960.webp",
+                "w": 960,
+                "h": 540,
+                "bytes": 25032,
+                "sha256": "1d93bba2c1f4bffaa592f492ed0b73b85e25d32821c93193f69700ba06b8b40e"
+              }
+            ],
+            "jpg": [
+              {
+                "file": "cracked-screen-16x9-480.jpg",
+                "w": 480,
+                "h": 270,
+                "bytes": 17756,
+                "sha256": "af28b62df9b737a97d44f9ad8ff52c5a477471d2a71b3d8c912b9b023979f663"
+              },
+              {
+                "file": "cracked-screen-16x9-720.jpg",
+                "w": 720,
+                "h": 405,
+                "bytes": 32507,
+                "sha256": "1a098766ad791f4dd560f01086f65bfc265260fd1f7dcd8360ad9936323fefc5"
+              },
+              {
+                "file": "cracked-screen-16x9-960.jpg",
+                "w": 960,
+                "h": 540,
+                "bytes": 50110,
+                "sha256": "367b7de96282631c5a2940a8a3223997ef5cb03e66cad703f34631716005d73f"
+              }
+            ]
+          }
+        },
+        "1x1": {
+          "aspect": 1.0,
+          "box": [
+            397,
+            0,
+            3461,
+            3064
+          ],
+          "files": {
+            "avif": [
+              {
+                "file": "cracked-screen-1x1-400.avif",
+                "w": 400,
+                "h": 400,
+                "bytes": 8351,
+                "sha256": "0c15f4166bafc3a126c56d73da1e35a7a8fa74be951f4ecdddbecb50f65cb933"
+              },
+              {
+                "file": "cracked-screen-1x1-600.avif",
+                "w": 600,
+                "h": 600,
+                "bytes": 14369,
+                "sha256": "7436245a418dc562cad5a6623072bee0bf59e70146c864ab087c19164f0ce939"
+              },
+              {
+                "file": "cracked-screen-1x1-800.avif",
+                "w": 800,
+                "h": 800,
+                "bytes": 20924,
+                "sha256": "bbd30b8c610a70e8240cb8467f4c6c19dd111f8c14f6dd8aec719599316ebc77"
+              }
+            ],
+            "webp": [
+              {
+                "file": "cracked-screen-1x1-400.webp",
+                "w": 400,
+                "h": 400,
+                "bytes": 11970,
+                "sha256": "0813fd831afe5c946200b65d51228f89868751160664bb6b2ba30feb27afe902"
+              },
+              {
+                "file": "cracked-screen-1x1-600.webp",
+                "w": 600,
+                "h": 600,
+                "bytes": 20914,
+                "sha256": "0951ebafda22d00ae64ce0562b89b27fa5e132b8b0a80688d0a04a0eb3987a13"
+              },
+              {
+                "file": "cracked-screen-1x1-800.webp",
+                "w": 800,
+                "h": 800,
+                "bytes": 29892,
+                "sha256": "592033049ecc65ffd8af0771cc8e815bba283ab06749a380d9271489eeb6defd"
+              }
+            ],
+            "jpg": [
+              {
+                "file": "cracked-screen-1x1-400.jpg",
+                "w": 400,
+                "h": 400,
+                "bytes": 21509,
+                "sha256": "a451fe1bbf4d9d6192efdf713deb36863b759e968b7f508da85da92511f9e47a"
+              },
+              {
+                "file": "cracked-screen-1x1-600.jpg",
+                "w": 600,
+                "h": 600,
+                "bytes": 39836,
+                "sha256": "5a0bf50f8888e246297b2ea1356cfee4d37f138a7b5b31d95061a675f0286413"
+              },
+              {
+                "file": "cracked-screen-1x1-800.jpg",
+                "w": 800,
+                "h": 800,
+                "bytes": 61150,
+                "sha256": "affed9be82defad12343405c4d4f1266d373e48e983a4b62e83b28f3ea69d945"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "cafe-business": {
+      "source": {
+        "provider": "Pexels",
+        "provider_id": "10375885",
+        "page_url": "https://www.pexels.com/photo/smiling-woman-using-smart-phone-at-cafe-10375885/",
+        "author": "RDNE Stock project",
+        "author_url": "https://www.pexels.com/@rdne/",
+        "license": "Pexels License",
+        "license_url": "https://www.pexels.com/license/",
+        "retrieved": "2026-10-26"
+      },
+      "alt": "A woman in a café checking her phone, with her laptop open.",
+      "people": "identifiable",
+      "logo_safe": false,
+      "description": "Young woman using a smartphone and laptop inside a cafe",
+      "logos": [],
+      "kind": "photo",
+      "crops": {
+        "4x5": {
+          "aspect": 0.8,
+          "box": [
+            0,
+            678,
+            4377,
+            6149
+          ],
+          "files": {
+            "avif": [
+              {
+                "file": "cafe-business-4x5-400.avif",
+                "w": 400,
+                "h": 500,
+                "bytes": 13820,
+                "sha256": "0c5f7b4a8fe1a179ae630c32efe02171c364c13d1ae75aaeb989c4659e4b7712"
+              },
+              {
+                "file": "cafe-business-4x5-600.avif",
+                "w": 600,
+                "h": 750,
+                "bytes": 24101,
+                "sha256": "27edc4d0e231f4b8cf34352f51bd5ec91707b910511f536376d357deb1972d36"
+              },
+              {
+                "file": "cafe-business-4x5-800.avif",
+                "w": 800,
+                "h": 1000,
+                "bytes": 36840,
+                "sha256": "77f8c354190f22822b52f9fa61e1963340c0d868f2f762cac7ab4fe6eb9ab7ba"
+              },
+              {
+                "file": "cafe-business-4x5-1000.avif",
+                "w": 1000,
+                "h": 1250,
+                "bytes": 53309,
+                "sha256": "a5c65547ada5d6fd07a3540ccdbf2008d4bb6c26f9a24e14638e8e8a8891911e"
+              }
+            ],
+            "webp": [
+              {
+                "file": "cafe-business-4x5-400.webp",
+                "w": 400,
+                "h": 500,
+                "bytes": 19052,
+                "sha256": "9ae7c8f7a48746872c56df8a1ff6580f37658e5398c56532d94b8bc802567c0a"
+              },
+              {
+                "file": "cafe-business-4x5-600.webp",
+                "w": 600,
+                "h": 750,
+                "bytes": 33560,
+                "sha256": "737933165184176b5cc7c41e9ad6261924758812f0d0b260200ec9350bee3b9f"
+              },
+              {
+                "file": "cafe-business-4x5-800.webp",
+                "w": 800,
+                "h": 1000,
+                "bytes": 50096,
+                "sha256": "4eda0cb4458b676198b8fd5cee9ac1c6430904f39c2b754e6c895ca3725ce8f9"
+              },
+              {
+                "file": "cafe-business-4x5-1000.webp",
+                "w": 1000,
+                "h": 1250,
+                "bytes": 71200,
+                "sha256": "4cd6500a1afaf458e950d55e027ecf3c9b45808f4f77f02569901b5d6e6a9efd"
+              }
+            ],
+            "jpg": [
+              {
+                "file": "cafe-business-4x5-400.jpg",
+                "w": 400,
+                "h": 500,
+                "bytes": 34450,
+                "sha256": "d0ee29742a562033b322fce064b27736886fc9c4209644c72d4c28c79a67e0fa"
+              },
+              {
+                "file": "cafe-business-4x5-600.jpg",
+                "w": 600,
+                "h": 750,
+                "bytes": 64438,
+                "sha256": "6a9945559eb86530b40b274be9d0fbd3ed65fc54d045293c15024dd1a983f1bc"
+              },
+              {
+                "file": "cafe-business-4x5-800.jpg",
+                "w": 800,
+                "h": 1000,
+                "bytes": 103291,
+                "sha256": "70785cb74ce9275709fa5a8499cf3d09e0c58628b1595ad029690ef8536cc5c2"
+              },
+              {
+                "file": "cafe-business-4x5-1000.jpg",
+                "w": 1000,
+                "h": 1250,
+                "bytes": 153969,
+                "sha256": "113cca5f21dbafee4a2b969d5de5f482ad10fbe374f769ccb84d4a3e736c1e9c"
+              }
+            ]
+          }
+        },
+        "16x10": {
+          "aspect": 1.6,
+          "box": [
+            0,
+            1586,
+            4377,
+            4322
+          ],
+          "files": {
+            "avif": [
+              {
+                "file": "cafe-business-16x10-640.avif",
+                "w": 640,
+                "h": 400,
+                "bytes": 14132,
+                "sha256": "ef5a484f7d4b5030d89fff2f51f11c6c0874b2fe669022bc2a193730f7c21b1a"
+              },
+              {
+                "file": "cafe-business-16x10-960.avif",
+                "w": 960,
+                "h": 600,
+                "bytes": 27048,
+                "sha256": "d9bc4ea1707b1da9a02dadb9eaf3e7b1340b9b8f173fff0249cf3f9fb22d5319"
+              },
+              {
+                "file": "cafe-business-16x10-1280.avif",
+                "w": 1280,
+                "h": 800,
+                "bytes": 46961,
+                "sha256": "fcb2615b3f7479d7d96f49370bc0a7ceb9bfad4ead03cd5f67d6133d92801de6"
+              }
+            ],
+            "webp": [
+              {
+                "file": "cafe-business-16x10-640.webp",
+                "w": 640,
+                "h": 400,
+                "bytes": 18794,
+                "sha256": "649b68889b41855eb044c36c941855fe1971caeb1648f1c22cbdb34839395b5a"
+              },
+              {
+                "file": "cafe-business-16x10-960.webp",
+                "w": 960,
+                "h": 600,
+                "bytes": 35112,
+                "sha256": "85d07f28a8746402340ffce1ca210d0230d7d27d05403c538460fea5a8a87607"
+              },
+              {
+                "file": "cafe-business-16x10-1280.webp",
+                "w": 1280,
+                "h": 800,
+                "bytes": 57056,
+                "sha256": "3d9567a0834cd6abb956dc60822d49a5a6f45261f87ca127852940cde8a219c2"
+              }
+            ],
+            "jpg": [
+              {
+                "file": "cafe-business-16x10-640.jpg",
+                "w": 640,
+                "h": 400,
+                "bytes": 37664,
+                "sha256": "826e7ca72fae17bea576b7636bbd885692c9eb196299ce69fbabeb652f895e59"
+              },
+              {
+                "file": "cafe-business-16x10-960.jpg",
+                "w": 960,
+                "h": 600,
+                "bytes": 75782,
+                "sha256": "f30f4723acc2df98fbb1d05df4902ad0f078d4c552d173fd9d27b82164278805"
+              },
+              {
+                "file": "cafe-business-16x10-1280.jpg",
+                "w": 1280,
+                "h": 800,
+                "bytes": 131291,
+                "sha256": "254eca9247ebfcce090284cb611e52de51e0f185b86c80d7f0f3b66bbc009159"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "seniors-phone": {
+      "source": {
+        "provider": "Pexels",
+        "provider_id": "6975187",
+        "page_url": "https://www.pexels.com/photo/an-elderly-couple-using-a-smart-phone-6975187/",
+        "author": "T Leish",
+        "author_url": "https://www.pexels.com/@leish/",
+        "license": "Pexels License",
+        "license_url": "https://www.pexels.com/license/",
+        "retrieved": "2026-10-26"
+      },
+      "alt": "An older couple at their kitchen table, smiling at a phone.",
+      "people": "identifiable",
+      "logo_safe": false,
+      "description": "Senior couple at a kitchen table looking at a smartphone together",
+      "logos": [],
+      "kind": "photo",
+      "crops": {
+        "16x10": {
+          "aspect": 1.6,
+          "box": [
+            611,
+            331,
+            6720,
+            4149
+          ],
+          "files": {
+            "avif": [
+              {
+                "file": "seniors-phone-16x10-640.avif",
+                "w": 640,
+                "h": 400,
+                "bytes": 16673,
+                "sha256": "1893b22c0829ec50f3713939927b68a7e157e12bddcb55416d906634a1cdfb80"
+              },
+              {
+                "file": "seniors-phone-16x10-960.avif",
+                "w": 960,
+                "h": 600,
+                "bytes": 31067,
+                "sha256": "f6d1fd2c851b43b6ceea234334bd14524ded7998a7a72a14466a3f8ed81c615f"
+              },
+              {
+                "file": "seniors-phone-16x10-1280.avif",
+                "w": 1280,
+                "h": 800,
+                "bytes": 48233,
+                "sha256": "9dd80d46387a67d80c285b4a227fe25e4e6e650da91d5765d301c70ad8389716"
+              },
+              {
+                "file": "seniors-phone-16x10-1600.avif",
+                "w": 1600,
+                "h": 1000,
+                "bytes": 69917,
+                "sha256": "d9f06ef0fbaec6b9273c51f002de16b3f36106de65ec51de6a0411d02f1e61fb"
+              }
+            ],
+            "webp": [
+              {
+                "file": "seniors-phone-16x10-640.webp",
+                "w": 640,
+                "h": 400,
+                "bytes": 25812,
+                "sha256": "d56cc836444cf2d784bd51b23831c864a6f0233e7e0ab22960a906e9490caf21"
+              },
+              {
+                "file": "seniors-phone-16x10-960.webp",
+                "w": 960,
+                "h": 600,
+                "bytes": 47378,
+                "sha256": "a1b884e7de70626a061566585dd452bdc4d98ce37128f3b32671e59f45c45c92"
+              },
+              {
+                "file": "seniors-phone-16x10-1280.webp",
+                "w": 1280,
+                "h": 800,
+                "bytes": 71822,
+                "sha256": "1eacf65f86818d082aa3addc0de20a3f326fb4ac3d1b30ed2e15d8a4979ea6a3"
+              },
+              {
+                "file": "seniors-phone-16x10-1600.webp",
+                "w": 1600,
+                "h": 1000,
+                "bytes": 99692,
+                "sha256": "ebf0f5f527332245d9228e016bb6d8f2536f9de598c2a421a6f90be5455a58dd"
+              }
+            ],
+            "jpg": [
+              {
+                "file": "seniors-phone-16x10-640.jpg",
+                "w": 640,
+                "h": 400,
+                "bytes": 42646,
+                "sha256": "aba920e481aedcfed5c655272f8fe695ae38005a4fd41bdb7e753c6fda175682"
+              },
+              {
+                "file": "seniors-phone-16x10-960.jpg",
+                "w": 960,
+                "h": 600,
+                "bytes": 82717,
+                "sha256": "231c5389259b850c6fcb2ce2dd82906ea0d21bad5a6e53b452bcc72ae99915ef"
+              },
+              {
+                "file": "seniors-phone-16x10-1280.jpg",
+                "w": 1280,
+                "h": 800,
+                "bytes": 134810,
+                "sha256": "eb134819bd8aba93b5383921d4e806a10dfedfb2fbd8faf31e28cdd031b29146"
+              },
+              {
+                "file": "seniors-phone-16x10-1600.jpg",
+                "w": 1600,
+                "h": 1000,
+                "bytes": 199797,
+                "sha256": "5eabaf2fb000bd964f61c9158b9bdd41d2450d55139ea77ca94f92a5f2b5f813"
+              }
+            ]
+          }
+        },
+        "4x5": {
+          "aspect": 0.8,
+          "box": [
+            1568,
+            0,
+            5152,
+            4480
+          ],
+          "files": {
+            "avif": [
+              {
+                "file": "seniors-phone-4x5-400.avif",
+                "w": 400,
+                "h": 500,
+                "bytes": 12499,
+                "sha256": "b1a40c1d1fb0a51f5434531ddd8eb7bc7e7a4dc51b7587aa839fd5a8188f4550"
+              },
+              {
+                "file": "seniors-phone-4x5-600.avif",
+                "w": 600,
+                "h": 750,
+                "bytes": 23598,
+                "sha256": "7dbe3fd816bdb9c30c64c238915280e11da073dcac0a1189ed6ad82d580121cc"
+              },
+              {
+                "file": "seniors-phone-4x5-800.avif",
+                "w": 800,
+                "h": 1000,
+                "bytes": 37438,
+                "sha256": "c8684b6a3ee7b3b25efffc304fba51cbecfe1dba3baaf22fd3acdb7c9fe3b192"
+              },
+              {
+                "file": "seniors-phone-4x5-1000.avif",
+                "w": 1000,
+                "h": 1250,
+                "bytes": 53565,
+                "sha256": "862e320b26aa56c040bb035139694c3946b98ce8864fcc5271c67448113640de"
+              }
+            ],
+            "webp": [
+              {
+                "file": "seniors-phone-4x5-400.webp",
+                "w": 400,
+                "h": 500,
+                "bytes": 20142,
+                "sha256": "01293045907f2b14d987e6177377f64000c6619f16c235235a54b24b888205e0"
+              },
+              {
+                "file": "seniors-phone-4x5-600.webp",
+                "w": 600,
+                "h": 750,
+                "bytes": 37626,
+                "sha256": "8c34fd2d6deaace00e46c3ffae05603a33a83be57c1ec025ef3aec88705e1a1e"
+              },
+              {
+                "file": "seniors-phone-4x5-800.webp",
+                "w": 800,
+                "h": 1000,
+                "bytes": 56846,
+                "sha256": "bc13e41852c0bf77fa2b5629e54fe3542f5a7133cff1b4f69e705944432e57f9"
+              },
+              {
+                "file": "seniors-phone-4x5-1000.webp",
+                "w": 1000,
+                "h": 1250,
+                "bytes": 78736,
+                "sha256": "88470c1931a5edba36a6b0f6a3647326bdbc5d064b512d2152123c3117b31866"
+              }
+            ],
+            "jpg": [
+              {
+                "file": "seniors-phone-4x5-400.jpg",
+                "w": 400,
+                "h": 500,
+                "bytes": 32890,
+                "sha256": "e2f98989441583a040b09fd6ee039096f5d2ee2836f5124dfd7970ee07e38d1e"
+              },
+              {
+                "file": "seniors-phone-4x5-600.jpg",
+                "w": 600,
+                "h": 750,
+                "bytes": 64224,
+                "sha256": "5354eaf1176c3a10838856c1819ae5f02fcd36fb25782882aa99dd24c37a40f2"
+              },
+              {
+                "file": "seniors-phone-4x5-800.jpg",
+                "w": 800,
+                "h": 1000,
+                "bytes": 105161,
+                "sha256": "d867fd5b8f02c33c18abf7a4e12b596152570b6aeb745192558903983a5abf3d"
+              },
+              {
+                "file": "seniors-phone-4x5-1000.jpg",
+                "w": 1000,
+                "h": 1250,
+                "bytes": 157376,
+                "sha256": "affc6b745cf454fa9d003bd05001d6f82871b52828967abed8b6d0c314e02b10"
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "cards": {
+    "og-image": {
+      "kind": "card",
+      "alt": "T Wireless, Bell Authorised Retailer in Brampton, with a phone showing the T Wireless logo.",
+      "uses": [
+        "hand-phone"
+      ],
+      "logos": [
+        "t-wireless",
+        "bell",
+        "virgin-plus",
+        "lucky-mobile"
+      ],
+      "files": {
+        "jpg": [
+          {
+            "file": "og-image.jpg",
+            "w": 1200,
+            "h": 630,
+            "bytes": 60594,
+            "sha256": "57cb590ea907e2b388726cd5860d26469961d4afd06f422ed966fb9b7e048711"
+          }
+        ]
+      }
+    }
+  }
+}

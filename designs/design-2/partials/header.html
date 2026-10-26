@@ -1,0 +1,16 @@
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="top">
+  <div class="wrap top__bar">
+    <a class="top__logo" href="{{ root }}index.html">
+      <picture>
+        <source type="image/webp" srcset="{{ root }}assets/img/t-wireless-logo-480.webp 480w, {{ root }}assets/img/t-wireless-logo-960.webp 960w" sizes="(min-width: 900px) 250px, 190px">
+        <img src="{{ root }}assets/img/t-wireless-logo-480.png" srcset="{{ root }}assets/img/t-wireless-logo-480.png 480w, {{ root }}assets/img/t-wireless-logo-960.png 960w" sizes="(min-width: 900px) 250px, 190px" width="480" height="55" alt="T Wireless home">
+      </picture>
+    </a>
+    <p class="top__tag">Bell Authorised Retailer in Brampton</p>
+    <a class="pill pill--call" href="tel:{{ store.phone_e164 }}"><svg class="icon" aria-hidden="true"><use href="#i-call"></use></svg><span class="pill__long">{{ store.phone_display }}</span><span class="pill__short">Call</span></a>
+  </div>
+  <nav class="wrap tabs" aria-label="Main">
+    {{{ nav }}}
+  </nav>
+</header>

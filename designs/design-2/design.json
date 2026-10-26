@@ -1,0 +1,9 @@
+{
+  "id": "design-2",
+  "label": "Design 2",
+  "name": "In hand",
+  "summary": "Photo-led: every picture centres on a phone in someone's hand, a home or the repair bench, with the logos placed on the photos.",
+  "module": "design.py",
+  "og_image": "assets/img/photos/og-image.jpg",
+  "skip_shared_assets": ["css", "fonts", "img/og-image.png"]
+}

@@ -1,0 +1,85 @@
+<!--page
+{
+  "title": "Bell, Virgin Plus and Lucky Mobile plans | T Wireless Brampton",
+  "description": "Compare phones and plans from Bell, Virgin Plus and Lucky Mobile in one store. Switch and keep your number at T Wireless, 965 Bovaird Dr W, Brampton.",
+  "nav": "mobile"
+}
+-->
+<main id="main">
+  <section class="intro intro--photo" aria-labelledby="page-title">
+    <div class="wrap intro__grid">
+      <div class="intro__text">
+        <h1 id="page-title">Phones and plans from Bell, Virgin Plus and Lucky Mobile</h1>
+        <p class="lead">Compare three providers in one store, then choose the phone and plan that fit how you use your phone.</p>
+      </div>
+      <div class="intro__media">{{{ pic.seniors_wide_top }}}</div>
+    </div>
+  </section>
+
+  <section class="section section--tight" aria-labelledby="brands-title">
+    <div class="wrap">
+      <div class="head">
+        <h2 id="brands-title">Three providers, one counter</h2>
+        <a class="head__link" href="brands.html">Compare the brands</a>
+      </div>
+      {{{ providers }}}
+      <p class="note">All three run on Bell's mobile network. See <a href="deals.html">this month's deals</a> for current offers.</p>
+    </div>
+  </section>
+
+  <section class="section section--mist" aria-labelledby="phones-title">
+    <div class="wrap feature">
+      <div class="feature__media">{{{ pic.new_phones_wide }}}</div>
+      <div class="feature__text">
+        <h2 id="phones-title">New phones</h2>
+        <p>We carry iPhone and Android phones. Stock changes often, so call ahead if you want a specific model or colour.</p>
+        <ul class="ticks">
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg><span><strong>Pay monthly.</strong> With Bell SmartPay, pay for your phone over 24 months at 0% interest on an eligible 2-year plan.</span></li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg><span><strong>Trade in.</strong> Ask whether your old phone qualifies for credit toward a new one.</span></li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg><span><strong>Bring your own phone.</strong> Keep the phone you have and change only your plan.</span></li>
+        </ul>
+        <div class="buttons">
+          <a class="button" href="tel:{{ store.phone_e164 }}">Check stock: {{ store.phone_display }}</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="switch" aria-labelledby="switch-title">
+    <div class="wrap">
+      <div class="head">
+        <h2 id="switch-title">Switching? Keep your number</h2>
+        <p>In Canada you can keep your phone number when you change providers. Here's how it works with us.</p>
+      </div>
+      <ol class="steps">
+        <li>
+          <h3>Bring what we need</h3>
+          <p>Government-issued photo ID and your current account number, which is on your bill.</p>
+        </li>
+        <li>
+          <h3>Choose your plan and phone</h3>
+          <p>We go through the options from Bell, Virgin Plus and Lucky Mobile with you.</p>
+        </li>
+        <li>
+          <h3>We move your number</h3>
+          <p>Don't cancel your old plan first. Moving your number ends that service for you.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section section--mist" aria-labelledby="business-title">
+    <div class="wrap feature feature--flip">
+      <div class="feature__media">{{{ pic.cafe_wide }}}</div>
+      <div class="feature__text">
+        <div class="brand__mark">{{{ plate_deco.bell }}}</div>
+        <h2 id="business-title">Phones and plans for your business</h2>
+        <p>We also set up Bell mobile plans and phones for small businesses and their teams.</p>
+        <div class="buttons">
+          <a class="button" href="tel:{{ store.phone_e164 }}">Call {{ store.phone_display }}</a>
+          <a class="button button--quiet" href="brands.html#business">Bell for business</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

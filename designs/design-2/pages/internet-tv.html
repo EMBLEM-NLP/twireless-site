@@ -1,0 +1,110 @@
+<!--page
+{
+  "title": "Bell internet, TV and home phone | T Wireless Brampton",
+  "description": "Set up Bell Internet, Fibe TV, Satellite TV and Home Phone at T Wireless in Brampton. We check what's available at your address. 965 Bovaird Dr W, open every day.",
+  "nav": "internet-tv"
+}
+-->
+<main id="main">
+  <section class="intro intro--photo" aria-labelledby="page-title">
+    <div class="wrap intro__grid">
+      <div class="intro__text">
+        <h1 id="page-title">Bell internet, TV and home phone</h1>
+        <p class="lead">Set up Bell services for your home at our store. Bring your address and we'll check what's available.</p>
+        <div class="buttons">
+          <a class="button" href="{{ booking_href }}">Book a visit</a>
+          <a class="button button--quiet" href="tel:{{ store.phone_e164 }}">Call {{ store.phone_display }}</a>
+        </div>
+      </div>
+      <div class="intro__media">{{{ pic.family_wide_top }}}</div>
+    </div>
+  </section>
+
+  <section class="section section--tight" aria-labelledby="services-title">
+    <div class="wrap">
+      <div class="head head--mark">
+        {{{ plate_deco.bell }}}
+        <h2 id="services-title">What you can set up</h2>
+      </div>
+      <ul class="tiles">
+        <li class="tile">
+          <svg class="icon" aria-hidden="true"><use href="#i-wifi"></use></svg>
+          <h3>Bell Internet</h3>
+          <p>Internet plans for your home, including fibre where Bell's fibre network reaches your address.</p>
+        </li>
+        <li class="tile">
+          <svg class="icon" aria-hidden="true"><use href="#i-tv"></use></svg>
+          <h3>Fibe TV</h3>
+          <p>Live and on-demand TV in the Fibe TV app. Fibe TV needs Bell Internet.</p>
+        </li>
+        <li class="tile">
+          <svg class="icon" aria-hidden="true"><use href="#i-dish"></use></svg>
+          <h3>Satellite TV</h3>
+          <p>Bell TV delivered by satellite dish.</p>
+        </li>
+        <li class="tile">
+          <svg class="icon" aria-hidden="true"><use href="#i-call"></use></svg>
+          <h3>Home Phone</h3>
+          <p>A home phone line, on its own or with internet and TV.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section section--mist" aria-labelledby="app-title">
+    <div class="wrap feature">
+      <div class="feature__media">{{{ pic.living_wide }}}{{{ plate_photo.bell }}}</div>
+      <div class="feature__text">
+        <h2 id="app-title">Watch Fibe TV on the screens you have</h2>
+        <p>The Fibe TV app plays live and on-demand TV on the Bell Streamer, Apple TV, Android TV, Amazon Fire TV and Google Chromecast.</p>
+        <ul class="ticks">
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg><span>Download recordings and on-demand shows to watch on your phone or tablet.</span></li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg><span>Combine internet, TV and home phone in one bundle. Some bundles include Crave.</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="setup-title">
+    <div class="wrap">
+      <div class="head">
+        <h2 id="setup-title">How setup works</h2>
+      </div>
+      <ol class="steps">
+        <li>
+          <h3>Check your address</h3>
+          <p>We look up which Bell services reach your home.</p>
+        </li>
+        <li>
+          <h3>Choose your services</h3>
+          <p>Internet, TV, home phone, or a mix, and how they fit with your mobile plan.</p>
+        </li>
+        <li>
+          <h3>Book the installation</h3>
+          <p>If a technician visit is needed, we book it and explain what to expect.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section section--mist" aria-labelledby="bring-title">
+    <div class="wrap feature feature--flip">
+      <div class="feature__media">{{{ pic.video_call_wide }}}</div>
+      <div class="feature__text">
+        <h2 id="bring-title">What to bring</h2>
+        <ul class="ticks">
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg><span>Your home address, including any unit number</span></li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg><span>Government-issued photo ID</span></li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg><span>A recent bill from your current provider, if you're switching</span></li>
+        </ul>
+        <div class="notice">
+          <p><strong>Have Virgin Plus internet or TV?</strong> Since January 14, 2026, Virgin Plus doesn't take new home internet or TV customers in Ontario, but existing customers keep their plan, pricing and equipment. For a new setup, we'll go through Bell home services with you.</p>
+        </div>
+        <div class="buttons">
+          <a class="button" href="{{ booking_href }}">Book a visit</a>
+          <a class="button button--quiet" href="tel:{{ store.phone_e164 }}">Call {{ store.phone_display }}</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

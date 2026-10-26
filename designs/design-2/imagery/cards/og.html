@@ -1,0 +1,43 @@
+<!doctype html>
+<!-- Link preview image (1200 x 630) for design 2: shown when the site is shared in a message.
+     Rendered by rsi/imagery.py after the photos, so it uses the finished hero composite. -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Link preview</title>
+<style>
+@font-face {
+  font-family: "Atkinson Hyperlegible Next";
+  src: url("/designs/design-2/assets/fonts/atkinson-hyperlegible-next-latin-wght-normal.woff2") format("woff2");
+  font-weight: 200 800;
+}
+html, body { margin: 0; width: 1200px; height: 630px; overflow: hidden; }
+body {
+  display: grid; grid-template-columns: 1fr 504px;
+  background: #ffffff; color: #10233f;
+  font-family: "Atkinson Hyperlegible Next", sans-serif;
+}
+.text { padding: 64px 56px 56px 72px; display: flex; flex-direction: column; }
+.logo { width: 470px; height: auto; display: block; }
+h1 { margin: 40px 0 0; font-size: 50px; line-height: 1.08; font-weight: 800; letter-spacing: -0.01em; }
+p { margin: 18px 0 0; font-size: 28px; line-height: 1.35; color: #34465e; }
+.carriers { margin-top: auto; display: flex; align-items: center; gap: 34px; }
+.carriers img { height: 46px; width: auto; display: block; }
+.carriers .vp { height: 58px; }
+.photo { width: 504px; height: 630px; object-fit: cover; display: block; }
+</style>
+</head>
+<body>
+  <div class="text">
+    <img class="logo" src="/src/assets/img/t-wireless-logo-960.png" alt="">
+    <h1>Bell Authorised Retailer in Brampton</h1>
+    <p>Phones, plans and repairs at<br>965&nbsp;Bovaird&nbsp;Dr&nbsp;W, Unit&nbsp;1</p>
+    <div class="carriers">
+      <img src="/src/assets/img/brands/bell.svg" alt="">
+      <img class="vp" src="/src/assets/img/brands/virgin-plus.png" alt="">
+      <img src="/src/assets/img/brands/lucky-mobile.svg" alt="">
+    </div>
+  </div>
+  <img class="photo" src="/designs/design-2/assets/img/photos/hand-phone-4x5-960.jpg" alt="">
+</body>
+</html>

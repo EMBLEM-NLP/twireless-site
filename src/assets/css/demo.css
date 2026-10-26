@@ -1,2 +1,6 @@
 /* Loaded only by demo builds (python3 build.py --demo). */
 .demo-banner { max-width: none; margin: 0; padding: 0.5rem var(--gutter); background: #fff3b0; color: #4a3b00; font-size: var(--fs-sm); font-weight: 700; line-height: 1.35; text-align: center; }
+.demo-banner p { margin: 0; }
+.demo-banner p + p { margin-top: 0.15rem; }
+.demo-banner a { margin-left: 0.4rem; color: #4a3b00; }
+.demo-banner a[aria-current="page"] { padding: 0.05rem 0.55rem; border-radius: 999px; background: #4a3b00; color: #fff3b0; text-decoration: none; }

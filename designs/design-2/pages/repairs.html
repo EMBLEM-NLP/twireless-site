@@ -1,0 +1,105 @@
+<!--page
+{
+  "title": "Phone and tablet repair in Brampton | T Wireless",
+  "description": "Cracked screens, batteries, charging ports, cameras and water damage. Phone and tablet repair at T Wireless, 965 Bovaird Dr W, Brampton. Ask for a quote.",
+  "nav": "repairs"
+}
+-->
+<main id="main">
+  <section class="intro intro--photo" aria-labelledby="page-title">
+    <div class="wrap intro__grid">
+      <div class="intro__text">
+        <h1 id="page-title">Phone and tablet repair</h1>
+        <p class="lead">Cracked screen, weak battery or a port that won't charge? Bring it to the store and we'll take a look.</p>
+        <div class="buttons">
+          <a class="button" href="#book">Book a repair</a>
+          <a class="button button--quiet" href="tel:{{ store.phone_e164 }}">Call for a quote</a>
+        </div>
+      </div>
+      <div class="intro__media">{{{ pic.repair_wide_top }}}</div>
+    </div>
+  </section>
+
+  <section class="section section--tight" aria-labelledby="fix-title">
+    <div class="wrap">
+      <div class="head">
+        <h2 id="fix-title">What we fix</h2>
+        <p>Repair prices depend on your device and the part. We'll quote the repair before we start.</p>
+      </div>
+      <div class="fixes">
+        <div class="fixes__photo">{{{ pic.cracked_tile }}}</div>
+        <ul class="fixes__list">
+          {{{ repair_items }}}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--mist" aria-labelledby="how-title">
+    <div class="wrap">
+      <div class="head">
+        <h2 id="how-title">How a repair works</h2>
+        <p>If you can, back up your phone before you bring it in.</p>
+      </div>
+      <ol class="steps steps--four">
+        <li>
+          <h3>Book or walk in</h3>
+          <p>Book below, or come by {{ hours_phrase }}.</p>
+        </li>
+        <li>
+          <h3>We check your device</h3>
+          <p>We find the problem and give you a price before any work starts.</p>
+        </li>
+        <li>
+          <h3>We fix it</h3>
+          <p>We tell you when it will be ready.</p>
+        </li>
+        <li>
+          <h3>Pick it up</h3>
+          <p>Test it with us at the counter before you go.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section" id="book" aria-labelledby="book-title">
+    <div class="wrap form-split">
+      <div>
+        <h2 id="book-title">Book a repair</h2>
+        <p>Tell us about your device and we'll call you to set a time.</p>
+        <p>Prefer to talk? Call <a href="tel:{{ store.phone_e164 }}">{{ store.phone_display }}</a> or email <a href="mailto:{{ store.email }}">{{ store.email }}</a>.</p>
+      </div>
+      <form class="form" name="repair" method="post" {{{ form_attrs }}}>
+        <input type="hidden" name="form-name" value="repair">
+        <p class="visually-hidden"><label>Leave this field empty <input type="text" name="company" tabindex="-1" autocomplete="off"></label></p>
+        <div class="field">
+          <label for="r-name">Your name</label>
+          <input id="r-name" name="name" type="text" autocomplete="name" required>
+        </div>
+        <div class="field">
+          <label for="r-phone">Phone number</label>
+          <input id="r-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required>
+        </div>
+        <div class="field">
+          <label for="r-device">Device</label>
+          <input id="r-device" name="device" type="text" required aria-describedby="r-device-hint">
+          <p class="hint" id="r-device-hint">For example, iPhone 14 or Galaxy Tab A9.</p>
+        </div>
+        <div class="field">
+          <label for="r-problem">What's wrong with it?</label>
+          <textarea id="r-problem" name="problem" rows="4" required></textarea>
+        </div>
+        <div class="field">
+          <label for="r-when">When would you like to come in?</label>
+          <select id="r-when" name="when">
+            <option>Any day</option>
+            <option>A weekday</option>
+            <option>A weekend</option>
+          </select>
+        </div>
+        <button class="button" type="submit">Send repair request</button>
+        <p class="hint">We use your details only to reply to this request. <a href="privacy.html">Privacy</a></p>
+      </form>
+    </div>
+  </section>
+</main>

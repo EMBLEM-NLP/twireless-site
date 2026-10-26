@@ -1,0 +1,571 @@
+{
+  "schema": "web.design.review.v1",
+  "measurement_series": "WEB-DESIGN-RSI-2.0",
+  "target_id": "T-WIRELESS-SITE-D2",
+  "candidate_sha256": "95bd001d5074f415243f6293a2286d401e0cb5aebbf746ef9c9f89d4805d4bb3",
+  "reviewer_id": "emblem-nlp-producer",
+  "reviewer_role": "producer_diagnostic",
+  "ratings": {
+    "first_impression": {
+      "score": 4.5,
+      "status": "reviewed",
+      "rationale": "The hero is a real photo of a phone held up outdoors, with a T Wireless screen composited on: the logo, Bell Authorised Retailer in Brampton, and the Bell, Virgin Plus and Lucky Mobile logos. A live Open chip sits on the photo; the headline and the call button follow in the first phone screen (index-phone-top.png).",
+      "evidence": [
+        {
+          "path": "evidence/index-phone-top.png",
+          "sha256": "6fc62e88fbf78473f8762593178425f8039ac286f6f6a343a5416d5ee45abdb0"
+        },
+        {
+          "path": "evidence/index-phone.png",
+          "sha256": "0e6ee56513708ae93b490573337a5cd5b14a9d2ca8e957ade30c7fdbcda7b4cc"
+        },
+        {
+          "path": "evidence/index-desktop.png",
+          "sha256": "5ba5585053d19b0d19c9f025e5eea9514f1b2c60b3bd98e337b55f7c401ae3f6"
+        },
+        {
+          "path": "evidence/signature-home-phone.png",
+          "sha256": "6fc62e88fbf78473f8762593178425f8039ac286f6f6a343a5416d5ee45abdb0"
+        },
+        {
+          "path": "evidence/signature-home-desktop.png",
+          "sha256": "9a3d618925b61f6c68bc424b3611d302fea2e5d8565629fb2455e6bca7cae3f2"
+        }
+      ]
+    },
+    "imagery_quality": {
+      "score": 4.0,
+      "status": "reviewed",
+      "rationale": "A coherent, relevant set under one light grade: hands and devices, a Sikh family at home photographed by the World Sikh Organization of Canada, a repair bench. Against it: the two-phones photo appears twice on the Mobile page, and two photos carry third-party marks (an Apple logo on the battery in the repair photo, a transit operator's logo on the ticket machine).",
+      "evidence": [
+        {
+          "path": "evidence/index-phone-top.png",
+          "sha256": "6fc62e88fbf78473f8762593178425f8039ac286f6f6a343a5416d5ee45abdb0"
+        },
+        {
+          "path": "evidence/index-phone.png",
+          "sha256": "0e6ee56513708ae93b490573337a5cd5b14a9d2ca8e957ade30c7fdbcda7b4cc"
+        },
+        {
+          "path": "evidence/index-desktop.png",
+          "sha256": "5ba5585053d19b0d19c9f025e5eea9514f1b2c60b3bd98e337b55f7c401ae3f6"
+        },
+        {
+          "path": "evidence/signature-home-phone.png",
+          "sha256": "6fc62e88fbf78473f8762593178425f8039ac286f6f6a343a5416d5ee45abdb0"
+        },
+        {
+          "path": "evidence/signature-home-desktop.png",
+          "sha256": "9a3d618925b61f6c68bc424b3611d302fea2e5d8565629fb2455e6bca7cae3f2"
+        },
+        {
+          "path": "evidence/imagery-sheet.png",
+          "sha256": "a06c9b7365a658d1a279843ab5dab7a1968abf181c5b07e36ed56a931ac6ac6c"
+        }
+      ]
+    },
+    "logo_integration": {
+      "score": 4.5,
+      "status": "reviewed",
+      "rationale": "Logos sit on white plates with clear space, only on photos where nobody can be recognised; the hero composite carries all four marks; measured checks pass (files unaltered, drawn size, clean plate, no logo on a recognisable person).",
+      "evidence": [
+        {
+          "path": "evidence/index-phone-top.png",
+          "sha256": "6fc62e88fbf78473f8762593178425f8039ac286f6f6a343a5416d5ee45abdb0"
+        },
+        {
+          "path": "evidence/index-phone.png",
+          "sha256": "0e6ee56513708ae93b490573337a5cd5b14a9d2ca8e957ade30c7fdbcda7b4cc"
+        },
+        {
+          "path": "evidence/index-desktop.png",
+          "sha256": "5ba5585053d19b0d19c9f025e5eea9514f1b2c60b3bd98e337b55f7c401ae3f6"
+        },
+        {
+          "path": "evidence/signature-home-phone.png",
+          "sha256": "6fc62e88fbf78473f8762593178425f8039ac286f6f6a343a5416d5ee45abdb0"
+        },
+        {
+          "path": "evidence/signature-home-desktop.png",
+          "sha256": "9a3d618925b61f6c68bc424b3611d302fea2e5d8565629fb2455e6bca7cae3f2"
+        },
+        {
+          "path": "evidence/imagery-sheet.png",
+          "sha256": "a06c9b7365a658d1a279843ab5dab7a1968abf181c5b07e36ed56a931ac6ac6c"
+        }
+      ]
+    },
+    "service_clarity": {
+      "score": 4.5,
+      "status": "reviewed",
+      "rationale": "Each service has its own photo-led section and page: providers, home services, repairs, deals, visit; the copy says what each one is for in plain words.",
+      "evidence": [
+        {
+          "path": "evidence/index-phone-top.png",
+          "sha256": "6fc62e88fbf78473f8762593178425f8039ac286f6f6a343a5416d5ee45abdb0"
+        },
+        {
+          "path": "evidence/index-phone.png",
+          "sha256": "0e6ee56513708ae93b490573337a5cd5b14a9d2ca8e957ade30c7fdbcda7b4cc"
+        },
+        {
+          "path": "evidence/index-desktop.png",
+          "sha256": "5ba5585053d19b0d19c9f025e5eea9514f1b2c60b3bd98e337b55f7c401ae3f6"
+        },
+        {
+          "path": "evidence/signature-home-phone.png",
+          "sha256": "6fc62e88fbf78473f8762593178425f8039ac286f6f6a343a5416d5ee45abdb0"
+        },
+        {
+          "path": "evidence/signature-home-desktop.png",
+          "sha256": "9a3d618925b61f6c68bc424b3611d302fea2e5d8565629fb2455e6bca7cae3f2"
+        }
+      ]
+    },
+    "navigation_wayfinding": {
+      "score": 4.0,
+      "status": "reviewed",
+      "rationale": "Pill navigation with the current page filled; on phones the row scrolls sideways, so Internet and TV, Repairs and Visit us start off-screen. The footer repeats every page.",
+      "evidence": [
+        {
+          "path": "evidence/index-phone-top.png",
+          "sha256": "6fc62e88fbf78473f8762593178425f8039ac286f6f6a343a5416d5ee45abdb0"
+        },
+        {
+          "path": "evidence/index-phone.png",
+          "sha256": "0e6ee56513708ae93b490573337a5cd5b14a9d2ca8e957ade30c7fdbcda7b4cc"
+        },
+        {
+          "path": "evidence/index-desktop.png",
+          "sha256": "5ba5585053d19b0d19c9f025e5eea9514f1b2c60b3bd98e337b55f7c401ae3f6"
+        },
+        {
+          "path": "evidence/signature-home-phone.png",
+          "sha256": "6fc62e88fbf78473f8762593178425f8039ac286f6f6a343a5416d5ee45abdb0"
+        },
+        {
+          "path": "evidence/signature-home-desktop.png",
+          "sha256": "9a3d618925b61f6c68bc424b3611d302fea2e5d8565629fb2455e6bca7cae3f2"
+        }
+      ]
+    },
+    "conversion_paths": {
+      "score": 4.5,
+      "status": "reviewed",
+      "rationale": "Call button in the header, the floating Call, Directions and Book bar on phones, a call or book button in every section, and Call about this deal on each offer.",
+      "evidence": [
+        {
+          "path": "evidence/index-phone-top.png",
+          "sha256": "6fc62e88fbf78473f8762593178425f8039ac286f6f6a343a5416d5ee45abdb0"
+        },
+        {
+          "path": "evidence/index-phone.png",
+          "sha256": "0e6ee56513708ae93b490573337a5cd5b14a9d2ca8e957ade30c7fdbcda7b4cc"
+        },
+        {
+          "path": "evidence/index-desktop.png",
+          "sha256": "5ba5585053d19b0d19c9f025e5eea9514f1b2c60b3bd98e337b55f7c401ae3f6"
+        },
+        {
+          "path": "evidence/signature-home-phone.png",
+          "sha256": "6fc62e88fbf78473f8762593178425f8039ac286f6f6a343a5416d5ee45abdb0"
+        },
+        {
+          "path": "evidence/signature-home-desktop.png",
+          "sha256": "9a3d618925b61f6c68bc424b3611d302fea2e5d8565629fb2455e6bca7cae3f2"
+        }
+      ]
+    },
+    "distinctiveness": {
+      "score": 4.5,
+      "status": "reviewed",
+      "rationale": "Measured against design 1: first-screen similarity 0.14, palette distance 16.1, different headline and body typefaces. Photo-led and white where design 1 is an illustrated navy storefront.",
+      "evidence": [
+        {
+          "path": "evidence/index-phone-top.png",
+          "sha256": "6fc62e88fbf78473f8762593178425f8039ac286f6f6a343a5416d5ee45abdb0"
+        },
+        {
+          "path": "evidence/index-phone.png",
+          "sha256": "0e6ee56513708ae93b490573337a5cd5b14a9d2ca8e957ade30c7fdbcda7b4cc"
+        },
+        {
+          "path": "evidence/index-desktop.png",
+          "sha256": "5ba5585053d19b0d19c9f025e5eea9514f1b2c60b3bd98e337b55f7c401ae3f6"
+        },
+        {
+          "path": "evidence/signature-home-phone.png",
+          "sha256": "6fc62e88fbf78473f8762593178425f8039ac286f6f6a343a5416d5ee45abdb0"
+        },
+        {
+          "path": "evidence/signature-home-desktop.png",
+          "sha256": "9a3d618925b61f6c68bc424b3611d302fea2e5d8565629fb2455e6bca7cae3f2"
+        }
+      ]
+    },
+    "brand_identity": {
+      "score": 4.0,
+      "status": "reviewed",
+      "rationale": "The T Wireless wordmark and Bell blue lead; the logo's red appears only in the logo itself, so the store's own colour is quiet.",
+      "evidence": [
+        {
+          "path": "evidence/index-phone-top.png",
+          "sha256": "6fc62e88fbf78473f8762593178425f8039ac286f6f6a343a5416d5ee45abdb0"
+        },
+        {
+          "path": "evidence/index-phone.png",
+          "sha256": "0e6ee56513708ae93b490573337a5cd5b14a9d2ca8e957ade30c7fdbcda7b4cc"
+        },
+        {
+          "path": "evidence/index-desktop.png",
+          "sha256": "5ba5585053d19b0d19c9f025e5eea9514f1b2c60b3bd98e337b55f7c401ae3f6"
+        },
+        {
+          "path": "evidence/signature-home-phone.png",
+          "sha256": "6fc62e88fbf78473f8762593178425f8039ac286f6f6a343a5416d5ee45abdb0"
+        },
+        {
+          "path": "evidence/signature-home-desktop.png",
+          "sha256": "9a3d618925b61f6c68bc424b3611d302fea2e5d8565629fb2455e6bca7cae3f2"
+        }
+      ]
+    },
+    "trust_signals": {
+      "score": 4.5,
+      "status": "reviewed",
+      "rationale": "Bell Authorised Retailer under the logo and in the facts row, the Google rating with its count, the accessible entrance, and an honest note that the photos are stock with a credits page.",
+      "evidence": [
+        {
+          "path": "evidence/index-phone-top.png",
+          "sha256": "6fc62e88fbf78473f8762593178425f8039ac286f6f6a343a5416d5ee45abdb0"
+        },
+        {
+          "path": "evidence/index-phone.png",
+          "sha256": "0e6ee56513708ae93b490573337a5cd5b14a9d2ca8e957ade30c7fdbcda7b4cc"
+        },
+        {
+          "path": "evidence/index-desktop.png",
+          "sha256": "5ba5585053d19b0d19c9f025e5eea9514f1b2c60b3bd98e337b55f7c401ae3f6"
+        },
+        {
+          "path": "evidence/signature-home-phone.png",
+          "sha256": "6fc62e88fbf78473f8762593178425f8039ac286f6f6a343a5416d5ee45abdb0"
+        },
+        {
+          "path": "evidence/signature-home-desktop.png",
+          "sha256": "9a3d618925b61f6c68bc424b3611d302fea2e5d8565629fb2455e6bca7cae3f2"
+        }
+      ]
+    },
+    "information_economy": {
+      "score": 4.0,
+      "status": "reviewed",
+      "rationale": "Sections are short, but phone pages run long; the Bell family comparison table has to be scrolled sideways on a phone.",
+      "evidence": [
+        {
+          "path": "evidence/index-phone-top.png",
+          "sha256": "6fc62e88fbf78473f8762593178425f8039ac286f6f6a343a5416d5ee45abdb0"
+        },
+        {
+          "path": "evidence/index-phone.png",
+          "sha256": "0e6ee56513708ae93b490573337a5cd5b14a9d2ca8e957ade30c7fdbcda7b4cc"
+        },
+        {
+          "path": "evidence/index-desktop.png",
+          "sha256": "5ba5585053d19b0d19c9f025e5eea9514f1b2c60b3bd98e337b55f7c401ae3f6"
+        },
+        {
+          "path": "evidence/signature-home-phone.png",
+          "sha256": "6fc62e88fbf78473f8762593178425f8039ac286f6f6a343a5416d5ee45abdb0"
+        },
+        {
+          "path": "evidence/signature-home-desktop.png",
+          "sha256": "9a3d618925b61f6c68bc424b3611d302fea2e5d8565629fb2455e6bca7cae3f2"
+        }
+      ]
+    },
+    "typography_hierarchy": {
+      "score": 4.5,
+      "status": "reviewed",
+      "rationale": "One family, Atkinson Hyperlegible Next, from a heavy headline to plain body text; clear steps; phone numbers and prices read unambiguously.",
+      "evidence": [
+        {
+          "path": "evidence/index-phone-top.png",
+          "sha256": "6fc62e88fbf78473f8762593178425f8039ac286f6f6a343a5416d5ee45abdb0"
+        },
+        {
+          "path": "evidence/index-phone.png",
+          "sha256": "0e6ee56513708ae93b490573337a5cd5b14a9d2ca8e957ade30c7fdbcda7b4cc"
+        },
+        {
+          "path": "evidence/index-desktop.png",
+          "sha256": "5ba5585053d19b0d19c9f025e5eea9514f1b2c60b3bd98e337b55f7c401ae3f6"
+        },
+        {
+          "path": "evidence/signature-home-phone.png",
+          "sha256": "6fc62e88fbf78473f8762593178425f8039ac286f6f6a343a5416d5ee45abdb0"
+        },
+        {
+          "path": "evidence/signature-home-desktop.png",
+          "sha256": "9a3d618925b61f6c68bc424b3611d302fea2e5d8565629fb2455e6bca7cae3f2"
+        }
+      ]
+    },
+    "grid_whitespace_rhythm": {
+      "score": 4.0,
+      "status": "reviewed",
+      "rationale": "Photo and text features alternate with mist bands for rhythm; a few desktop sections leave wide empty space beside short text.",
+      "evidence": [
+        {
+          "path": "evidence/index-phone-top.png",
+          "sha256": "6fc62e88fbf78473f8762593178425f8039ac286f6f6a343a5416d5ee45abdb0"
+        },
+        {
+          "path": "evidence/index-phone.png",
+          "sha256": "0e6ee56513708ae93b490573337a5cd5b14a9d2ca8e957ade30c7fdbcda7b4cc"
+        },
+        {
+          "path": "evidence/index-desktop.png",
+          "sha256": "5ba5585053d19b0d19c9f025e5eea9514f1b2c60b3bd98e337b55f7c401ae3f6"
+        },
+        {
+          "path": "evidence/signature-home-phone.png",
+          "sha256": "6fc62e88fbf78473f8762593178425f8039ac286f6f6a343a5416d5ee45abdb0"
+        },
+        {
+          "path": "evidence/signature-home-desktop.png",
+          "sha256": "9a3d618925b61f6c68bc424b3611d302fea2e5d8565629fb2455e6bca7cae3f2"
+        }
+      ]
+    },
+    "mobile_ergonomics": {
+      "score": 4.0,
+      "status": "reviewed",
+      "rationale": "Large tap targets and the thumb-reach dock; the comparison table needs sideways scrolling on phones.",
+      "evidence": [
+        {
+          "path": "evidence/index-phone-top.png",
+          "sha256": "6fc62e88fbf78473f8762593178425f8039ac286f6f6a343a5416d5ee45abdb0"
+        },
+        {
+          "path": "evidence/index-phone.png",
+          "sha256": "0e6ee56513708ae93b490573337a5cd5b14a9d2ca8e957ade30c7fdbcda7b4cc"
+        },
+        {
+          "path": "evidence/index-desktop.png",
+          "sha256": "5ba5585053d19b0d19c9f025e5eea9514f1b2c60b3bd98e337b55f7c401ae3f6"
+        },
+        {
+          "path": "evidence/signature-home-phone.png",
+          "sha256": "6fc62e88fbf78473f8762593178425f8039ac286f6f6a343a5416d5ee45abdb0"
+        },
+        {
+          "path": "evidence/signature-home-desktop.png",
+          "sha256": "9a3d618925b61f6c68bc424b3611d302fea2e5d8565629fb2455e6bca7cae3f2"
+        }
+      ]
+    }
+  },
+  "page_roles": [
+    {
+      "id": "role-home",
+      "role": "home",
+      "page": "index.html",
+      "ratings": {
+        "purpose_clarity": 4.5,
+        "hierarchy": 4.5,
+        "consistency": 4.5,
+        "legibility": 4.5,
+        "information_gain": 4.0
+      },
+      "evidence": [
+        {
+          "path": "evidence/index-phone-top.png",
+          "sha256": "6fc62e88fbf78473f8762593178425f8039ac286f6f6a343a5416d5ee45abdb0"
+        },
+        {
+          "path": "evidence/index-phone.png",
+          "sha256": "0e6ee56513708ae93b490573337a5cd5b14a9d2ca8e957ade30c7fdbcda7b4cc"
+        },
+        {
+          "path": "evidence/index-desktop.png",
+          "sha256": "5ba5585053d19b0d19c9f025e5eea9514f1b2c60b3bd98e337b55f7c401ae3f6"
+        },
+        {
+          "path": "evidence/signature-home-phone.png",
+          "sha256": "6fc62e88fbf78473f8762593178425f8039ac286f6f6a343a5416d5ee45abdb0"
+        },
+        {
+          "path": "evidence/signature-home-desktop.png",
+          "sha256": "9a3d618925b61f6c68bc424b3611d302fea2e5d8565629fb2455e6bca7cae3f2"
+        }
+      ]
+    },
+    {
+      "id": "role-brand_family",
+      "role": "brand_family",
+      "page": "brands.html",
+      "ratings": {
+        "purpose_clarity": 4.5,
+        "hierarchy": 4.0,
+        "consistency": 4.5,
+        "legibility": 4.0,
+        "information_gain": 4.5
+      },
+      "evidence": [
+        {
+          "path": "evidence/brands-phone-top.png",
+          "sha256": "2226440e17fbcaeda9e41bed9875683d0f9e5e2520264e327314b37ff37ab5c3"
+        },
+        {
+          "path": "evidence/brands-phone.png",
+          "sha256": "5224c0ecebaa194b2d349f15b19436bb077a7b698051dbdd8b99231419be46d8"
+        },
+        {
+          "path": "evidence/brands-desktop.png",
+          "sha256": "1c425dc4d716ef199dc26340fc3db9e3d196141140dc3318d39e261fffa40545"
+        }
+      ]
+    },
+    {
+      "id": "role-deals",
+      "role": "deals",
+      "page": "deals.html",
+      "ratings": {
+        "purpose_clarity": 4.5,
+        "hierarchy": 4.5,
+        "consistency": 4.5,
+        "legibility": 4.5,
+        "information_gain": 3.5
+      },
+      "evidence": [
+        {
+          "path": "evidence/deals-phone-top.png",
+          "sha256": "5749258a014fbf8b10270d5674aa780efe26795a540c88eaab8f5ca9866bb7d0"
+        },
+        {
+          "path": "evidence/deals-phone.png",
+          "sha256": "fb7ba0b87f3af0a7f3821ada5f0e4ba481f6a517b3e2cedb29438dff90861c59"
+        },
+        {
+          "path": "evidence/deals-desktop.png",
+          "sha256": "44e1dd2a8c88a1779617c68aa7192bf07935a1310d45e902f438b1b852110c8d"
+        }
+      ]
+    },
+    {
+      "id": "role-mobile",
+      "role": "mobile",
+      "page": "mobile.html",
+      "ratings": {
+        "purpose_clarity": 4.5,
+        "hierarchy": 4.5,
+        "consistency": 4.0,
+        "legibility": 4.5,
+        "information_gain": 4.0
+      },
+      "evidence": [
+        {
+          "path": "evidence/mobile-phone-top.png",
+          "sha256": "7842fafe7f2858d5baa7fdc87a24e8c8ecae2083b5a8669e96337eb8fba971ea"
+        },
+        {
+          "path": "evidence/mobile-phone.png",
+          "sha256": "1c75bcf161cce2622b42eca7d1316516e402fbd2d85797fbbf1b7e76417df74b"
+        },
+        {
+          "path": "evidence/mobile-desktop.png",
+          "sha256": "c9d941730ca31ded2f28eabd0cb38721b31446418106ba5ea42932d0b78ae0a4"
+        }
+      ]
+    },
+    {
+      "id": "role-home_services",
+      "role": "home_services",
+      "page": "internet-tv.html",
+      "ratings": {
+        "purpose_clarity": 4.5,
+        "hierarchy": 4.5,
+        "consistency": 4.5,
+        "legibility": 4.5,
+        "information_gain": 4.5
+      },
+      "evidence": [
+        {
+          "path": "evidence/internet-tv-phone-top.png",
+          "sha256": "327c672200f3e307dac6d60af04e4b963b8c49191625a4a93a6d15be56637954"
+        },
+        {
+          "path": "evidence/internet-tv-phone.png",
+          "sha256": "d0d8fbc4e3f8155588b47f59c8f6b846bf21f2a064f2ce0e0c0db12682b4400c"
+        },
+        {
+          "path": "evidence/internet-tv-desktop.png",
+          "sha256": "8325e065fdeb5516c86807ca754396b8b6b71193ff7c5afe981fe6a85c83b3a4"
+        }
+      ]
+    },
+    {
+      "id": "role-repairs",
+      "role": "repairs",
+      "page": "repairs.html",
+      "ratings": {
+        "purpose_clarity": 4.5,
+        "hierarchy": 4.5,
+        "consistency": 4.5,
+        "legibility": 4.5,
+        "information_gain": 4.5
+      },
+      "evidence": [
+        {
+          "path": "evidence/repairs-phone-top.png",
+          "sha256": "39c998fd7923c830ab5976f5f1f5c79ec89f23c8d7ca33e2ccc16fa5e454aee8"
+        },
+        {
+          "path": "evidence/repairs-phone.png",
+          "sha256": "2d24429cb480a60f4110251558297fda689558b2a6e6f87c1fc1b262935ea7cd"
+        },
+        {
+          "path": "evidence/repairs-desktop.png",
+          "sha256": "004002c1f80d9535f1d61dc19c1c5d28e22f092394c7ebee0d87990eacfca0d0"
+        }
+      ]
+    },
+    {
+      "id": "role-visit",
+      "role": "visit",
+      "page": "visit.html",
+      "ratings": {
+        "purpose_clarity": 4.5,
+        "hierarchy": 4.5,
+        "consistency": 4.5,
+        "legibility": 4.5,
+        "information_gain": 4.5
+      },
+      "evidence": [
+        {
+          "path": "evidence/visit-phone-top.png",
+          "sha256": "84e3700877c87a864cdebc943d9bdbbd26878021660f29e64857c62af6f4b56c"
+        },
+        {
+          "path": "evidence/visit-phone.png",
+          "sha256": "f8ef6ea257844304f81ad325dd73294ad4c95e0d2cdfa1db7dd7258282f1973c"
+        },
+        {
+          "path": "evidence/visit-desktop.png",
+          "sha256": "50e6b0b0e83bec23afd1f2e3162c5488a17837c4d59cdf60b83bd2a9664ef59d"
+        }
+      ]
+    }
+  ],
+  "accuracy_gate": {
+    "content_matches_sources": true,
+    "no_fabricated_offers_or_reviews": true,
+    "unverified_flagged_for_owner": true,
+    "photos_licensed_for_commercial_use": true,
+    "no_photo_implies_store_staff_or_customers": true,
+    "carrier_logos_unaltered_on_clean_plates": true,
+    "no_third_party_brand_marks_in_photos": false
+  },
+  "notes": "Producer review of design 2, v1. The photos still carry two third-party marks (an Apple logo on the repair photo's battery and a transit operator's logo on the train photo's ticket machine), so that accuracy question is answered no."
+}

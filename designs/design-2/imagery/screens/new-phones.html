@@ -1,0 +1,40 @@
+<!doctype html>
+<!-- What the phone in the "New phones" photo shows. Rendered by rsi/imagery.py and placed on the
+     screen; the top is left clear for the phone's camera cutout. -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Phone screen: new phones</title>
+<style>
+@font-face {
+  font-family: "Atkinson Hyperlegible Next";
+  src: url("/designs/design-2/assets/fonts/atkinson-hyperlegible-next-latin-wght-normal.woff2") format("woff2");
+  font-weight: 200 800;
+}
+html, body { margin: 0; height: 100%; }
+body {
+  box-sizing: border-box;
+  display: flex; flex-direction: column; justify-content: space-between;
+  padding: 190px 44px 96px;
+  background: #ffffff; color: #13243a;
+  font-family: "Atkinson Hyperlegible Next", sans-serif;
+}
+.logo { display: block; width: 100%; height: auto; }
+h1 { margin: 64px 0 0; font-size: 92px; line-height: 0.98; font-weight: 800; letter-spacing: -0.02em; }
+.sub { margin: 22px 0 0; font-size: 40px; color: #44566e; }
+.call { margin: 0; font-size: 34px; color: #44566e; }
+.num { margin: 6px 0 0; font-size: 56px; font-weight: 800; color: #00549a; }
+</style>
+</head>
+<body>
+  <div>
+    <img class="logo" src="/src/assets/img/t-wireless-logo-960.png" alt="">
+    <h1>New phones</h1>
+    <p class="sub">iPhone and Android</p>
+  </div>
+  <div>
+    <p class="call">Call ahead to check stock</p>
+    <p class="num">647-707-1093</p>
+  </div>
+</body>
+</html>

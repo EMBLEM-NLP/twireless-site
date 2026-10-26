@@ -1,7 +1,9 @@
 # Built by build.py; the GitHub Pages demo is built into docs/ instead
 dist/
+dist-*/
 __pycache__/
 *.pyc
 .DS_Store
 # Design-test screenshots are large; they ship in t-wireless-rsi-evidence.zip
-rsi/runs/*/evidence/
+rsi/runs/*/*/evidence/
+designs/*/imagery/originals/
