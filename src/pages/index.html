@@ -1,0 +1,130 @@
+<!--page
+{
+  "title": "T Wireless: Bell Authorised Retailer in Brampton",
+  "description": "Phones and plans from Bell, Virgin Plus and Lucky Mobile, Bell internet and TV, and phone and tablet repair at 965 Bovaird Dr W, Brampton. Open every day.",
+  "nav": "index",
+  "body_class": "page-home"
+}
+-->
+<main id="main">
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="wrap hero__grid">
+      <div class="hero__text">
+        <p class="status" data-hours="{{ hours_json }}" data-tz="{{ site.timezone }}">
+          <span class="status__sign is-pending">Open</span>
+          <span class="status__text">{{ hours_summary }}</span>
+        </p>
+        <h1 id="hero-title">Phones, plans and repairs on Bovaird Drive West</h1>
+        <p class="lead">Compare Bell, Virgin Plus and Lucky Mobile at one counter, set up Bell internet and TV at home, or get your phone or tablet fixed.</p>
+        <div class="actions">
+          <a class="btn btn--light" href="deals.html">See this month's deals</a>
+          <a class="btn btn--outline-light" href="repairs.html#book">Book a repair</a>
+        </div>
+        {{{ carrier_strip }}}
+      </div>
+      <div class="hero__art">
+        {{{ storefront }}}
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap trust">
+    <ul class="trust__list" aria-label="About the store">
+      <li><svg class="icon" aria-hidden="true"><use href="#i-shield"></use></svg><span>Bell Authorised Retailer</span></li>
+      <li><svg class="icon icon--star" aria-hidden="true"><use href="#i-star"></use></svg><a href="{{ store.reviews_url }}">{{ store.rating.value }} stars on Google ({{ store.rating.count }} reviews)</a></li>
+      <li><svg class="icon" aria-hidden="true"><use href="#i-clock"></use></svg><span>{{ hours_summary }}</span></li>
+      <li><svg class="icon" aria-hidden="true"><use href="#i-access"></use></svg><span>Wheelchair-accessible entrance</span></li>
+    </ul>
+  </div>
+
+  <section class="section" aria-labelledby="family-title">
+    <div class="wrap">
+      <div class="section__head">
+        <h2 id="family-title">The Bell family, under one roof</h2>
+        <a class="section__link" href="brands.html">Compare the brands</a>
+        <p>One visit covers every Bell brand we sell, so you can compare plans side by side before you choose.</p>
+      </div>
+      <ul class="family">
+        {{{ family_cards }}}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section band" aria-labelledby="deals-title">
+    <div class="wrap">
+      <div class="section__head">
+        <h2 id="deals-title">This month's deals</h2>
+        <a class="section__link" href="deals.html">See all deals</a>
+      </div>
+      <div class="offers">
+        {{{ offers_preview }}}
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="repairs-title">
+    <div class="wrap feature">
+      <div class="feature__art">
+        <svg viewBox="0 0 320 220" aria-hidden="true" focusable="false"><use href="#art-bench"></use></svg>
+      </div>
+      <div>
+        <h2 id="repairs-title">We fix phones and tablets</h2>
+        <p>Bring your device to the store. We'll find the problem and quote the repair before we start.</p>
+        <ul class="checklist checklist--grid">
+          {{{ repairs_short }}}
+        </ul>
+        <div class="actions">
+          <a class="btn btn--primary" href="repairs.html#book">Book a repair</a>
+          <a class="btn btn--ghost" href="tel:{{ store.phone_e164 }}">Call for a quote</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section band" aria-labelledby="switch-title">
+    <div class="wrap">
+      <h2 id="switch-title">Switching? Keep your number</h2>
+      <p>In Canada you can keep your phone number when you change providers. Moving to Bell, Virgin Plus or Lucky Mobile takes three steps.</p>
+      <ol class="steps steps--row">
+        <li>
+          <h3>Bring what we need</h3>
+          <p>Government-issued photo ID and your current account number, which is on your bill.</p>
+        </li>
+        <li>
+          <h3>Choose your plan and phone</h3>
+          <p>We compare options from all three providers with you.</p>
+        </li>
+        <li>
+          <h3>We move your number</h3>
+          <p>Don't cancel your old plan first. Moving your number ends that service for you.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="visit-title">
+    <div class="wrap split">
+      <div>
+        <h2 id="visit-title">Visit the store</h2>
+        <p class="address">{{ store.street }}<br>{{ store.city }}, {{ store.province }} {{ store.postal }}</p>
+        <table class="hours">
+          <caption class="visually-hidden">Store hours</caption>
+          <tbody>
+            {{{ hours_rows }}}
+          </tbody>
+        </table>
+        <p class="links-row"><a href="{{ store.directions_url }}">Get directions</a> <a href="tel:{{ store.phone_e164 }}">Call {{ store.phone_display }}</a></p>
+      </div>
+      {{{ map }}}
+    </div>
+  </section>
+
+  <section class="section band" aria-labelledby="faq-title">
+    <div class="wrap narrow">
+      <h2 id="faq-title">Questions we hear a lot</h2>
+      <div class="faq">
+        {{{ faq_items }}}
+      </div>
+    </div>
+  </section>
+</main>

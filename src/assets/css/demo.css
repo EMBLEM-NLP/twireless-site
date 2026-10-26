@@ -1,0 +1,2 @@
+/* Loaded only by demo builds (python3 build.py --demo). */
+.demo-banner { max-width: none; margin: 0; padding: 0.5rem var(--gutter); background: #fff3b0; color: #4a3b00; font-size: var(--fs-sm); font-weight: 700; line-height: 1.35; text-align: center; }

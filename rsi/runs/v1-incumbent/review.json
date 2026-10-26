@@ -1,0 +1,315 @@
+{
+  "schema": "web.design.review.v1",
+  "measurement_series": "WEB-DESIGN-RSI-1.0",
+  "target_id": "T-WIRELESS-SITE",
+  "candidate_sha256": "520252556979814c626a5e71bd9801eb7c0e3c422f15e0a5b6a59189c7bb40ad",
+  "reviewer_id": "emblem-nlp-producer",
+  "reviewer_role": "producer_diagnostic",
+  "ratings": {
+    "first_impression": {
+      "score": 2.5,
+      "status": "reviewed",
+      "rationale": "Logo sign and scalloped awning read as a storefront, but the hero below is white text plus a store card. Nothing shows the shop, the phones or the Bell family, so the first screen looks like a generic template.",
+      "evidence": [
+        {
+          "path": "evidence/index-phone.png",
+          "sha256": "5ea21e29a8d56f7c096053f7bce7c8809833c73b545124eb68755b693ee6290f"
+        },
+        {
+          "path": "evidence/index-desktop.png",
+          "sha256": "fc169694545c65045ea27d1ce38227e143c96ebe710ee32f5558b6611586eeff"
+        }
+      ]
+    },
+    "visual_richness": {
+      "score": 1.5,
+      "status": "reviewed",
+      "rationale": "Only line icons, the awning edge and two navy panels. No illustration, product imagery or colour fields on the inner pages; most of each page is white space and body text.",
+      "evidence": [
+        {
+          "path": "evidence/index-phone.png",
+          "sha256": "5ea21e29a8d56f7c096053f7bce7c8809833c73b545124eb68755b693ee6290f"
+        },
+        {
+          "path": "evidence/index-desktop.png",
+          "sha256": "fc169694545c65045ea27d1ce38227e143c96ebe710ee32f5558b6611586eeff"
+        }
+      ]
+    },
+    "service_clarity": {
+      "score": 2.5,
+      "status": "reviewed",
+      "rationale": "Phones, home services, repairs and switching are listed, but the Bell family is only named. Virgin Plus and Lucky Mobile get one line each, home services are three short cards, and there is no page explaining what each brand offers.",
+      "evidence": [
+        {
+          "path": "evidence/index-phone.png",
+          "sha256": "5ea21e29a8d56f7c096053f7bce7c8809833c73b545124eb68755b693ee6290f"
+        },
+        {
+          "path": "evidence/index-desktop.png",
+          "sha256": "fc169694545c65045ea27d1ce38227e143c96ebe710ee32f5558b6611586eeff"
+        }
+      ]
+    },
+    "navigation_wayfinding": {
+      "score": 3.5,
+      "status": "reviewed",
+      "rationale": "Clear five-item menu, footer links and a phone action bar. On phones the menu wraps to two lines, and there is no route to brand information.",
+      "evidence": [
+        {
+          "path": "evidence/index-phone.png",
+          "sha256": "5ea21e29a8d56f7c096053f7bce7c8809833c73b545124eb68755b693ee6290f"
+        },
+        {
+          "path": "evidence/index-desktop.png",
+          "sha256": "fc169694545c65045ea27d1ce38227e143c96ebe710ee32f5558b6611586eeff"
+        }
+      ]
+    },
+    "conversion_paths": {
+      "score": 3.5,
+      "status": "reviewed",
+      "rationale": "Call, directions and booking are always one tap away and every section ends in an action. Deal cards are placeholders, which weakens the main reason to call.",
+      "evidence": [
+        {
+          "path": "evidence/index-phone.png",
+          "sha256": "5ea21e29a8d56f7c096053f7bce7c8809833c73b545124eb68755b693ee6290f"
+        },
+        {
+          "path": "evidence/index-desktop.png",
+          "sha256": "fc169694545c65045ea27d1ce38227e143c96ebe710ee32f5558b6611586eeff"
+        }
+      ]
+    },
+    "brand_identity": {
+      "score": 3.0,
+      "status": "reviewed",
+      "rationale": "Bell blue, the logo red and the awning give a consistent identity, but layouts are generic and inner pages lose the store character after the header.",
+      "evidence": [
+        {
+          "path": "evidence/index-phone.png",
+          "sha256": "5ea21e29a8d56f7c096053f7bce7c8809833c73b545124eb68755b693ee6290f"
+        },
+        {
+          "path": "evidence/index-desktop.png",
+          "sha256": "fc169694545c65045ea27d1ce38227e143c96ebe710ee32f5558b6611586eeff"
+        }
+      ]
+    },
+    "trust_signals": {
+      "score": 2.5,
+      "status": "reviewed",
+      "rationale": "Bell Authorised Retailer appears only as small header text. The Google rating is a small text link, the accessible entrance is buried in the store card, and dashed example deals look unfinished.",
+      "evidence": [
+        {
+          "path": "evidence/index-phone.png",
+          "sha256": "5ea21e29a8d56f7c096053f7bce7c8809833c73b545124eb68755b693ee6290f"
+        },
+        {
+          "path": "evidence/index-desktop.png",
+          "sha256": "fc169694545c65045ea27d1ce38227e143c96ebe710ee32f5558b6611586eeff"
+        }
+      ]
+    },
+    "information_economy": {
+      "score": 3.5,
+      "status": "reviewed",
+      "rationale": "Copy is short, plain and specific. Some sections (tiles, deals preview, repairs list) repeat the same service list without adding new detail.",
+      "evidence": [
+        {
+          "path": "evidence/index-phone.png",
+          "sha256": "5ea21e29a8d56f7c096053f7bce7c8809833c73b545124eb68755b693ee6290f"
+        },
+        {
+          "path": "evidence/index-desktop.png",
+          "sha256": "fc169694545c65045ea27d1ce38227e143c96ebe710ee32f5558b6611586eeff"
+        }
+      ]
+    },
+    "typography_hierarchy": {
+      "score": 3.0,
+      "status": "reviewed",
+      "rationale": "Source Serif 4 with Figtree gives a clear heading and body contrast, but the measured run found 13 distinct type sizes on the phone home page and 11 on deals.",
+      "evidence": [
+        {
+          "path": "evidence/index-phone.png",
+          "sha256": "5ea21e29a8d56f7c096053f7bce7c8809833c73b545124eb68755b693ee6290f"
+        },
+        {
+          "path": "evidence/index-desktop.png",
+          "sha256": "fc169694545c65045ea27d1ce38227e143c96ebe710ee32f5558b6611586eeff"
+        }
+      ]
+    },
+    "grid_whitespace_rhythm": {
+      "score": 3.0,
+      "status": "reviewed",
+      "rationale": "Consistent wrap and section spacing, but desktop inner pages leave large empty areas beside short content, and the rhythm is the same on every section.",
+      "evidence": [
+        {
+          "path": "evidence/index-phone.png",
+          "sha256": "5ea21e29a8d56f7c096053f7bce7c8809833c73b545124eb68755b693ee6290f"
+        },
+        {
+          "path": "evidence/index-desktop.png",
+          "sha256": "fc169694545c65045ea27d1ce38227e143c96ebe710ee32f5558b6611586eeff"
+        }
+      ]
+    },
+    "mobile_ergonomics": {
+      "score": 4.0,
+      "status": "reviewed",
+      "rationale": "No horizontal overflow at 360 or 390 pixels, large tap targets, a sticky action bar and readable text sizes.",
+      "evidence": [
+        {
+          "path": "evidence/index-phone.png",
+          "sha256": "5ea21e29a8d56f7c096053f7bce7c8809833c73b545124eb68755b693ee6290f"
+        },
+        {
+          "path": "evidence/index-desktop.png",
+          "sha256": "fc169694545c65045ea27d1ce38227e143c96ebe710ee32f5558b6611586eeff"
+        }
+      ]
+    }
+  },
+  "page_roles": [
+    {
+      "id": "role-home",
+      "role": "home",
+      "page": "index.html",
+      "ratings": {
+        "purpose_clarity": 3.5,
+        "hierarchy": 3.0,
+        "consistency": 3.5,
+        "legibility": 4.0,
+        "information_gain": 2.5
+      },
+      "evidence": [
+        {
+          "path": "evidence/index-phone.png",
+          "sha256": "5ea21e29a8d56f7c096053f7bce7c8809833c73b545124eb68755b693ee6290f"
+        },
+        {
+          "path": "evidence/index-desktop.png",
+          "sha256": "fc169694545c65045ea27d1ce38227e143c96ebe710ee32f5558b6611586eeff"
+        }
+      ]
+    },
+    {
+      "id": "role-deals",
+      "role": "deals",
+      "page": "deals.html",
+      "ratings": {
+        "purpose_clarity": 3.5,
+        "hierarchy": 3.0,
+        "consistency": 3.5,
+        "legibility": 4.0,
+        "information_gain": 1.5
+      },
+      "evidence": [
+        {
+          "path": "evidence/deals-phone.png",
+          "sha256": "ad46a2b6a8e952e0a38a71b27f2509a81afa50167ac68d75b41ea3fc71763820"
+        },
+        {
+          "path": "evidence/deals-desktop.png",
+          "sha256": "1f2a369fe2e60670b5fb8e93b08fa36458c9d5b7f927f9e527fee87752011013"
+        }
+      ]
+    },
+    {
+      "id": "role-mobile",
+      "role": "mobile",
+      "page": "mobile.html",
+      "ratings": {
+        "purpose_clarity": 3.5,
+        "hierarchy": 3.0,
+        "consistency": 3.5,
+        "legibility": 4.0,
+        "information_gain": 2.5
+      },
+      "evidence": [
+        {
+          "path": "evidence/mobile-phone.png",
+          "sha256": "cd37a9d3b48d011234fa0ae1661edd6176e17c0927b32b78bfc55ccf0498605a"
+        },
+        {
+          "path": "evidence/mobile-desktop.png",
+          "sha256": "a62cb24e26d03acb1d78da0c7bdd9338d30fb76991b69e9c23a630b97dcd30d5"
+        }
+      ]
+    },
+    {
+      "id": "role-home_services",
+      "role": "home_services",
+      "page": "internet-tv.html",
+      "ratings": {
+        "purpose_clarity": 3.0,
+        "hierarchy": 3.0,
+        "consistency": 3.5,
+        "legibility": 4.0,
+        "information_gain": 2.0
+      },
+      "evidence": [
+        {
+          "path": "evidence/internet-tv-phone.png",
+          "sha256": "67e9a8cc8ab7ddd934a280ffcf714323fa647be7265d3c69759dcb3c1a85f97b"
+        },
+        {
+          "path": "evidence/internet-tv-desktop.png",
+          "sha256": "e0ad8d54b22eb8eb0d86d5c60b7abc423d9d1f2ad6848dd1a1ce57192d43a7e6"
+        }
+      ]
+    },
+    {
+      "id": "role-repairs",
+      "role": "repairs",
+      "page": "repairs.html",
+      "ratings": {
+        "purpose_clarity": 4.0,
+        "hierarchy": 3.0,
+        "consistency": 3.5,
+        "legibility": 4.0,
+        "information_gain": 3.0
+      },
+      "evidence": [
+        {
+          "path": "evidence/repairs-phone.png",
+          "sha256": "ec8bb5e65c5bc3e4f857a8e307dda3bbdfd756663fdf1362d9e9e534bee8056e"
+        },
+        {
+          "path": "evidence/repairs-desktop.png",
+          "sha256": "63e3bd035e1f36cf42544a5a8abeae17699dc57feb664be3705c4655503fa314"
+        }
+      ]
+    },
+    {
+      "id": "role-visit",
+      "role": "visit",
+      "page": "visit.html",
+      "ratings": {
+        "purpose_clarity": 4.0,
+        "hierarchy": 3.5,
+        "consistency": 3.5,
+        "legibility": 4.0,
+        "information_gain": 3.5
+      },
+      "evidence": [
+        {
+          "path": "evidence/visit-phone.png",
+          "sha256": "68a36109c69c1f9bdffb5479abe3b8706c6327fd122c112a260f3a4ff1eeec4e"
+        },
+        {
+          "path": "evidence/visit-desktop.png",
+          "sha256": "08e7a662bd19e258911a282dfeaa641371b5e0084fe4205cc8ff873884482457"
+        }
+      ]
+    }
+  ],
+  "accuracy_gate": {
+    "content_matches_sources": true,
+    "no_fabricated_offers_or_reviews": true,
+    "unverified_flagged_for_owner": true
+  },
+  "notes": "Producer diagnostic review of the v1 incumbent by the same agent that built it. Not independent. Ratings 0-5 against the full-page phone and desktop screenshots in evidence/."
+}

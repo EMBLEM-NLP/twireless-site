@@ -1,0 +1,337 @@
+{
+  "schema": "web.design.review.v1",
+  "measurement_series": "WEB-DESIGN-RSI-1.0",
+  "target_id": "T-WIRELESS-SITE",
+  "candidate_sha256": "055ae0252abcee03c3603ec6f5b1a8b6f92d483aec7a7455efa5f869d6cc034f",
+  "reviewer_id": "emblem-nlp-producer",
+  "reviewer_role": "producer_diagnostic",
+  "ratings": {
+    "first_impression": {
+      "score": 4.5,
+      "status": "reviewed",
+      "rationale": "Navy hero with the live neon Open/Closed sign, the street-named headline and the storefront illustration, now with a 'Plans from' row of Bell, Virgin Plus and Lucky Mobile logos under the buttons, so the carriers the store sells are recognisable at a glance.",
+      "evidence": [
+        {
+          "path": "evidence/index-phone.png",
+          "sha256": "5a1e3be4bdf93a3c9a9007d6355d1532df1a5c21ad0c2a71ccf5370643956e85"
+        },
+        {
+          "path": "evidence/index-desktop.png",
+          "sha256": "1ecc7572c4709e57c6633786dfb698b13d6925a858927cac84aa79e274d647dd"
+        }
+      ]
+    },
+    "visual_richness": {
+      "score": 4.5,
+      "status": "reviewed",
+      "rationale": "Real carrier logos on white plates join the storefront, page-header, deal and feature illustrations: in the hero, on the brand cards (Home and Mobile), beside each brand heading on the Bell family page and on every deal card. Phone page headers on inner pages stay text-only.",
+      "evidence": [
+        {
+          "path": "evidence/index-phone.png",
+          "sha256": "5a1e3be4bdf93a3c9a9007d6355d1532df1a5c21ad0c2a71ccf5370643956e85"
+        },
+        {
+          "path": "evidence/index-desktop.png",
+          "sha256": "1ecc7572c4709e57c6633786dfb698b13d6925a858927cac84aa79e274d647dd"
+        }
+      ]
+    },
+    "service_clarity": {
+      "score": 4.5,
+      "status": "reviewed",
+      "rationale": "Bell family page with the at-a-glance table and a section per brand, each now marked with its logo; Virgin Plus adds the January 15, 2027 end of prepaid. Deal cards show which carrier each offer belongs to by logo.",
+      "evidence": [
+        {
+          "path": "evidence/index-phone.png",
+          "sha256": "5a1e3be4bdf93a3c9a9007d6355d1532df1a5c21ad0c2a71ccf5370643956e85"
+        },
+        {
+          "path": "evidence/index-desktop.png",
+          "sha256": "1ecc7572c4709e57c6633786dfb698b13d6925a858927cac84aa79e274d647dd"
+        }
+      ]
+    },
+    "navigation_wayfinding": {
+      "score": 4.5,
+      "status": "reviewed",
+      "rationale": "Site navigation unchanged from v5 (three-by-two phone menu, jump links, footer links, action bar). Finding the store is now clear: the map shows Bovaird Dr W and Chinguacousy Rd at their real angles with a north arrow and 100 m scale, the store on the south side of Bovaird about 150 m east of the intersection, and a directions line under the map and on Visit us.",
+      "evidence": [
+        {
+          "path": "evidence/index-phone.png",
+          "sha256": "5a1e3be4bdf93a3c9a9007d6355d1532df1a5c21ad0c2a71ccf5370643956e85"
+        },
+        {
+          "path": "evidence/index-desktop.png",
+          "sha256": "1ecc7572c4709e57c6633786dfb698b13d6925a858927cac84aa79e274d647dd"
+        }
+      ]
+    },
+    "conversion_paths": {
+      "score": 4.0,
+      "status": "reviewed",
+      "rationale": "Unchanged from v3: primary call to action visible in the first phone screen, call or booking bands on every page and the action bar. Deal cards are still example placeholders.",
+      "evidence": [
+        {
+          "path": "evidence/index-phone.png",
+          "sha256": "5a1e3be4bdf93a3c9a9007d6355d1532df1a5c21ad0c2a71ccf5370643956e85"
+        },
+        {
+          "path": "evidence/index-desktop.png",
+          "sha256": "1ecc7572c4709e57c6633786dfb698b13d6925a858927cac84aa79e274d647dd"
+        }
+      ]
+    },
+    "brand_identity": {
+      "score": 4.5,
+      "status": "reviewed",
+      "rationale": "T Wireless red and Bell blue identity unchanged; carrier logos sit unaltered on uniform white plates so they read as the brands sold here without competing with the T Wireless sign, awning and storefront.",
+      "evidence": [
+        {
+          "path": "evidence/index-phone.png",
+          "sha256": "5a1e3be4bdf93a3c9a9007d6355d1532df1a5c21ad0c2a71ccf5370643956e85"
+        },
+        {
+          "path": "evidence/index-desktop.png",
+          "sha256": "1ecc7572c4709e57c6633786dfb698b13d6925a858927cac84aa79e274d647dd"
+        }
+      ]
+    },
+    "trust_signals": {
+      "score": 4.25,
+      "status": "reviewed",
+      "rationale": "Recognisable Bell, Virgin Plus and Lucky Mobile logos back up the Bell Authorised Retailer claim, alongside the Google rating, hours, accessible entrance and contact details. Example deals still read as unfinished.",
+      "evidence": [
+        {
+          "path": "evidence/index-phone.png",
+          "sha256": "5a1e3be4bdf93a3c9a9007d6355d1532df1a5c21ad0c2a71ccf5370643956e85"
+        },
+        {
+          "path": "evidence/index-desktop.png",
+          "sha256": "1ecc7572c4709e57c6633786dfb698b13d6925a858927cac84aa79e274d647dd"
+        }
+      ]
+    },
+    "information_economy": {
+      "score": 4.0,
+      "status": "reviewed",
+      "rationale": "Copy stays short. The Bell family page now shows each brand's logo next to the same name as a heading, and some facts still repeat across pages (SmartPay, switching steps).",
+      "evidence": [
+        {
+          "path": "evidence/index-phone.png",
+          "sha256": "5a1e3be4bdf93a3c9a9007d6355d1532df1a5c21ad0c2a71ccf5370643956e85"
+        },
+        {
+          "path": "evidence/index-desktop.png",
+          "sha256": "1ecc7572c4709e57c6633786dfb698b13d6925a858927cac84aa79e274d647dd"
+        }
+      ]
+    },
+    "typography_hierarchy": {
+      "score": 4.5,
+      "status": "reviewed",
+      "rationale": "Unchanged from v3: seven type sizes on phones, one serif for headings and one sans for text, clear heading, lead and body steps.",
+      "evidence": [
+        {
+          "path": "evidence/index-phone.png",
+          "sha256": "5a1e3be4bdf93a3c9a9007d6355d1532df1a5c21ad0c2a71ccf5370643956e85"
+        },
+        {
+          "path": "evidence/index-desktop.png",
+          "sha256": "1ecc7572c4709e57c6633786dfb698b13d6925a858927cac84aa79e274d647dd"
+        }
+      ]
+    },
+    "grid_whitespace_rhythm": {
+      "score": 4.25,
+      "status": "reviewed",
+      "rationale": "Logo plates share one size per context and align with card padding; the deals grid still leaves an empty slot in its second row with five offers.",
+      "evidence": [
+        {
+          "path": "evidence/index-phone.png",
+          "sha256": "5a1e3be4bdf93a3c9a9007d6355d1532df1a5c21ad0c2a71ccf5370643956e85"
+        },
+        {
+          "path": "evidence/index-desktop.png",
+          "sha256": "1ecc7572c4709e57c6633786dfb698b13d6925a858927cac84aa79e274d647dd"
+        }
+      ]
+    },
+    "mobile_ergonomics": {
+      "score": 4.5,
+      "status": "reviewed",
+      "rationale": "No horizontal overflow at 360 or 390 pixels; the main button stays visible above the action bar on phones even with the logo row; large tap targets; the Visit page store card no longer jumps when the open/closed status loads.",
+      "evidence": [
+        {
+          "path": "evidence/index-phone.png",
+          "sha256": "5a1e3be4bdf93a3c9a9007d6355d1532df1a5c21ad0c2a71ccf5370643956e85"
+        },
+        {
+          "path": "evidence/index-desktop.png",
+          "sha256": "1ecc7572c4709e57c6633786dfb698b13d6925a858927cac84aa79e274d647dd"
+        }
+      ]
+    }
+  },
+  "page_roles": [
+    {
+      "id": "role-home",
+      "role": "home",
+      "page": "index.html",
+      "ratings": {
+        "purpose_clarity": 4.5,
+        "hierarchy": 4.5,
+        "consistency": 4.5,
+        "legibility": 4.5,
+        "information_gain": 4.5
+      },
+      "evidence": [
+        {
+          "path": "evidence/index-phone.png",
+          "sha256": "5a1e3be4bdf93a3c9a9007d6355d1532df1a5c21ad0c2a71ccf5370643956e85"
+        },
+        {
+          "path": "evidence/index-desktop.png",
+          "sha256": "1ecc7572c4709e57c6633786dfb698b13d6925a858927cac84aa79e274d647dd"
+        }
+      ]
+    },
+    {
+      "id": "role-brand_family",
+      "role": "brand_family",
+      "page": "brands.html",
+      "ratings": {
+        "purpose_clarity": 4.5,
+        "hierarchy": 4.5,
+        "consistency": 4.5,
+        "legibility": 4.5,
+        "information_gain": 4.5
+      },
+      "evidence": [
+        {
+          "path": "evidence/brands-phone.png",
+          "sha256": "b595f9abc8704bcc3a3340a5161266184552de04b28c4c30529ba27e62210838"
+        },
+        {
+          "path": "evidence/brands-desktop.png",
+          "sha256": "c7776496b40d7b56b4f08db74f232df2db2140fe07570553f521ac23def66f5d"
+        }
+      ]
+    },
+    {
+      "id": "role-deals",
+      "role": "deals",
+      "page": "deals.html",
+      "ratings": {
+        "purpose_clarity": 4.0,
+        "hierarchy": 4.5,
+        "consistency": 4.5,
+        "legibility": 4.5,
+        "information_gain": 3.5
+      },
+      "evidence": [
+        {
+          "path": "evidence/deals-phone.png",
+          "sha256": "83402ffbbbfd095140cf4200c2b6fc1ef209c61ca777ae9e51295bfd42e8d8e6"
+        },
+        {
+          "path": "evidence/deals-desktop.png",
+          "sha256": "1cb8c2d5a8c6f9c4597969429cb93b4dfe9659f6547cb5f52e17fad538daf036"
+        }
+      ]
+    },
+    {
+      "id": "role-mobile",
+      "role": "mobile",
+      "page": "mobile.html",
+      "ratings": {
+        "purpose_clarity": 4.5,
+        "hierarchy": 4.5,
+        "consistency": 4.5,
+        "legibility": 4.5,
+        "information_gain": 4.0
+      },
+      "evidence": [
+        {
+          "path": "evidence/mobile-phone.png",
+          "sha256": "320eedcce05ce1b3671bc88bbdd48fc5fe82a5c34667e8a889a1ed6445937874"
+        },
+        {
+          "path": "evidence/mobile-desktop.png",
+          "sha256": "f8fed7bfe7e14291ebe604b0162b26ee7bc97d430ad5e8f679373cf6bc127753"
+        }
+      ]
+    },
+    {
+      "id": "role-home_services",
+      "role": "home_services",
+      "page": "internet-tv.html",
+      "ratings": {
+        "purpose_clarity": 4.5,
+        "hierarchy": 4.5,
+        "consistency": 4.5,
+        "legibility": 4.5,
+        "information_gain": 4.0
+      },
+      "evidence": [
+        {
+          "path": "evidence/internet-tv-phone.png",
+          "sha256": "d6aa5c79fee71fecfbf84ca65e1d17cc98d9c783fd11d90efd931e1111d2e48a"
+        },
+        {
+          "path": "evidence/internet-tv-desktop.png",
+          "sha256": "f0c4485a36c190c3c79713ab60d4f74a44cd5bdfc0ca1cd8633021994f0cb677"
+        }
+      ]
+    },
+    {
+      "id": "role-repairs",
+      "role": "repairs",
+      "page": "repairs.html",
+      "ratings": {
+        "purpose_clarity": 4.5,
+        "hierarchy": 4.5,
+        "consistency": 4.5,
+        "legibility": 4.5,
+        "information_gain": 4.0
+      },
+      "evidence": [
+        {
+          "path": "evidence/repairs-phone.png",
+          "sha256": "5d17f69114084cf2dd99aee958a6d5edd82a35ebd09e7eb0ca33a4a507a7aa90"
+        },
+        {
+          "path": "evidence/repairs-desktop.png",
+          "sha256": "7562868a22ada978bbd56770e51444a2a13e03a704ac44c65332acb1323ea18f"
+        }
+      ]
+    },
+    {
+      "id": "role-visit",
+      "role": "visit",
+      "page": "visit.html",
+      "ratings": {
+        "purpose_clarity": 4.5,
+        "hierarchy": 4.5,
+        "consistency": 4.5,
+        "legibility": 4.5,
+        "information_gain": 4.5
+      },
+      "evidence": [
+        {
+          "path": "evidence/visit-phone.png",
+          "sha256": "d2ae46d590f0296fd4cca4524051c2b411387ef51a0e0fff97bc26cedb425974"
+        },
+        {
+          "path": "evidence/visit-desktop.png",
+          "sha256": "01ecf6457b71155f58d2b2110f5808f0e720746d0dac9c0438f30968725a900c"
+        }
+      ]
+    }
+  ],
+  "accuracy_gate": {
+    "content_matches_sources": true,
+    "no_fabricated_offers_or_reviews": true,
+    "unverified_flagged_for_owner": true
+  },
+  "notes": "Producer diagnostic review of v6 by the agent that built it. Not independent. v6 is v5 with the map redrawn after the owner asked for the real intersection: a north-up sketch roughly to scale of Bovaird Dr W and Chinguacousy Rd with the store on the south side of Bovaird, the address card moved under the drawing, and a directions line on Visit us. Positions checked against the store and intersection listings on Google Maps on 2026-10-26."
+}

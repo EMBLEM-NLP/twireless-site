@@ -1,0 +1,81 @@
+{
+  "schema": "web.design.result.v1",
+  "measurement_series": "WEB-DESIGN-RSI-1.0",
+  "target_id": "T-WIRELESS-SITE",
+  "candidate_sha256": "055ae0252abcee03c3603ec6f5b1a8b6f92d483aec7a7455efa5f869d6cc034f",
+  "reviewer_id": "emblem-nlp-producer",
+  "reviewer_role": "producer_diagnostic",
+  "independent_review": false,
+  "measured_checks_failed": 0,
+  "measured_failed_checks": [],
+  "declaration_blockers": [],
+  "dimension_scores": {
+    "first_impression": 90.0,
+    "visual_richness": 90.0,
+    "service_clarity": 90.0,
+    "navigation_wayfinding": 90.0,
+    "conversion_paths": 80.0,
+    "brand_identity": 90.0,
+    "trust_signals": 85.0,
+    "information_economy": 80.0,
+    "typography_hierarchy": 90.0,
+    "grid_whitespace_rhythm": 85.0,
+    "mobile_ergonomics": 90.0
+  },
+  "overall_score": 87.5,
+  "page_role_scores": [
+    {
+      "role": "home",
+      "page": "index.html",
+      "score": 90.0
+    },
+    {
+      "role": "brand_family",
+      "page": "brands.html",
+      "score": 90.0
+    },
+    {
+      "role": "deals",
+      "page": "deals.html",
+      "score": 84.0
+    },
+    {
+      "role": "mobile",
+      "page": "mobile.html",
+      "score": 88.0
+    },
+    {
+      "role": "home_services",
+      "page": "internet-tv.html",
+      "score": 88.0
+    },
+    {
+      "role": "repairs",
+      "page": "repairs.html",
+      "score": 88.0
+    },
+    {
+      "role": "visit",
+      "page": "visit.html",
+      "score": 90.0
+    }
+  ],
+  "weakest_dimension": "conversion_paths",
+  "weakest_dimension_score": 80.0,
+  "gates": {
+    "measured_layer": true,
+    "evidence_complete": true,
+    "overall": true,
+    "critical_dimensions": true,
+    "page_roles": true,
+    "accuracy": true
+  },
+  "diagnostic_pass": true,
+  "release_eligible": false,
+  "blockers": [],
+  "release_blockers": [
+    "Independent reviewer evidence not supplied.",
+    "Design contract is not approved_for_production."
+  ],
+  "score_note": "Review-derived design score plus Lighthouse and Playwright measurements; not a visitor-behaviour measurement."
+}

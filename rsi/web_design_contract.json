@@ -1,0 +1,63 @@
+{
+  "schema": "web.design.contract.v1",
+  "measurement_series": "WEB-DESIGN-RSI-1.0",
+  "target_id": "T-WIRELESS-SITE",
+  "producer_id": "emblem-nlp-producer",
+  "approved_for_production": false,
+  "weights": {
+    "first_impression": 12,
+    "visual_richness": 12,
+    "service_clarity": 12,
+    "navigation_wayfinding": 10,
+    "conversion_paths": 10,
+    "brand_identity": 8,
+    "trust_signals": 8,
+    "information_economy": 8,
+    "typography_hierarchy": 8,
+    "grid_whitespace_rhythm": 6,
+    "mobile_ergonomics": 6
+  },
+  "critical_dimensions": [
+    "first_impression",
+    "visual_richness",
+    "service_clarity",
+    "navigation_wayfinding",
+    "conversion_paths"
+  ],
+  "min_overall_score": 85,
+  "min_dimension_score": 70,
+  "min_page_role_score": 70,
+  "min_promotion_gain": 1,
+  "max_dimension_regression": 3,
+  "pages": {
+    "index.html": "home",
+    "brands.html": "brand_family",
+    "deals.html": "deals",
+    "mobile.html": "mobile",
+    "internet-tv.html": "home_services",
+    "repairs.html": "repairs",
+    "visit.html": "visit"
+  },
+  "required_page_roles": ["home", "brand_family", "deals", "repairs", "visit"],
+  "measure": {
+    "lighthouse_min": { "performance": 90, "accessibility": 100, "best-practices": 95, "seo": 100 },
+    "max_cls": 0.1,
+    "max_lcp_ms": 2500,
+    "max_transfer_kib": 1500,
+    "max_outside_domains": 5,
+    "h1_exactly": 1,
+    "max_type_sizes": 10,
+    "min_text_px": 12,
+    "min_hero_hierarchy_ratio": 2.0,
+    "viewports": { "phone": [390, 844], "small_phone": [360, 740], "desktop": [1440, 900] },
+    "required_text": {
+      "home": ["Bell Authorised Retailer", "647-707-1093", "Virgin Plus", "Lucky Mobile"],
+      "brand_family": ["Bell", "Virgin Plus", "Lucky Mobile", "[Ii]nternet", "TV", "[Hh]ome phone"],
+      "deals": ["deals", "taxes"],
+      "mobile": ["Bell", "Virgin Plus", "Lucky Mobile", "keep your (phone )?number"],
+      "home_services": ["[Ii]nternet", "TV", "[Hh]ome phone"],
+      "repairs": ["[Ss]creen", "[Bb]atter", "quote"],
+      "visit": ["965 Bovaird", "647-707-1093", "10 a\\.m\\. to 8 p\\.m\\."]
+    }
+  }
+}

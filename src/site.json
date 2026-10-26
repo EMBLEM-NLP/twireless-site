@@ -1,0 +1,162 @@
+{
+  "store": {
+    "name": "T Wireless",
+    "tagline": "Bell Authorised Retailer",
+    "street": "965 Bovaird Dr W, Unit 1",
+    "street_long": "965 Bovaird Drive West, Unit 1",
+    "city": "Brampton",
+    "province": "ON",
+    "postal": "L6X 0G3",
+    "country": "CA",
+    "phone_display": "647-707-1093",
+    "phone_e164": "+16477071093",
+    "email": "twireless965@gmail.com",
+    "contact_name": "Ali",
+    "maps_url": "https://www.google.com/maps/search/?api=1&query=T%20Wireless%20965%20Bovaird%20Dr%20W%20Brampton%20ON",
+    "directions_url": "https://www.google.com/maps/dir/?api=1&destination=T%20Wireless%20965%20Bovaird%20Dr%20W%20Brampton%20ON",
+    "reviews_url": "https://www.google.com/maps/search/?api=1&query=T%20Wireless%20Bell%20Authorised%20Retailer%20965%20Bovaird%20Dr%20W%20Brampton",
+    "map_query": "T Wireless, 965 Bovaird Dr W, Brampton, ON",
+    "intersection": "Bovaird Dr W and Chinguacousy Rd",
+    "directions_hint": "South side of Bovaird, just east of Chinguacousy Rd",
+    "rating": { "value": "4.1", "count": 91, "as_of": "2026-10-26", "source": "Google" },
+    "accessible_entrance": true
+  },
+
+  "hours": {
+    "Monday": ["10:00", "20:00"],
+    "Tuesday": ["10:00", "20:00"],
+    "Wednesday": ["10:00", "20:00"],
+    "Thursday": ["10:00", "20:00"],
+    "Friday": ["10:00", "20:00"],
+    "Saturday": ["10:00", "20:00"],
+    "Sunday": ["10:00", "20:00"]
+  },
+
+  "site": {
+    "base_url": "https://www.twireless.ca",
+    "timezone": "America/Toronto",
+    "form_action": "",
+    "booking_url": ""
+  },
+
+  "carriers": [
+    { "id": "bell", "name": "Bell" },
+    { "id": "virgin-plus", "name": "Virgin Plus" },
+    { "id": "lucky-mobile", "name": "Lucky Mobile" }
+  ],
+
+  "family": [
+    {
+      "id": "bell",
+      "name": "Bell",
+      "icon": "i-signal",
+      "art": "art-mobile",
+      "wide": true,
+      "short": "Monthly plans on Bell's mobile network, the latest iPhone and Android phones, and ways to spread out what you pay for your phone."
+    },
+    {
+      "id": "virgin-plus",
+      "name": "Virgin Plus",
+      "icon": "i-gift",
+      "short": "Monthly mobile plans that come with Member Benefits: offers on entertainment, travel, shopping and food at no extra cost."
+    },
+    {
+      "id": "lucky-mobile",
+      "name": "Lucky Mobile",
+      "icon": "i-card",
+      "short": "Prepaid plans on Bell's mobile network, with no credit check and no long-term contract."
+    },
+    {
+      "id": "home",
+      "name": "Bell home services",
+      "icon": "i-wifi",
+      "short": "Bell Internet, Fibe TV, Satellite TV and Home Phone. We check what reaches your address."
+    },
+    {
+      "id": "business",
+      "name": "Bell for business",
+      "icon": "i-briefcase",
+      "short": "Mobile plans and phones for small businesses and their teams."
+    }
+  ],
+
+  "offers": [
+    {
+      "status": "example",
+      "brand": "Bell",
+      "category": "mobile",
+      "title": "New phone on a Bell plan",
+      "price": "$XX/mo",
+      "detail": "Pay for your phone monthly with an eligible Bell plan.",
+      "terms": "Replace with this month's Bell offer and its conditions."
+    },
+    {
+      "status": "example",
+      "brand": "Virgin Plus",
+      "category": "mobile",
+      "title": "Switch to Virgin Plus and keep your number",
+      "price": "$XX/mo",
+      "detail": "Bring your number over from your current provider.",
+      "terms": "Replace with this month's Virgin Plus offer and its conditions."
+    },
+    {
+      "status": "example",
+      "brand": "Lucky Mobile",
+      "category": "mobile",
+      "title": "Prepaid plan with no contract",
+      "price": "$XX/mo",
+      "detail": "Pay before you use it, on Bell's network.",
+      "terms": "Replace with this month's Lucky Mobile offer and its conditions."
+    },
+    {
+      "status": "example",
+      "brand": "Bell",
+      "category": "home",
+      "title": "Bell internet for your home",
+      "price": "$XX/mo",
+      "detail": "We check what's available at your address.",
+      "terms": "Replace with this month's Bell internet offer and its conditions."
+    },
+    {
+      "status": "example",
+      "brand": "T Wireless",
+      "category": "repairs",
+      "title": "Screen repair",
+      "price": "Quote in store",
+      "detail": "Phones and tablets. We price the repair before we start.",
+      "terms": "Replace with your repair offer, or remove this card."
+    }
+  ],
+
+  "repairs": [
+    { "title": "Cracked screens", "icon": "i-crack", "text": "Screen and glass replacement for phones and tablets." },
+    { "title": "Batteries", "icon": "i-battery", "text": "For phones that drain fast, shut off early or have a swollen battery." },
+    { "title": "Charging ports", "icon": "i-plug", "text": "When your phone won't charge or only charges at an angle." },
+    { "title": "Cameras and back glass", "icon": "i-camera", "text": "Blurry photos, a cracked lens or a shattered back." },
+    { "title": "Speakers and microphones", "icon": "i-speaker", "text": "When callers can't hear you, or you can't hear them." },
+    { "title": "Water damage", "icon": "i-drop", "text": "Turn the device off and bring it in as soon as you can." }
+  ],
+
+  "faq": [
+    {
+      "q": "Do I need an appointment?",
+      "a": "No. You can walk in {{ hours_phrase }}. If you book a visit, we can set time aside for you."
+    },
+    {
+      "q": "Can I keep my number if I switch providers?",
+      "a": "Yes. In Canada you can keep your number when you change providers. Bring photo ID and your current account number, and don't cancel your old plan first: moving your number ends that service for you."
+    },
+    {
+      "q": "Is T Wireless a Bell store?",
+      "a": "We're a Bell Authorised Retailer. We sell Bell, Virgin Plus and Lucky Mobile plans and phones, and Bell internet, TV and home phone."
+    },
+    {
+      "q": "Can you fix my phone or tablet?",
+      "a": "We repair screens, batteries, charging ports, cameras and more. Tell us your model and the problem, and we'll quote the repair before we start."
+    },
+    {
+      "q": "Is the store wheelchair accessible?",
+      "a": "Yes. The store has a wheelchair-accessible entrance."
+    }
+  ]
+}

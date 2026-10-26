@@ -1,0 +1,16 @@
+<aside class="store-card" aria-label="Store details">
+  <p class="status" data-hours="{{ hours_json }}" data-tz="{{ site.timezone }}">
+    <span class="status__sign is-pending">Open</span>
+    <span class="status__text">{{ hours_summary }}</span>
+  </p>
+  <ul class="store-card__list">
+    <li><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg><span>{{ store.street }}<br>{{ store.city }}, {{ store.province }} {{ store.postal }}</span></li>
+    <li><svg class="icon" aria-hidden="true"><use href="#i-call"></use></svg><a href="tel:{{ store.phone_e164 }}">{{ store.phone_display }}</a></li>
+    <li><svg class="icon" aria-hidden="true"><use href="#i-mail"></use></svg><a href="mailto:{{ store.email }}">{{ store.email }}</a></li>
+    <li><svg class="icon" aria-hidden="true"><use href="#i-access"></use></svg><span>Wheelchair-accessible entrance</span></li>
+  </ul>
+  <div class="store-card__actions">
+    <a class="btn btn--light" href="{{ store.directions_url }}">Get directions</a>
+    <a class="btn btn--outline-light" href="{{ booking_href }}">Book a visit</a>
+  </div>
+</aside>

@@ -1,0 +1,207 @@
+{
+  "schema": "web.design.promotion.v1",
+  "measurement_series": "WEB-DESIGN-RSI-1.0",
+  "target_id": "T-WIRELESS-SITE",
+  "incumbent_sha256": "520252556979814c626a5e71bd9801eb7c0e3c422f15e0a5b6a59189c7bb40ad",
+  "candidate_sha256": "35fced9a610ba7decc5c8f9e50e4b33775adbc595d38d7528da78aa47bc0fde5",
+  "incumbent_score": 57.2,
+  "candidate_score": 86.0,
+  "gain": 28.8,
+  "measured_failures_incumbent": 3,
+  "measured_failures_candidate": 0,
+  "dimension_regressions": {},
+  "promoted": true,
+  "status": "DIAGNOSTIC_PROMOTED_RELEASE_BLOCKED",
+  "candidate_release_eligible": false,
+  "candidate_release_blockers": [
+    "Independent reviewer evidence not supplied.",
+    "Design contract is not approved_for_production."
+  ],
+  "incumbent": {
+    "schema": "web.design.result.v1",
+    "measurement_series": "WEB-DESIGN-RSI-1.0",
+    "target_id": "T-WIRELESS-SITE",
+    "candidate_sha256": "520252556979814c626a5e71bd9801eb7c0e3c422f15e0a5b6a59189c7bb40ad",
+    "reviewer_id": "emblem-nlp-producer",
+    "reviewer_role": "producer_diagnostic",
+    "independent_review": false,
+    "measured_checks_failed": 3,
+    "measured_failed_checks": [
+      {
+        "id": "type_scale_discipline",
+        "page": "index.html",
+        "viewport": "phone",
+        "pass": false,
+        "measured": 13,
+        "threshold": 10
+      },
+      {
+        "id": "page_present",
+        "page": "brands.html",
+        "viewport": null,
+        "pass": false,
+        "measured": false,
+        "threshold": true
+      },
+      {
+        "id": "type_scale_discipline",
+        "page": "deals.html",
+        "viewport": "phone",
+        "pass": false,
+        "measured": 11,
+        "threshold": 10
+      }
+    ],
+    "declaration_blockers": [
+      "missing required page role: brand_family"
+    ],
+    "dimension_scores": {
+      "first_impression": 50.0,
+      "visual_richness": 30.0,
+      "service_clarity": 50.0,
+      "navigation_wayfinding": 70.0,
+      "conversion_paths": 70.0,
+      "brand_identity": 60.0,
+      "trust_signals": 50.0,
+      "information_economy": 70.0,
+      "typography_hierarchy": 60.0,
+      "grid_whitespace_rhythm": 60.0,
+      "mobile_ergonomics": 80.0
+    },
+    "overall_score": 57.2,
+    "page_role_scores": [
+      {
+        "role": "home",
+        "page": "index.html",
+        "score": 66.0
+      },
+      {
+        "role": "deals",
+        "page": "deals.html",
+        "score": 62.0
+      },
+      {
+        "role": "mobile",
+        "page": "mobile.html",
+        "score": 66.0
+      },
+      {
+        "role": "home_services",
+        "page": "internet-tv.html",
+        "score": 62.0
+      },
+      {
+        "role": "repairs",
+        "page": "repairs.html",
+        "score": 70.0
+      },
+      {
+        "role": "visit",
+        "page": "visit.html",
+        "score": 74.0
+      }
+    ],
+    "weakest_dimension": "visual_richness",
+    "weakest_dimension_score": 30.0,
+    "gates": {
+      "measured_layer": false,
+      "evidence_complete": false,
+      "overall": false,
+      "critical_dimensions": false,
+      "page_roles": false,
+      "accuracy": true
+    },
+    "diagnostic_pass": false,
+    "release_eligible": false,
+    "blockers": [
+      "missing required page-role review: brand_family"
+    ],
+    "release_blockers": [
+      "Independent reviewer evidence not supplied.",
+      "Design contract is not approved_for_production.",
+      "Design diagnostic gates are not all passing."
+    ],
+    "score_note": "Review-derived design score plus Lighthouse and Playwright measurements; not a visitor-behaviour measurement."
+  },
+  "candidate": {
+    "schema": "web.design.result.v1",
+    "measurement_series": "WEB-DESIGN-RSI-1.0",
+    "target_id": "T-WIRELESS-SITE",
+    "candidate_sha256": "35fced9a610ba7decc5c8f9e50e4b33775adbc595d38d7528da78aa47bc0fde5",
+    "reviewer_id": "emblem-nlp-producer",
+    "reviewer_role": "producer_diagnostic",
+    "independent_review": false,
+    "measured_checks_failed": 0,
+    "measured_failed_checks": [],
+    "declaration_blockers": [],
+    "dimension_scores": {
+      "first_impression": 90.0,
+      "visual_richness": 85.0,
+      "service_clarity": 90.0,
+      "navigation_wayfinding": 85.0,
+      "conversion_paths": 80.0,
+      "brand_identity": 90.0,
+      "trust_signals": 80.0,
+      "information_economy": 80.0,
+      "typography_hierarchy": 90.0,
+      "grid_whitespace_rhythm": 85.0,
+      "mobile_ergonomics": 90.0
+    },
+    "overall_score": 86.0,
+    "page_role_scores": [
+      {
+        "role": "home",
+        "page": "index.html",
+        "score": 88.0
+      },
+      {
+        "role": "brand_family",
+        "page": "brands.html",
+        "score": 90.0
+      },
+      {
+        "role": "deals",
+        "page": "deals.html",
+        "score": 84.0
+      },
+      {
+        "role": "mobile",
+        "page": "mobile.html",
+        "score": 86.0
+      },
+      {
+        "role": "home_services",
+        "page": "internet-tv.html",
+        "score": 88.0
+      },
+      {
+        "role": "repairs",
+        "page": "repairs.html",
+        "score": 88.0
+      },
+      {
+        "role": "visit",
+        "page": "visit.html",
+        "score": 88.0
+      }
+    ],
+    "weakest_dimension": "conversion_paths",
+    "weakest_dimension_score": 80.0,
+    "gates": {
+      "measured_layer": true,
+      "evidence_complete": true,
+      "overall": true,
+      "critical_dimensions": true,
+      "page_roles": true,
+      "accuracy": true
+    },
+    "diagnostic_pass": true,
+    "release_eligible": false,
+    "blockers": [],
+    "release_blockers": [
+      "Independent reviewer evidence not supplied.",
+      "Design contract is not approved_for_production."
+    ],
+    "score_note": "Review-derived design score plus Lighthouse and Playwright measurements; not a visitor-behaviour measurement."
+  }
+}

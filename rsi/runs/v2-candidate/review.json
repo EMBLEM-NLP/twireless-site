@@ -1,0 +1,337 @@
+{
+  "schema": "web.design.review.v1",
+  "measurement_series": "WEB-DESIGN-RSI-1.0",
+  "target_id": "T-WIRELESS-SITE",
+  "candidate_sha256": "649b703be7069e19fa17c38cef601444cded4d07a66cddcca169f537c4343ffe",
+  "reviewer_id": "emblem-nlp-producer",
+  "reviewer_role": "producer_diagnostic",
+  "ratings": {
+    "first_impression": {
+      "score": 4.5,
+      "status": "reviewed",
+      "rationale": "Navy hero under the awning with a live neon Open/Closed sign, a large serif headline that names the street, an illustrated T Wireless storefront and a trust ribbon. The first screen says what the store is, where it is and whether it is open.",
+      "evidence": [
+        {
+          "path": "evidence/index-phone.png",
+          "sha256": "81b4a3c1caf85e4bbde4a6b75c8647e0eaec3db07600e1ac5c8957a09ff9b61e"
+        },
+        {
+          "path": "evidence/index-desktop.png",
+          "sha256": "35cba5c01bcb9c6926d4f08356e800210bb972f7be7b4ba77f5e825c1ff10348"
+        }
+      ]
+    },
+    "visual_richness": {
+      "score": 4.0,
+      "status": "reviewed",
+      "rationale": "Storefront illustration, illustrated deal cards, repair and Fibe TV illustrations, icon sets and a drawn map make the home page and feature sections rich. Inner page headers are still text-only bands, so each inner page opens without a visual.",
+      "evidence": [
+        {
+          "path": "evidence/index-phone.png",
+          "sha256": "81b4a3c1caf85e4bbde4a6b75c8647e0eaec3db07600e1ac5c8957a09ff9b61e"
+        },
+        {
+          "path": "evidence/index-desktop.png",
+          "sha256": "35cba5c01bcb9c6926d4f08356e800210bb972f7be7b4ba77f5e825c1ff10348"
+        }
+      ]
+    },
+    "service_clarity": {
+      "score": 4.5,
+      "status": "reviewed",
+      "rationale": "New Bell family page with an at-a-glance table and a section per brand: Bell SmartPay and Device Return Option, Virgin Plus Member Benefits and the Ontario home-services change, Lucky Mobile prepaid terms, Bell home services and business. Home and Mobile pages link into it.",
+      "evidence": [
+        {
+          "path": "evidence/index-phone.png",
+          "sha256": "81b4a3c1caf85e4bbde4a6b75c8647e0eaec3db07600e1ac5c8957a09ff9b61e"
+        },
+        {
+          "path": "evidence/index-desktop.png",
+          "sha256": "35cba5c01bcb9c6926d4f08356e800210bb972f7be7b4ba77f5e825c1ff10348"
+        }
+      ]
+    },
+    "navigation_wayfinding": {
+      "score": 4.0,
+      "status": "reviewed",
+      "rationale": "Six-item menu with the Bell family page, jump links on that page, consistent footer links, cross-links between pages and the phone action bar. The phone menu still wraps to two rows.",
+      "evidence": [
+        {
+          "path": "evidence/index-phone.png",
+          "sha256": "81b4a3c1caf85e4bbde4a6b75c8647e0eaec3db07600e1ac5c8957a09ff9b61e"
+        },
+        {
+          "path": "evidence/index-desktop.png",
+          "sha256": "35cba5c01bcb9c6926d4f08356e800210bb972f7be7b4ba77f5e825c1ff10348"
+        }
+      ]
+    },
+    "conversion_paths": {
+      "score": 4.0,
+      "status": "reviewed",
+      "rationale": "Primary call to action is visible in the first phone screen, every page ends in a call or booking band, and the action bar stays on screen. Deal cards are still example placeholders until the owner adds real offers.",
+      "evidence": [
+        {
+          "path": "evidence/index-phone.png",
+          "sha256": "81b4a3c1caf85e4bbde4a6b75c8647e0eaec3db07600e1ac5c8957a09ff9b61e"
+        },
+        {
+          "path": "evidence/index-desktop.png",
+          "sha256": "35cba5c01bcb9c6926d4f08356e800210bb972f7be7b4ba77f5e825c1ff10348"
+        }
+      ]
+    },
+    "brand_identity": {
+      "score": 4.5,
+      "status": "reviewed",
+      "rationale": "Bell blue with the T Wireless red used for the awning trim, neon sign and map pin; the awning, storefront and signal arcs carry one consistent store identity across every page.",
+      "evidence": [
+        {
+          "path": "evidence/index-phone.png",
+          "sha256": "81b4a3c1caf85e4bbde4a6b75c8647e0eaec3db07600e1ac5c8957a09ff9b61e"
+        },
+        {
+          "path": "evidence/index-desktop.png",
+          "sha256": "35cba5c01bcb9c6926d4f08356e800210bb972f7be7b4ba77f5e825c1ff10348"
+        }
+      ]
+    },
+    "trust_signals": {
+      "score": 4.0,
+      "status": "reviewed",
+      "rationale": "Trust ribbon with Bell Authorised Retailer, the Google rating, hours and the accessible entrance; phone, email and address on every page; sourced brand facts with a terms note. Example deals still read as unfinished.",
+      "evidence": [
+        {
+          "path": "evidence/index-phone.png",
+          "sha256": "81b4a3c1caf85e4bbde4a6b75c8647e0eaec3db07600e1ac5c8957a09ff9b61e"
+        },
+        {
+          "path": "evidence/index-desktop.png",
+          "sha256": "35cba5c01bcb9c6926d4f08356e800210bb972f7be7b4ba77f5e825c1ff10348"
+        }
+      ]
+    },
+    "information_economy": {
+      "score": 4.0,
+      "status": "reviewed",
+      "rationale": "Copy stays short and specific. Some facts repeat across pages (SmartPay on Deals, Mobile and Bell family; switching steps on Home and Mobile), which helps standalone pages but adds length.",
+      "evidence": [
+        {
+          "path": "evidence/index-phone.png",
+          "sha256": "81b4a3c1caf85e4bbde4a6b75c8647e0eaec3db07600e1ac5c8957a09ff9b61e"
+        },
+        {
+          "path": "evidence/index-desktop.png",
+          "sha256": "35cba5c01bcb9c6926d4f08356e800210bb972f7be7b4ba77f5e825c1ff10348"
+        }
+      ]
+    },
+    "typography_hierarchy": {
+      "score": 4.5,
+      "status": "reviewed",
+      "rationale": "Seven type sizes on phones (down from 13), one serif for headings and one sans for text, clear heading, lead and body steps, and balanced headings.",
+      "evidence": [
+        {
+          "path": "evidence/index-phone.png",
+          "sha256": "81b4a3c1caf85e4bbde4a6b75c8647e0eaec3db07600e1ac5c8957a09ff9b61e"
+        },
+        {
+          "path": "evidence/index-desktop.png",
+          "sha256": "35cba5c01bcb9c6926d4f08356e800210bb972f7be7b4ba77f5e825c1ff10348"
+        }
+      ]
+    },
+    "grid_whitespace_rhythm": {
+      "score": 4.0,
+      "status": "reviewed",
+      "rationale": "Alternating white and mist bands with consistent card and section spacing. Desktop inner pages are better filled, but the deals grid leaves an empty slot in its second row and some page headers have empty right halves.",
+      "evidence": [
+        {
+          "path": "evidence/index-phone.png",
+          "sha256": "81b4a3c1caf85e4bbde4a6b75c8647e0eaec3db07600e1ac5c8957a09ff9b61e"
+        },
+        {
+          "path": "evidence/index-desktop.png",
+          "sha256": "35cba5c01bcb9c6926d4f08356e800210bb972f7be7b4ba77f5e825c1ff10348"
+        }
+      ]
+    },
+    "mobile_ergonomics": {
+      "score": 4.5,
+      "status": "reviewed",
+      "rationale": "No horizontal overflow at 360 or 390 pixels, the main button is visible above the action bar, tap targets are large and the compare table fits without scrolling.",
+      "evidence": [
+        {
+          "path": "evidence/index-phone.png",
+          "sha256": "81b4a3c1caf85e4bbde4a6b75c8647e0eaec3db07600e1ac5c8957a09ff9b61e"
+        },
+        {
+          "path": "evidence/index-desktop.png",
+          "sha256": "35cba5c01bcb9c6926d4f08356e800210bb972f7be7b4ba77f5e825c1ff10348"
+        }
+      ]
+    }
+  },
+  "page_roles": [
+    {
+      "id": "role-home",
+      "role": "home",
+      "page": "index.html",
+      "ratings": {
+        "purpose_clarity": 4.5,
+        "hierarchy": 4.5,
+        "consistency": 4.5,
+        "legibility": 4.5,
+        "information_gain": 4.0
+      },
+      "evidence": [
+        {
+          "path": "evidence/index-phone.png",
+          "sha256": "81b4a3c1caf85e4bbde4a6b75c8647e0eaec3db07600e1ac5c8957a09ff9b61e"
+        },
+        {
+          "path": "evidence/index-desktop.png",
+          "sha256": "35cba5c01bcb9c6926d4f08356e800210bb972f7be7b4ba77f5e825c1ff10348"
+        }
+      ]
+    },
+    {
+      "id": "role-brand_family",
+      "role": "brand_family",
+      "page": "brands.html",
+      "ratings": {
+        "purpose_clarity": 4.5,
+        "hierarchy": 4.0,
+        "consistency": 4.5,
+        "legibility": 4.5,
+        "information_gain": 4.5
+      },
+      "evidence": [
+        {
+          "path": "evidence/brands-phone.png",
+          "sha256": "0a56162b44bfbce1fce746daf06481b06ce507cd1de505140b52a15016850e4e"
+        },
+        {
+          "path": "evidence/brands-desktop.png",
+          "sha256": "7612d76febeec866f8cb2afece0dc922ac2b9743e5f6721d03010d53df36d19d"
+        }
+      ]
+    },
+    {
+      "id": "role-deals",
+      "role": "deals",
+      "page": "deals.html",
+      "ratings": {
+        "purpose_clarity": 4.0,
+        "hierarchy": 4.0,
+        "consistency": 4.5,
+        "legibility": 4.5,
+        "information_gain": 3.5
+      },
+      "evidence": [
+        {
+          "path": "evidence/deals-phone.png",
+          "sha256": "1557daa0e39c140ccc56282b9df75279a24a1156929775f3f7a83eb5c3ed08f8"
+        },
+        {
+          "path": "evidence/deals-desktop.png",
+          "sha256": "79792bb5b8eb9e9371bd10840c72cb439a110b77791befe05d628cec5e8b84a4"
+        }
+      ]
+    },
+    {
+      "id": "role-mobile",
+      "role": "mobile",
+      "page": "mobile.html",
+      "ratings": {
+        "purpose_clarity": 4.0,
+        "hierarchy": 4.0,
+        "consistency": 4.5,
+        "legibility": 4.5,
+        "information_gain": 4.0
+      },
+      "evidence": [
+        {
+          "path": "evidence/mobile-phone.png",
+          "sha256": "94bcc4cb1b74acb1a13b234c2ea819d371e9a2bf16621270b62f08030e83eb69"
+        },
+        {
+          "path": "evidence/mobile-desktop.png",
+          "sha256": "f7a1e3d2337f6c263ea0b00cfee09b40ef7629b705056e15bbd773c24778e6c2"
+        }
+      ]
+    },
+    {
+      "id": "role-home_services",
+      "role": "home_services",
+      "page": "internet-tv.html",
+      "ratings": {
+        "purpose_clarity": 4.5,
+        "hierarchy": 4.0,
+        "consistency": 4.5,
+        "legibility": 4.5,
+        "information_gain": 4.0
+      },
+      "evidence": [
+        {
+          "path": "evidence/internet-tv-phone.png",
+          "sha256": "b54fa4be2a56372e2a17660809738f6d8edd01cc6c69d640933ee409defc3d1d"
+        },
+        {
+          "path": "evidence/internet-tv-desktop.png",
+          "sha256": "d380ca6f9163db7088acdd6e0f7338406a63252c1b7ae58d024acfb180ec37ee"
+        }
+      ]
+    },
+    {
+      "id": "role-repairs",
+      "role": "repairs",
+      "page": "repairs.html",
+      "ratings": {
+        "purpose_clarity": 4.5,
+        "hierarchy": 4.0,
+        "consistency": 4.5,
+        "legibility": 4.5,
+        "information_gain": 4.0
+      },
+      "evidence": [
+        {
+          "path": "evidence/repairs-phone.png",
+          "sha256": "0e368f9fa9044269f85a1234bb24615d2e2f5a290f6d5d6fbabfe49270002047"
+        },
+        {
+          "path": "evidence/repairs-desktop.png",
+          "sha256": "2de7459f6d9c28fdb5d3059a86b8c8ae6991cfc9d8db571b779618330440b921"
+        }
+      ]
+    },
+    {
+      "id": "role-visit",
+      "role": "visit",
+      "page": "visit.html",
+      "ratings": {
+        "purpose_clarity": 4.5,
+        "hierarchy": 4.0,
+        "consistency": 4.5,
+        "legibility": 4.5,
+        "information_gain": 4.0
+      },
+      "evidence": [
+        {
+          "path": "evidence/visit-phone.png",
+          "sha256": "aa70ad3dfe60f4ccfae9e106827d87b34f810f45704f37e0ad1e035e2a2ca801"
+        },
+        {
+          "path": "evidence/visit-desktop.png",
+          "sha256": "c0b2d6a04da71433834b0f0f7eb278729b633e746bd82751b20d28dff4857d7e"
+        }
+      ]
+    }
+  ],
+  "accuracy_gate": {
+    "content_matches_sources": true,
+    "no_fabricated_offers_or_reviews": true,
+    "unverified_flagged_for_owner": true
+  },
+  "notes": "Producer diagnostic review of iteration 1 of the redesign by the agent that built it. Not independent. Brand facts checked against bell.ca, support.bell.ca, iPhone in Canada, MobileSyrup, WhistleOut and PlanHub on 2026-10-26. Offers are labelled examples; the rating is the Google listing figure on 2026-10-26."
+}

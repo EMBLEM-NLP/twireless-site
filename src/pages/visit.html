@@ -1,0 +1,94 @@
+<!--page
+{
+  "title": "Visit T Wireless at 965 Bovaird Dr W, Brampton",
+  "description": "T Wireless is at 965 Bovaird Dr W, Unit 1, Brampton, open every day from 10 a.m. to 8 p.m. Call 647-707-1093, email twireless965@gmail.com or book a visit.",
+  "nav": "visit"
+}
+-->
+<main id="main">
+  <section class="page-hero">
+    <div class="wrap page-hero__grid">
+      <div>
+        <h1>Visit T Wireless</h1>
+        <p class="lead">Find us at {{ store.street_long }} in {{ store.city }}, on the south side of Bovaird just east of Chinguacousy Road. We&#8217;re open {{ hours_phrase }}.</p>
+      </div>
+      <div class="page-hero__art"><svg viewBox="0 0 320 220" aria-hidden="true" focusable="false"><use href="#art-visit"></use></svg></div>
+    </div>
+  </section>
+
+  <section class="section section--tight" aria-labelledby="where-title">
+    <div class="wrap split">
+      <div>
+        <h2 id="where-title" class="visually-hidden">Where we are</h2>
+        {{{ store_card }}}
+      </div>
+      {{{ map }}}
+    </div>
+  </section>
+
+  <section class="section band" aria-labelledby="hours-title">
+    <div class="wrap split">
+      <div>
+        <h2 id="hours-title">Store hours</h2>
+        <table class="hours">
+          <caption class="visually-hidden">Store hours</caption>
+          <tbody>
+            {{{ hours_rows }}}
+          </tbody>
+        </table>
+      </div>
+      <div>
+        <h2>Before you come</h2>
+        <ul class="checklist">
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg><span>For a new plan or a switch, bring government-issued photo ID.</span></li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg><span>Switching providers? Bring your current account number.</span></li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg><span>Getting a repair? Back up your phone first if you can.</span></li>
+        </ul>
+        <p><a href="{{ store.reviews_url }}">Read our Google reviews</a> ({{ store.rating.value }} stars from {{ store.rating.count }} reviews)</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="book" aria-labelledby="book-title">
+    <div class="wrap split">
+      <div>
+        <h2 id="book-title">Book a visit</h2>
+        <p>Tell us what you need and when suits you. We'll call to confirm a time.</p>
+        <p>Prefer to talk? Call {{ store.contact_name }} at <a href="tel:{{ store.phone_e164 }}">{{ store.phone_display }}</a>, or email <a href="mailto:{{ store.email }}">{{ store.email }}</a>.</p>
+      </div>
+      <form class="form" name="visit" method="post" {{{ form_attrs }}}>
+        <input type="hidden" name="form-name" value="visit">
+        <p class="visually-hidden"><label>Leave this field empty <input type="text" name="company" tabindex="-1" autocomplete="off"></label></p>
+        <div class="field">
+          <label for="v-name">Your name</label>
+          <input id="v-name" name="name" type="text" autocomplete="name" required>
+        </div>
+        <div class="field">
+          <label for="v-phone">Phone number</label>
+          <input id="v-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required>
+        </div>
+        <div class="field">
+          <label for="v-reason">What do you need help with?</label>
+          <select id="v-reason" name="reason">
+            <option>A new phone or plan</option>
+            <option>Switching providers</option>
+            <option>Internet and TV at home</option>
+            <option>A repair</option>
+            <option>Something else</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="v-when">Preferred day and time</label>
+          <input id="v-when" name="when" type="text" aria-describedby="v-when-hint">
+          <p class="hint" id="v-when-hint">For example, Saturday afternoon.</p>
+        </div>
+        <div class="field">
+          <label for="v-notes">Anything else we should know? <span class="optional">(optional)</span></label>
+          <textarea id="v-notes" name="notes" rows="3"></textarea>
+        </div>
+        <button class="btn btn--primary" type="submit">Request a visit</button>
+        <p class="hint">We use your details only to reply to this request. <a href="privacy.html">Privacy</a></p>
+      </form>
+    </div>
+  </section>
+</main>
