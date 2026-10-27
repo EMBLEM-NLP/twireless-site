@@ -480,6 +480,22 @@ def retouch(im: Image.Image, fixes: list) -> Image.Image:
     return Image.fromarray(cv2.cvtColor(out, cv2.COLOR_BGR2RGB))
 
 
+def tone(im: Image.Image, spec: dict) -> Image.Image:
+    """Map the photo's tones onto a three-colour palette (shadows, mid-tones, highlights) and blend the
+    result with the original by `strength`. For a photo whose colours fight the rest of a design (a blue
+    dusk sky, a green lawn) this pulls it towards the design's own warmth without turning it into a duotone."""
+    import numpy as np
+    strength = min(max(float(spec.get("strength", 0.5)), 0.0), 1.0)
+    dark = np.array(spec.get("dark", [20, 8, 12]), np.float32)
+    mid = np.array(spec.get("mid", [120, 60, 52]), np.float32)
+    light = np.array(spec.get("light", [240, 214, 170]), np.float32)
+    g = np.asarray(ImageOps.grayscale(im), np.float32)[..., None] / 255.0
+    mapped = np.where(g < 0.5, dark + (mid - dark) * np.clip(g / 0.5, 0, 1),
+                      mid + (light - mid) * np.clip((g - 0.5) / 0.5, 0, 1))
+    base = np.asarray(im.convert("RGB"), np.float32)
+    return Image.fromarray(np.clip(base * (1 - strength) + mapped * strength, 0, 255).astype(np.uint8))
+
+
 def grade(im: Image.Image, g: dict) -> Image.Image:
     if g.get("saturation", 1) != 1:
         im = ImageEnhance.Color(im).enhance(g["saturation"])
@@ -487,6 +503,8 @@ def grade(im: Image.Image, g: dict) -> Image.Image:
         im = ImageEnhance.Contrast(im).enhance(g["contrast"])
     if g.get("brightness", 1) != 1:
         im = ImageEnhance.Brightness(im).enhance(g["brightness"])
+    if g.get("tone"):
+        im = tone(im, g["tone"])
     return im
 
 

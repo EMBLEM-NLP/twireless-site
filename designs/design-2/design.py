@@ -20,6 +20,10 @@ SIZES = {
     "card": "(min-width: 900px) 360px, calc(100vw - 32px)",
     "tile": "(min-width: 900px) 360px, calc(100vw - 32px)",
     "thumb": "104px",
+    # A card on the Deals page is a row with a small photo on a phone and a full card from 600px up.
+    "dealcard": "(min-width: 1100px) 360px, (min-width: 900px) 400px, (min-width: 600px) calc(50vw - 40px), 120px",
+    # The store's own offer stacks on a phone, so its photo runs the full width of the card there.
+    "dealown": "(min-width: 1100px) 360px, (min-width: 900px) 400px, (min-width: 600px) calc(50vw - 40px), calc(100vw - 32px)",
 }
 ICON = '<svg class="icon" aria-hidden="true"><use href="#{0}"></use></svg>'
 
@@ -85,21 +89,26 @@ def extend(p, kit):
         text = {k: kit["render"](str(offer.get(k, "")), p, "offer", escape=False)
                 for k in ("brand", "title", "price", "detail", "terms")}
         carrier = logos.by_name.get(text["brand"])
-        mark = (plate(carrier["id"], cls="plate plate--on-photo" if with_photo else "plate") if carrier
-                else t_wireless_plate(root, "plate plate--on-photo" if with_photo else "plate"))
+        photo_id = OFFER_PHOTO.get((text["brand"], offer.get("category"))) if with_photo else None
+        # A carrier's logo sits on its photo (a hand, a crowd, a room: nobody recognisable). The store's own wordmark
+        # never goes over a stock photo, which would make the photo look like the shop's own work; it heads the card,
+        # as does any logo on an offer that has no photo.
+        on_photo = bool(photo_id) and carrier is not None
+        if carrier:
+            mark = plate(carrier["id"], cls="plate plate--on-photo" if on_photo else "plate")
+        else:
+            mark = t_wireless_plate(root, "plate")
         example = offer.get("status") == "example"
         media = ""
-        photo_id = OFFER_PHOTO.get((text["brand"], offer.get("category")))
-        if with_photo and photo_id:
+        if photo_id:
             crop = "16x9" if "16x9" in photos.m["photos"][photo_id]["crops"] else "16x10"
-            media = f'  <div class="deal__media">{pic(photo_id, crop, "card", alt="", priority=first)}{mark}</div>\n'
-        elif with_photo:
-            media = f'  <div class="deal__media deal__media--plain">{mark}</div>\n'
+            media = f'  <div class="deal__media">{pic(photo_id, crop, "dealcard" if carrier else "dealown", alt="", priority=first)}{mark if on_photo else ""}</div>\n'
         badge = '    <p class="deal__badge">Example offer</p>\n' if example else ""
         # An example card's terms are a note to the store ("Replace with this month's offer"), not something to show.
         terms = f'    <p class="deal__terms">{esc(text["terms"])}</p>\n' if text["terms"] and not example else ""
-        head_mark = "" if with_photo else f"    {mark}\n"
-        return (f'<article class="offer deal{" deal--example" if example else ""}" data-category="{esc(offer.get("category", "other"))}">\n'
+        head_mark = "" if on_photo else f"    {mark}\n"
+        own = " deal--own" if carrier is None else ""
+        return (f'<article class="offer deal{own}{" deal--example" if example else ""}" data-category="{esc(offer.get("category", "other"))}">\n'
                 f'{media}'
                 f'  <div class="deal__body">\n{head_mark}{badge}'
                 f'    <h3 class="deal__title">{esc(text["title"])}</h3>\n'
@@ -115,11 +124,12 @@ def extend(p, kit):
     # The same three logos on a plate of their own, for the top of the Compare plans page.
     provider_strip = f'<div class="provider-strip"><ul>{bar}</ul></div>'
 
-    repair_items = "\n".join(
-        f'<li>{ICON.format(esc(r.get("icon", "i-wrench")))}<div><h3>{esc(r["title"])}</h3>'
-        f'<p>{esc(kit["render"](r["text"], p, "repairs", escape=False))}</p></div></li>' for r in data["repairs"])
-    repair_names = "\n".join(
-        f'<li>{ICON.format(esc(r.get("icon", "i-check")))}<span>{esc(r["title"])}</span></li>' for r in data["repairs"])
+    # The repair list as table rows: the fault, what you notice, what the store does about it. On a phone the
+    # table's CSS stacks each row into a card, so every cell carries its column name in data-label.
+    repair_rows = "\n".join(
+        f'<tr><th scope="row">{esc(r["title"])}</th>'
+        f'<td data-label="You notice">{esc(kit["render"](r["notice"], p, "repairs", escape=False))}</td>'
+        f'<td data-label="We do">{esc(kit["render"](r["fix"], p, "repairs", escape=False))}</td></tr>' for r in data["repairs"])
 
     credits = []
     for c in photos.credits():
@@ -147,15 +157,17 @@ def extend(p, kit):
         "providers": providers,
         "names": names,
         "deals_preview": "\n".join(deal(o, False) for o in data["offers"][:3]),
-        "deals_all": "\n".join(deal(o, True, first=(i == 0)) for i, o in enumerate(data["offers"])),
-        "repair_items": repair_items,
-        "repair_names": repair_names,
+        "deals_all": "\n".join(deal(o, True) for o in data["offers"]),
+        "repair_rows": repair_rows,
         "credits_list": "\n".join(credits),
         "hero_plates": hero_plates,
         "provider_strip": provider_strip,
         "pic": {
             "hero": pic("hand-blue-phone", "4x5", "hero", cls="hero__photo", priority=True),
             "living_wide": pic("living-room", "16x10", "wide"),
+            "hand_bill": pic("seniors-phone", "16x10", "card", alt=""),
+            "hand_repair": pic("cracked-screen", "16x9", "card", alt=""),
+            "hand_home": pic("living-room", "16x10", "card", alt=""),
             "family_wide_top": pic("family-tv", "16x10", "wide", priority=True),
             "repair_wide": pic("repair-mat", "16x10", "wide"),
             "repair_wide_top": pic("repair-mat", "16x10", "wide", priority=True),

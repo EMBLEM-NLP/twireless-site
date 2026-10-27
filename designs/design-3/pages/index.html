@@ -1,7 +1,7 @@
 <!--page
 {
-  "title": "Choose a handset and a plan in person | T Wireless, Brampton",
-  "description": "Handsets and plans from Bell, Virgin Plus and Lucky Mobile, home internet and TV, and repairs, all at 965 Bovaird Dr W, Brampton. Come in any day from 10 a.m. to 8 p.m.",
+  "title": "Phones and plans, explained in person | T Wireless, Brampton",
+  "description": "Bell Authorised Retailer at 965 Bovaird Dr W, Brampton: plans from Bell, Virgin Plus and Lucky Mobile, home internet and TV, and phone repairs. Open every day.",
   "nav": "index",
   "body_class": "page-home"
 }
@@ -15,153 +15,86 @@
       </div>
       <div class="wrap hero__wrap">
         <div class="hero__text">
-          <h1 id="hero-title">Choose your next phone without the rush.</h1>
-          <p class="lead">Handsets and plans from Bell, Virgin Plus and Lucky Mobile, talked through with your own bill beside us. This is T Wireless, a Bell Authorised Retailer on Bovaird Drive West.</p>
+          <h1 id="hero-title">Phones and plans, explained in person.</h1>
+          <p class="lead">A Bell Authorised Retailer in Brampton. Plans from Bell, Virgin Plus and Lucky Mobile, home internet and TV, and phone repairs.</p>
           <div class="buttons">
             <a class="button" href="tel:{{ store.phone_e164 }}"><svg class="icon" aria-hidden="true"><use href="#i-call"></use></svg>Call {{ store.phone_display }}</a>
-            <a class="button button--line" href="deals.html">See current offers</a>
+            <a class="button button--line" href="{{ store.directions_url }}">Directions</a>
           </div>
-          <p class="status" data-hours="{{ hours_json }}" data-tz="{{ site.timezone }}">
-            <span class="status__sign is-pending">Open</span>
-            <span class="status__text">{{ hours_summary }}</span>
-          </p>
           {{{ hero_plates }}}
         </div>
       </div>
     </div>
   </section>
 
-  <div class="wrap">
-    <ul class="credentials" aria-label="About the store">
-      <li><svg class="icon" aria-hidden="true"><use href="#i-shield"></use></svg><span>Bell Authorised Retailer</span></li>
-      <li><svg class="icon" aria-hidden="true"><use href="#i-star"></use></svg><a href="{{ store.reviews_url }}">Averaging {{ store.rating.value }} stars on Google, from {{ store.rating.count }} reviews ({{ store.rating.as_of_text }})</a></li>
-      <li><svg class="icon" aria-hidden="true"><use href="#i-access"></use></svg><span>Wheelchair-accessible entrance</span></li>
-    </ul>
-  </div>
-
-  <section class="section" aria-labelledby="handsets-title">
-    <div class="wrap spread">
-      <figure class="frame spread__media">{{{ pic.wood }}}</figure>
-      <div class="spread__text">
-        <h2 id="handsets-title">A handset chosen with someone beside you</h2>
-        <p>Ask for a model by name and we will check, before you set out, that it is in the store. iPhone and Android handsets are both available.</p>
-        <p>Bell SmartPay and the Device Return Option can spread or defer what a handset costs, and a plan can just as well be set up on the handset you already own. The Handsets page sets out how each works and what Bell asks of you.</p>
-        <div class="buttons">
-          <a class="button" href="mobile.html">Handsets and plans</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section section--raised" aria-labelledby="providers-title">
+  <section class="section" aria-labelledby="counters-title">
     <div class="wrap">
       <div class="head">
-        <h2 id="providers-title">Three names on one network</h2>
-        <p>Your bill may carry any of the three names while the network underneath stays the same. Choose by how you like to pay and by what each plan adds.</p>
+        <h2 id="counters-title">Start with what you need</h2>
       </div>
-      {{{ providers }}}
-      <p class="more"><a class="textlink" href="brands.html">Compare the three in full</a></p>
+      <ul class="counters">
+        <li class="counter">
+          {{{ pic.tile_phones }}}
+          <div class="counter__body">
+            <h3><a href="mobile.html">Phones and plans</a></h3>
+            <p>Choose a phone, match a plan and keep your number.</p>
+          </div>
+        </li>
+        <li class="counter">
+          {{{ pic.tile_home }}}
+          <div class="counter__body">
+            <h3><a href="internet-tv.html">Home services</a></h3>
+            <p>Internet, TV and a home phone line, checked against your address.</p>
+          </div>
+        </li>
+        <li class="counter">
+          {{{ pic.tile_repairs }}}
+          <div class="counter__body">
+            <h3><a href="repairs.html">Repairs</a></h3>
+            <p>Phones and tablets, quoted before any work begins.</p>
+          </div>
+        </li>
+        <li class="counter">
+          {{{ pic.tile_offers }}}
+          <div class="counter__body">
+            <h3><a href="deals.html">Offers</a></h3>
+            <p>The deals on plans, internet and repairs this month.</p>
+          </div>
+        </li>
+      </ul>
     </div>
   </section>
 
-  <section class="section" aria-labelledby="switch-title">
-    <div class="wrap narrow-split">
-      <div class="narrow-split__title">
-        <h2 id="switch-title">Moving your number</h2>
-        <p>Your number can go with you to a new provider, and the move is handled with you in the store.</p>
-      </div>
-      <div class="duo">
-        <div class="duo__col">
-          <h3>Bring along</h3>
-          <ul class="ticks">
-            <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg><span>A recent bill. The account number printed on it is what the move requires.</span></li>
-            <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg><span>Photo ID, which may be asked for as well.</span></li>
-          </ul>
-        </div>
-        <div class="duo__col">
-          <h3>What follows</h3>
-          <p>Your existing plan stays active until the number has gone across. The transfer then closes it, so please do not cancel it yourself.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="strip" aria-hidden="true">{{{ pic.garnet }}}</div>
-
-  <section class="section section--raised" aria-labelledby="repairs-title">
-    <div class="wrap spread spread--flip">
-      <figure class="frame spread__media">{{{ pic.repair_half }}}</figure>
-      <div class="spread__text">
-        <h2 id="repairs-title">Repairs, priced before any work begins</h2>
-        <p>Leave a phone or tablet with us and we will diagnose the fault and name a price. No work starts until you have agreed to it.</p>
-        <ul class="ticks ticks--two">
-          {{{ repair_names }}}
-        </ul>
-        <div class="buttons">
-          <a class="button" href="repairs.html#book">Request a repair</a>
-          <a class="button button--line" href="tel:{{ store.phone_e164 }}">Get a quotation by telephone</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" aria-labelledby="home-title">
-    <div class="wrap lookbook">
-      <div class="lookbook__text">
-        <h2 id="home-title">At home, your address comes first</h2>
-        <p>Not every home can have every service. Your street and unit decide it, and we will look both up with you.</p>
-        <ul class="minis">
-          <li><svg class="icon" aria-hidden="true"><use href="#i-wifi"></use></svg><span>Bell Internet</span></li>
-          <li><svg class="icon" aria-hidden="true"><use href="#i-tv"></use></svg><span>Fibe TV</span></li>
-          <li><svg class="icon" aria-hidden="true"><use href="#i-dish"></use></svg><span>Satellite TV</span></li>
-          <li><svg class="icon" aria-hidden="true"><use href="#i-call"></use></svg><span>Home Phone</span></li>
-        </ul>
-        <a class="button button--line" href="internet-tv.html">How a home setup works</a>
-      </div>
-      <div class="lookbook__pair">
-        <figure class="frame">{{{ pic.living }}}</figure>
-        <figure class="frame frame--drop">{{{ pic.house }}}</figure>
-      </div>
-    </div>
-  </section>
-
-  <section class="section section--raised" aria-labelledby="deals-title">
-    <div class="wrap">
-      <div class="head head--split">
-        <h2 id="deals-title">On the counter this month</h2>
-        <a class="textlink" href="deals.html">View every offer</a>
-      </div>
-      <div class="offers offers--three">
-        {{{ deals_preview }}}
-      </div>
-    </div>
-  </section>
-
-  <section class="section" aria-labelledby="visit-title">
-    <div class="wrap visit">
+  <section class="section section--raised" aria-labelledby="visit-title">
+    <div class="wrap visit visit--center">
       <div class="visit__text">
-        <h2 id="visit-title">Our door is on Bovaird Drive West</h2>
-        <p class="address">{{ store.street }}<br>{{ store.city }}, {{ store.province }} {{ store.postal }}</p>
-        <table class="hours">
-          <caption class="visually-hidden">Store hours</caption>
-          <tbody>
-            {{{ hours_rows }}}
-          </tbody>
-        </table>
-        <div class="buttons">
-          <a class="button" href="{{ store.directions_url }}">Get directions</a>
-          <a class="button button--line" href="tel:{{ store.phone_e164 }}">Call {{ store.phone_display }}</a>
+        <h2 id="visit-title">Find the store</h2>
+        <div class="store">
+          <p class="status" data-hours="{{ hours_json }}" data-tz="{{ site.timezone }}">
+            <span class="status__sign is-pending">Open</span>
+            <span class="status__text">{{ hours_summary }}</span>
+          </p>
+          <ul class="store__list">
+            <li><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg><span>{{ store.street }}<br>{{ store.city }}, {{ store.province }} {{ store.postal }}</span></li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-call"></use></svg><a href="tel:{{ store.phone_e164 }}">{{ store.phone_display }}</a></li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-star"></use></svg><a href="{{ store.reviews_url }}">{{ store.rating.value }} stars on Google from {{ store.rating.count }} reviews, {{ store.rating.as_of_text }}</a></li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-access"></use></svg><span>Wheelchair-accessible entrance</span></li>
+          </ul>
+          <div class="buttons">
+            <a class="button" href="{{ store.directions_url }}">Get directions</a>
+            <a class="button button--line" href="visit.html">Hours and booking</a>
+          </div>
         </div>
       </div>
       {{{ map }}}
     </div>
   </section>
 
-  <section class="section section--raised" aria-labelledby="faq-title">
+  <section class="section" aria-labelledby="faq-title">
     <div class="wrap faq-split">
       <div class="faq-split__intro">
-        <h2 id="faq-title">Questions we are often asked</h2>
-        <p>If your question is not here, ring the store on <a href="tel:{{ store.phone_e164 }}">{{ store.phone_display }}</a> and ask it directly.</p>
+        <h2 id="faq-title">Before you visit</h2>
+        <p>Something else? Call <a href="tel:{{ store.phone_e164 }}">{{ store.phone_display }}</a> and ask the store directly.</p>
       </div>
       <div class="faq">
         {{{ faq_items }}}

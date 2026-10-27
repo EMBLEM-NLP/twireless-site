@@ -1,0 +1,489 @@
+{
+  "schema": "web.design.review.v1",
+  "measurement_series": "WEB-DESIGN-RSI-1.0",
+  "target_id": "T-WIRELESS-SITE",
+  "candidate_sha256": "aa173d98359bbe120e057e08689fe239620e84a89d836fed9bb31cf85e6210b0",
+  "reviewer_id": "claude-independent-agent-v8-d1",
+  "reviewer_role": "independent_reviewer",
+  "ratings": {
+    "first_impression": {
+      "score": 4.0,
+      "status": "reviewed",
+      "rationale": "Phone 390x844 first screen: logo and Menu, a live 'Closed / Opens today at 10 a.m.' sign, a three-line serif H1 ('Phones, plans and repairs on Bovaird Drive West'), two CTAs ('See this month's deals', 'Book a repair'), the Bell, Virgin Plus and Lucky Mobile logos on white plates and the top of the storefront drawing all sit above the fixed bar. At 1440 the hero shows the whole storefront plus a trust bar. Clear, calm, finished-looking. Named weaknesses: the primary CTA lands on a Deals page of sample cards ($XX/mo); at 320 wide the Menu button is clipped and every page scrolls sideways 11 px; in landscape 844x390 the header and bar take 34% of the height and no button is visible on the first screen of Home.",
+      "evidence": [
+        {
+          "path": "evidence-independent/a-index-390x844-first.png",
+          "sha256": "cb6141264322a371b693b76f828c85f6bcf43de8512868bcf48d44c3fc875086"
+        },
+        {
+          "path": "evidence-independent/d-index-1440-part0.png",
+          "sha256": "d635ec01246c0858f0d254ffd39a3d7f2969e077b4b0f0005e4a68974f484913"
+        },
+        {
+          "path": "evidence-independent/b-index-320x568-first.png",
+          "sha256": "ef6848529ca136b530e52ed4c73f5892ab768b28fe8179f13cc4b0e8bc366eb7"
+        },
+        {
+          "path": "evidence-independent/land-index-844x390-first.png",
+          "sha256": "2abb9179759217873ca8e74a4c9c6bc41503986860a389ed4c35542fc4f5587c"
+        }
+      ]
+    },
+    "visual_richness": {
+      "score": 3.5,
+      "status": "reviewed",
+      "rationale": "A cohesive drawn system, cleanly executed: scalloped navy awning on every page, a storefront scene with a live neon Open/Closed sign on Home, a repair-bench scene, per-card art on Deals, line icons, carrier logos on white plates. Held back by what I saw. On phones every subpage hero is text on plain navy (.page-hero__art is display:none below 900 px; see a-deals, a-repairs, a-visit at 390). The same phone-with-wifi drawing is the picture on three of the five deal cards and on the Mobile hero. There is no photograph of the real shop although Google's listing carries 13 (red brick, maroon awning, Bell/Virgin Plus/Lucky window decals, a neon OPEN sign); the drawing is a white-brick, navy-awning stand-in (the producer discloses the art is generic). Acceptable-plus, not rich.",
+      "evidence": [
+        {
+          "path": "evidence-independent/d-index-1440-part0.png",
+          "sha256": "d635ec01246c0858f0d254ffd39a3d7f2969e077b4b0f0005e4a68974f484913"
+        },
+        {
+          "path": "evidence-independent/walk/index-390-01-y700.png",
+          "sha256": "226afd3455d7f4b8711b49d41cc35327f4923386df0a8a194d07a2e8eeed9a28"
+        },
+        {
+          "path": "evidence-independent/walk/index-390-06-y4200.png",
+          "sha256": "9ecca3c9784110d3dd7799f9b0fa94d63c62a002516e5d4992cc2bfe4c820144"
+        },
+        {
+          "path": "evidence-independent/a-deals-390x844-first.png",
+          "sha256": "557bea0b5ac8de61954c048e06062d65da39cc0cdbfbee19beaa89b24185312a"
+        },
+        {
+          "path": "evidence-independent/a-repairs-390x844-first.png",
+          "sha256": "37a65d9a3a29b2e5c85803e0a5fb0cbfa7fa60f92401d781fce5a8bea4310f70"
+        },
+        {
+          "path": "evidence-independent/d-mobile-1440-part0.png",
+          "sha256": "b575871d02caaae7f7354a4f4a1bae9b6a0e2e0134db18ab92c055b325d8360e"
+        },
+        {
+          "path": "evidence-independent/google-place-mobile-3.png",
+          "sha256": "45c9a8f4571787eb834a9f68254f4bfac98aa7cdabe24548fbda242fa0a60890"
+        }
+      ]
+    },
+    "service_clarity": {
+      "score": 4.0,
+      "status": "reviewed",
+      "rationale": "In one screen a visitor learns what is sold and where: phones and plans from three carriers, Bell internet and TV, repairs. Home's brand cards, the Bell family 'At a glance' table, 'What you can set up', 'What we fix' and 'How setup works' are plain and skimmable. Weaknesses: there is no real price or offer anywhere (Deals is samples, repairs are 'quote in store'); the Bell family and Mobile pages overlap (the same three brand cards and the same three-step 'Switching? Keep your number' block, word for word, on Home and Mobile; SmartPay wording on Mobile, Bell family and Deals); 'Bell family' is a less obvious menu label than 'Plans'.",
+      "evidence": [
+        {
+          "path": "evidence-independent/walk/index-390-03-y2100.png",
+          "sha256": "9e760860c882504132ce8d7e5db185c5dc17663dbbebea09a2cb57d731b66ee1"
+        },
+        {
+          "path": "evidence-independent/d-brands-1440-part0.png",
+          "sha256": "6d43b2fec20589f9e302314aa3c4c85891b0efa3efc3e9088339533eb24816bc"
+        },
+        {
+          "path": "evidence-independent/d-internet-tv-1440-part0.png",
+          "sha256": "bd31dcb3037702bced344929dde42d7742588208beea25b1e1c85d697d30aa56"
+        },
+        {
+          "path": "evidence-independent/d-repairs-1440-part0.png",
+          "sha256": "aeb8bf7f0c2e386f2f58dff4db5031a547793beba195d50a7f928e73794b900d"
+        }
+      ]
+    },
+    "navigation_wayfinding": {
+      "score": 4.0,
+      "status": "reviewed",
+      "rationale": "The Menu opens a panel of six 56 px rows plus a Call button; aria-expanded, Escape, backdrop tap, focus-out and resize all close it. The current page is marked (aria-current; underline on desktop), desktop has an inline nav, and a Call/Directions/Book bar is on every page. Every internal link and #fragment resolved in my crawl; the no-JS stylesheet restores an inline nav; focus rings are visible. Weaknesses: at 320 the Menu button is clipped by 11 px; the bar's 'Book' always goes to visit.html#book, even on Repairs, which has its own form; in landscape the sticky header and fixed bar are 34-42% of the viewport; 'Bell family' and 'Mobile' blur two similar pages.",
+      "evidence": [
+        {
+          "path": "evidence-independent/menu-open-390x844.png",
+          "sha256": "787ce2bdc4bf565e094c07c4d01b550e696cc74137291cda944054fd9ee6fa6a"
+        },
+        {
+          "path": "evidence-independent/menu-open-320x568.png",
+          "sha256": "f4a56678fcf6cd74b655193fe0f238a92b99503d61a743ce2c4cee567da45c6f"
+        },
+        {
+          "path": "evidence-independent/focus-index-1280-2.png",
+          "sha256": "3171942b40a2c5a00e5d05a360a7774917f41800231210884ce569d660f52281"
+        },
+        {
+          "path": "evidence-independent/anchor-repairs-book.png",
+          "sha256": "c72c6c07c370577e8257a435e551a656b88eb1f73dbeac448d032e1c95ea3f63"
+        },
+        {
+          "path": "evidence-independent/d-index-1440-part0.png",
+          "sha256": "d635ec01246c0858f0d254ffd39a3d7f2969e077b4b0f0005e4a68974f484913"
+        }
+      ]
+    },
+    "conversion_paths": {
+      "score": 3.5,
+      "status": "reviewed",
+      "rationale": "Mechanics are strong: Call, Directions and Book are one tap on every page (64 px bar); both forms validate (empty submit shows the native 'Please fill out this field'), post with a honeypot and land on a thank-you page that repeats the number; 'Get directions', 'Open in Google Maps' and the rating link all open Google Maps on the right listing. Weak spots: the Home hero's primary button leads to five 'Example offer' cards with $XX/mo and 'Call about this deal' buttons for deals that do not exist (three of the same cards also sit on Home); the phone field accepted 'not a number' (type=tel, no pattern) and went to the thank-you page; the thank-you page says 'we've got your request' but delivery depends on a host form service (Netlify) that README describes under Deploy, not in 'Before launch'. POSTs were exercised only against my own server.",
+      "evidence": [
+        {
+          "path": "evidence-independent/a-deals-390x844-first.png",
+          "sha256": "557bea0b5ac8de61954c048e06062d65da39cc0cdbfbee19beaa89b24185312a"
+        },
+        {
+          "path": "evidence-independent/form-repair-empty-submit.png",
+          "sha256": "3608d8e66d9a3ad9d12467bffdc83573a78ab2d1ec47f433da4a1fa940e20c48"
+        },
+        {
+          "path": "evidence-independent/form-repair-filled.png",
+          "sha256": "b2dc996ebfa8893485d25c51ddaa35efab127bbe6a267433757e3654d1c34094"
+        },
+        {
+          "path": "evidence-independent/form-repair-thanks.png",
+          "sha256": "6c4b328798f6424d2c9090abc21c743995dec51c7a6c6c7d9610cbb09e66f9a3"
+        },
+        {
+          "path": "evidence-independent/anchor-visit-book.png",
+          "sha256": "07c2538a7baa9b9558602232c286be29a88e6c28d01ea5d12f14a71a0812b0c1"
+        },
+        {
+          "path": "evidence-independent/final-checks.json",
+          "sha256": "465972848913043ea3c14d53be0b9c32ec5fa15da569fcd054524fd33124ca16"
+        }
+      ]
+    },
+    "brand_identity": {
+      "score": 4.0,
+      "status": "reviewed",
+      "rationale": "Distinct and consistent: a red T-with-phone wordmark on white, navy awning and scallops, serif headlines over a humanist sans, one blue for actions, a 'Bell Authorised Retailer' lock-up in header, footer and structured data (it matches the Google listing's name), carrier logos unaltered on white plates with a trademark line in the footer. Weaknesses: the look leans on Bell blue and Bell's own logos with no dealer sign-off yet (disclosed, unconfirmed item 11; Bell's logo standards send permission questions to info.branding@bell.ca); the Bell/Virgin Plus/Lucky decals in the real shop window read 'Authorized Retailer' while the site says 'Authorised'; Bell's own locator page for the address shows no dealer-type label.",
+      "evidence": [
+        {
+          "path": "evidence-independent/d-index-1440-part0.png",
+          "sha256": "d635ec01246c0858f0d254ffd39a3d7f2969e077b4b0f0005e4a68974f484913"
+        },
+        {
+          "path": "evidence-independent/a-index-390x844-first.png",
+          "sha256": "cb6141264322a371b693b76f828c85f6bcf43de8512868bcf48d44c3fc875086"
+        },
+        {
+          "path": "evidence-independent/d-brands-1440-part0.png",
+          "sha256": "6d43b2fec20589f9e302314aa3c4c85891b0efa3efc3e9088339533eb24816bc"
+        },
+        {
+          "path": "evidence-independent/google-place-mobile-3.png",
+          "sha256": "45c9a8f4571787eb834a9f68254f4bfac98aa7cdabe24548fbda242fa0a60890"
+        },
+        {
+          "path": "evidence-independent/crop-decal1.png",
+          "sha256": "f6420795e6477fe260854accc6c13741ee84f8bf8720e708514d398ec70fa17f"
+        }
+      ]
+    },
+    "trust_signals": {
+      "score": 4.0,
+      "status": "reviewed",
+      "rationale": "Visible and, where I could check, accurate: live open/closed sign, address, phone, email, an hours table with today marked, a dated rating ('4.1 stars on Google (95 reviews, October 2026)') that matches Google's place card (4.1, 95 reviews) and links to it, a drawn map plus 'Open in Google Maps' (Google's own pin sits on the south-east side of Bovaird Dr W, north-east of the crossing labelled Chinguacousy Rd, as the sketch and caption say), 'Wheelchair-accessible entrance' (Google shows the wheelchair icon), a Privacy page, a trademark line, and no invented testimonials. Named weaknesses: 'open every day 10 to 8' differs from Google on Sunday (10:30-7) and Bell's locator gives a different postal code (L6X5K7; the site and Google say L6X 0G3); nothing shows the real shop front or staff, though 13 photos exist on Google; the site links straight to reviews that include a complaint about a SIM activation fee.",
+      "evidence": [
+        {
+          "path": "evidence-independent/walk/index-390-01-y700.png",
+          "sha256": "226afd3455d7f4b8711b49d41cc35327f4923386df0a8a194d07a2e8eeed9a28"
+        },
+        {
+          "path": "evidence-independent/map-embed-1440x900.png",
+          "sha256": "e538f8d1349b38003bb6bae4b596261acf802bc50e5015a4a944265a10509bfb"
+        },
+        {
+          "path": "evidence-independent/google-place-mobile-3.png",
+          "sha256": "45c9a8f4571787eb834a9f68254f4bfac98aa7cdabe24548fbda242fa0a60890"
+        },
+        {
+          "path": "evidence-independent/a-visit-390x844-first.png",
+          "sha256": "e5b912c71c6b5fefc4e1e3446c8e922338558e8b75d93ab8272c9811bcfc3db1"
+        },
+        {
+          "path": "evidence-independent/d-visit-1440-part0.png",
+          "sha256": "ce53552c30ef97dc7e8165974b8fb12863d8e99bbfd2c942b4ca803fd18ca7be"
+        }
+      ]
+    },
+    "information_economy": {
+      "score": 3.5,
+      "status": "reviewed",
+      "rationale": "Each page has one job and short plain paragraphs, but content repeats: the three brand cards and the three-step switching block are identical on Home and Mobile (and the brands are summarised again on Bell family); SmartPay wording sits on Mobile, Bell family and Deals; Home is 7,586 px tall at 390 (about nine screens). Deals and Home carry sample cards that add no information. The Bell family 'At a glance' table and the Visit page are efficient.",
+      "evidence": [
+        {
+          "path": "evidence-independent/d-index-1440x900-full.png",
+          "sha256": "16942235b12ba7ead59d5b8ad119d890a6a56435138dd933bc6047f22f1d4d87"
+        },
+        {
+          "path": "evidence-independent/d-brands-1440x900-full.png",
+          "sha256": "14c15e00c41771f382f0ca0c2401824ef863b816a7052ea5ef9e6e50d57bf023"
+        },
+        {
+          "path": "evidence-independent/walk/mobile-390-01-y700.png",
+          "sha256": "572213bb8ae4b62af306c381ab8aa7e3b46c239ddb8f07e31258837c8a49f7d1"
+        }
+      ]
+    },
+    "typography_hierarchy": {
+      "score": 4.5,
+      "status": "reviewed",
+      "rationale": "Serif headlines over a 15-17 px humanist sans with generous line spacing; the type scale is small (13 to 36 px), hero-to-body contrast is clear on every page, contrast is high on navy and white (Lighthouse accessibility 100 on all seven pages in my re-run), and 3 px focus outlines are visible. Small blemishes only: 13 px labels on the bar and badges; 'Open every day, 10 a.m. to 8 / p.m.' leaves a lone 'p.m.' on the second line in the 1440 trust bar; some grey body copy is mid-contrast.",
+      "evidence": [
+        {
+          "path": "evidence-independent/d-index-1440-part0.png",
+          "sha256": "d635ec01246c0858f0d254ffd39a3d7f2969e077b4b0f0005e4a68974f484913"
+        },
+        {
+          "path": "evidence-independent/a-index-390x844-first.png",
+          "sha256": "cb6141264322a371b693b76f828c85f6bcf43de8512868bcf48d44c3fc875086"
+        },
+        {
+          "path": "evidence-independent/d-deals-1440-part1.png",
+          "sha256": "81e51720a2e223e0c089e6bc17190ab194f65bfdd713c41b653df51492bfce0c"
+        }
+      ]
+    },
+    "grid_whitespace_rhythm": {
+      "score": 4.0,
+      "status": "reviewed",
+      "rationale": "A steady 16 px phone gutter and card/section rhythm; no sideways scroll from 331 to 430 px (probed on Home, Deals, Repairs, Visit) or from 480 to 1920 px (all ten pages); layout shift is tiny (Lighthouse CLS under 0.001; producer's worst 0.049 on Visit). Named weaknesses: the 1440 Deals grid is 3 + 2 with an empty third slot; on Visit the address card is shorter than the map card, leaving a block of white under it; at 320 the header overflows by 11 px (31 px at 300).",
+      "evidence": [
+        {
+          "path": "evidence-independent/d-deals-1440-part0.png",
+          "sha256": "fd85ff00256f4ce217f1c16ef6dd7fbc14783bf7fa5220badb7cbee2d5d9e66a"
+        },
+        {
+          "path": "evidence-independent/d-deals-1440-part1.png",
+          "sha256": "81e51720a2e223e0c089e6bc17190ab194f65bfdd713c41b653df51492bfce0c"
+        },
+        {
+          "path": "evidence-independent/d-visit-1440-part0.png",
+          "sha256": "ce53552c30ef97dc7e8165974b8fb12863d8e99bbfd2c942b4ca803fd18ca7be"
+        },
+        {
+          "path": "evidence-independent/tablet-deals-768.png",
+          "sha256": "9b62c918bcf22989774d5a1a48f5c1070173d4508c69b34ff4d12deed29de4ae"
+        },
+        {
+          "path": "evidence-independent/tablet-index-1024.png",
+          "sha256": "759e0b736b7f357fe707f43c00378ff58bd564ee3ea98e97342fa0cb0f2a4dab"
+        },
+        {
+          "path": "evidence-independent/final-checks.json",
+          "sha256": "465972848913043ea3c14d53be0b9c32ec5fa15da569fcd054524fd33124ca16"
+        }
+      ]
+    },
+    "mobile_ergonomics": {
+      "score": 4.0,
+      "status": "reviewed",
+      "rationale": "Portrait 360-430: 64 px fixed bar with safe-area padding, a 103x44 Menu button, form controls at 17 px (iOS will not zoom), the page footer clears the bar, the menu panel is capped at 100dvh - 5rem. My tap-target audit at 390 found only inline text links under 44 px (phone and email links 20 px tall in Repairs, Visit and Privacy paragraphs; brand-card links are 30 px but the whole card is the target). Weaknesses: 320 px header overflow (Menu clipped 11 px, right gutter under 16 px below 347 px); landscape chrome 34% at 844x390, 36% at 667x375, 42% at 568x320 with no first-screen CTA on Home, Deals or Visit; Directions and 'Open in Google Maps' go to Google Maps on the web (Chromium with an iPhone user-agent showed Google's 'Upgrade to a smarter Google Maps' prompt first), not Apple Maps. WebKit/iOS Safari could not be tested (Chromium only).",
+      "evidence": [
+        {
+          "path": "evidence-independent/tap-targets-390.txt",
+          "sha256": "f99b7cb6ea3d66aad69cd8ec7fa44b67ba76074aa3b65734307838fe8b864a0f"
+        },
+        {
+          "path": "evidence-independent/layout-remeasure.json",
+          "sha256": "0522c11042b84ea5301fa90bd405aac2e381c8ec46a5e820c864ecf1c80af663"
+        },
+        {
+          "path": "evidence-independent/b-index-320x568-first.png",
+          "sha256": "ef6848529ca136b530e52ed4c73f5892ab768b28fe8179f13cc4b0e8bc366eb7"
+        },
+        {
+          "path": "evidence-independent/land-index-844x390-first.png",
+          "sha256": "2abb9179759217873ca8e74a4c9c6bc41503986860a389ed4c35542fc4f5587c"
+        },
+        {
+          "path": "evidence-independent/a-index-390x844-first.png",
+          "sha256": "cb6141264322a371b693b76f828c85f6bcf43de8512868bcf48d44c3fc875086"
+        },
+        {
+          "path": "evidence-independent/google-link-mobile-openinmaps.png",
+          "sha256": "d64ec9611b4509f375f6bf8613fda04c48636c34a1a4e6083f4018fcc1c425cb"
+        }
+      ]
+    }
+  },
+  "page_roles": [
+    {
+      "id": "role-home",
+      "role": "home",
+      "page": "index.html",
+      "ratings": {
+        "purpose_clarity": 4.5,
+        "hierarchy": 4.5,
+        "consistency": 4.5,
+        "legibility": 4.5,
+        "information_gain": 3.0
+      },
+      "evidence": [
+        {
+          "path": "evidence-independent/a-index-390x844-first.png",
+          "sha256": "cb6141264322a371b693b76f828c85f6bcf43de8512868bcf48d44c3fc875086"
+        },
+        {
+          "path": "evidence-independent/d-index-1440-part0.png",
+          "sha256": "d635ec01246c0858f0d254ffd39a3d7f2969e077b4b0f0005e4a68974f484913"
+        },
+        {
+          "path": "evidence-independent/walk/index-390-01-y700.png",
+          "sha256": "226afd3455d7f4b8711b49d41cc35327f4923386df0a8a194d07a2e8eeed9a28"
+        }
+      ]
+    },
+    {
+      "id": "role-brand_family",
+      "role": "brand_family",
+      "page": "brands.html",
+      "ratings": {
+        "purpose_clarity": 3.5,
+        "hierarchy": 4.0,
+        "consistency": 4.5,
+        "legibility": 4.5,
+        "information_gain": 4.0
+      },
+      "evidence": [
+        {
+          "path": "evidence-independent/a-brands-390x844-first.png",
+          "sha256": "68de689711f5b41fc34a40cd1f5f65c71c6859204adb5f3265af6643b76af2a8"
+        },
+        {
+          "path": "evidence-independent/d-brands-1440-part0.png",
+          "sha256": "6d43b2fec20589f9e302314aa3c4c85891b0efa3efc3e9088339533eb24816bc"
+        }
+      ]
+    },
+    {
+      "id": "role-deals",
+      "role": "deals",
+      "page": "deals.html",
+      "ratings": {
+        "purpose_clarity": 3.5,
+        "hierarchy": 4.0,
+        "consistency": 4.0,
+        "legibility": 4.5,
+        "information_gain": 2.0
+      },
+      "evidence": [
+        {
+          "path": "evidence-independent/a-deals-390x844-first.png",
+          "sha256": "557bea0b5ac8de61954c048e06062d65da39cc0cdbfbee19beaa89b24185312a"
+        },
+        {
+          "path": "evidence-independent/d-deals-1440-part0.png",
+          "sha256": "fd85ff00256f4ce217f1c16ef6dd7fbc14783bf7fa5220badb7cbee2d5d9e66a"
+        },
+        {
+          "path": "evidence-independent/d-deals-1440-part1.png",
+          "sha256": "81e51720a2e223e0c089e6bc17190ab194f65bfdd713c41b653df51492bfce0c"
+        }
+      ]
+    },
+    {
+      "id": "role-mobile",
+      "role": "mobile",
+      "page": "mobile.html",
+      "ratings": {
+        "purpose_clarity": 4.0,
+        "hierarchy": 4.0,
+        "consistency": 4.5,
+        "legibility": 4.5,
+        "information_gain": 3.0
+      },
+      "evidence": [
+        {
+          "path": "evidence-independent/a-mobile-390x844-first.png",
+          "sha256": "190e5bbcb2979f4e3bef4a3fccbbc97e6917470fbb6ac6abe1507a5e59f59101"
+        },
+        {
+          "path": "evidence-independent/d-mobile-1440-part0.png",
+          "sha256": "b575871d02caaae7f7354a4f4a1bae9b6a0e2e0134db18ab92c055b325d8360e"
+        }
+      ]
+    },
+    {
+      "id": "role-home_services",
+      "role": "home_services",
+      "page": "internet-tv.html",
+      "ratings": {
+        "purpose_clarity": 4.0,
+        "hierarchy": 4.0,
+        "consistency": 4.5,
+        "legibility": 4.5,
+        "information_gain": 3.5
+      },
+      "evidence": [
+        {
+          "path": "evidence-independent/a-internet-tv-390x844-first.png",
+          "sha256": "c099984344d0ecfe0fef1354f4f2357a051b6f89a504f7a2593fea9700ec1f97"
+        },
+        {
+          "path": "evidence-independent/d-internet-tv-1440-part0.png",
+          "sha256": "bd31dcb3037702bced344929dde42d7742588208beea25b1e1c85d697d30aa56"
+        }
+      ]
+    },
+    {
+      "id": "role-repairs",
+      "role": "repairs",
+      "page": "repairs.html",
+      "ratings": {
+        "purpose_clarity": 4.5,
+        "hierarchy": 4.0,
+        "consistency": 4.5,
+        "legibility": 4.5,
+        "information_gain": 3.0
+      },
+      "evidence": [
+        {
+          "path": "evidence-independent/a-repairs-390x844-first.png",
+          "sha256": "37a65d9a3a29b2e5c85803e0a5fb0cbfa7fa60f92401d781fce5a8bea4310f70"
+        },
+        {
+          "path": "evidence-independent/d-repairs-1440-part0.png",
+          "sha256": "aeb8bf7f0c2e386f2f58dff4db5031a547793beba195d50a7f928e73794b900d"
+        },
+        {
+          "path": "evidence-independent/form-repair-empty-submit.png",
+          "sha256": "3608d8e66d9a3ad9d12467bffdc83573a78ab2d1ec47f433da4a1fa940e20c48"
+        }
+      ]
+    },
+    {
+      "id": "role-visit",
+      "role": "visit",
+      "page": "visit.html",
+      "ratings": {
+        "purpose_clarity": 4.5,
+        "hierarchy": 4.5,
+        "consistency": 4.5,
+        "legibility": 4.0,
+        "information_gain": 4.0
+      },
+      "evidence": [
+        {
+          "path": "evidence-independent/a-visit-390x844-first.png",
+          "sha256": "e5b912c71c6b5fefc4e1e3446c8e922338558e8b75d93ab8272c9811bcfc3db1"
+        },
+        {
+          "path": "evidence-independent/d-visit-1440-part0.png",
+          "sha256": "ce53552c30ef97dc7e8165974b8fb12863d8e99bbfd2c942b4ca803fd18ca7be"
+        },
+        {
+          "path": "evidence-independent/map-before-plain.png",
+          "sha256": "26861008ea37a32faf6c8a07e901d559cfdcf9b298db22a52b71889ddcdc74c1"
+        },
+        {
+          "path": "evidence-independent/map-embed-1440x900.png",
+          "sha256": "e538f8d1349b38003bb6bae4b596261acf802bc50e5015a4a944265a10509bfb"
+        },
+        {
+          "path": "evidence-independent/google-place-mobile-3.png",
+          "sha256": "45c9a8f4571787eb834a9f68254f4bfac98aa7cdabe24548fbda242fa0a60890"
+        }
+      ]
+    }
+  ],
+  "accuracy_gate": {
+    "content_matches_sources": false,
+    "no_fabricated_offers_or_reviews": true,
+    "unverified_flagged_for_owner": false
+  },
+  "notes": "Independent review of Design 1, build v8 (reviewer claude-independent-agent-v8-d1). Chromium 153 + Playwright only: no WebKit/iOS Safari and no real iPhone. Tested: portrait 300/320/330/331/340/360/375/390/430, landscape 568x320 to 932x430, 480-1920 wide, JS off, keyboard, both forms (POST to my own server), Lighthouse 13.5 re-run on the seven pages (performance 98-100, accessibility 100, best practices 100, SEO 100; home LCP 2.3 s against the 2.5 s limit), clock-simulated open/closed signs. This older contract has no custom accuracy-gate questions (the template lists three generic gates); I judged accuracy anyway. Gates: content_matches_sources FALSE (two site statements are stronger than or misattributed to their sources, the SmartPay lines omit a Bell condition, and the hours note misstates Google; details below); no_fabricated_offers_or_reviews TRUE (the five offers are labelled 'Example offer' with $XX and a 'Sample offers' note, there are no testimonials, and the 4.1/95 rating matches Google's place card); unverified_flagged_for_owner FALSE (gaps below).\n\nSCORES: nothing above 4.5; the harness computes the overall. Craft and the measured layer are strong; points are lost on placeholder content, two layout edges (320 px, landscape) and gaps in the owner's lists.\n\nPRODUCER CLAIMS. (a) TRUE: 'one bill', 'Crave', 'stay the same' and any 'replace this' text are absent from all ten pages. 'Virgin Plus says existing customers keep their plan, pricing and equipment' (brands.html, internet-tv.html) is softened, but the source (MobileSyrup, 14 Jan 2026) quotes a Bell spokesperson, not Virgin Plus. (b) TRUE: a 'Sample offers' callout sits above the cards at 390 and 1440 and the cards carry 'Example offer' badges; but $XX/mo and 'Call about this deal' remain on 4 of 5 Deals cards and 3 cards on Home, and the home hero's primary CTA leads there. The disclosure is adequate (nothing passes as real) and README says `build.py --release` refuses to build while they remain (not run by me), but an owner will read the page as unfinished. (c) TRUE: after 'Show the map' site.js moves 'Open in Google Maps' under the map; one link, visible at 390 and 1440. (d) PARTLY: the rating line is dated and correct (see Google below). The two lists do NOT match: site.json `unconfirmed` has 11 items, README 'Before launch' has 17 (14 apply to design 1). Not in site.json: confirm the repair list (incl. 'Water damage'), review the Privacy page ('we delete requests we no longer need'), confirm base_url, replace the example offers (only enforced by --release). In neither list: the form-delivery set-up (README Deploy only) and the 'Bell Authorised Retailer' wording. Item 5 puts 'ring first to check stock' and 'a booked visit means the store expects them' under '(both are in design 3)', but design 1 says both: mobile.html 'call ahead if you want a specific model or colour' and 'Check stock: 647-707-1093'; index FAQ 'we can set time aside for you'. Item 6 describes designs 2/3 wording; design 1 says 'Government-issued photo ID'.\n\nGOOGLE LISTING, read through the site's own embed and links in Chromium on 27 Oct 2026: 'T Wireless ( Bell Authorised Retailer)', 4.1 (95 reviews), Cell phone store with a wheelchair icon, 965 Bovaird Dr W, Brampton, ON L6X 0G3, +1 647-707-1093. Hours shown (about 01:00-03:00 Toronto time): Tuesday to Saturday 10 AM-8 PM, Sunday 10:30 AM-7 PM and Monday 10 AM-8 PM. So at my reading MONDAY IS NOT CLOSED: the site.json and README note that the listing 'shows Monday closed' did not reproduce (only Sunday differs); re-read the live listing before the owner acts on it, or they could be misled into closing Mondays. Google's map pin sits on the south-east side of Bovaird Dr W, north-east of the crossing labelled Chinguacousy Rd, which matches the sketch and the caption. Bell's locator (storelocator.bell.ca .../T-Wireless/53U56) lists 10-8 all seven days and phone 647 707-1093 but postal code L6X5K7 (the site prints L6X 0G3 in 22 places, incl. JSON-LD, which matches Google, not Bell). The real shop (Google photos) is red brick with a maroon awning, Bell/Virgin Plus/Lucky decals reading 'Authorized Retailer' and a 'We Fix Phones & Tablets' decal.\n\nOTHER SOURCE CHECKS. Confirmed: Virgin Plus prepaid ends 15 Jan 2027 and Virgin Plus internet/TV stopped for new Ontario customers on 14 Jan 2026 (MobileSyrup); 'Fibe TV needs Bell Internet' (Bell community answer, 29 Jul 2026); SmartPay core terms and the Device Return Option wording (Bell support pages); Lucky Mobile no credit check, no overage fees, no commitment (PlanHub, not luckymobile.ca). Stronger than source: 'Download recordings and on-demand shows to watch on your phone or tablet' (Bell: 'recordings and select on demand content', 'A PVR is required to manage and watch your recordings'); the SmartPay lines omit Bell's 'your remaining device payments will become due immediately' on early end (the site does say terms can change; ask before signing).\n\nKNOWN AND DISCLOSED ITEMS. Sample offers: disclosed on the page and in both lists, adequate, but still in the build. Hours: disclosed, but the note misstates Google (see above). Logos: disclosed (item 11); Bell's logo standards send permission questions to info.branding@bell.ca. Generic illustration: README says 'optional: add real photos'; the real shop front is on Google (13 photos).\n\nOTHER FINDINGS. Privacy page says no tracking cookies but is silent that 'Show the map' loads Google; landscape phones lose 34-42% of the height to header + bar; the 320 px header overflows (logo 200 + Menu 103 need 331 px; right gutter under 16 px below 347 px); phone-subpage heroes have no art; 1440 trust bar orphans 'p.m.'; inline phone/email links are 20 px tall; the same phone-wifi drawing repeats; the phone field accepts junk.\n\nCOULD NOT VERIFY: the owner's intended hours; real iOS Safari behaviour; real form delivery on Netlify; the dealer agreement and any Bell sign-off for logos; Virgin Plus and Lucky Mobile official pages (blocked), so Lucky's 'no overage charges' and Member Benefits wording rest on third-party and Bell pages; a second Bell-locator record named T Wireless (031VR) that would not open; the sketch's plaza label 'Fletcher's Creek Village'. Raw extracts: evidence-independent/source-extracts.txt."
+}

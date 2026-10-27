@@ -1,36 +1,30 @@
 {
   "copy": {
-    "carrier_line": {
-      "bell": "Plans billed monthly, with iPhone and Android handsets to choose from. Bell SmartPay can spread a handset’s cost across 24 monthly payments.",
-      "virgin-plus": "Most plans come with Member Benefits, a set of perks that costs nothing extra. Everything is billed monthly.",
-      "lucky-mobile": "Paid a month ahead, so no bill ever follows. No credit check is made, and nothing commits you beyond the month you have paid for."
-    },
-    "deal_cta": "Ask about this offer",
     "thanks": {
-      "live": "Your message is with the store. Someone will ring the number you entered; for anything pressing, the line is {phone}.",
-      "demo": "This is a preview of the new website, so nothing was sent. To reach the store, please telephone {phone}."
+      "live": "Your message is with the store, and someone will call the number you entered. For anything pressing, the line is {phone}.",
+      "demo": "This is a preview of the new website, so nothing was sent. To reach the store, please call {phone}."
     }
   },
   "repairs": [
     {
       "title": "Cracked screens and glass",
       "icon": "i-crack",
-      "text": "New glass or a new screen for a phone or tablet that has taken a fall."
+      "text": "New glass or a new screen for a device that has taken a fall."
     },
     {
       "title": "Tired batteries",
       "icon": "i-battery",
-      "text": "For a phone that is flat by lunchtime, shuts down with charge left, or has a battery that is visibly bulging."
+      "text": "A phone that is flat by lunchtime, shuts down with charge left, or has a battery that is visibly bulging."
     },
     {
       "title": "Charging faults",
       "icon": "i-plug",
-      "text": "A charger that no longer seems to work, or a cable that must be held at a certain angle before the phone will charge."
+      "text": "A charger that no longer works, or a cable that must be held at an angle before the phone will charge."
     },
     {
       "title": "Camera and rear panel",
       "icon": "i-camera",
-      "text": "A scratched or split camera lens, pictures that come out soft, or a rear panel that has shattered."
+      "text": "A scratched or split lens, soft pictures, or a rear panel that has shattered."
     },
     {
       "title": "Speaker and microphone",
@@ -40,33 +34,29 @@
     {
       "title": "After a soaking",
       "icon": "i-drop",
-      "text": "A handset that has been soaked should be powered down at once and brought to us promptly."
+      "text": "Power the device down immediately, and bring it in without delay."
     }
   ],
   "faq": [
+    {
+      "q": "Is an appointment needed?",
+      "a": "No. Booking a visit is optional; it only means we expect you. You are welcome {{ hours_phrase }}"
+    },
     {
       "q": "Whose plans do you sell?",
       "a": "Those of Bell, Virgin Plus and Lucky Mobile. As a Bell Authorised Retailer we also arrange Bell home internet, TV and a home phone line."
     },
     {
       "q": "Can I bring my own phone?",
-      "a": "Yes. Bring the phone you have and we will set the plan up on it; a new handset is optional."
+      "a": "Yes. Bring the phone you have and we will set the plan up on it. A new phone is optional."
     },
     {
-      "q": "Must I book ahead?",
-      "a": "No. You are welcome {{ hours_phrase }}. Booking is optional; it simply lets us expect you."
+      "q": "What happens to my number if I change provider?",
+      "a": "It moves with you. Bring a recent bill, since the account number printed on it is what the transfer needs, and photo ID in case it is asked for. Leave the old plan in place: the transfer closes it."
     },
     {
-      "q": "What becomes of my number if I change provider?",
-      "a": "It goes with you: in Canada, changing provider does not oblige you to change number. The account number printed on a recent bill is what the transfer needs, so please bring one, along with photo ID in case it is requested. Leave your existing plan untouched until the transfer is complete; the move itself brings that service to an end."
-    },
-    {
-      "q": "Can a tablet be repaired too?",
-      "a": "Yes, a tablet is as welcome as a phone. Once we know the model and the fault, we will quote you a price; work begins only if you agree."
-    },
-    {
-      "q": "Is the entrance suitable for a wheelchair?",
-      "a": "Wheelchair users can come in by the store’s accessible entrance. For another access question, ring us before you visit."
+      "q": "Is the entrance wheelchair accessible?",
+      "a": "The entrance has wheelchair access. If you need anything else, phone ahead and ask."
     }
   ]
 }

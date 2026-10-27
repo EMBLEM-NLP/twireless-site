@@ -57,7 +57,7 @@
       "mobile": ["Bell", "Virgin Plus", "Lucky Mobile", "keep your (phone )?number"],
       "home_services": ["[Ii]nternet", "TV", "[Hh]ome phone"],
       "repairs": ["[Ss]creen", "[Bb]atter", "quote"],
-      "visit": ["965 Bovaird", "647-707-1093", "10 a\\.m\\. to 8 p\\.m\\."]
+      "visit": ["965 Bovaird", "647-707-1093", "10\\sa\\.m\\.\\sto\\s8\\sp\\.m\\."]
     }
   }
 }

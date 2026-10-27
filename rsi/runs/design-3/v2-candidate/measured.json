@@ -1,0 +1,3647 @@
+{
+  "schema": "web.design.measured.v2",
+  "schema_version": "2.1.0",
+  "measurement_series": "WEB-DESIGN-RSI-2.0",
+  "target_id": "T-WIRELESS-SITE-D3",
+  "design_id": "design-3",
+  "site": "site",
+  "site_source": "/home/claude/t-wireless-site/dist-design-3",
+  "site_sha256": "2a564454a6c720f3fd07ee3f6f1874057d880239d23df55b96d719a1349e92ac",
+  "page_roles": {
+    "index.html": "home",
+    "brands.html": "brand_family",
+    "deals.html": "deals",
+    "mobile.html": "mobile",
+    "internet-tv.html": "home_services",
+    "repairs.html": "repairs",
+    "visit.html": "visit"
+  },
+  "checks_total": 317,
+  "checks_failed": 0,
+  "failed_checks": [],
+  "declaration_blockers": [],
+  "measured_pass": true,
+  "pages": {
+    "index.html": {
+      "role": "home",
+      "lighthouse": {
+        "scores": {
+          "performance": 99,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 100
+        },
+        "lcp_ms": 2026,
+        "cls": 0.0014,
+        "tbt_ms": 0,
+        "requests": 15,
+        "transfer_kib": 179,
+        "outside_domains": [],
+        "lighthouse_version": "13.5.0"
+      },
+      "viewports": {
+        "phone": {
+          "overflow_px": 0,
+          "h1_count": 1,
+          "heading_skips": 0,
+          "type_sizes": [
+            15,
+            17,
+            19,
+            21,
+            28,
+            32,
+            40
+          ],
+          "min_text_px": 15,
+          "hero_ratio": 2.35,
+          "imgs_without_alt": 0,
+          "height": 10586
+        },
+        "small_phone": {
+          "overflow_px": 0,
+          "h1_count": 1,
+          "heading_skips": 0,
+          "type_sizes": [
+            15,
+            17,
+            19,
+            21,
+            28,
+            32,
+            40
+          ],
+          "min_text_px": 15,
+          "hero_ratio": 2.35,
+          "imgs_without_alt": 0,
+          "height": 10879
+        },
+        "desktop": {
+          "overflow_px": 0,
+          "h1_count": 1,
+          "heading_skips": 0,
+          "type_sizes": [
+            15,
+            17,
+            21,
+            28,
+            46,
+            72
+          ],
+          "min_text_px": 15,
+          "hero_ratio": 4.24,
+          "imgs_without_alt": 0,
+          "height": 8017
+        }
+      }
+    },
+    "brands.html": {
+      "role": "brand_family",
+      "lighthouse": {
+        "scores": {
+          "performance": 99,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 100
+        },
+        "lcp_ms": 2101,
+        "cls": 0,
+        "tbt_ms": 0,
+        "requests": 13,
+        "transfer_kib": 162,
+        "outside_domains": [],
+        "lighthouse_version": "13.5.0"
+      },
+      "viewports": {
+        "phone": {
+          "overflow_px": 0,
+          "h1_count": 1,
+          "heading_skips": 0,
+          "type_sizes": [
+            15,
+            17,
+            21,
+            28,
+            32,
+            41
+          ],
+          "min_text_px": 15,
+          "hero_ratio": 2.43,
+          "imgs_without_alt": 0,
+          "height": 7980
+        },
+        "small_phone": {
+          "overflow_px": 0,
+          "h1_count": 1,
+          "heading_skips": 0,
+          "type_sizes": [
+            15,
+            17,
+            21,
+            28,
+            32,
+            40
+          ],
+          "min_text_px": 15,
+          "hero_ratio": 2.36,
+          "imgs_without_alt": 0,
+          "height": 8305
+        },
+        "desktop": {
+          "overflow_px": 0,
+          "h1_count": 1,
+          "heading_skips": 0,
+          "type_sizes": [
+            15,
+            17,
+            21,
+            28,
+            46,
+            70
+          ],
+          "min_text_px": 15,
+          "hero_ratio": 4.12,
+          "imgs_without_alt": 0,
+          "height": 5988
+        }
+      }
+    },
+    "deals.html": {
+      "role": "deals",
+      "lighthouse": {
+        "scores": {
+          "performance": 99,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 100
+        },
+        "lcp_ms": 2118,
+        "cls": 0,
+        "tbt_ms": 7,
+        "requests": 13,
+        "transfer_kib": 155,
+        "outside_domains": [],
+        "lighthouse_version": "13.5.0"
+      },
+      "viewports": {
+        "phone": {
+          "overflow_px": 0,
+          "h1_count": 1,
+          "heading_skips": 0,
+          "type_sizes": [
+            15,
+            17,
+            21,
+            28,
+            32,
+            41
+          ],
+          "min_text_px": 15,
+          "hero_ratio": 2.43,
+          "imgs_without_alt": 0,
+          "height": 5629
+        },
+        "small_phone": {
+          "overflow_px": 0,
+          "h1_count": 1,
+          "heading_skips": 0,
+          "type_sizes": [
+            15,
+            17,
+            21,
+            28,
+            32,
+            40
+          ],
+          "min_text_px": 15,
+          "hero_ratio": 2.36,
+          "imgs_without_alt": 0,
+          "height": 5815
+        },
+        "desktop": {
+          "overflow_px": 0,
+          "h1_count": 1,
+          "heading_skips": 0,
+          "type_sizes": [
+            15,
+            17,
+            21,
+            28,
+            46,
+            70
+          ],
+          "min_text_px": 15,
+          "hero_ratio": 4.12,
+          "imgs_without_alt": 0,
+          "height": 3976
+        }
+      }
+    },
+    "mobile.html": {
+      "role": "mobile",
+      "lighthouse": {
+        "scores": {
+          "performance": 99,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 100
+        },
+        "lcp_ms": 2034,
+        "cls": 0,
+        "tbt_ms": 0,
+        "requests": 14,
+        "transfer_kib": 159,
+        "outside_domains": [],
+        "lighthouse_version": "13.5.0"
+      },
+      "viewports": {
+        "phone": {
+          "overflow_px": 0,
+          "h1_count": 1,
+          "heading_skips": 0,
+          "type_sizes": [
+            15,
+            17,
+            21,
+            28,
+            32,
+            41
+          ],
+          "min_text_px": 15,
+          "hero_ratio": 2.43,
+          "imgs_without_alt": 0,
+          "height": 5566
+        },
+        "small_phone": {
+          "overflow_px": 0,
+          "h1_count": 1,
+          "heading_skips": 0,
+          "type_sizes": [
+            15,
+            17,
+            21,
+            28,
+            32,
+            40
+          ],
+          "min_text_px": 15,
+          "hero_ratio": 2.36,
+          "imgs_without_alt": 0,
+          "height": 5676
+        },
+        "desktop": {
+          "overflow_px": 0,
+          "h1_count": 1,
+          "heading_skips": 0,
+          "type_sizes": [
+            15,
+            17,
+            21,
+            28,
+            46,
+            70
+          ],
+          "min_text_px": 15,
+          "hero_ratio": 4.12,
+          "imgs_without_alt": 0,
+          "height": 3967
+        }
+      }
+    },
+    "internet-tv.html": {
+      "role": "home_services",
+      "lighthouse": {
+        "scores": {
+          "performance": 99,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 100
+        },
+        "lcp_ms": 2026,
+        "cls": 0,
+        "tbt_ms": 0,
+        "requests": 13,
+        "transfer_kib": 170,
+        "outside_domains": [],
+        "lighthouse_version": "13.5.0"
+      },
+      "viewports": {
+        "phone": {
+          "overflow_px": 0,
+          "h1_count": 1,
+          "heading_skips": 0,
+          "type_sizes": [
+            15,
+            17,
+            21,
+            32,
+            41
+          ],
+          "min_text_px": 15,
+          "hero_ratio": 2.43,
+          "imgs_without_alt": 0,
+          "height": 5129
+        },
+        "small_phone": {
+          "overflow_px": 0,
+          "h1_count": 1,
+          "heading_skips": 0,
+          "type_sizes": [
+            15,
+            17,
+            21,
+            32,
+            40
+          ],
+          "min_text_px": 15,
+          "hero_ratio": 2.36,
+          "imgs_without_alt": 0,
+          "height": 5152
+        },
+        "desktop": {
+          "overflow_px": 0,
+          "h1_count": 1,
+          "heading_skips": 0,
+          "type_sizes": [
+            15,
+            17,
+            21,
+            46,
+            70
+          ],
+          "min_text_px": 15,
+          "hero_ratio": 4.12,
+          "imgs_without_alt": 0,
+          "height": 3884
+        }
+      }
+    },
+    "repairs.html": {
+      "role": "repairs",
+      "lighthouse": {
+        "scores": {
+          "performance": 99,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 100
+        },
+        "lcp_ms": 1957,
+        "cls": 0,
+        "tbt_ms": 7,
+        "requests": 11,
+        "transfer_kib": 151,
+        "outside_domains": [],
+        "lighthouse_version": "13.5.0"
+      },
+      "viewports": {
+        "phone": {
+          "overflow_px": 0,
+          "h1_count": 1,
+          "heading_skips": 0,
+          "type_sizes": [
+            15,
+            17,
+            21,
+            28,
+            32,
+            41
+          ],
+          "min_text_px": 15,
+          "hero_ratio": 2.43,
+          "imgs_without_alt": 0,
+          "height": 5335
+        },
+        "small_phone": {
+          "overflow_px": 0,
+          "h1_count": 1,
+          "heading_skips": 0,
+          "type_sizes": [
+            15,
+            17,
+            21,
+            28,
+            32,
+            40
+          ],
+          "min_text_px": 15,
+          "hero_ratio": 2.36,
+          "imgs_without_alt": 0,
+          "height": 5449
+        },
+        "desktop": {
+          "overflow_px": 0,
+          "h1_count": 1,
+          "heading_skips": 0,
+          "type_sizes": [
+            15,
+            17,
+            21,
+            28,
+            46,
+            70
+          ],
+          "min_text_px": 15,
+          "hero_ratio": 4.12,
+          "imgs_without_alt": 0,
+          "height": 3514
+        }
+      }
+    },
+    "visit.html": {
+      "role": "visit",
+      "lighthouse": {
+        "scores": {
+          "performance": 99,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 100
+        },
+        "lcp_ms": 1801,
+        "cls": 0,
+        "tbt_ms": 23,
+        "requests": 10,
+        "transfer_kib": 122,
+        "outside_domains": [],
+        "lighthouse_version": "13.5.0"
+      },
+      "viewports": {
+        "phone": {
+          "overflow_px": 0,
+          "h1_count": 1,
+          "heading_skips": 0,
+          "type_sizes": [
+            15,
+            17,
+            21,
+            32,
+            41
+          ],
+          "min_text_px": 15,
+          "hero_ratio": 2.43,
+          "imgs_without_alt": 0,
+          "height": 4982
+        },
+        "small_phone": {
+          "overflow_px": 0,
+          "h1_count": 1,
+          "heading_skips": 0,
+          "type_sizes": [
+            15,
+            17,
+            21,
+            32,
+            40
+          ],
+          "min_text_px": 15,
+          "hero_ratio": 2.36,
+          "imgs_without_alt": 0,
+          "height": 4998
+        },
+        "desktop": {
+          "overflow_px": 0,
+          "h1_count": 1,
+          "heading_skips": 0,
+          "type_sizes": [
+            15,
+            17,
+            21,
+            46,
+            70
+          ],
+          "min_text_px": 15,
+          "hero_ratio": 4.12,
+          "imgs_without_alt": 0,
+          "height": 3955
+        }
+      }
+    }
+  },
+  "imagery": {
+    "index.html": {
+      "photos": [
+        "bokeh-garnet",
+        "candle-phone",
+        "house-dusk",
+        "internals",
+        "tv-wall",
+        "wood-garnet"
+      ],
+      "photo_count": 6,
+      "logos": [
+        "bell",
+        "lucky-mobile",
+        "t-wireless",
+        "virgin-plus"
+      ],
+      "unknown_photo_files": [],
+      "photo_kib": 69
+    },
+    "brands.html": {
+      "photos": [
+        "bokeh-amber",
+        "bokeh-garnet",
+        "mono-rings"
+      ],
+      "photo_count": 3,
+      "logos": [
+        "bell",
+        "lucky-mobile",
+        "t-wireless",
+        "virgin-plus"
+      ],
+      "unknown_photo_files": [],
+      "photo_kib": 51
+    },
+    "deals.html": {
+      "photos": [
+        "bokeh-amber",
+        "marble-gold"
+      ],
+      "photo_count": 2,
+      "logos": [
+        "bell",
+        "lucky-mobile",
+        "t-wireless",
+        "virgin-plus"
+      ],
+      "unknown_photo_files": [],
+      "photo_kib": 27
+    },
+    "mobile.html": {
+      "photos": [
+        "hand-black",
+        "marble-gold",
+        "wood-garnet"
+      ],
+      "photo_count": 3,
+      "logos": [
+        "bell",
+        "lucky-mobile",
+        "t-wireless",
+        "virgin-plus"
+      ],
+      "unknown_photo_files": [],
+      "photo_kib": 31
+    },
+    "internet-tv.html": {
+      "photos": [
+        "bokeh-amber",
+        "house-dusk",
+        "tv-wall"
+      ],
+      "photo_count": 3,
+      "logos": [
+        "bell",
+        "t-wireless"
+      ],
+      "unknown_photo_files": [],
+      "photo_kib": 54
+    },
+    "repairs.html": {
+      "photos": [
+        "bench-lamp",
+        "internals"
+      ],
+      "photo_count": 2,
+      "logos": [
+        "t-wireless"
+      ],
+      "unknown_photo_files": [],
+      "photo_kib": 36
+    },
+    "visit.html": {
+      "photos": [
+        "bokeh-amber"
+      ],
+      "photo_count": 1,
+      "logos": [
+        "t-wireless"
+      ],
+      "unknown_photo_files": [],
+      "photo_kib": 5
+    }
+  },
+  "imagery_audit": {
+    "pass": true,
+    "errors": [],
+    "warnings": [],
+    "photos": 11,
+    "cards": 0,
+    "files": 166,
+    "bytes": 7475570
+  },
+  "imagery_sources_sha256": "9d927db3be37b88b5818f5514145dd7362345eb03a1a4bcb2c488f183004ec77",
+  "signature": {
+    "shots": {
+      "phone": "signature-home-phone.png",
+      "desktop": "signature-home-desktop.png"
+    },
+    "palette": {
+      "phone": [
+        [
+          21,
+          10,
+          14,
+          0.2804
+        ],
+        [
+          68,
+          38,
+          22,
+          0.2022
+        ],
+        [
+          28,
+          15,
+          16,
+          0.1622
+        ],
+        [
+          107,
+          77,
+          59,
+          0.1409
+        ],
+        [
+          196,
+          169,
+          132,
+          0.1108
+        ],
+        [
+          19,
+          8,
+          12,
+          0.1035
+        ]
+      ],
+      "desktop": [
+        [
+          21,
+          10,
+          14,
+          0.3459
+        ],
+        [
+          53,
+          27,
+          17,
+          0.2623
+        ],
+        [
+          161,
+          121,
+          90,
+          0.1844
+        ],
+        [
+          26,
+          12,
+          12,
+          0.1517
+        ],
+        [
+          18,
+          7,
+          11,
+          0.0372
+        ],
+        [
+          21,
+          9,
+          11,
+          0.0185
+        ]
+      ]
+    },
+    "fonts": {
+      "h1": "Noto Serif Display",
+      "body": "Jost"
+    }
+  },
+  "distinctness": {
+    "design-1": {
+      "visual_similarity": 0.0842,
+      "visual_similarity_by_viewport": {
+        "phone": 0.0866,
+        "desktop": 0.0817
+      },
+      "palette_distance": 34.08,
+      "palette_distance_by_viewport": {
+        "phone": 31.7,
+        "desktop": 36.45
+      },
+      "headline_fonts": [
+        "Noto Serif Display",
+        "Source Serif 4"
+      ],
+      "body_fonts": [
+        "Jost",
+        "Figtree"
+      ],
+      "same_headline_font": false,
+      "same_body_font": false,
+      "run": "rsi/runs/design-1/v7-candidate",
+      "copy": {
+        "phrase_overlap": 0.0216,
+        "reused_sentence_ratio": 0.0088,
+        "shared_heading_ratio": 0.0,
+        "shared_nav_labels": [],
+        "flagged_fields": []
+      }
+    },
+    "design-2": {
+      "visual_similarity": 0.0246,
+      "visual_similarity_by_viewport": {
+        "phone": 0.0413,
+        "desktop": 0.0079
+      },
+      "palette_distance": 36.73,
+      "palette_distance_by_viewport": {
+        "phone": 32.28,
+        "desktop": 41.19
+      },
+      "headline_fonts": [
+        "Noto Serif Display",
+        "Atkinson Hyperlegible Next"
+      ],
+      "body_fonts": [
+        "Jost",
+        "Atkinson Hyperlegible Next"
+      ],
+      "same_headline_font": false,
+      "same_body_font": false,
+      "run": "rsi/runs/design-2/v7-candidate",
+      "copy": {
+        "phrase_overlap": 0.0313,
+        "reused_sentence_ratio": 0.0132,
+        "shared_heading_ratio": 0.0,
+        "shared_nav_labels": [],
+        "flagged_fields": []
+      }
+    }
+  },
+  "evidence": [
+    {
+      "page": "index.html",
+      "role": "home",
+      "viewport": "phone_top",
+      "path": "evidence/index-phone-top.png",
+      "sha256": "ec0900212da3737e69e7912bbe5e78dcf87f19cf478b8e59133aa596d6f61668"
+    },
+    {
+      "page": "index.html",
+      "role": "home",
+      "viewport": "phone",
+      "path": "evidence/index-phone.png",
+      "sha256": "50691d60d9ad17f7e96899dfee4dc78484686551adfe66105ec2ea5102330cc7"
+    },
+    {
+      "page": "index.html",
+      "role": "home",
+      "viewport": "desktop",
+      "path": "evidence/index-desktop.png",
+      "sha256": "0b5c09170ce39b36e459c90de72b038cd96ec64c0338600b26832c6184cb359a"
+    },
+    {
+      "page": "brands.html",
+      "role": "brand_family",
+      "viewport": "phone_top",
+      "path": "evidence/brands-phone-top.png",
+      "sha256": "897959367c9ae44b90f20a4862cac74df1c33632ebb93de917686a1aae52036b"
+    },
+    {
+      "page": "brands.html",
+      "role": "brand_family",
+      "viewport": "phone",
+      "path": "evidence/brands-phone.png",
+      "sha256": "6344704ed24c79c464b7d9fb5cb05ed16986c735de2d61b6a17fa032f6dc723c"
+    },
+    {
+      "page": "brands.html",
+      "role": "brand_family",
+      "viewport": "desktop",
+      "path": "evidence/brands-desktop.png",
+      "sha256": "5ed065738f4d5fa296c1fa9ead4ed977cc8f0f729ac5cdb6203661c4d0903621"
+    },
+    {
+      "page": "deals.html",
+      "role": "deals",
+      "viewport": "phone_top",
+      "path": "evidence/deals-phone-top.png",
+      "sha256": "2cb19bcd18b17bea963925e4c8fd198559df32e75961a30a769d6d26a3a66bce"
+    },
+    {
+      "page": "deals.html",
+      "role": "deals",
+      "viewport": "phone",
+      "path": "evidence/deals-phone.png",
+      "sha256": "cf7065442deab56041b83a18d9e838bdfe62bfaed7106692546a6addead35d77"
+    },
+    {
+      "page": "deals.html",
+      "role": "deals",
+      "viewport": "desktop",
+      "path": "evidence/deals-desktop.png",
+      "sha256": "1898c9d25c554d1024566d0252bd1c7ee0a2885e19fdd6acf78a92e3c2d7de44"
+    },
+    {
+      "page": "mobile.html",
+      "role": "mobile",
+      "viewport": "phone_top",
+      "path": "evidence/mobile-phone-top.png",
+      "sha256": "c975953f590688d3e95e285aaa7d27bb5fa12cc8b9e11ef95dde4644b5db14f2"
+    },
+    {
+      "page": "mobile.html",
+      "role": "mobile",
+      "viewport": "phone",
+      "path": "evidence/mobile-phone.png",
+      "sha256": "5f768f44e3570a10c1f6e75a9f732c4a749c5a582d6af6c93973860b85716ee9"
+    },
+    {
+      "page": "mobile.html",
+      "role": "mobile",
+      "viewport": "desktop",
+      "path": "evidence/mobile-desktop.png",
+      "sha256": "109c1df14bd7627d70871096892210b46024fd7ce856af5b52a01d2fbfcef1f6"
+    },
+    {
+      "page": "internet-tv.html",
+      "role": "home_services",
+      "viewport": "phone_top",
+      "path": "evidence/internet-tv-phone-top.png",
+      "sha256": "1808a22a0b7b473f0b345ccbdbefc0c764aa76e2301d1f9e390b8d90803bd7b2"
+    },
+    {
+      "page": "internet-tv.html",
+      "role": "home_services",
+      "viewport": "phone",
+      "path": "evidence/internet-tv-phone.png",
+      "sha256": "429f33f637f33712d336427c395fdc30780df1fe2d3ef68174932e365574ab4e"
+    },
+    {
+      "page": "internet-tv.html",
+      "role": "home_services",
+      "viewport": "desktop",
+      "path": "evidence/internet-tv-desktop.png",
+      "sha256": "41aae4313f914bcb2ba7efbea2829204f363c1f4f8ef5336f173b10a92f51748"
+    },
+    {
+      "page": "repairs.html",
+      "role": "repairs",
+      "viewport": "phone_top",
+      "path": "evidence/repairs-phone-top.png",
+      "sha256": "b5efccd98e90463ec1c0ff74d64d1dc5385c56894623f60b0e8a50d1330548da"
+    },
+    {
+      "page": "repairs.html",
+      "role": "repairs",
+      "viewport": "phone",
+      "path": "evidence/repairs-phone.png",
+      "sha256": "3a2e6ce3a5ae88e6c0eda16fb2c09acdc2eb28f34728200409a3c939c5217164"
+    },
+    {
+      "page": "repairs.html",
+      "role": "repairs",
+      "viewport": "desktop",
+      "path": "evidence/repairs-desktop.png",
+      "sha256": "fac8e15e653a9529ae55b0c1e6d5a582d8f5499260010a36f7efa9f931904c8f"
+    },
+    {
+      "page": "visit.html",
+      "role": "visit",
+      "viewport": "phone_top",
+      "path": "evidence/visit-phone-top.png",
+      "sha256": "aca436eb447fda295318f5264d77a3eba29ab7ab8a53de48b55d83a334408e47"
+    },
+    {
+      "page": "visit.html",
+      "role": "visit",
+      "viewport": "phone",
+      "path": "evidence/visit-phone.png",
+      "sha256": "90bd6d8e377cee37f2e052c58be52062f2f06a74a33b4ba6f4ce0569d6546647"
+    },
+    {
+      "page": "visit.html",
+      "role": "visit",
+      "viewport": "desktop",
+      "path": "evidence/visit-desktop.png",
+      "sha256": "571e5f70366b695917369730137ed28c91e2a7907083ad35c5d3d053ae50be6d"
+    },
+    {
+      "page": null,
+      "role": null,
+      "viewport": "imagery_sheet",
+      "path": "evidence/imagery-sheet.png",
+      "sha256": "124757171d6bbb59683c69d741551253ffe19e927637128bf3af515a9a50c228"
+    },
+    {
+      "page": "index.html",
+      "role": "home",
+      "viewport": "signature_phone",
+      "path": "evidence/signature-home-phone.png",
+      "sha256": "ec0900212da3737e69e7912bbe5e78dcf87f19cf478b8e59133aa596d6f61668"
+    },
+    {
+      "page": "index.html",
+      "role": "home",
+      "viewport": "signature_desktop",
+      "path": "evidence/signature-home-desktop.png",
+      "sha256": "ebe9b5e974628ad30a1975c203eacbfa8c7ce16ec7596a954eef1bafc38a6281"
+    },
+    {
+      "page": null,
+      "role": null,
+      "viewport": "copy_comparison",
+      "path": "evidence/copy-comparison-design-1.json",
+      "sha256": "7361c296fca9f8dcc7d082e56bdbdf857abcd6ab61ef6bf44229aaeb9c26d50f"
+    },
+    {
+      "page": null,
+      "role": null,
+      "viewport": "copy_comparison",
+      "path": "evidence/copy-comparison-design-2.json",
+      "sha256": "584fc3128265d1a87cfbdc6f0eeded8684372415a4399884930c3e3976a11d2a"
+    }
+  ],
+  "checks": [
+    {
+      "id": "page_present",
+      "page": "index.html",
+      "viewport": null,
+      "pass": true,
+      "measured": true,
+      "threshold": true
+    },
+    {
+      "id": "lighthouse_performance",
+      "page": "index.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": 99,
+      "threshold": 90
+    },
+    {
+      "id": "lighthouse_accessibility",
+      "page": "index.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": 100,
+      "threshold": 100
+    },
+    {
+      "id": "lighthouse_best-practices",
+      "page": "index.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": 100,
+      "threshold": 95
+    },
+    {
+      "id": "lighthouse_seo",
+      "page": "index.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": 100,
+      "threshold": 100
+    },
+    {
+      "id": "cls",
+      "page": "index.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": 0.0014,
+      "threshold": 0.1
+    },
+    {
+      "id": "lcp",
+      "page": "index.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": 2026,
+      "threshold": 2500
+    },
+    {
+      "id": "transfer",
+      "page": "index.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": 179,
+      "threshold": 1500
+    },
+    {
+      "id": "outside_domains",
+      "page": "index.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": [],
+      "threshold": 5
+    },
+    {
+      "id": "no_horizontal_overflow",
+      "page": "index.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 0,
+      "threshold": 0
+    },
+    {
+      "id": "h1_exactly",
+      "page": "index.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 1,
+      "threshold": 1
+    },
+    {
+      "id": "heading_order",
+      "page": "index.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 0,
+      "threshold": 0
+    },
+    {
+      "id": "type_scale_discipline",
+      "page": "index.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 7,
+      "threshold": 10
+    },
+    {
+      "id": "min_text_size",
+      "page": "index.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 15,
+      "threshold": 12
+    },
+    {
+      "id": "hero_hierarchy_ratio",
+      "page": "index.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 2.35,
+      "threshold": 2.0
+    },
+    {
+      "id": "image_alt",
+      "page": "index.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 0,
+      "threshold": 0
+    },
+    {
+      "id": "required_text",
+      "page": "index.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": "Bell Authorised Retailer",
+      "threshold": "present"
+    },
+    {
+      "id": "required_text",
+      "page": "index.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": "647-707-1093",
+      "threshold": "present"
+    },
+    {
+      "id": "required_text",
+      "page": "index.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": "Virgin Plus",
+      "threshold": "present"
+    },
+    {
+      "id": "required_text",
+      "page": "index.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": "Lucky Mobile",
+      "threshold": "present"
+    },
+    {
+      "id": "photos_min",
+      "page": "index.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 6,
+      "threshold": 6
+    },
+    {
+      "id": "photo_in_manifest",
+      "page": "index.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": "every photo listed in photos.json"
+    },
+    {
+      "id": "photo_licence_allowed",
+      "page": "index.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": [
+        "Pexels License",
+        "Unsplash License"
+      ]
+    },
+    {
+      "id": "photo_modern_format",
+      "page": "index.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": [
+        "avif",
+        "webp"
+      ]
+    },
+    {
+      "id": "photo_fallback",
+      "page": "index.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": "jpg fallback plus avif, webp sources"
+    },
+    {
+      "id": "photo_responsive",
+      "page": "index.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": ">= 2 widths per format"
+    },
+    {
+      "id": "photo_dimensions",
+      "page": "index.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": "width and height attributes"
+    },
+    {
+      "id": "photo_sharpness",
+      "page": "index.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": ">= 0.85 x shown size"
+    },
+    {
+      "id": "photo_not_oversized",
+      "page": "index.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": "<= 2.2 x shown size"
+    },
+    {
+      "id": "photo_bytes",
+      "page": "index.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": "<= 200 KiB each"
+    },
+    {
+      "id": "page_photo_kib",
+      "page": "index.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 69,
+      "threshold": 900
+    },
+    {
+      "id": "lazy_below_fold",
+      "page": "index.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": "photos below the first screen load lazily"
+    },
+    {
+      "id": "lead_photo_priority",
+      "page": "index.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": {
+        "photo": "candle-phone-4x3-960.avif",
+        "fetchpriority": "high",
+        "loading": null
+      },
+      "threshold": "the biggest photo on the first screen loads eagerly with fetchpriority=high"
+    },
+    {
+      "id": "hero_is_photograph",
+      "page": "index.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": {
+        "photo": "candle-phone",
+        "kind": "photo"
+      },
+      "threshold": "the lead photo on the first screen is a photograph, not a composed image"
+    },
+    {
+      "id": "composites_within_limit",
+      "page": "index.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": "<= 0 composed images on the page"
+    },
+    {
+      "id": "photo_alt",
+      "page": "index.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": "alt attribute on every photo"
+    },
+    {
+      "id": "logos_required",
+      "page": "index.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [
+        "bell",
+        "lucky-mobile",
+        "t-wireless",
+        "virgin-plus"
+      ],
+      "threshold": [
+        "bell",
+        "lucky-mobile",
+        "t-wireless",
+        "virgin-plus"
+      ]
+    },
+    {
+      "id": "logo_min_size",
+      "page": "index.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": ">= 16px drawn height"
+    },
+    {
+      "id": "logo_clean_plate",
+      "page": "index.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": "white plate (rgb >= 245)"
+    },
+    {
+      "id": "logo_not_distorted",
+      "page": "index.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": "original proportions"
+    },
+    {
+      "id": "logo_not_on_identifiable_people",
+      "page": "index.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": "logos only on photos where nobody can be recognised"
+    },
+    {
+      "id": "no_horizontal_overflow",
+      "page": "index.html",
+      "viewport": "small_phone",
+      "pass": true,
+      "measured": 0,
+      "threshold": 0
+    },
+    {
+      "id": "no_horizontal_overflow",
+      "page": "index.html",
+      "viewport": "desktop",
+      "pass": true,
+      "measured": 0,
+      "threshold": 0
+    },
+    {
+      "id": "page_present",
+      "page": "brands.html",
+      "viewport": null,
+      "pass": true,
+      "measured": true,
+      "threshold": true
+    },
+    {
+      "id": "lighthouse_performance",
+      "page": "brands.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": 99,
+      "threshold": 90
+    },
+    {
+      "id": "lighthouse_accessibility",
+      "page": "brands.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": 100,
+      "threshold": 100
+    },
+    {
+      "id": "lighthouse_best-practices",
+      "page": "brands.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": 100,
+      "threshold": 95
+    },
+    {
+      "id": "lighthouse_seo",
+      "page": "brands.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": 100,
+      "threshold": 100
+    },
+    {
+      "id": "cls",
+      "page": "brands.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": 0,
+      "threshold": 0.1
+    },
+    {
+      "id": "lcp",
+      "page": "brands.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": 2101,
+      "threshold": 2500
+    },
+    {
+      "id": "transfer",
+      "page": "brands.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": 162,
+      "threshold": 1500
+    },
+    {
+      "id": "outside_domains",
+      "page": "brands.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": [],
+      "threshold": 5
+    },
+    {
+      "id": "no_horizontal_overflow",
+      "page": "brands.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 0,
+      "threshold": 0
+    },
+    {
+      "id": "h1_exactly",
+      "page": "brands.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 1,
+      "threshold": 1
+    },
+    {
+      "id": "heading_order",
+      "page": "brands.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 0,
+      "threshold": 0
+    },
+    {
+      "id": "type_scale_discipline",
+      "page": "brands.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 6,
+      "threshold": 10
+    },
+    {
+      "id": "min_text_size",
+      "page": "brands.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 15,
+      "threshold": 12
+    },
+    {
+      "id": "hero_hierarchy_ratio",
+      "page": "brands.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 2.43,
+      "threshold": 2.0
+    },
+    {
+      "id": "image_alt",
+      "page": "brands.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 0,
+      "threshold": 0
+    },
+    {
+      "id": "required_text",
+      "page": "brands.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": "Bell",
+      "threshold": "present"
+    },
+    {
+      "id": "required_text",
+      "page": "brands.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": "Virgin Plus",
+      "threshold": "present"
+    },
+    {
+      "id": "required_text",
+      "page": "brands.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": "Lucky Mobile",
+      "threshold": "present"
+    },
+    {
+      "id": "required_text",
+      "page": "brands.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": "[Ii]nternet",
+      "threshold": "present"
+    },
+    {
+      "id": "required_text",
+      "page": "brands.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": "TV",
+      "threshold": "present"
+    },
+    {
+      "id": "required_text",
+      "page": "brands.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": "[Hh]ome phone",
+      "threshold": "present"
+    },
+    {
+      "id": "photos_min",
+      "page": "brands.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 3,
+      "threshold": 3
+    },
+    {
+      "id": "photo_in_manifest",
+      "page": "brands.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": "every photo listed in photos.json"
+    },
+    {
+      "id": "photo_licence_allowed",
+      "page": "brands.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": [
+        "Pexels License",
+        "Unsplash License"
+      ]
+    },
+    {
+      "id": "photo_modern_format",
+      "page": "brands.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": [
+        "avif",
+        "webp"
+      ]
+    },
+    {
+      "id": "photo_fallback",
+      "page": "brands.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": "jpg fallback plus avif, webp sources"
+    },
+    {
+      "id": "photo_responsive",
+      "page": "brands.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": ">= 2 widths per format"
+    },
+    {
+      "id": "photo_dimensions",
+      "page": "brands.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": "width and height attributes"
+    },
+    {
+      "id": "photo_sharpness",
+      "page": "brands.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": ">= 0.85 x shown size"
+    },
+    {
+      "id": "photo_not_oversized",
+      "page": "brands.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": "<= 2.2 x shown size"
+    },
+    {
+      "id": "photo_bytes",
+      "page": "brands.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": "<= 200 KiB each"
+    },
+    {
+      "id": "page_photo_kib",
+      "page": "brands.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 51,
+      "threshold": 900
+    },
+    {
+      "id": "lazy_below_fold",
+      "page": "brands.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": "photos below the first screen load lazily"
+    },
+    {
+      "id": "lead_photo_priority",
+      "page": "brands.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": {
+        "photo": "mono-rings-4x5-720.avif",
+        "fetchpriority": "high",
+        "loading": null
+      },
+      "threshold": "the biggest photo on the first screen loads eagerly with fetchpriority=high"
+    },
+    {
+      "id": "hero_is_photograph",
+      "page": "brands.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": {
+        "photo": "mono-rings",
+        "kind": "photo"
+      },
+      "threshold": "the lead photo on the first screen is a photograph, not a composed image"
+    },
+    {
+      "id": "composites_within_limit",
+      "page": "brands.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": "<= 0 composed images on the page"
+    },
+    {
+      "id": "photo_alt",
+      "page": "brands.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": "alt attribute on every photo"
+    },
+    {
+      "id": "logos_required",
+      "page": "brands.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [
+        "bell",
+        "lucky-mobile",
+        "t-wireless",
+        "virgin-plus"
+      ],
+      "threshold": [
+        "bell",
+        "lucky-mobile",
+        "virgin-plus"
+      ]
+    },
+    {
+      "id": "logo_min_size",
+      "page": "brands.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": ">= 16px drawn height"
+    },
+    {
+      "id": "logo_clean_plate",
+      "page": "brands.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": "white plate (rgb >= 245)"
+    },
+    {
+      "id": "logo_not_distorted",
+      "page": "brands.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": "original proportions"
+    },
+    {
+      "id": "logo_not_on_identifiable_people",
+      "page": "brands.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": "logos only on photos where nobody can be recognised"
+    },
+    {
+      "id": "no_horizontal_overflow",
+      "page": "brands.html",
+      "viewport": "small_phone",
+      "pass": true,
+      "measured": 0,
+      "threshold": 0
+    },
+    {
+      "id": "no_horizontal_overflow",
+      "page": "brands.html",
+      "viewport": "desktop",
+      "pass": true,
+      "measured": 0,
+      "threshold": 0
+    },
+    {
+      "id": "page_present",
+      "page": "deals.html",
+      "viewport": null,
+      "pass": true,
+      "measured": true,
+      "threshold": true
+    },
+    {
+      "id": "lighthouse_performance",
+      "page": "deals.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": 99,
+      "threshold": 90
+    },
+    {
+      "id": "lighthouse_accessibility",
+      "page": "deals.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": 100,
+      "threshold": 100
+    },
+    {
+      "id": "lighthouse_best-practices",
+      "page": "deals.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": 100,
+      "threshold": 95
+    },
+    {
+      "id": "lighthouse_seo",
+      "page": "deals.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": 100,
+      "threshold": 100
+    },
+    {
+      "id": "cls",
+      "page": "deals.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": 0,
+      "threshold": 0.1
+    },
+    {
+      "id": "lcp",
+      "page": "deals.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": 2118,
+      "threshold": 2500
+    },
+    {
+      "id": "transfer",
+      "page": "deals.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": 155,
+      "threshold": 1500
+    },
+    {
+      "id": "outside_domains",
+      "page": "deals.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": [],
+      "threshold": 5
+    },
+    {
+      "id": "no_horizontal_overflow",
+      "page": "deals.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 0,
+      "threshold": 0
+    },
+    {
+      "id": "h1_exactly",
+      "page": "deals.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 1,
+      "threshold": 1
+    },
+    {
+      "id": "heading_order",
+      "page": "deals.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 0,
+      "threshold": 0
+    },
+    {
+      "id": "type_scale_discipline",
+      "page": "deals.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 6,
+      "threshold": 10
+    },
+    {
+      "id": "min_text_size",
+      "page": "deals.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 15,
+      "threshold": 12
+    },
+    {
+      "id": "hero_hierarchy_ratio",
+      "page": "deals.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 2.43,
+      "threshold": 2.0
+    },
+    {
+      "id": "image_alt",
+      "page": "deals.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 0,
+      "threshold": 0
+    },
+    {
+      "id": "required_text",
+      "page": "deals.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": "deals",
+      "threshold": "present"
+    },
+    {
+      "id": "required_text",
+      "page": "deals.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": "taxes",
+      "threshold": "present"
+    },
+    {
+      "id": "photos_min",
+      "page": "deals.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 2,
+      "threshold": 2
+    },
+    {
+      "id": "photo_in_manifest",
+      "page": "deals.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": "every photo listed in photos.json"
+    },
+    {
+      "id": "photo_licence_allowed",
+      "page": "deals.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": [
+        "Pexels License",
+        "Unsplash License"
+      ]
+    },
+    {
+      "id": "photo_modern_format",
+      "page": "deals.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": [
+        "avif",
+        "webp"
+      ]
+    },
+    {
+      "id": "photo_fallback",
+      "page": "deals.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": "jpg fallback plus avif, webp sources"
+    },
+    {
+      "id": "photo_responsive",
+      "page": "deals.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": ">= 2 widths per format"
+    },
+    {
+      "id": "photo_dimensions",
+      "page": "deals.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": "width and height attributes"
+    },
+    {
+      "id": "photo_sharpness",
+      "page": "deals.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": ">= 0.85 x shown size"
+    },
+    {
+      "id": "photo_not_oversized",
+      "page": "deals.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": "<= 2.2 x shown size"
+    },
+    {
+      "id": "photo_bytes",
+      "page": "deals.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": "<= 200 KiB each"
+    },
+    {
+      "id": "page_photo_kib",
+      "page": "deals.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 27,
+      "threshold": 900
+    },
+    {
+      "id": "lazy_below_fold",
+      "page": "deals.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": "photos below the first screen load lazily"
+    },
+    {
+      "id": "lead_photo_priority",
+      "page": "deals.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": {
+        "photo": "marble-gold-16x9-960.avif",
+        "fetchpriority": "high",
+        "loading": null
+      },
+      "threshold": "the biggest photo on the first screen loads eagerly with fetchpriority=high"
+    },
+    {
+      "id": "hero_is_photograph",
+      "page": "deals.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": {
+        "photo": "marble-gold",
+        "kind": "photo"
+      },
+      "threshold": "the lead photo on the first screen is a photograph, not a composed image"
+    },
+    {
+      "id": "composites_within_limit",
+      "page": "deals.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": "<= 0 composed images on the page"
+    },
+    {
+      "id": "photo_alt",
+      "page": "deals.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": "alt attribute on every photo"
+    },
+    {
+      "id": "logos_required",
+      "page": "deals.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [
+        "bell",
+        "lucky-mobile",
+        "t-wireless",
+        "virgin-plus"
+      ],
+      "threshold": [
+        "bell",
+        "lucky-mobile",
+        "virgin-plus"
+      ]
+    },
+    {
+      "id": "logo_min_size",
+      "page": "deals.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": ">= 16px drawn height"
+    },
+    {
+      "id": "logo_clean_plate",
+      "page": "deals.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": "white plate (rgb >= 245)"
+    },
+    {
+      "id": "logo_not_distorted",
+      "page": "deals.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": "original proportions"
+    },
+    {
+      "id": "logo_not_on_identifiable_people",
+      "page": "deals.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": "logos only on photos where nobody can be recognised"
+    },
+    {
+      "id": "no_horizontal_overflow",
+      "page": "deals.html",
+      "viewport": "small_phone",
+      "pass": true,
+      "measured": 0,
+      "threshold": 0
+    },
+    {
+      "id": "no_horizontal_overflow",
+      "page": "deals.html",
+      "viewport": "desktop",
+      "pass": true,
+      "measured": 0,
+      "threshold": 0
+    },
+    {
+      "id": "page_present",
+      "page": "mobile.html",
+      "viewport": null,
+      "pass": true,
+      "measured": true,
+      "threshold": true
+    },
+    {
+      "id": "lighthouse_performance",
+      "page": "mobile.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": 99,
+      "threshold": 90
+    },
+    {
+      "id": "lighthouse_accessibility",
+      "page": "mobile.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": 100,
+      "threshold": 100
+    },
+    {
+      "id": "lighthouse_best-practices",
+      "page": "mobile.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": 100,
+      "threshold": 95
+    },
+    {
+      "id": "lighthouse_seo",
+      "page": "mobile.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": 100,
+      "threshold": 100
+    },
+    {
+      "id": "cls",
+      "page": "mobile.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": 0,
+      "threshold": 0.1
+    },
+    {
+      "id": "lcp",
+      "page": "mobile.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": 2034,
+      "threshold": 2500
+    },
+    {
+      "id": "transfer",
+      "page": "mobile.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": 159,
+      "threshold": 1500
+    },
+    {
+      "id": "outside_domains",
+      "page": "mobile.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": [],
+      "threshold": 5
+    },
+    {
+      "id": "no_horizontal_overflow",
+      "page": "mobile.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 0,
+      "threshold": 0
+    },
+    {
+      "id": "h1_exactly",
+      "page": "mobile.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 1,
+      "threshold": 1
+    },
+    {
+      "id": "heading_order",
+      "page": "mobile.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 0,
+      "threshold": 0
+    },
+    {
+      "id": "type_scale_discipline",
+      "page": "mobile.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 6,
+      "threshold": 10
+    },
+    {
+      "id": "min_text_size",
+      "page": "mobile.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 15,
+      "threshold": 12
+    },
+    {
+      "id": "hero_hierarchy_ratio",
+      "page": "mobile.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 2.43,
+      "threshold": 2.0
+    },
+    {
+      "id": "image_alt",
+      "page": "mobile.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 0,
+      "threshold": 0
+    },
+    {
+      "id": "required_text",
+      "page": "mobile.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": "Bell",
+      "threshold": "present"
+    },
+    {
+      "id": "required_text",
+      "page": "mobile.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": "Virgin Plus",
+      "threshold": "present"
+    },
+    {
+      "id": "required_text",
+      "page": "mobile.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": "Lucky Mobile",
+      "threshold": "present"
+    },
+    {
+      "id": "required_text",
+      "page": "mobile.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": "keep your (phone )?number",
+      "threshold": "present"
+    },
+    {
+      "id": "photos_min",
+      "page": "mobile.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 3,
+      "threshold": 3
+    },
+    {
+      "id": "photo_in_manifest",
+      "page": "mobile.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": "every photo listed in photos.json"
+    },
+    {
+      "id": "photo_licence_allowed",
+      "page": "mobile.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": [
+        "Pexels License",
+        "Unsplash License"
+      ]
+    },
+    {
+      "id": "photo_modern_format",
+      "page": "mobile.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": [
+        "avif",
+        "webp"
+      ]
+    },
+    {
+      "id": "photo_fallback",
+      "page": "mobile.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": "jpg fallback plus avif, webp sources"
+    },
+    {
+      "id": "photo_responsive",
+      "page": "mobile.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": ">= 2 widths per format"
+    },
+    {
+      "id": "photo_dimensions",
+      "page": "mobile.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": "width and height attributes"
+    },
+    {
+      "id": "photo_sharpness",
+      "page": "mobile.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": ">= 0.85 x shown size"
+    },
+    {
+      "id": "photo_not_oversized",
+      "page": "mobile.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": "<= 2.2 x shown size"
+    },
+    {
+      "id": "photo_bytes",
+      "page": "mobile.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": "<= 200 KiB each"
+    },
+    {
+      "id": "page_photo_kib",
+      "page": "mobile.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 31,
+      "threshold": 900
+    },
+    {
+      "id": "lazy_below_fold",
+      "page": "mobile.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": "photos below the first screen load lazily"
+    },
+    {
+      "id": "lead_photo_priority",
+      "page": "mobile.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": {
+        "photo": "hand-black-4x5-720.avif",
+        "fetchpriority": "high",
+        "loading": null
+      },
+      "threshold": "the biggest photo on the first screen loads eagerly with fetchpriority=high"
+    },
+    {
+      "id": "hero_is_photograph",
+      "page": "mobile.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": {
+        "photo": "hand-black",
+        "kind": "photo"
+      },
+      "threshold": "the lead photo on the first screen is a photograph, not a composed image"
+    },
+    {
+      "id": "composites_within_limit",
+      "page": "mobile.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": "<= 0 composed images on the page"
+    },
+    {
+      "id": "photo_alt",
+      "page": "mobile.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": "alt attribute on every photo"
+    },
+    {
+      "id": "logos_required",
+      "page": "mobile.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [
+        "bell",
+        "lucky-mobile",
+        "t-wireless",
+        "virgin-plus"
+      ],
+      "threshold": [
+        "bell",
+        "lucky-mobile",
+        "virgin-plus"
+      ]
+    },
+    {
+      "id": "logo_min_size",
+      "page": "mobile.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": ">= 16px drawn height"
+    },
+    {
+      "id": "logo_clean_plate",
+      "page": "mobile.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": "white plate (rgb >= 245)"
+    },
+    {
+      "id": "logo_not_distorted",
+      "page": "mobile.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": "original proportions"
+    },
+    {
+      "id": "logo_not_on_identifiable_people",
+      "page": "mobile.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": "logos only on photos where nobody can be recognised"
+    },
+    {
+      "id": "no_horizontal_overflow",
+      "page": "mobile.html",
+      "viewport": "small_phone",
+      "pass": true,
+      "measured": 0,
+      "threshold": 0
+    },
+    {
+      "id": "no_horizontal_overflow",
+      "page": "mobile.html",
+      "viewport": "desktop",
+      "pass": true,
+      "measured": 0,
+      "threshold": 0
+    },
+    {
+      "id": "page_present",
+      "page": "internet-tv.html",
+      "viewport": null,
+      "pass": true,
+      "measured": true,
+      "threshold": true
+    },
+    {
+      "id": "lighthouse_performance",
+      "page": "internet-tv.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": 99,
+      "threshold": 90
+    },
+    {
+      "id": "lighthouse_accessibility",
+      "page": "internet-tv.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": 100,
+      "threshold": 100
+    },
+    {
+      "id": "lighthouse_best-practices",
+      "page": "internet-tv.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": 100,
+      "threshold": 95
+    },
+    {
+      "id": "lighthouse_seo",
+      "page": "internet-tv.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": 100,
+      "threshold": 100
+    },
+    {
+      "id": "cls",
+      "page": "internet-tv.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": 0,
+      "threshold": 0.1
+    },
+    {
+      "id": "lcp",
+      "page": "internet-tv.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": 2026,
+      "threshold": 2500
+    },
+    {
+      "id": "transfer",
+      "page": "internet-tv.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": 170,
+      "threshold": 1500
+    },
+    {
+      "id": "outside_domains",
+      "page": "internet-tv.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": [],
+      "threshold": 5
+    },
+    {
+      "id": "no_horizontal_overflow",
+      "page": "internet-tv.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 0,
+      "threshold": 0
+    },
+    {
+      "id": "h1_exactly",
+      "page": "internet-tv.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 1,
+      "threshold": 1
+    },
+    {
+      "id": "heading_order",
+      "page": "internet-tv.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 0,
+      "threshold": 0
+    },
+    {
+      "id": "type_scale_discipline",
+      "page": "internet-tv.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 5,
+      "threshold": 10
+    },
+    {
+      "id": "min_text_size",
+      "page": "internet-tv.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 15,
+      "threshold": 12
+    },
+    {
+      "id": "hero_hierarchy_ratio",
+      "page": "internet-tv.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 2.43,
+      "threshold": 2.0
+    },
+    {
+      "id": "image_alt",
+      "page": "internet-tv.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 0,
+      "threshold": 0
+    },
+    {
+      "id": "required_text",
+      "page": "internet-tv.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": "[Ii]nternet",
+      "threshold": "present"
+    },
+    {
+      "id": "required_text",
+      "page": "internet-tv.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": "TV",
+      "threshold": "present"
+    },
+    {
+      "id": "required_text",
+      "page": "internet-tv.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": "[Hh]ome phone",
+      "threshold": "present"
+    },
+    {
+      "id": "photos_min",
+      "page": "internet-tv.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 3,
+      "threshold": 3
+    },
+    {
+      "id": "photo_in_manifest",
+      "page": "internet-tv.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": "every photo listed in photos.json"
+    },
+    {
+      "id": "photo_licence_allowed",
+      "page": "internet-tv.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": [
+        "Pexels License",
+        "Unsplash License"
+      ]
+    },
+    {
+      "id": "photo_modern_format",
+      "page": "internet-tv.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": [
+        "avif",
+        "webp"
+      ]
+    },
+    {
+      "id": "photo_fallback",
+      "page": "internet-tv.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": "jpg fallback plus avif, webp sources"
+    },
+    {
+      "id": "photo_responsive",
+      "page": "internet-tv.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": ">= 2 widths per format"
+    },
+    {
+      "id": "photo_dimensions",
+      "page": "internet-tv.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": "width and height attributes"
+    },
+    {
+      "id": "photo_sharpness",
+      "page": "internet-tv.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": ">= 0.85 x shown size"
+    },
+    {
+      "id": "photo_not_oversized",
+      "page": "internet-tv.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": "<= 2.2 x shown size"
+    },
+    {
+      "id": "photo_bytes",
+      "page": "internet-tv.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": "<= 200 KiB each"
+    },
+    {
+      "id": "page_photo_kib",
+      "page": "internet-tv.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 54,
+      "threshold": 900
+    },
+    {
+      "id": "lazy_below_fold",
+      "page": "internet-tv.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": "photos below the first screen load lazily"
+    },
+    {
+      "id": "lead_photo_priority",
+      "page": "internet-tv.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": {
+        "photo": "tv-wall-4x5-720.avif",
+        "fetchpriority": "high",
+        "loading": null
+      },
+      "threshold": "the biggest photo on the first screen loads eagerly with fetchpriority=high"
+    },
+    {
+      "id": "hero_is_photograph",
+      "page": "internet-tv.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": {
+        "photo": "tv-wall",
+        "kind": "photo"
+      },
+      "threshold": "the lead photo on the first screen is a photograph, not a composed image"
+    },
+    {
+      "id": "composites_within_limit",
+      "page": "internet-tv.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": "<= 0 composed images on the page"
+    },
+    {
+      "id": "photo_alt",
+      "page": "internet-tv.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": "alt attribute on every photo"
+    },
+    {
+      "id": "logos_required",
+      "page": "internet-tv.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [
+        "bell",
+        "t-wireless"
+      ],
+      "threshold": []
+    },
+    {
+      "id": "logo_min_size",
+      "page": "internet-tv.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": ">= 16px drawn height"
+    },
+    {
+      "id": "logo_clean_plate",
+      "page": "internet-tv.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": "white plate (rgb >= 245)"
+    },
+    {
+      "id": "logo_not_distorted",
+      "page": "internet-tv.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": "original proportions"
+    },
+    {
+      "id": "logo_not_on_identifiable_people",
+      "page": "internet-tv.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": "logos only on photos where nobody can be recognised"
+    },
+    {
+      "id": "no_horizontal_overflow",
+      "page": "internet-tv.html",
+      "viewport": "small_phone",
+      "pass": true,
+      "measured": 0,
+      "threshold": 0
+    },
+    {
+      "id": "no_horizontal_overflow",
+      "page": "internet-tv.html",
+      "viewport": "desktop",
+      "pass": true,
+      "measured": 0,
+      "threshold": 0
+    },
+    {
+      "id": "page_present",
+      "page": "repairs.html",
+      "viewport": null,
+      "pass": true,
+      "measured": true,
+      "threshold": true
+    },
+    {
+      "id": "lighthouse_performance",
+      "page": "repairs.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": 99,
+      "threshold": 90
+    },
+    {
+      "id": "lighthouse_accessibility",
+      "page": "repairs.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": 100,
+      "threshold": 100
+    },
+    {
+      "id": "lighthouse_best-practices",
+      "page": "repairs.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": 100,
+      "threshold": 95
+    },
+    {
+      "id": "lighthouse_seo",
+      "page": "repairs.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": 100,
+      "threshold": 100
+    },
+    {
+      "id": "cls",
+      "page": "repairs.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": 0,
+      "threshold": 0.1
+    },
+    {
+      "id": "lcp",
+      "page": "repairs.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": 1957,
+      "threshold": 2500
+    },
+    {
+      "id": "transfer",
+      "page": "repairs.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": 151,
+      "threshold": 1500
+    },
+    {
+      "id": "outside_domains",
+      "page": "repairs.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": [],
+      "threshold": 5
+    },
+    {
+      "id": "no_horizontal_overflow",
+      "page": "repairs.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 0,
+      "threshold": 0
+    },
+    {
+      "id": "h1_exactly",
+      "page": "repairs.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 1,
+      "threshold": 1
+    },
+    {
+      "id": "heading_order",
+      "page": "repairs.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 0,
+      "threshold": 0
+    },
+    {
+      "id": "type_scale_discipline",
+      "page": "repairs.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 6,
+      "threshold": 10
+    },
+    {
+      "id": "min_text_size",
+      "page": "repairs.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 15,
+      "threshold": 12
+    },
+    {
+      "id": "hero_hierarchy_ratio",
+      "page": "repairs.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 2.43,
+      "threshold": 2.0
+    },
+    {
+      "id": "image_alt",
+      "page": "repairs.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 0,
+      "threshold": 0
+    },
+    {
+      "id": "required_text",
+      "page": "repairs.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": "[Ss]creen",
+      "threshold": "present"
+    },
+    {
+      "id": "required_text",
+      "page": "repairs.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": "[Bb]atter",
+      "threshold": "present"
+    },
+    {
+      "id": "required_text",
+      "page": "repairs.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": "quote",
+      "threshold": "present"
+    },
+    {
+      "id": "photos_min",
+      "page": "repairs.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 2,
+      "threshold": 2
+    },
+    {
+      "id": "photo_in_manifest",
+      "page": "repairs.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": "every photo listed in photos.json"
+    },
+    {
+      "id": "photo_licence_allowed",
+      "page": "repairs.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": [
+        "Pexels License",
+        "Unsplash License"
+      ]
+    },
+    {
+      "id": "photo_modern_format",
+      "page": "repairs.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": [
+        "avif",
+        "webp"
+      ]
+    },
+    {
+      "id": "photo_fallback",
+      "page": "repairs.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": "jpg fallback plus avif, webp sources"
+    },
+    {
+      "id": "photo_responsive",
+      "page": "repairs.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": ">= 2 widths per format"
+    },
+    {
+      "id": "photo_dimensions",
+      "page": "repairs.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": "width and height attributes"
+    },
+    {
+      "id": "photo_sharpness",
+      "page": "repairs.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": ">= 0.85 x shown size"
+    },
+    {
+      "id": "photo_not_oversized",
+      "page": "repairs.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": "<= 2.2 x shown size"
+    },
+    {
+      "id": "photo_bytes",
+      "page": "repairs.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": "<= 200 KiB each"
+    },
+    {
+      "id": "page_photo_kib",
+      "page": "repairs.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 36,
+      "threshold": 900
+    },
+    {
+      "id": "lazy_below_fold",
+      "page": "repairs.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": "photos below the first screen load lazily"
+    },
+    {
+      "id": "lead_photo_priority",
+      "page": "repairs.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": {
+        "photo": "internals-16x10-720.avif",
+        "fetchpriority": "high",
+        "loading": null
+      },
+      "threshold": "the biggest photo on the first screen loads eagerly with fetchpriority=high"
+    },
+    {
+      "id": "hero_is_photograph",
+      "page": "repairs.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": {
+        "photo": "internals",
+        "kind": "photo"
+      },
+      "threshold": "the lead photo on the first screen is a photograph, not a composed image"
+    },
+    {
+      "id": "composites_within_limit",
+      "page": "repairs.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": "<= 0 composed images on the page"
+    },
+    {
+      "id": "photo_alt",
+      "page": "repairs.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": "alt attribute on every photo"
+    },
+    {
+      "id": "logos_required",
+      "page": "repairs.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [
+        "t-wireless"
+      ],
+      "threshold": []
+    },
+    {
+      "id": "logo_min_size",
+      "page": "repairs.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": ">= 16px drawn height"
+    },
+    {
+      "id": "logo_clean_plate",
+      "page": "repairs.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": "white plate (rgb >= 245)"
+    },
+    {
+      "id": "logo_not_distorted",
+      "page": "repairs.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": "original proportions"
+    },
+    {
+      "id": "logo_not_on_identifiable_people",
+      "page": "repairs.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": "logos only on photos where nobody can be recognised"
+    },
+    {
+      "id": "no_horizontal_overflow",
+      "page": "repairs.html",
+      "viewport": "small_phone",
+      "pass": true,
+      "measured": 0,
+      "threshold": 0
+    },
+    {
+      "id": "no_horizontal_overflow",
+      "page": "repairs.html",
+      "viewport": "desktop",
+      "pass": true,
+      "measured": 0,
+      "threshold": 0
+    },
+    {
+      "id": "page_present",
+      "page": "visit.html",
+      "viewport": null,
+      "pass": true,
+      "measured": true,
+      "threshold": true
+    },
+    {
+      "id": "lighthouse_performance",
+      "page": "visit.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": 99,
+      "threshold": 90
+    },
+    {
+      "id": "lighthouse_accessibility",
+      "page": "visit.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": 100,
+      "threshold": 100
+    },
+    {
+      "id": "lighthouse_best-practices",
+      "page": "visit.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": 100,
+      "threshold": 95
+    },
+    {
+      "id": "lighthouse_seo",
+      "page": "visit.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": 100,
+      "threshold": 100
+    },
+    {
+      "id": "cls",
+      "page": "visit.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": 0,
+      "threshold": 0.1
+    },
+    {
+      "id": "lcp",
+      "page": "visit.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": 1801,
+      "threshold": 2500
+    },
+    {
+      "id": "transfer",
+      "page": "visit.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": 122,
+      "threshold": 1500
+    },
+    {
+      "id": "outside_domains",
+      "page": "visit.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": [],
+      "threshold": 5
+    },
+    {
+      "id": "no_horizontal_overflow",
+      "page": "visit.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 0,
+      "threshold": 0
+    },
+    {
+      "id": "h1_exactly",
+      "page": "visit.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 1,
+      "threshold": 1
+    },
+    {
+      "id": "heading_order",
+      "page": "visit.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 0,
+      "threshold": 0
+    },
+    {
+      "id": "type_scale_discipline",
+      "page": "visit.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 5,
+      "threshold": 10
+    },
+    {
+      "id": "min_text_size",
+      "page": "visit.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 15,
+      "threshold": 12
+    },
+    {
+      "id": "hero_hierarchy_ratio",
+      "page": "visit.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 2.43,
+      "threshold": 2.0
+    },
+    {
+      "id": "image_alt",
+      "page": "visit.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 0,
+      "threshold": 0
+    },
+    {
+      "id": "required_text",
+      "page": "visit.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": "965 Bovaird",
+      "threshold": "present"
+    },
+    {
+      "id": "required_text",
+      "page": "visit.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": "647-707-1093",
+      "threshold": "present"
+    },
+    {
+      "id": "required_text",
+      "page": "visit.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": "10 a\\.m\\. to 8 p\\.m\\.",
+      "threshold": "present"
+    },
+    {
+      "id": "photos_min",
+      "page": "visit.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 1,
+      "threshold": 1
+    },
+    {
+      "id": "photo_in_manifest",
+      "page": "visit.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": "every photo listed in photos.json"
+    },
+    {
+      "id": "photo_licence_allowed",
+      "page": "visit.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": [
+        "Pexels License",
+        "Unsplash License"
+      ]
+    },
+    {
+      "id": "photo_modern_format",
+      "page": "visit.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": [
+        "avif",
+        "webp"
+      ]
+    },
+    {
+      "id": "photo_fallback",
+      "page": "visit.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": "jpg fallback plus avif, webp sources"
+    },
+    {
+      "id": "photo_responsive",
+      "page": "visit.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": ">= 2 widths per format"
+    },
+    {
+      "id": "photo_dimensions",
+      "page": "visit.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": "width and height attributes"
+    },
+    {
+      "id": "photo_sharpness",
+      "page": "visit.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": ">= 0.85 x shown size"
+    },
+    {
+      "id": "photo_not_oversized",
+      "page": "visit.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": "<= 2.2 x shown size"
+    },
+    {
+      "id": "photo_bytes",
+      "page": "visit.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": "<= 200 KiB each"
+    },
+    {
+      "id": "page_photo_kib",
+      "page": "visit.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 5,
+      "threshold": 900
+    },
+    {
+      "id": "lazy_below_fold",
+      "page": "visit.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": "photos below the first screen load lazily"
+    },
+    {
+      "id": "lead_photo_priority",
+      "page": "visit.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": {
+        "photo": "bokeh-amber-21x9-960.avif",
+        "fetchpriority": "high",
+        "loading": null
+      },
+      "threshold": "the biggest photo on the first screen loads eagerly with fetchpriority=high"
+    },
+    {
+      "id": "hero_is_photograph",
+      "page": "visit.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": {
+        "photo": "bokeh-amber",
+        "kind": "photo"
+      },
+      "threshold": "the lead photo on the first screen is a photograph, not a composed image"
+    },
+    {
+      "id": "composites_within_limit",
+      "page": "visit.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": "<= 0 composed images on the page"
+    },
+    {
+      "id": "photo_alt",
+      "page": "visit.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": "alt attribute on every photo"
+    },
+    {
+      "id": "logos_required",
+      "page": "visit.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [
+        "t-wireless"
+      ],
+      "threshold": []
+    },
+    {
+      "id": "logo_min_size",
+      "page": "visit.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": ">= 16px drawn height"
+    },
+    {
+      "id": "logo_clean_plate",
+      "page": "visit.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": "white plate (rgb >= 245)"
+    },
+    {
+      "id": "logo_not_distorted",
+      "page": "visit.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": "original proportions"
+    },
+    {
+      "id": "logo_not_on_identifiable_people",
+      "page": "visit.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": [],
+      "threshold": "logos only on photos where nobody can be recognised"
+    },
+    {
+      "id": "no_horizontal_overflow",
+      "page": "visit.html",
+      "viewport": "small_phone",
+      "pass": true,
+      "measured": 0,
+      "threshold": 0
+    },
+    {
+      "id": "no_horizontal_overflow",
+      "page": "visit.html",
+      "viewport": "desktop",
+      "pass": true,
+      "measured": 0,
+      "threshold": 0
+    },
+    {
+      "id": "imagery_audit",
+      "page": null,
+      "viewport": null,
+      "pass": true,
+      "measured": [],
+      "threshold": "licences, hosts, credits, hashes, faces"
+    },
+    {
+      "id": "manifest_current",
+      "page": null,
+      "viewport": null,
+      "pass": true,
+      "measured": "build carries the design's current photos.json",
+      "threshold": "same file"
+    },
+    {
+      "id": "logo_files_unaltered",
+      "page": null,
+      "viewport": null,
+      "pass": true,
+      "measured": [],
+      "threshold": "approved logo files, byte for byte"
+    },
+    {
+      "id": "distinct_copy_fields",
+      "page": null,
+      "viewport": "design-1",
+      "pass": true,
+      "measured": [],
+      "threshold": "title, description, h1 and lead differ from the sibling (similarity < 0.7)"
+    },
+    {
+      "id": "distinct_copy_phrases",
+      "page": null,
+      "viewport": "design-1",
+      "pass": true,
+      "measured": 0.0216,
+      "threshold": "<= 0.15 of the 4-word phrases shared with the sibling"
+    },
+    {
+      "id": "distinct_copy_sentences",
+      "page": null,
+      "viewport": "design-1",
+      "pass": true,
+      "measured": 0.0088,
+      "threshold": "<= 0.05 of sentences reused"
+    },
+    {
+      "id": "distinct_copy_headings",
+      "page": null,
+      "viewport": "design-1",
+      "pass": true,
+      "measured": 0.0,
+      "threshold": "<= 0.15 of headings shared"
+    },
+    {
+      "id": "distinct_copy_nav",
+      "page": null,
+      "viewport": "design-1",
+      "pass": true,
+      "measured": [],
+      "threshold": "<= 3 navigation labels shared"
+    },
+    {
+      "id": "distinct_visual",
+      "page": null,
+      "viewport": "design-1",
+      "pass": true,
+      "measured": 0.0842,
+      "threshold": "<= 0.45"
+    },
+    {
+      "id": "distinct_palette",
+      "page": null,
+      "viewport": "design-1",
+      "pass": true,
+      "measured": 34.08,
+      "threshold": ">= 12"
+    },
+    {
+      "id": "distinct_headline_font",
+      "page": null,
+      "viewport": "design-1",
+      "pass": true,
+      "measured": [
+        "Noto Serif Display",
+        "Source Serif 4"
+      ],
+      "threshold": "different headline typeface"
+    },
+    {
+      "id": "distinct_copy_fields",
+      "page": null,
+      "viewport": "design-2",
+      "pass": true,
+      "measured": [],
+      "threshold": "title, description, h1 and lead differ from the sibling (similarity < 0.7)"
+    },
+    {
+      "id": "distinct_copy_phrases",
+      "page": null,
+      "viewport": "design-2",
+      "pass": true,
+      "measured": 0.0313,
+      "threshold": "<= 0.15 of the 4-word phrases shared with the sibling"
+    },
+    {
+      "id": "distinct_copy_sentences",
+      "page": null,
+      "viewport": "design-2",
+      "pass": true,
+      "measured": 0.0132,
+      "threshold": "<= 0.05 of sentences reused"
+    },
+    {
+      "id": "distinct_copy_headings",
+      "page": null,
+      "viewport": "design-2",
+      "pass": true,
+      "measured": 0.0,
+      "threshold": "<= 0.15 of headings shared"
+    },
+    {
+      "id": "distinct_copy_nav",
+      "page": null,
+      "viewport": "design-2",
+      "pass": true,
+      "measured": [],
+      "threshold": "<= 3 navigation labels shared"
+    },
+    {
+      "id": "distinct_visual",
+      "page": null,
+      "viewport": "design-2",
+      "pass": true,
+      "measured": 0.0246,
+      "threshold": "<= 0.45"
+    },
+    {
+      "id": "distinct_palette",
+      "page": null,
+      "viewport": "design-2",
+      "pass": true,
+      "measured": 36.73,
+      "threshold": ">= 12"
+    },
+    {
+      "id": "distinct_headline_font",
+      "page": null,
+      "viewport": "design-2",
+      "pass": true,
+      "measured": [
+        "Noto Serif Display",
+        "Atkinson Hyperlegible Next"
+      ],
+      "threshold": "different headline typeface"
+    }
+  ]
+}

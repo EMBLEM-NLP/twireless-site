@@ -20,54 +20,38 @@
     {
       "title": "Screens and glass",
       "icon": "i-crack",
-      "text": "We fit a new screen or glass when yours is cracked or shattered, on phones and tablets."
+      "notice": "The screen or the glass over it is cracked or shattered, on a phone or a tablet.",
+      "fix": "A new screen or new glass goes in."
     },
     {
       "title": "Weak batteries",
       "icon": "i-battery",
-      "text": "The charge disappears fast, the phone cuts out before it reaches zero, or the battery has started to swell."
+      "notice": "The charge disappears fast, the phone cuts out before it reaches zero, or the battery has started to swell.",
+      "fix": "A new battery goes in."
     },
     {
       "title": "Won't charge",
       "icon": "i-plug",
-      "text": "Nothing happens when you plug it in, or it charges only when the cable is wedged at an angle."
+      "notice": "Nothing happens when you plug it in, or it charges only when the cable is wedged at an angle.",
+      "fix": "We find what is stopping the charge and repair it."
     },
     {
       "title": "Lens and back damage",
       "icon": "i-camera",
-      "text": "Photos coming out blurry, a lens with a crack in it, or a back panel that's smashed."
+      "notice": "Photos coming out blurry, a lens with a crack in it, or a back panel that's smashed.",
+      "fix": "The damaged lens or back panel is replaced."
     },
     {
       "title": "Sound problems",
       "icon": "i-speaker",
-      "text": "Calls sound muffled, or the speaker or microphone has gone quiet."
+      "notice": "Calls sound muffled, or the speaker or microphone has gone quiet.",
+      "fix": "We repair the speaker or the microphone."
     },
     {
       "title": "A wet phone",
       "icon": "i-drop",
-      "text": "Power it off straight away and get it to us quickly."
-    }
-  ],
-  "faq": [
-    {
-      "q": "Can I just walk in?",
-      "a": "Yes, drop in {{ hours_phrase }}. Booking is only for when you'd like us to set a time aside."
-    },
-    {
-      "q": "Does my number move with me?",
-      "a": "Yes. Your number can move with you to the new provider. Bring a recent bill that shows your account number, plus photo ID in case we need it. Leave the old plan running until the number has moved; that service then closes by itself."
-    },
-    {
-      "q": "Which providers can I sign up with here?",
-      "a": "Bell, Virgin Plus and Lucky Mobile. T Wireless is a Bell Authorised Retailer: we sell plans and phones from all three, and we arrange Bell internet, TV and a home phone line."
-    },
-    {
-      "q": "Do you repair tablets as well as phones?",
-      "a": "Yes, tablets and phones alike. Name the model and describe the fault, and the price comes before any work."
-    },
-    {
-      "q": "Can I get in with a wheelchair?",
-      "a": "Yes, the entrance is wheelchair accessible. If you'd like to check anything else before you come, give us a call."
+      "notice": "It went in the sink, the rain or a drink. Power it off straight away and get it to us quickly.",
+      "fix": "We check what the water reached, then tell you what can be saved and what it costs."
     }
   ]
 }

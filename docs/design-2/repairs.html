@@ -18,9 +18,10 @@
 <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 <link rel="preload" href="assets/fonts/atkinson-hyperlegible-next-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/css/site.css?v=8edda5e0">
-<noscript><link rel="stylesheet" href="assets/css/nojs.css?v=8edda5e0"></noscript>
-<script src="assets/js/site.js?v=8edda5e0" defer></script>
+<link rel="preload" href="assets/fonts/public-sans-digits-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/site.css?v=31ef7fa7">
+<noscript><link rel="stylesheet" href="assets/css/nojs.css?v=31ef7fa7"></noscript>
+<script src="assets/js/site.js?v=31ef7fa7" defer></script>
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -56,7 +57,7 @@
  "hasMap": "https://www.google.com/maps/search/?api=1&query=T%20Wireless%20965%20Bovaird%20Dr%20W%20Brampton%20ON"
 }
 </script>
-<link rel="stylesheet" href="assets/css/demo.css?v=8edda5e0">
+<link rel="stylesheet" href="assets/css/demo.css?v=31ef7fa7">
 
 </head>
 <body class="">
@@ -127,7 +128,7 @@
         <h1 id="page-title">Hand us the broken phone. We'll tell you the price first.</h1>
         <p class="lead">Cracked screens, tired batteries and phones that won't charge, on phones and tablets alike. The price comes first, then the repair.</p>
         <div class="buttons">
-          <a class="button" href="#book">Arrange a repair</a>
+          <a class="button" href="#book">Get a quote</a>
           <a class="button button--quiet" href="tel:+16477071093">Phone for a price</a>
         </div>
       </div>
@@ -138,86 +139,83 @@
   <section class="section section--tight" aria-labelledby="fix-title">
     <div class="wrap">
       <div class="head">
-        <h2 id="fix-title">What we repair</h2>
+        <h2 id="fix-title">Find your fault</h2>
         <p>The price depends on your model and the part it needs, so every repair is quoted first.</p>
       </div>
-      <div class="fixes">
+      <div class="fixes fixes--table">
         <div class="fixes__photo"><picture><source type="image/avif" srcset="assets/img/photos/cracked-screen-1x1-400.avif 400w, assets/img/photos/cracked-screen-1x1-600.avif 600w, assets/img/photos/cracked-screen-1x1-800.avif 800w" sizes="(min-width: 900px) 360px, calc(100vw - 32px)"><source type="image/webp" srcset="assets/img/photos/cracked-screen-1x1-400.webp 400w, assets/img/photos/cracked-screen-1x1-600.webp 600w, assets/img/photos/cracked-screen-1x1-800.webp 800w" sizes="(min-width: 900px) 360px, calc(100vw - 32px)"><img src="assets/img/photos/cracked-screen-1x1-800.jpg" srcset="assets/img/photos/cracked-screen-1x1-400.jpg 400w, assets/img/photos/cracked-screen-1x1-600.jpg 600w, assets/img/photos/cracked-screen-1x1-800.jpg 800w" sizes="(min-width: 900px) 360px, calc(100vw - 32px)" width="800" height="800" alt="Two phones with cracked screens." decoding="async" loading="lazy"></picture></div>
-        <ul class="fixes__list">
-          <li><svg class="icon" aria-hidden="true"><use href="#i-crack"></use></svg><div><h3>Screens and glass</h3><p>We fit a new screen or glass when yours is cracked or shattered, on phones and tablets.</p></div></li>
-<li><svg class="icon" aria-hidden="true"><use href="#i-battery"></use></svg><div><h3>Weak batteries</h3><p>The charge disappears fast, the phone cuts out before it reaches zero, or the battery has started to swell.</p></div></li>
-<li><svg class="icon" aria-hidden="true"><use href="#i-plug"></use></svg><div><h3>Won&#x27;t charge</h3><p>Nothing happens when you plug it in, or it charges only when the cable is wedged at an angle.</p></div></li>
-<li><svg class="icon" aria-hidden="true"><use href="#i-camera"></use></svg><div><h3>Lens and back damage</h3><p>Photos coming out blurry, a lens with a crack in it, or a back panel that&#x27;s smashed.</p></div></li>
-<li><svg class="icon" aria-hidden="true"><use href="#i-speaker"></use></svg><div><h3>Sound problems</h3><p>Calls sound muffled, or the speaker or microphone has gone quiet.</p></div></li>
-<li><svg class="icon" aria-hidden="true"><use href="#i-drop"></use></svg><div><h3>A wet phone</h3><p>Power it off straight away and get it to us quickly.</p></div></li>
-        </ul>
+        <div class="table-wrap">
+          <table class="compare compare--faults">
+            <caption class="visually-hidden">Common faults and what we do about them</caption>
+            <thead>
+              <tr><th scope="col">Fault</th><th scope="col">What you notice</th><th scope="col">What we do</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">Screens and glass</th><td data-label="You notice">The screen or the glass over it is cracked or shattered, on a phone or a tablet.</td><td data-label="We do">A new screen or new glass goes in.</td></tr>
+<tr><th scope="row">Weak batteries</th><td data-label="You notice">The charge disappears fast, the phone cuts out before it reaches zero, or the battery has started to swell.</td><td data-label="We do">A new battery goes in.</td></tr>
+<tr><th scope="row">Won&#x27;t charge</th><td data-label="You notice">Nothing happens when you plug it in, or it charges only when the cable is wedged at an angle.</td><td data-label="We do">We find what is stopping the charge and repair it.</td></tr>
+<tr><th scope="row">Lens and back damage</th><td data-label="You notice">Photos coming out blurry, a lens with a crack in it, or a back panel that&#x27;s smashed.</td><td data-label="We do">The damaged lens or back panel is replaced.</td></tr>
+<tr><th scope="row">Sound problems</th><td data-label="You notice">Calls sound muffled, or the speaker or microphone has gone quiet.</td><td data-label="We do">We repair the speaker or the microphone.</td></tr>
+<tr><th scope="row">A wet phone</th><td data-label="You notice">It went in the sink, the rain or a drink. Power it off straight away and get it to us quickly.</td><td data-label="We do">We check what the water reached, then tell you what can be saved and what it costs.</td></tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="section section--mist" aria-labelledby="how-title">
-    <div class="wrap">
-      <div class="head">
-        <h2 id="how-title">From the counter to pick-up</h2>
-        <p>Before you come in, copy your photos and files somewhere safe if you're able.</p>
-      </div>
-      <ol class="steps steps--four">
-        <li>
-          <h3>Arrange it, or drop by</h3>
-          <p>Send the form below, or call in every day from 10 a.m. to 8 p.m.</p>
-        </li>
-        <li>
-          <h3>We look it over</h3>
-          <p>We work out what's wrong and quote you. Nothing starts before you've heard the price.</p>
-        </li>
-        <li>
-          <h3>We repair it</h3>
-          <p>You'll hear when to come back and collect it.</p>
-        </li>
-        <li>
-          <h3>Check it with us</h3>
-          <p>Switch it on and try it in front of us before you leave.</p>
-        </li>
-      </ol>
-    </div>
-  </section>
-
-  <section class="section" id="book" aria-labelledby="book-title">
+  <section class="section section--mist" id="book" aria-labelledby="book-title">
     <div class="wrap form-split">
-      <div>
-        <h2 id="book-title">Arrange a repair</h2>
-        <p>Describe the fault and we'll phone you to agree a time.</p>
-        <p>If you'd rather speak to someone, phone the store on <a href="tel:+16477071093">647-707-1093</a>, or email <a href="mailto:twireless965@gmail.com">twireless965@gmail.com</a>.</p>
+      <div class="form-split__intro">
+        <h2 id="book-title">Tell us what it's doing</h2>
+        <p>Describe the fault and we'll phone you to agree a time to bring the device in.</p>
+        <h3>What you can count on</h3>
+        <ul class="ticks">
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg><span><strong>The price comes first.</strong> We find the fault and name the price before we touch the device.</span></li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg><span><strong>Your yes comes next.</strong> Nothing starts until you've agreed to that price.</span></li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg><span><strong>You try it before you go.</strong> When it's ready, switch it on and test it at the counter.</span></li>
+        </ul>
+        <p>If you can, copy your photos and files somewhere safe before you come in.</p>
+        <p>Rather talk? Phone the store on <a href="tel:+16477071093">647-707-1093</a>, or email <a href="mailto:twireless965@gmail.com">twireless965@gmail.com</a>.</p>
       </div>
       <form class="form" name="repair" method="get" action="thanks.html">
         <input type="hidden" name="form-name" value="repair">
         <p class="visually-hidden"><label>Leave this field empty <input type="text" name="company" tabindex="-1" autocomplete="off"></label></p>
-        <div class="field">
-          <label for="r-name">Your name</label>
-          <input id="r-name" name="name" type="text" autocomplete="name" required>
+        <div class="form__row">
+          <div class="field">
+            <label for="r-name">Your name</label>
+            <input id="r-name" name="name" type="text" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="r-phone">Phone number</label>
+            <input id="r-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" pattern="[\d\s+.\x28\x29\x2d]{7,}" title="A phone number, such as 647-707-1093" required>
+          </div>
         </div>
+        <fieldset class="field field--group">
+          <legend>What is it?</legend>
+          <div class="choices">
+            <label class="choice"><input type="radio" name="kind" value="Phone" checked><span>A phone</span></label>
+            <label class="choice"><input type="radio" name="kind" value="Tablet"><span>A tablet</span></label>
+          </div>
+        </fieldset>
         <div class="field">
-          <label for="r-phone">Phone number</label>
-          <input id="r-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required>
-        </div>
-        <div class="field">
-          <label for="r-device">Which device?</label>
+          <label for="r-device">Make and model</label>
           <input id="r-device" name="device" type="text" required aria-describedby="r-device-hint">
           <p class="hint" id="r-device-hint">Such as a Pixel 8 or an iPad Air.</p>
         </div>
         <div class="field">
-          <label for="r-problem">What's the problem?</label>
+          <label for="r-problem">What's it doing?</label>
           <textarea id="r-problem" name="problem" rows="4" required></textarea>
         </div>
         <div class="field">
-          <label for="r-when">When suits you?</label>
+          <label for="r-when">Best time for our call</label>
           <select id="r-when" name="when">
-            <option>Any day</option>
-            <option>A weekday</option>
-            <option>A weekend</option>
+            <option>Morning</option>
+            <option>Afternoon</option>
+            <option>Evening</option>
           </select>
         </div>
-        <button class="button" type="submit">Ask for this repair</button>
+        <button class="button" type="submit">Get my quote</button>
         <p class="hint">We'll only use these details to get back to you. <a href="privacy.html">Privacy</a></p>
       </form>
     </div>
@@ -234,7 +232,7 @@
         </picture>
       </a>
       <p><strong>Bell Authorised Retailer</strong><br>965 Bovaird Dr W, Unit 1<br>Brampton, ON L6X 0G3</p>
-      <p>Open every day, 10 a.m. to 8 p.m.</p>
+      <p>Open every day, 10 a.m. to 8 p.m.</p>
     </div>
     <div>
       <h2 class="foot__title">Get in touch</h2>

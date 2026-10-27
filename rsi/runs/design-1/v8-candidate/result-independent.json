@@ -1,0 +1,84 @@
+{
+  "schema": "web.design.result.v1",
+  "measurement_series": "WEB-DESIGN-RSI-1.0",
+  "target_id": "T-WIRELESS-SITE",
+  "candidate_sha256": "aa173d98359bbe120e057e08689fe239620e84a89d836fed9bb31cf85e6210b0",
+  "reviewer_id": "claude-independent-agent-v8-d1",
+  "reviewer_role": "independent_reviewer",
+  "independent_review": true,
+  "measured_checks_failed": 0,
+  "measured_failed_checks": [],
+  "declaration_blockers": [],
+  "dimension_scores": {
+    "first_impression": 80.0,
+    "visual_richness": 70.0,
+    "service_clarity": 80.0,
+    "navigation_wayfinding": 80.0,
+    "conversion_paths": 70.0,
+    "brand_identity": 80.0,
+    "trust_signals": 80.0,
+    "information_economy": 70.0,
+    "typography_hierarchy": 90.0,
+    "grid_whitespace_rhythm": 80.0,
+    "mobile_ergonomics": 80.0
+  },
+  "overall_score": 77.8,
+  "page_role_scores": [
+    {
+      "role": "home",
+      "page": "index.html",
+      "score": 84.0
+    },
+    {
+      "role": "brand_family",
+      "page": "brands.html",
+      "score": 82.0
+    },
+    {
+      "role": "deals",
+      "page": "deals.html",
+      "score": 72.0
+    },
+    {
+      "role": "mobile",
+      "page": "mobile.html",
+      "score": 80.0
+    },
+    {
+      "role": "home_services",
+      "page": "internet-tv.html",
+      "score": 82.0
+    },
+    {
+      "role": "repairs",
+      "page": "repairs.html",
+      "score": 82.0
+    },
+    {
+      "role": "visit",
+      "page": "visit.html",
+      "score": 86.0
+    }
+  ],
+  "weakest_dimension": "conversion_paths",
+  "weakest_dimension_score": 70.0,
+  "gates": {
+    "measured_layer": true,
+    "evidence_complete": false,
+    "overall": false,
+    "critical_dimensions": true,
+    "page_roles": true,
+    "accuracy": false
+  },
+  "diagnostic_pass": false,
+  "release_eligible": false,
+  "blockers": [
+    "accuracy gate failed/unknown: content_matches_sources",
+    "accuracy gate failed/unknown: unverified_flagged_for_owner"
+  ],
+  "release_blockers": [
+    "Design contract is not approved_for_production.",
+    "Design diagnostic gates are not all passing."
+  ],
+  "score_note": "Review-derived design score plus Lighthouse and Playwright measurements; not a visitor-behaviour measurement."
+}

@@ -36,7 +36,42 @@
     </ul>
   </div>
 
-  <section class="section" aria-labelledby="providers-title">
+  <section class="section" aria-labelledby="hand-title">
+    <div class="wrap">
+      <div class="head">
+        <h2 id="hand-title">Bring whatever is in your hand</h2>
+        <p>A bill, a cracked phone or a street address is enough to get started. Pick the one that sounds like you.</p>
+      </div>
+      <div class="cards">
+        <article class="card" aria-labelledby="hand-bill">
+          <div class="card__media">{{{ pic.hand_bill }}}</div>
+          <div class="card__body">
+            <h3 id="hand-bill">Your latest bill</h3>
+            <p>It carries the account number we need to move your number, and it shows what you pay today. Keep the old plan running until the move is done.</p>
+            <p><a class="button button--quiet" href="mobile.html#switch">How switching works</a></p>
+          </div>
+        </article>
+        <article class="card" aria-labelledby="hand-repair">
+          <div class="card__media">{{{ pic.hand_repair }}}</div>
+          <div class="card__body">
+            <h3 id="hand-repair">A phone that has let you down</h3>
+            <p>Cracked glass, a battery that gives up by lunch, a port that won't charge: hand it over and we'll name the price before we touch it.</p>
+            <p><a class="button button--quiet" href="repairs.html">What we repair</a></p>
+          </div>
+        </article>
+        <article class="card" aria-labelledby="hand-home">
+          <div class="card__media">{{{ pic.hand_home }}}{{{ plate_photo.bell }}}</div>
+          <div class="card__body">
+            <h3 id="hand-home">An address to connect</h3>
+            <p>Internet and TV depend on the street address, unit number included, so we look yours up first. Bell Internet, Fibe TV, Satellite TV and a home phone line are all on the list.</p>
+            <p><a class="button button--quiet" href="internet-tv.html">What Bell can connect</a></p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--mist" aria-labelledby="providers-title">
     <div class="wrap">
       <div class="head">
         <h2 id="providers-title">One network, three ways in</h2>
@@ -44,26 +79,6 @@
         <a class="head__link" href="brands.html">See them side by side</a>
       </div>
       {{{ providers }}}
-    </div>
-  </section>
-
-  <section class="section section--mist" aria-labelledby="home-title">
-    <div class="wrap feature">
-      <div class="feature__media">
-        {{{ pic.living_wide }}}
-        {{{ plate_photo.bell }}}
-      </div>
-      <div class="feature__text">
-        <h2 id="home-title">Home internet and TV start with your address</h2>
-        <p>Which services reach a home depends on the address, so we start there. Give us the street and unit number and we'll see what Bell can connect.</p>
-        <ul class="minis">
-          <li><svg class="icon" aria-hidden="true"><use href="#i-wifi"></use></svg><span>Bell Internet</span></li>
-          <li><svg class="icon" aria-hidden="true"><use href="#i-tv"></use></svg><span>Fibe TV</span></li>
-          <li><svg class="icon" aria-hidden="true"><use href="#i-dish"></use></svg><span>Satellite TV</span></li>
-          <li><svg class="icon" aria-hidden="true"><use href="#i-call"></use></svg><span>Home Phone</span></li>
-        </ul>
-        <a class="button button--quiet" href="internet-tv.html">See the setup steps</a>
-      </div>
     </div>
   </section>
 
@@ -79,76 +94,15 @@
     </div>
   </section>
 
-  <section class="section section--mist" aria-labelledby="repairs-title">
-    <div class="wrap feature feature--flip">
-      <div class="feature__media">
-        {{{ pic.repair_wide }}}
-      </div>
-      <div class="feature__text">
-        <h2 id="repairs-title">Cracked screen? Hand it over.</h2>
-        <p>Bring the phone or tablet in and we'll look it over. You'll have a price before we touch it.</p>
-        <ul class="ticks ticks--two">
-          {{{ repair_names }}}
-        </ul>
-        <div class="buttons">
-          <a class="button" href="repairs.html#book">Arrange a repair</a>
-          <a class="button button--quiet" href="tel:{{ store.phone_e164 }}">Phone for a price</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" aria-labelledby="switch-title">
+  <section class="section section--mist" aria-labelledby="visit-title">
     <div class="wrap">
       <div class="head">
-        <h2 id="switch-title">Changing providers? Your number can come too</h2>
-        <p>Your number doesn't have to change when your provider does. This is how it moves to Bell, Virgin Plus or Lucky Mobile.</p>
+        <h2 id="visit-title">Drop in on Bovaird</h2>
+        <p>We're on the south side of Bovaird Drive West, just east of Chinguacousy Road. Walk in during opening hours, or book a time if you'd like us ready for you.</p>
       </div>
-      <ol class="steps">
-        <li>
-          <h3>Your latest bill</h3>
-          <p>It shows the account number we need. Bring photo ID too, in case we need it.</p>
-        </li>
-        <li>
-          <h3>Pick together</h3>
-          <p>We set the three providers next to each other, along with the phones you like, and you decide.</p>
-        </li>
-        <li>
-          <h3>The number moves across</h3>
-          <p>Leave your old plan running. When the number moves over, that service closes by itself.</p>
-        </li>
-      </ol>
-    </div>
-  </section>
-
-  <section class="section section--mist" aria-labelledby="visit-title">
-    <div class="wrap visit">
-      <div>
-        <h2 id="visit-title">Find us on Bovaird</h2>
-        <p class="address">{{ store.street }}<br>{{ store.city }}, {{ store.province }} {{ store.postal }}</p>
-        <table class="hours">
-          <caption class="visually-hidden">Store hours</caption>
-          <tbody>
-            {{{ hours_rows }}}
-          </tbody>
-        </table>
-        <div class="buttons">
-          <a class="button" href="{{ store.directions_url }}">Get directions</a>
-          <a class="button button--quiet" href="tel:{{ store.phone_e164 }}">Call {{ store.phone_display }}</a>
-        </div>
-      </div>
-      {{{ map }}}
-    </div>
-  </section>
-
-  <section class="section" aria-labelledby="faq-title">
-    <div class="wrap faq-split">
-      <div class="faq-split__intro">
-        <h2 id="faq-title">Questions people ask us</h2>
-        <p>Something else on your mind? Phone <a href="tel:{{ store.phone_e164 }}">{{ store.phone_display }}</a> and we'll answer it.</p>
-      </div>
-      <div class="faq">
-        {{{ faq_items }}}
+      <div class="visit visit--match">
+        <div>{{{ store_card }}}</div>
+        {{{ map }}}
       </div>
     </div>
   </section>

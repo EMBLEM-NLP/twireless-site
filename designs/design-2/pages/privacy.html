@@ -1,34 +1,53 @@
 <!--page
 {
-  "title": "Privacy: how we handle the details you send | T Wireless",
-  "description": "What T Wireless does with the details you send through the visit and repair forms on this website.",
+  "title": "Privacy: what happens to what you type into our forms | T Wireless",
+  "description": "What T Wireless does with the details you send through the visit and repair forms, which cookies this website sets, and when its map loads from Google.",
   "nav": ""
 }
 -->
 <main id="main">
   <section class="intro" aria-labelledby="page-title">
     <div class="wrap narrow">
-      <h1 id="page-title">Your details and what we do with them</h1>
-      <p class="lead">The short version: we use what you type into our forms to get back to you, and for nothing else.</p>
+      <h1 id="page-title">What happens to what you type here</h1>
+      <p class="lead">In short: we read it, we phone you back, and when it has done its job we delete it.</p>
     </div>
   </section>
 
   <section class="section section--tight">
     <div class="wrap narrow prose">
-      <h2>What we receive</h2>
-      <p>The visit and repair forms send us what you type into them: your name, your phone number and your other answers. We don't use cookies to advertise or to track visitors on this site.</p>
+      <h2>What the forms take</h2>
+      <div class="table-wrap">
+        <table class="compare">
+          <caption class="visually-hidden">What each form collects, why, and where it goes</caption>
+          <thead>
+            <tr><th scope="col">You send</th><th scope="col">We use it to</th><th scope="col">It travels to</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Your name and phone number</th>
+              <td data-label="We use it to">Phone you back about your visit or repair.</td>
+              <td data-label="It travels to">The store, through the form service of our website host.</td>
+            </tr>
+            <tr>
+              <th scope="row">What you tell us about the visit or the fault</th>
+              <td data-label="We use it to">Be ready for you when you arrive.</td>
+              <td data-label="It travels to">The same place. It is never sold or passed to marketers.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
-      <h2>What we do with it</h2>
-      <p>It's used to phone you back and to arrange your visit or repair. We never sell it or hand it to marketers.</p>
+      <h2>Cookies, and the map</h2>
+      <p>This website sets no cookies to advertise or to track visitors. The map on the Find us page and on the home page is a sketch until you press <strong>Show the map</strong>. Only then does your browser ask Google for the map. Google's privacy policy covers that request.</p>
 
-      <h2>Where it goes</h2>
-      <p>Requests reach the store through the form service of our website host. Once a request has done its job, we delete it.</p>
+      <h2>How long we keep it</h2>
+      <p>A request is deleted once it has done its job.</p>
 
-      <h2>Your provider account</h2>
-      <p>Anything you buy from Bell, Virgin Plus or Lucky Mobile is governed by the privacy policy of that provider.</p>
+      <h2>Your plan with the provider</h2>
+      <p>Buying from Bell, Virgin Plus or Lucky Mobile? Each provider's privacy policy governs the account you open with it.</p>
 
-      <h2>Ask us</h2>
-      <p>Want to know what we hold about you, or have it erased? Phone <a href="tel:{{ store.phone_e164 }}">{{ store.phone_display }}</a>, write to <a href="mailto:{{ store.email }}">{{ store.email }}</a>, or call in at {{ store.street }}, {{ store.city }}.</p>
+      <h2>Seeing it, or having it erased</h2>
+      <p>Ask what we hold about you, or ask us to erase it. Phone <a href="tel:{{ store.phone_e164 }}">{{ store.phone_display }}</a>, write to <a href="mailto:{{ store.email }}">{{ store.email }}</a>, or call in at {{ store.street }}, {{ store.city }}.</p>
     </div>
   </section>
 </main>

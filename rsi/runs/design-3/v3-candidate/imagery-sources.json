@@ -1,0 +1,699 @@
+{
+  "schema": "web.design.imagery.sources.v1",
+  "design_id": "design-3",
+  "licenses": {
+    "Pexels License": {
+      "url": "https://www.pexels.com/license/",
+      "commercial": true,
+      "attribution_required": false,
+      "conditions": [
+        "Don't imply that people or brands in a photo endorse T Wireless.",
+        "Identifiable people may not appear in a bad light or in a way that is offensive.",
+        "Don't use a photo as part of a trademark, design mark, trade name, business name or service mark.",
+        "Don't sell unaltered copies or redistribute the photos on stock or wallpaper platforms."
+      ]
+    }
+  },
+  "allowed_hosts": [
+    "images.pexels.com",
+    "images.unsplash.com"
+  ],
+  "grade": {
+    "saturation": 0.94,
+    "contrast": 1.02
+  },
+  "encode": {
+    "avif": {
+      "quality": 48,
+      "speed": 6
+    },
+    "webp": {
+      "quality": 72
+    },
+    "jpg": {
+      "quality": 78
+    }
+  },
+  "photos": [
+    {
+      "id": "candle-phone",
+      "provider": "Pexels",
+      "provider_id": "6279107",
+      "page_url": "https://www.pexels.com/photo/person-in-the-dark-room-holding-smartphone-6279107/",
+      "download_url": "https://images.pexels.com/photos/6279107/pexels-photo-6279107.jpeg",
+      "author": "Artem Podrez",
+      "author_url": "https://www.pexels.com/@artempodrez/",
+      "license": "Pexels License",
+      "retrieved": "2026-10-26",
+      "original": "originals/pexels-6279107.jpg",
+      "people": "no faces",
+      "people_note": "one hand; a person at the left edge of the original is cropped out",
+      "description": "A hand holds up a phone with a blank bright screen in a dark room lit by candles and a lantern",
+      "alt": "A hand holding up a phone with a bright screen, in a dark room lit by candles.",
+      "crops": {
+        "4x3": {
+          "focus": [
+            0.625,
+            0.5
+          ],
+          "widths": [
+            480,
+            720,
+            960,
+            1280,
+            1600,
+            1920
+          ]
+        },
+        "40x21": {
+          "focus": [
+            0.63,
+            0.5
+          ],
+          "zoom": 1.35,
+          "widths": [
+            1200
+          ],
+          "formats": [
+            "jpg"
+          ]
+        }
+      },
+      "original_sha256": "a52888abd8560d626de082590614c16f4e96943002f7d52704dd6044bada8767",
+      "original_size": [
+        6144,
+        3456
+      ]
+    },
+    {
+      "id": "hand-black",
+      "provider": "Pexels",
+      "provider_id": "9995704",
+      "page_url": "https://www.pexels.com/photo/human-hand-holding-iphone-9995704/",
+      "download_url": "https://images.pexels.com/photos/9995704/pexels-photo-9995704.jpeg",
+      "author": "Bekir Donmez",
+      "author_url": "https://www.pexels.com/@bekirdonmeez/",
+      "license": "Pexels License",
+      "retrieved": "2026-10-26",
+      "original": "originals/pexels-9995704.jpg",
+      "people": "no faces",
+      "people_note": "one hand",
+      "description": "A hand holds a dark phone, back toward the camera, against a black backdrop",
+      "alt": "A hand holding a dark phone against a black background.",
+      "crops": {
+        "4x5": {
+          "focus": [
+            0.5,
+            0.55
+          ],
+          "widths": [
+            480,
+            720,
+            960,
+            1200
+          ]
+        }
+      },
+      "original_sha256": "b8bc09121f48eaa104e6dc528681e32051f67b6144d1bf3eb734faacd10876b9",
+      "original_size": [
+        2700,
+        3445
+      ],
+      "retouch": [
+        {
+          "poly": [
+            [
+              1180,
+              1545
+            ],
+            [
+              1300,
+              1545
+            ],
+            [
+              1345,
+              1600
+            ],
+            [
+              1345,
+              1720
+            ],
+            [
+              1290,
+              1775
+            ],
+            [
+              1170,
+              1775
+            ],
+            [
+              1125,
+              1720
+            ],
+            [
+              1125,
+              1600
+            ]
+          ],
+          "fill": "marks",
+          "whole": true,
+          "method": "laplace",
+          "scale": 4,
+          "feather": 6,
+          "why": "The manufacturer's logo on the back of the phone"
+        }
+      ]
+    },
+    {
+      "id": "mono-rings",
+      "provider": "Pexels",
+      "provider_id": "31605450",
+      "page_url": "https://www.pexels.com/photo/close-up-of-hands-with-rings-holding-phone-31605450/",
+      "download_url": "https://images.pexels.com/photos/31605450/pexels-photo-31605450.jpeg",
+      "author": "Schena Maria Karlec",
+      "author_url": "https://www.pexels.com/@schena-maria-karlec-885328/",
+      "license": "Pexels License",
+      "retrieved": "2026-10-26",
+      "original": "originals/pexels-31605450.jpg",
+      "people": "no faces",
+      "people_note": "two hands",
+      "description": "Black-and-white close-up of two hands wearing rings and holding a phone",
+      "alt": "Black-and-white close-up of two hands wearing rings and holding a phone.",
+      "crops": {
+        "4x5": {
+          "focus": [
+            0.5,
+            0.45
+          ],
+          "widths": [
+            480,
+            720,
+            960,
+            1200
+          ]
+        }
+      },
+      "original_sha256": "f771f708ab3b10ec5e195305301d4cff13cb099dc1c12de768f7f95ed2e90073",
+      "original_size": [
+        3024,
+        4032
+      ]
+    },
+    {
+      "id": "wood-garnet",
+      "provider": "Pexels",
+      "provider_id": "59939",
+      "page_url": "https://www.pexels.com/photo/black-samsung-smartphone-at-brown-wooden-surface-59939/",
+      "download_url": "https://images.pexels.com/photos/59939/pexels-photo-59939.jpeg",
+      "author": "Craig Dennis",
+      "author_url": "https://www.pexels.com/@craigmdennis/",
+      "license": "Pexels License",
+      "retrieved": "2026-10-26",
+      "original": "originals/pexels-59939.jpg",
+      "people": "none",
+      "people_note": "no people",
+      "description": "A dark phone lying on a polished wooden table lit in deep red",
+      "alt": "A dark phone lying on a polished wooden table, lit in deep red.",
+      "crops": {
+        "16x9": {
+          "focus": [
+            0.55,
+            0.5
+          ],
+          "widths": [
+            480,
+            720,
+            960,
+            1280,
+            1600,
+            1920
+          ]
+        }
+      },
+      "original_sha256": "22b0becb31a723edbef10d351a2fe54671d5d35b892639e40bf82b8b2ecfbce9",
+      "original_size": [
+        5616,
+        3744
+      ],
+      "retouch": [
+        {
+          "poly": [
+            [
+              3069,
+              1424
+            ],
+            [
+              3445,
+              1576
+            ],
+            [
+              3423,
+              1632
+            ],
+            [
+              3047,
+              1480
+            ]
+          ],
+          "fill": "marks",
+          "whole": true,
+          "method": "laplace",
+          "scale": 4,
+          "feather": 3,
+          "why": "The manufacturer's name printed on the phone's top bezel"
+        }
+      ]
+    },
+    {
+      "id": "tv-wall",
+      "provider": "Pexels",
+      "provider_id": "13722886",
+      "page_url": "https://www.pexels.com/photo/living-room-with-television-13722886/",
+      "download_url": "https://images.pexels.com/photos/13722886/pexels-photo-13722886.jpeg",
+      "author": "Bilal Mansuri",
+      "author_url": "https://www.pexels.com/@perqued/",
+      "license": "Pexels License",
+      "retrieved": "2026-10-26",
+      "original": "originals/pexels-13722886.jpg",
+      "people": "none",
+      "people_note": "no people",
+      "description": "A living room with a dark panelled wall, a wall-mounted television, lit shelving and a low sofa",
+      "alt": "A living room with a dark panelled wall, a wall-mounted television, lit shelves and a low sofa.",
+      "crops": {
+        "4x5": {
+          "focus": [
+            0.37,
+            0.5
+          ],
+          "zoom": 1.35,
+          "widths": [
+            480,
+            720,
+            960,
+            1200
+          ]
+        }
+      },
+      "original_sha256": "295fc1ee297434a47a995589cca71238e48c868cfe79ac6d88cf2e09a9a4b83f",
+      "original_size": [
+        2000,
+        2500
+      ]
+    },
+    {
+      "id": "house-dusk",
+      "provider": "Pexels",
+      "provider_id": "31737860",
+      "page_url": "https://www.pexels.com/photo/modern-luxury-house-at-night-with-lights-31737860/",
+      "download_url": "https://images.pexels.com/photos/31737860/pexels-photo-31737860.jpeg",
+      "author": "Sharath G.",
+      "author_url": "https://www.pexels.com/@dropshado/",
+      "license": "Pexels License",
+      "retrieved": "2026-10-26",
+      "original": "originals/pexels-31737860.jpg",
+      "people": "none",
+      "people_note": "no people",
+      "description": "A modern house at dusk with its windows and entrance lit",
+      "alt": "A modern house at dusk with its windows and entrance lit.",
+      "crops": {
+        "4x5": {
+          "focus": [
+            0.5,
+            0.55
+          ],
+          "widths": [
+            480,
+            720,
+            960,
+            1200
+          ]
+        }
+      },
+      "original_sha256": "972ad7f31e80f3ef0a40aa7827c7e825dd34a472d7b10dd7eff7df2405f7c929",
+      "original_size": [
+        4160,
+        6240
+      ]
+    },
+    {
+      "id": "internals",
+      "provider": "Pexels",
+      "provider_id": "719399",
+      "page_url": "https://www.pexels.com/photo/black-android-smartphone-on-table-719399/",
+      "download_url": "https://images.pexels.com/photos/719399/pexels-photo-719399.jpeg",
+      "author": "Tyler Lastovich",
+      "author_url": "https://www.pexels.com/@lastly/",
+      "license": "Pexels License",
+      "retrieved": "2026-10-26",
+      "original": "originals/pexels-719399.jpg",
+      "people": "none",
+      "people_note": "no people",
+      "description": "A phone lying on a dark surface with its inner parts and battery showing",
+      "alt": "A phone lying on a dark surface with its inner parts and battery showing.",
+      "crops": {
+        "16x10": {
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "widths": [
+            480,
+            720,
+            960,
+            1280,
+            1600,
+            1920
+          ]
+        }
+      },
+      "original_sha256": "b223c2a19943bdb54b72ac92c97d9743eb44e1dfc37c37158fcf963c5746a6c5",
+      "original_size": [
+        4000,
+        2921
+      ],
+      "retouch": [
+        {
+          "fill": "marks",
+          "poly": [
+            [
+              1415,
+              1335
+            ],
+            [
+              1570,
+              1215
+            ],
+            [
+              1660,
+              1232
+            ],
+            [
+              1705,
+              1295
+            ],
+            [
+              1765,
+              1328
+            ],
+            [
+              1882,
+              1398
+            ],
+            [
+              1888,
+              1472
+            ],
+            [
+              1702,
+              1568
+            ],
+            [
+              1608,
+              1562
+            ],
+            [
+              1528,
+              1445
+            ],
+            [
+              1498,
+              1392
+            ],
+            [
+              1425,
+              1350
+            ]
+          ],
+          "why": "Printed warning text and part numbers on the battery label",
+          "whole": true,
+          "method": "laplace",
+          "scale": 6,
+          "feather": 4
+        },
+        {
+          "fill": "marks",
+          "box": [
+            1920,
+            1630,
+            2145,
+            1800
+          ],
+          "why": "Recycling symbol and cell-type text on the battery label",
+          "whole": true,
+          "method": "laplace",
+          "scale": 6,
+          "feather": 4
+        },
+        {
+          "fill": "marks",
+          "box": [
+            2090,
+            1780,
+            2280,
+            1915
+          ],
+          "why": "Certification mark and the maker's name printed on the battery label",
+          "whole": true,
+          "method": "laplace",
+          "scale": 6,
+          "feather": 4
+        },
+        {
+          "fill": "marks",
+          "box": [
+            2205,
+            1498,
+            2435,
+            1655
+          ],
+          "why": "Certification mark and the maker's name printed on the battery label",
+          "whole": true,
+          "method": "laplace",
+          "scale": 6,
+          "feather": 4
+        },
+        {
+          "fill": "marks",
+          "box": [
+            2355,
+            1620,
+            2555,
+            1755
+          ],
+          "why": "Safety-certification mark and its file number on the battery label",
+          "whole": true,
+          "method": "laplace",
+          "scale": 6,
+          "feather": 4
+        },
+        {
+          "fill": "marks",
+          "mark": "light",
+          "window": 41,
+          "delta": 22,
+          "grow": 5,
+          "poly": [
+            [
+              2213,
+              2037
+            ],
+            [
+              2452,
+              1903
+            ],
+            [
+              2492,
+              1973
+            ],
+            [
+              2253,
+              2107
+            ]
+          ],
+          "why": "The maker's logo and part name printed on the small component label"
+        }
+      ]
+    },
+    {
+      "id": "bench-lamp",
+      "provider": "Pexels",
+      "provider_id": "13625784",
+      "page_url": "https://www.pexels.com/photo/man-repairing-a-phone-13625784/",
+      "download_url": "https://images.pexels.com/photos/13625784/pexels-photo-13625784.jpeg",
+      "author": "Pictjoe",
+      "author_url": "https://www.pexels.com/@pictjoe-307181532/",
+      "license": "Pexels License",
+      "retrieved": "2026-10-26",
+      "original": "originals/pexels-13625784.jpg",
+      "people": "no faces",
+      "people_note": "hands and a bench only; the person's face is cropped out",
+      "description": "Hands working on a phone with fine tools on a wooden bench under a lamp",
+      "alt": "Hands working on a phone with fine tools on a wooden bench under a lamp.",
+      "crops": {
+        "4x5": {
+          "focus": [
+            0.551,
+            0.632
+          ],
+          "zoom": 1.883,
+          "widths": [
+            480,
+            720,
+            960,
+            1200
+          ]
+        }
+      },
+      "original_sha256": "3d15d428f4b275e9341f5de202d6cea0b79d4165ea53e22710993cb9eacb7c61",
+      "original_size": [
+        2448,
+        3264
+      ],
+      "retouch": [
+        {
+          "poly": [
+            [
+              1140,
+              1728
+            ],
+            [
+              1432,
+              1560
+            ],
+            [
+              1540,
+              1635
+            ],
+            [
+              1265,
+              1800
+            ]
+          ],
+          "fill": "marks",
+          "whole": true,
+          "method": "laplace",
+          "scale": 5,
+          "feather": 4,
+          "why": "The maker's logo and printed text on the battery label",
+          "grain": 0.35
+        }
+      ]
+    },
+    {
+      "id": "marble-gold",
+      "provider": "Pexels",
+      "provider_id": "8350474",
+      "page_url": "https://www.pexels.com/photo/black-and-brown-marble-surface-8350474/",
+      "download_url": "https://images.pexels.com/photos/8350474/pexels-photo-8350474.jpeg",
+      "author": "Madison Inouye",
+      "author_url": "https://www.pexels.com/@mdsnmdsnmdsn/",
+      "license": "Pexels License",
+      "retrieved": "2026-10-26",
+      "original": "originals/pexels-8350474.jpg",
+      "people": "none",
+      "people_note": "no people",
+      "description": "Dark marble with fine gold-brown veining",
+      "alt": "Dark marble with fine gold-brown veins.",
+      "crops": {
+        "16x9": {
+          "focus": [
+            0.5,
+            0.3
+          ],
+          "widths": [
+            480,
+            720,
+            960,
+            1280,
+            1600
+          ]
+        }
+      },
+      "original_sha256": "2c43d924732f0846b961d313bb7bd400e995dd946a1d358cd2e8b3a923218dd3",
+      "original_size": [
+        4000,
+        6000
+      ]
+    },
+    {
+      "id": "bokeh-garnet",
+      "provider": "Pexels",
+      "provider_id": "4279016",
+      "page_url": "https://www.pexels.com/photo/abstract-background-with-bokeh-lights-4279016/",
+      "download_url": "https://images.pexels.com/photos/4279016/pexels-photo-4279016.jpeg",
+      "author": "Ave Calvar Martinez",
+      "author_url": "https://www.pexels.com/@shotbyrain/",
+      "license": "Pexels License",
+      "retrieved": "2026-10-26",
+      "original": "originals/pexels-4279016.jpg",
+      "people": "none",
+      "people_note": "no people",
+      "description": "Soft out-of-focus lights in deep red and gold",
+      "alt": "Soft out-of-focus lights in deep red and gold.",
+      "crops": {
+        "21x9": {
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "widths": [
+            480,
+            720,
+            960,
+            1280,
+            1600,
+            1920
+          ]
+        }
+      },
+      "original_sha256": "9e319ca94856c4dc114f5085e552b7e4ad3dc7e1f484a4b26ea38c8197b56d85",
+      "original_size": [
+        3234,
+        2156
+      ]
+    },
+    {
+      "id": "bokeh-amber",
+      "provider": "Pexels",
+      "provider_id": "237898",
+      "page_url": "https://www.pexels.com/photo/bokeh-lights-237898/",
+      "download_url": "https://images.pexels.com/photos/237898/pexels-photo-237898.jpeg",
+      "author": "Austin Guevara",
+      "author_url": "https://www.pexels.com/@augi/",
+      "license": "Pexels License",
+      "retrieved": "2026-10-26",
+      "original": "originals/pexels-237898.jpg",
+      "people": "none",
+      "people_note": "no people",
+      "description": "Softly blurred amber lights against a dark background",
+      "alt": "Softly blurred amber lights against a dark background.",
+      "crops": {
+        "21x9": {
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "widths": [
+            480,
+            720,
+            960,
+            1280,
+            1600,
+            1920
+          ]
+        }
+      },
+      "original_sha256": "7a42a323a029faa02afa58b2d0d038c1af259dcbfdb1fbc1748e81185c953f16",
+      "original_size": [
+        6000,
+        4000
+      ]
+    }
+  ],
+  "cards": [],
+  "people_vocabulary": {
+    "none": "no people",
+    "no faces": "hands, backs or a crowd; nobody can be recognised",
+    "identifiable": "someone could be recognised; never put a logo on the photo or present them as a customer"
+  }
+}

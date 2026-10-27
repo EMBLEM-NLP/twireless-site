@@ -1,151 +1,100 @@
 <!--page
 {
-  "title": "Choosing between Bell, Virgin Plus and Lucky Mobile | T Wireless, Brampton",
-  "description": "Which suits you: Bell, Virgin Plus or Lucky Mobile? A guide to the three, with Bell’s home services and business plans, from the store at 965 Bovaird Dr W, Brampton.",
+  "title": "Three providers, grouped by how you pay | T Wireless, Brampton",
+  "description": "Bell and Virgin Plus bill monthly, and Lucky Mobile is paid ahead. All three use Bell’s mobile network. Compare them at T Wireless, 965 Bovaird Dr W, Brampton.",
   "nav": "brands"
 }
 -->
 <main id="main">
-  <section class="intro intro--split" aria-labelledby="page-title">
-    <div class="wrap intro__grid">
-      <div class="intro__text">
-        <h1 id="page-title">Three providers, set side by side</h1>
-        <p class="lead">The network is shared, so the decision rests on two questions: how you prefer to pay, and what a plan includes. A recent bill makes the best starting point.</p>
-        {{{ provider_strip }}}
-        <nav class="jump" aria-label="On this page">
-          <ul>
-            <li><a href="#pay">How you pay</a></li>
-            <li><a href="#bell">Bell</a></li>
-            <li><a href="#virgin-plus">Virgin Plus</a></li>
-            <li><a href="#lucky-mobile">Lucky Mobile</a></li>
-            <li><a href="#home">At home</a></li>
-            <li><a href="#business">For business</a></li>
-          </ul>
-        </nav>
-      </div>
-      <figure class="frame intro__media">{{{ pic.rings_top }}}</figure>
-    </div>
-  </section>
-
-  <section class="section section--tight" id="pay" aria-labelledby="pay-title">
+  <section class="intro" aria-labelledby="page-title">
     <div class="wrap">
-      <h2 id="pay-title">How each one is paid for</h2>
-      <div class="table-wrap">
-        <!-- [html-validate-disable-block no-redundant-role: the roles keep table semantics in Safari when CSS stacks the rows on phones] -->
-        <table class="compare" role="table">
-          <thead role="rowgroup">
-            <tr role="row"><th scope="col" role="columnheader">Provider</th><th scope="col" role="columnheader">A good fit if you want</th><th scope="col" role="columnheader">How you pay</th></tr>
-          </thead>
-          <tbody role="rowgroup">
-            <tr role="row"><th scope="row" role="rowheader">Bell</th><td role="cell" data-label="A good fit if you want">A new handset, with a monthly plan to match</td><td role="cell" data-label="How you pay">Billed monthly</td></tr>
-            <tr role="row"><th scope="row" role="rowheader">Virgin Plus</th><td role="cell" data-label="A good fit if you want">A monthly bill and the extras that come with it</td><td role="cell" data-label="How you pay">Billed monthly</td></tr>
-            <tr role="row"><th scope="row" role="rowheader">Lucky Mobile</th><td role="cell" data-label="A good fit if you want">To pay ahead, without a credit check</td><td role="cell" data-label="How you pay">Paid ahead, month by month</td></tr>
-          </tbody>
-        </table>
+      <h1 id="page-title">Three providers, grouped by how you pay</h1>
+      <p class="lead">Bell and Virgin Plus bill monthly. Lucky Mobile is paid ahead. All three run on Bell’s mobile network.</p>
+      {{{ provider_strip }}}
+      <div class="buttons">
+        <a class="button" href="tel:{{ store.phone_e164 }}"><svg class="icon" aria-hidden="true"><use href="#i-call"></use></svg>Call {{ store.phone_display }}</a>
+        <a class="button button--line" href="{{ booking_href }}">Book a visit</a>
       </div>
     </div>
   </section>
 
-  <section class="section section--raised" id="bell" aria-labelledby="bell-title">
-    <div class="wrap narrow-split">
-      <div class="narrow-split__title">
-        {{{ plate_deco.bell }}}
-        <h2 id="bell-title">Paying for a handset with Bell</h2>
-        <p>Keeping the handset you own is perfectly possible, since a plan can be set up on it. When you do want a new one, Bell offers two ways to avoid paying for it in one sum, and we arrange both in the store.</p>
-      </div>
-      <ul class="ticks">
-        <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg><span><strong>Paying in instalments.</strong> Bell SmartPay divides a handset’s price into 24 monthly payments. There is no down payment, and no interest is charged. Approval rests on Bell’s credit check, and only an eligible 2-year plan qualifies.</span></li>
-        <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg><span><strong>Handing the handset back.</strong> The Device Return Option is open to eligible Bell handsets. A portion of the price is held over for the length of a 2-year term. At the end, a handset returned in good working condition ends the matter, and the held portion is waived. Keeping the handset means paying that amount.</span></li>
-        <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg><span><strong>Trade-in value.</strong> Your present handset may be worth something against the next one; ask us how a trade-in works.</span></li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="section" aria-labelledby="names-title">
+  <section class="section section--tight" aria-label="The three providers">
     <div class="wrap">
-      <div class="head">
-        <h2 id="names-title">What the other two bring</h2>
-        <p>Both run on Bell’s mobile network. Where they part company is the way you pay and the extras each plan carries.</p>
-      </div>
-      <div class="duo">
-        <article class="duo__col" id="virgin-plus" aria-labelledby="vp-title">
-          {{{ plate_deco.virgin_plus }}}
-          <h3 id="vp-title">Virgin Plus</h3>
-          <p class="duo__lead">Virgin Plus belongs to Bell and sells monthly plans. Member Benefits come with most of them, as a set of perks you do not pay extra for.</p>
-          <ul class="ticks">
-            <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg><span><strong>Where to find the perks.</strong> They live in the My Benefits app, across shopping, food, entertainment and travel. There are no points to earn, and the selection changes over time.</span></li>
-            <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg><span><strong>Joining from elsewhere.</strong> Bring your number across when you join.</span></li>
-          </ul>
+      <div class="profiles">
+        <article class="profile" id="bell" aria-labelledby="bell-title">
+          <div class="profile__head">
+            {{{ plate_deco.bell }}}
+            <h2 id="bell-title">Bell</h2>
+            <p class="profile__tag">A monthly plan, and a new phone to go with it.</p>
+          </div>
+          <dl class="facts">
+            <div>
+              <dt>How you pay</dt>
+              <dd>Billed monthly.</dd>
+            </div>
+            <div>
+              <dt>What it adds</dt>
+              <dd>iPhone and Android phones, with ways to spread what a phone costs. <a href="mobile.html">The Phones page</a> explains each.</dd>
+            </div>
+            <div>
+              <dt>Also from Bell</dt>
+              <dd>Home internet, TV and a home phone line, depending on the address (see <a href="internet-tv.html">Home services</a>). A company can also ask about plans for its employees’ phones.</dd>
+            </div>
+          </dl>
         </article>
-        <article class="duo__col" id="lucky-mobile" aria-labelledby="lm-title">
-          {{{ plate_deco.lucky_mobile }}}
-          <h3 id="lm-title">Lucky Mobile</h3>
-          <p class="duo__lead">Lucky Mobile is the prepaid brand from Bell. Payment comes first and service follows, so no invoice is left to settle when the month ends.</p>
-          <ul class="ticks">
-            <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg><span><strong>Nothing to sign.</strong> A credit check is not part of joining, and neither is a long contract.</span></li>
-            <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg><span><strong>No surprise data bills.</strong> Overage charges do not apply to data. Ask how a plan behaves after its full-speed allowance is spent.</span></li>
-          </ul>
+
+        <article class="profile" id="virgin-plus" aria-labelledby="vp-title">
+          <div class="profile__head">
+            {{{ plate_deco.virgin_plus }}}
+            <h2 id="vp-title">Virgin Plus</h2>
+            <p class="profile__tag">Monthly plans with perks included.</p>
+          </div>
+          <dl class="facts">
+            <div>
+              <dt>How you pay</dt>
+              <dd>Billed monthly.</dd>
+            </div>
+            <div>
+              <dt>What it adds</dt>
+              <dd>Most plans include Member Benefits: deals on travel, entertainment, food and shopping, found in the My Benefits app. You do not collect points, and the deals on offer now may not be the ones next month.</dd>
+            </div>
+            <div>
+              <dt>Worth knowing</dt>
+              <dd>Virgin Plus prepaid plans end on January 15, 2027. Moving to a monthly plan before then keeps your number, and we can make the move in the store.</dd>
+            </div>
+          </dl>
         </article>
-      </div>
-    </div>
-  </section>
 
-  <div class="strip" aria-hidden="true">{{{ pic.garnet }}}</div>
-
-  <section class="section section--raised" id="dates" aria-labelledby="dates-title">
-    <div class="wrap">
-      <div class="head">
-        <h2 id="dates-title">Two changes to know about</h2>
-      </div>
-      <div class="notices">
-        <div class="notice">
-          <p><strong>January 15, 2027: Virgin Plus prepaid ends.</strong> A customer who moves to a monthly plan beforehand keeps their number. We can make that move for you in the store, or lay Lucky Mobile prepaid alongside it for comparison.</p>
-        </div>
-        <div class="notice">
-          <p><strong>Virgin Plus at home.</strong> Since January 14, 2026, a household in Ontario that is not already a customer cannot start Virgin Plus home internet or TV. According to Virgin Plus, anyone who is already a customer may continue as they are, on the same plan, price and equipment. A new home starts with its address: we look it up and tell you which Bell services can reach it.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" aria-labelledby="beyond-title">
-    <div class="wrap">
-      <div class="head">
-        <h2 id="beyond-title">Beyond the phone</h2>
-      </div>
-      <div class="duo">
-        <article class="duo__col" id="home" aria-labelledby="home-title">
-          <h3 id="home-title">Bell home services</h3>
-          <p class="duo__lead">Take internet, TV or a home phone line singly, or combine them. Whether each one is offered depends on your address.</p>
-          <ul class="ticks">
-            <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg><span><strong>Bell Internet.</strong> An internet connection for the household; fibre is offered at addresses covered by Bell’s fibre network.</span></li>
-            <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg><span><strong>Fibe TV.</strong> Channels play live or from the on-demand library through the Fibe TV app. The service requires Bell Internet.</span></li>
-            <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg><span><strong>Satellite TV.</strong> Bell television that arrives by satellite and is received on a dish.</span></li>
-            <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg><span><strong>Home Phone.</strong> A fixed line into the house. It can be the only service, or sit beside internet and TV.</span></li>
-          </ul>
-          <a class="button button--line" href="internet-tv.html">How a home setup works</a>
-        </article>
-        <article class="duo__col" id="business" aria-labelledby="business-title">
-          <h3 id="business-title">Bell for business</h3>
-          <p class="duo__lead">A small business can equip its staff from one place: Bell handsets and mobile plans are arranged here in the store.</p>
-          <ul class="ticks">
-            <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg><span><strong>Handsets for the team.</strong> Business smartphones qualify for Bell SmartPay as well. Ask us how a team order works.</span></li>
-            <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg><span><strong>Start the conversation.</strong> Tell us the size of your team and how the handsets will be used, and bring your company details. We will plan the rest with you.</span></li>
-          </ul>
+        <article class="profile" id="lucky-mobile" aria-labelledby="lm-title">
+          <div class="profile__head">
+            {{{ plate_deco.lucky_mobile }}}
+            <h2 id="lm-title">Lucky Mobile</h2>
+            <p class="profile__tag">Pay ahead, and no bill follows.</p>
+          </div>
+          <dl class="facts">
+            <div>
+              <dt>How you pay</dt>
+              <dd>A month in advance, so there is never a bill to settle later.</dd>
+            </div>
+            <div>
+              <dt>What it adds</dt>
+              <dd>No credit check, no commitment beyond the month you have paid for, and no overage charges for data.</dd>
+            </div>
+            <div>
+              <dt>Worth knowing</dt>
+              <dd>Ask how a plan behaves once its full-speed data allowance is used.</dd>
+            </div>
+          </dl>
         </article>
       </div>
-      <p class="note">Plans, prices and terms belong to the providers and are subject to change, so ask us for current details before you decide.</p>
+      <p class="note">Plans, prices and terms belong to the providers and may change, so ask us for current details before you decide.</p>
     </div>
   </section>
 
-  <div class="strip" aria-hidden="true">{{{ pic.amber }}}</div>
-
-  <section class="band" aria-labelledby="fit-title">
-    <div class="wrap band__grid">
-      <div>
-        <h2 id="fit-title">Begin with your bill</h2>
-        <p>A recent bill tells us what you pay today. With it, and a word about how you use your phone, we can put the right options in front of you.</p>
-      </div>
+  <section class="section section--raised" aria-labelledby="ask-title">
+    <div class="wrap closer">
+      <h2 id="ask-title">Not sure which suits you?</h2>
+      <p>Tell us what your plan costs today and what you use the phone for, and we will talk you through the options.</p>
       <div class="buttons">
         <a class="button" href="tel:{{ store.phone_e164 }}"><svg class="icon" aria-hidden="true"><use href="#i-call"></use></svg>Call {{ store.phone_display }}</a>
         <a class="button button--line" href="{{ booking_href }}">Book a visit</a>

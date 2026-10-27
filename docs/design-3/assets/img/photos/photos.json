@@ -2,192 +2,8 @@
   "schema": "web.design.imagery.manifest.v1",
   "measurement_series": "WEB-DESIGN-RSI-2.0",
   "design_id": "design-3",
-  "generated": "2026-10-26",
+  "generated": "2026-10-27",
   "photos": {
-    "candle-phone": {
-      "source": {
-        "provider": "Pexels",
-        "provider_id": "6279107",
-        "page_url": "https://www.pexels.com/photo/person-in-the-dark-room-holding-smartphone-6279107/",
-        "author": "Artem Podrez",
-        "author_url": "https://www.pexels.com/@artempodrez/",
-        "license": "Pexels License",
-        "license_url": "https://www.pexels.com/license/",
-        "retrieved": "2026-10-26"
-      },
-      "alt": "A hand holding up a phone with a bright screen, in a dark room lit by candles.",
-      "people": "no faces",
-      "logo_safe": true,
-      "description": "A hand holds up a phone with a blank bright screen in a dark room lit by candles and a lantern",
-      "retouched": [],
-      "logos": [],
-      "kind": "photo",
-      "crops": {
-        "4x3": {
-          "aspect": 1.33333,
-          "box": [
-            1536,
-            0,
-            6144,
-            3456
-          ],
-          "files": {
-            "avif": [
-              {
-                "file": "candle-phone-4x3-480.avif",
-                "w": 480,
-                "h": 360,
-                "bytes": 3339,
-                "sha256": "2de260d6df6c4529f7d182b36e2af1fe3274dcd0a5399800f29bb292284b20f9"
-              },
-              {
-                "file": "candle-phone-4x3-720.avif",
-                "w": 720,
-                "h": 540,
-                "bytes": 5330,
-                "sha256": "173ad06d4adbf260e5d405babbc4912da3ad2f4b08286c661b95683701d151dd"
-              },
-              {
-                "file": "candle-phone-4x3-960.avif",
-                "w": 960,
-                "h": 720,
-                "bytes": 6958,
-                "sha256": "cfdd9744e14de65a87792251b8b4bd0467124351837ca2060e2b1343cc90808a"
-              },
-              {
-                "file": "candle-phone-4x3-1280.avif",
-                "w": 1280,
-                "h": 960,
-                "bytes": 9925,
-                "sha256": "b38010e253d1bf640575a49331c9c68a183e5b9aa490cc826b8e44795c6e3a76"
-              },
-              {
-                "file": "candle-phone-4x3-1600.avif",
-                "w": 1600,
-                "h": 1200,
-                "bytes": 13068,
-                "sha256": "193a8d6f5230ba88e65dda317f87ce6170711bbd883d668f07ea3e6fdb3d1705"
-              },
-              {
-                "file": "candle-phone-4x3-1920.avif",
-                "w": 1920,
-                "h": 1440,
-                "bytes": 16410,
-                "sha256": "343b1b9716d5b9233e4c67bd6599af5ec8273970feecafd399ddd6105c7d9637"
-              }
-            ],
-            "webp": [
-              {
-                "file": "candle-phone-4x3-480.webp",
-                "w": 480,
-                "h": 360,
-                "bytes": 4556,
-                "sha256": "54dd91fa56abed955c53ca05fb7e4155ddd312be0af578d0f6cc09e5b4bf0a95"
-              },
-              {
-                "file": "candle-phone-4x3-720.webp",
-                "w": 720,
-                "h": 540,
-                "bytes": 6948,
-                "sha256": "e298187c22ffba36c9c4332a8e140d93f8f37b25ca30c866922e70f79bb00d29"
-              },
-              {
-                "file": "candle-phone-4x3-960.webp",
-                "w": 960,
-                "h": 720,
-                "bytes": 9830,
-                "sha256": "ca0317b19e8f9fe5e17a82fd2c7da69482b11d9672254652ac7710796f70c7f0"
-              },
-              {
-                "file": "candle-phone-4x3-1280.webp",
-                "w": 1280,
-                "h": 960,
-                "bytes": 13828,
-                "sha256": "cf6dc4dfd766f13c50a1607b05e4d95ff4be9666c497377a1752f25b00d4f63a"
-              },
-              {
-                "file": "candle-phone-4x3-1600.webp",
-                "w": 1600,
-                "h": 1200,
-                "bytes": 18630,
-                "sha256": "48e3a9dd12561a571e6db48b5d1a4548bdabf0f077d463c0209ceec4d8f50330"
-              },
-              {
-                "file": "candle-phone-4x3-1920.webp",
-                "w": 1920,
-                "h": 1440,
-                "bytes": 23976,
-                "sha256": "b3f50ef91bde20892f783c2a0f62f3d9ba0421132e9a788ba15e1631bf536be2"
-              }
-            ],
-            "jpg": [
-              {
-                "file": "candle-phone-4x3-480.jpg",
-                "w": 480,
-                "h": 360,
-                "bytes": 11965,
-                "sha256": "f6c31217053fae570eb6641fbea664701012709fcd25785e2442b19873edff22"
-              },
-              {
-                "file": "candle-phone-4x3-720.jpg",
-                "w": 720,
-                "h": 540,
-                "bytes": 20429,
-                "sha256": "2637801ec2b07723f80805577a841739b7e2aff2ba0e8c7e4ec48a753daa86c2"
-              },
-              {
-                "file": "candle-phone-4x3-960.jpg",
-                "w": 960,
-                "h": 720,
-                "bytes": 30444,
-                "sha256": "d2dc874c53a697be64e5b257a1b94894371a3f491e524db6b57dc07c127a9179"
-              },
-              {
-                "file": "candle-phone-4x3-1280.jpg",
-                "w": 1280,
-                "h": 960,
-                "bytes": 46303,
-                "sha256": "e641365a12a5c7cc35a8ddd61c2a3e0d5e92653a6691bcfd24925b59a6c2e25f"
-              },
-              {
-                "file": "candle-phone-4x3-1600.jpg",
-                "w": 1600,
-                "h": 1200,
-                "bytes": 65095,
-                "sha256": "a6187f415ab43c9792288464bb53177120e978a7261e0b39f34aefcb5805e49a"
-              },
-              {
-                "file": "candle-phone-4x3-1920.jpg",
-                "w": 1920,
-                "h": 1440,
-                "bytes": 87065,
-                "sha256": "9e8cc00a796866e4c941f8352ab9a6d15370d55a03fc1e42219fdfd0a81fc59c"
-              }
-            ]
-          }
-        },
-        "40x21": {
-          "aspect": 1.90476,
-          "box": [
-            1593,
-            533,
-            6144,
-            2923
-          ],
-          "files": {
-            "jpg": [
-              {
-                "file": "candle-phone-40x21-1200.jpg",
-                "w": 1200,
-                "h": 630,
-                "bytes": 33374,
-                "sha256": "8b7f37fcd2f8f067b6f5911f63227a503ea1463d6aabc36c7c5225d936d4a837"
-              }
-            ]
-          }
-        }
-      }
-    },
     "hand-black": {
       "source": {
         "provider": "Pexels",
@@ -209,225 +25,145 @@
       "logos": [],
       "kind": "photo",
       "crops": {
-        "4x5": {
-          "aspect": 0.8,
+        "4x3": {
+          "aspect": 1.33333,
           "box": [
-            0,
-            70,
-            2700,
-            3445
+            64,
+            818,
+            2474,
+            2627
           ],
           "files": {
             "avif": [
               {
-                "file": "hand-black-4x5-480.avif",
+                "file": "hand-black-4x3-480.avif",
                 "w": 480,
-                "h": 600,
-                "bytes": 2941,
-                "sha256": "7eb2ff39c7e3e769b3e9daffee02bb2e2f1abd36ad2f6fde3531b6465f66abbe"
+                "h": 360,
+                "bytes": 2722,
+                "sha256": "248a52049aa7b20ec3bcf7a42aa6c10c5f0068f601e0ec1de27c5230786436b5"
               },
               {
-                "file": "hand-black-4x5-720.avif",
+                "file": "hand-black-4x3-720.avif",
                 "w": 720,
-                "h": 900,
-                "bytes": 4691,
-                "sha256": "d9a5cc21b009e95f695c9c20242510881ff27af9441ace86d389e438f5764693"
+                "h": 540,
+                "bytes": 4322,
+                "sha256": "46e850c396e08b179a7d98a7c4e17981d62d0a4e99b73317e51a4892ea8491ac"
               },
               {
-                "file": "hand-black-4x5-960.avif",
+                "file": "hand-black-4x3-960.avif",
                 "w": 960,
-                "h": 1200,
-                "bytes": 6596,
-                "sha256": "a20e68515e91b1d25df3a379d6a6cae3436b0cdfe7a2e4adb2c8b667317238f3"
+                "h": 721,
+                "bytes": 6103,
+                "sha256": "a31839aa8a58d03b75e89538eb37a40b9e8d1e90a52f3efd101a2ce8d350056a"
               },
               {
-                "file": "hand-black-4x5-1200.avif",
-                "w": 1200,
-                "h": 1500,
-                "bytes": 8620,
-                "sha256": "028fe8582e715f7b5420109e941f80a6a8087584b2e7b90b1138913eb53dee42"
+                "file": "hand-black-4x3-1280.avif",
+                "w": 1280,
+                "h": 961,
+                "bytes": 8731,
+                "sha256": "78fce379191c70f76e8214bb7387d782a07bbf32a3b6916528d275f1a9b8c431"
+              },
+              {
+                "file": "hand-black-4x3-1600.avif",
+                "w": 1600,
+                "h": 1201,
+                "bytes": 12000,
+                "sha256": "99c028abfa746d9e693a43aefb55b4d83c3bbd27ac0c556d772d3a28f8970725"
+              },
+              {
+                "file": "hand-black-4x3-1920.avif",
+                "w": 1920,
+                "h": 1441,
+                "bytes": 15392,
+                "sha256": "6d5c0a3d020347a7e2718b09d56db4a03b9cfab3b8f1037d6497c36de6f0b641"
               }
             ],
             "webp": [
               {
-                "file": "hand-black-4x5-480.webp",
+                "file": "hand-black-4x3-480.webp",
                 "w": 480,
-                "h": 600,
-                "bytes": 3154,
-                "sha256": "42cb8332b97b317fe1185c307b0458fa77b84635d7f8154f3803758c0df22f3b"
+                "h": 360,
+                "bytes": 2884,
+                "sha256": "e991f4564513386dd7a87f89599f15e9a7c2abd8596dce08641c1f7a5ded6193"
               },
               {
-                "file": "hand-black-4x5-720.webp",
+                "file": "hand-black-4x3-720.webp",
                 "w": 720,
-                "h": 900,
-                "bytes": 5534,
-                "sha256": "336035117d931b05efdaea92ad7f9e106924c1437ec38fc115ba468b791e5232"
+                "h": 540,
+                "bytes": 4894,
+                "sha256": "84860108f92fb62adca59ce045a8aa053f6a0bd00c26b4d2a1994fc077eeee39"
               },
               {
-                "file": "hand-black-4x5-960.webp",
+                "file": "hand-black-4x3-960.webp",
                 "w": 960,
-                "h": 1200,
-                "bytes": 8292,
-                "sha256": "4098ec97216941569caafb4763f6732a478e55eb1ab4f122d1f8faec7b5bddca"
+                "h": 721,
+                "bytes": 7398,
+                "sha256": "aee342250a22b65d01eb1eb4eb97d7d7c9c6f178104db680d43d97a4d6fca8f6"
               },
               {
-                "file": "hand-black-4x5-1200.webp",
-                "w": 1200,
-                "h": 1500,
-                "bytes": 11664,
-                "sha256": "bbc7c37f541a485c8e0c1ced444a551cd473b0dea0773dbc005c1b9d3de0aa13"
+                "file": "hand-black-4x3-1280.webp",
+                "w": 1280,
+                "h": 961,
+                "bytes": 11180,
+                "sha256": "b3df4c307c1f6a2d25eb4feb46808568e75cce93e6f1fb4d7128a9b78751a87e"
+              },
+              {
+                "file": "hand-black-4x3-1600.webp",
+                "w": 1600,
+                "h": 1201,
+                "bytes": 15610,
+                "sha256": "80716fb1b70e2230c58c3a1e49f3976e7742bd7edc615958892ba6231ea37814"
+              },
+              {
+                "file": "hand-black-4x3-1920.webp",
+                "w": 1920,
+                "h": 1441,
+                "bytes": 20538,
+                "sha256": "71b75e2a9cc4bc27dcbba78501fbb9e9c10b2e63c56e297de470b2a8fe60050d"
               }
             ],
             "jpg": [
               {
-                "file": "hand-black-4x5-480.jpg",
+                "file": "hand-black-4x3-480.jpg",
                 "w": 480,
-                "h": 600,
-                "bytes": 8945,
-                "sha256": "22a72529dc6a2dee24fee7beaea46a04dc287abb32cd3af1760da28b9955767a"
+                "h": 360,
+                "bytes": 8032,
+                "sha256": "ece6b6a72c286a8fc9eb575ca4c34848bc1098152b1079088eb86b4f956fa0f6"
               },
               {
-                "file": "hand-black-4x5-720.jpg",
+                "file": "hand-black-4x3-720.jpg",
                 "w": 720,
-                "h": 900,
-                "bytes": 16128,
-                "sha256": "8dfd4a557f49a33bf87ed5ea9357590c4be0cee40660659a8c87c3bcbd450dee"
+                "h": 540,
+                "bytes": 14064,
+                "sha256": "3c17801cdc027a614170f2a864f0600e5896e25c38c065a2b8835bed27bf97e7"
               },
               {
-                "file": "hand-black-4x5-960.jpg",
+                "file": "hand-black-4x3-960.jpg",
                 "w": 960,
-                "h": 1200,
-                "bytes": 24560,
-                "sha256": "b8942acc752f8873da0f408cb831b297254e0a3e4ec065bb8c77482236ca9d35"
+                "h": 721,
+                "bytes": 21733,
+                "sha256": "e633c8cde0b5998219083d277861a5cf91c05c910a893f462db8e1a661f11ac0"
               },
               {
-                "file": "hand-black-4x5-1200.jpg",
-                "w": 1200,
-                "h": 1500,
-                "bytes": 35417,
-                "sha256": "65ecbea73f8ac79d3338f6839477261f821c54898c2c5930a4944eaf8d54db76"
-              }
-            ]
-          }
-        }
-      }
-    },
-    "mono-rings": {
-      "source": {
-        "provider": "Pexels",
-        "provider_id": "31605450",
-        "page_url": "https://www.pexels.com/photo/close-up-of-hands-with-rings-holding-phone-31605450/",
-        "author": "Schena Maria Karlec",
-        "author_url": "https://www.pexels.com/@schena-maria-karlec-885328/",
-        "license": "Pexels License",
-        "license_url": "https://www.pexels.com/license/",
-        "retrieved": "2026-10-26"
-      },
-      "alt": "Black-and-white close-up of two hands wearing rings and holding a phone.",
-      "people": "no faces",
-      "logo_safe": true,
-      "description": "Black-and-white close-up of two hands wearing rings and holding a phone",
-      "retouched": [],
-      "logos": [],
-      "kind": "photo",
-      "crops": {
-        "4x5": {
-          "aspect": 0.8,
-          "box": [
-            0,
-            0,
-            3024,
-            3780
-          ],
-          "files": {
-            "avif": [
-              {
-                "file": "mono-rings-4x5-480.avif",
-                "w": 480,
-                "h": 600,
-                "bytes": 8453,
-                "sha256": "aa3101f2e1e3d2166d4aad51f5eae8eb173167d752ea2986f3b9915be4a768cc"
+                "file": "hand-black-4x3-1280.jpg",
+                "w": 1280,
+                "h": 961,
+                "bytes": 33843,
+                "sha256": "600007ea9027b4490eaad9481f17b844ce679ecec07448e32b22b49b31e7b48c"
               },
               {
-                "file": "mono-rings-4x5-720.avif",
-                "w": 720,
-                "h": 900,
-                "bytes": 24287,
-                "sha256": "f129edf872022598d1745f745332bdc1ae14226943afd41bbec15a0d7c88b8d1"
+                "file": "hand-black-4x3-1600.jpg",
+                "w": 1600,
+                "h": 1201,
+                "bytes": 49105,
+                "sha256": "ba368fa47502012e7c5ff7aac389e874f3c31a28e6298c19595c9d341282878e"
               },
               {
-                "file": "mono-rings-4x5-960.avif",
-                "w": 960,
-                "h": 1200,
-                "bytes": 57231,
-                "sha256": "289a43de2e87196a1645a640fc839ef38bcb918b6e053182ac29b321ac67858d"
-              },
-              {
-                "file": "mono-rings-4x5-1200.avif",
-                "w": 1200,
-                "h": 1500,
-                "bytes": 105118,
-                "sha256": "c6779ff5ab3e4ebe8ba3b88b1e81f99ae896cd4053a73067b876766e57ac18c3"
-              }
-            ],
-            "webp": [
-              {
-                "file": "mono-rings-4x5-480.webp",
-                "w": 480,
-                "h": 600,
-                "bytes": 13140,
-                "sha256": "c1c8bf64a9c37367ec153b671afcfb7173b351303ae6c8fdedcccd12982f0993"
-              },
-              {
-                "file": "mono-rings-4x5-720.webp",
-                "w": 720,
-                "h": 900,
-                "bytes": 47276,
-                "sha256": "3792b9ac2b56224d784e22b8e1db6e5d8ea4cf4465f5623dd02ff004baec7bb1"
-              },
-              {
-                "file": "mono-rings-4x5-960.webp",
-                "w": 960,
-                "h": 1200,
-                "bytes": 111082,
-                "sha256": "9eb254e62e3b51527fef27056bf50be5dcb507e5cbed80a23f2e4bf92a062a9c"
-              },
-              {
-                "file": "mono-rings-4x5-1200.webp",
-                "w": 1200,
-                "h": 1500,
-                "bytes": 196572,
-                "sha256": "7a0a7b78988930b55a2647cf35096d65dd69618193e6e167b951736b886bdbb7"
-              }
-            ],
-            "jpg": [
-              {
-                "file": "mono-rings-4x5-480.jpg",
-                "w": 480,
-                "h": 600,
-                "bytes": 30170,
-                "sha256": "31635b90a1670347ba53b3f4ee829dc6d620c9ec31f6b9d15a7bef66756de399"
-              },
-              {
-                "file": "mono-rings-4x5-720.jpg",
-                "w": 720,
-                "h": 900,
-                "bytes": 79099,
-                "sha256": "b4b4cc6abf1c97750c0020cb256d3f8e836c9d059c21cbeab7f9b4aa666eae14"
-              },
-              {
-                "file": "mono-rings-4x5-960.jpg",
-                "w": 960,
-                "h": 1200,
-                "bytes": 163770,
-                "sha256": "a6ab1ca1b039c6971d4ff358e61d9c725f4e0edc14226a56c51c3989ddc8016b"
-              },
-              {
-                "file": "mono-rings-4x5-1200.jpg",
-                "w": 1200,
-                "h": 1500,
-                "bytes": 282104,
-                "sha256": "24ef7cb448c7623561f8c467fee779ce58ccb1f83eb6c100164e707cce1da9f7"
+                "file": "hand-black-4x3-1920.jpg",
+                "w": 1920,
+                "h": 1441,
+                "bytes": 66656,
+                "sha256": "ceac16079dcddb3a25f168c2db6553352aee813e194a7b37fc6603e6777c5870"
               }
             ]
           }
@@ -455,145 +191,203 @@
       "logos": [],
       "kind": "photo",
       "crops": {
-        "16x9": {
-          "aspect": 1.77778,
+        "4x5": {
+          "aspect": 0.8,
           "box": [
+            1310,
             0,
-            292,
-            5616,
-            3452
+            4306,
+            3744
           ],
           "files": {
             "avif": [
               {
-                "file": "wood-garnet-16x9-480.avif",
+                "file": "wood-garnet-4x5-480.avif",
                 "w": 480,
-                "h": 270,
-                "bytes": 2718,
-                "sha256": "03fd1c2962d264b5938b61d0e4ee5c2e4e25b7a673e5c94e63ef8fb34f2ac1c0"
+                "h": 600,
+                "bytes": 4401,
+                "sha256": "1d2795dbe3ff0e2ecc3a3596d574c5548ec351a0630087a90374fe12ef762fea"
               },
               {
-                "file": "wood-garnet-16x9-720.avif",
+                "file": "wood-garnet-4x5-720.avif",
                 "w": 720,
-                "h": 405,
-                "bytes": 4745,
-                "sha256": "af80a7711e1aa3e8ed732bd1182e3bce729ec4748696e7371a6235a5681057b5"
-              },
-              {
-                "file": "wood-garnet-16x9-960.avif",
-                "w": 960,
-                "h": 540,
-                "bytes": 6978,
-                "sha256": "08ee1dd5e6cbe2b92cf1438be2e26108a7d918910bb77a973dbc3b13d5580a9e"
-              },
-              {
-                "file": "wood-garnet-16x9-1280.avif",
-                "w": 1280,
-                "h": 720,
-                "bytes": 10469,
-                "sha256": "20364439ae88e3f44402ef9e38fcc2d13b566bff4ab18b8dd6147566d4091ab3"
-              },
-              {
-                "file": "wood-garnet-16x9-1600.avif",
-                "w": 1600,
                 "h": 900,
-                "bytes": 14294,
-                "sha256": "877aaa2bf370879ca6207e9fec0c82c64a7acef13969f2c86b8e58a7f7a15c86"
+                "bytes": 7671,
+                "sha256": "e1735c20a318b7cf84acd32abd0771da1619aa212a079e609e0ad009946cefc7"
               },
               {
-                "file": "wood-garnet-16x9-1920.avif",
-                "w": 1920,
-                "h": 1080,
-                "bytes": 18449,
-                "sha256": "b0a6ee91bdfe23ca9c4b0654d1add632282e0419047fef420ff7114a0c2deb57"
+                "file": "wood-garnet-4x5-960.avif",
+                "w": 960,
+                "h": 1200,
+                "bytes": 11290,
+                "sha256": "e0a00658f6516b18b2e8de8df08ff89a679ec1149efa75f7ab8f8d6f927c07a6"
+              },
+              {
+                "file": "wood-garnet-4x5-1200.avif",
+                "w": 1200,
+                "h": 1500,
+                "bytes": 15144,
+                "sha256": "d74712a943061ee18caa902c49fd1ba6832bb0a7adf7bab0c32eb42cb7a70f0d"
               }
             ],
             "webp": [
               {
-                "file": "wood-garnet-16x9-480.webp",
+                "file": "wood-garnet-4x5-480.webp",
                 "w": 480,
-                "h": 270,
-                "bytes": 2844,
-                "sha256": "9cd59406440fbcdd90add2633257bff74ce9fb1e8221f7ac035b62be7812ecc9"
+                "h": 600,
+                "bytes": 5324,
+                "sha256": "59a831d53246524cff405d263b0061ce7926e78bcb40663570262eb0ee6e9f60"
               },
               {
-                "file": "wood-garnet-16x9-720.webp",
+                "file": "wood-garnet-4x5-720.webp",
                 "w": 720,
-                "h": 405,
-                "bytes": 5148,
-                "sha256": "6726eb90ce139305191dccfe03491b9953b37385b3ebbf556acb47412088fc12"
-              },
-              {
-                "file": "wood-garnet-16x9-960.webp",
-                "w": 960,
-                "h": 540,
-                "bytes": 7844,
-                "sha256": "78b551d1b0f59d2fa643cc81cc59bfa2214abe0399428c095ebc822df7031b0d"
-              },
-              {
-                "file": "wood-garnet-16x9-1280.webp",
-                "w": 1280,
-                "h": 720,
-                "bytes": 12394,
-                "sha256": "22d442885b23bc9ffb7b3d0cb7c5bf2f637c6b3f2740ac789b3eb15bcfda7421"
-              },
-              {
-                "file": "wood-garnet-16x9-1600.webp",
-                "w": 1600,
                 "h": 900,
-                "bytes": 17314,
-                "sha256": "615c7ea4e6a9d604e7f3b1f3fb9d710d69ba95dccb56e46192a4d0519c2963d4"
+                "bytes": 9522,
+                "sha256": "ea5d0898b1f1bb8f0d366f54801261ab7c00d1660f552183e9931c0bef1b5d42"
               },
               {
-                "file": "wood-garnet-16x9-1920.webp",
-                "w": 1920,
-                "h": 1080,
-                "bytes": 22456,
-                "sha256": "0cc88f66fc2abd6391a4fd70156a9c77aaace3723d93a313c45f1dd3adad806e"
+                "file": "wood-garnet-4x5-960.webp",
+                "w": 960,
+                "h": 1200,
+                "bytes": 14274,
+                "sha256": "67910e9087d34b64e9a341f1a868255efeb5d0979243953f56dab733bbe7fd08"
+              },
+              {
+                "file": "wood-garnet-4x5-1200.webp",
+                "w": 1200,
+                "h": 1500,
+                "bytes": 19546,
+                "sha256": "9f104365a225b73b20944385ec2e9b6f4351a1cf9f8b27a435830baa5f3135cb"
               }
             ],
             "jpg": [
               {
-                "file": "wood-garnet-16x9-480.jpg",
+                "file": "wood-garnet-4x5-480.jpg",
                 "w": 480,
-                "h": 270,
-                "bytes": 8230,
-                "sha256": "bd216c266eacde9ba71bd2eaca8a43073f8c0534a824f177b35af79f344fdf86"
+                "h": 600,
+                "bytes": 14443,
+                "sha256": "9f7ab08a068b45461d3cb8f566fda7864007e6081235b09ddfee0dbacff0e2ce"
               },
               {
-                "file": "wood-garnet-16x9-720.jpg",
+                "file": "wood-garnet-4x5-720.jpg",
                 "w": 720,
-                "h": 405,
-                "bytes": 15000,
-                "sha256": "642515c7d3b9fb1fbf4e698713130113cc6475024ce6eea9e123cae2f96ada52"
-              },
-              {
-                "file": "wood-garnet-16x9-960.jpg",
-                "w": 960,
-                "h": 540,
-                "bytes": 23016,
-                "sha256": "633032e3505075cf877ffc02735450d979bb37e2dfcf4a26a79f2527bcad0775"
-              },
-              {
-                "file": "wood-garnet-16x9-1280.jpg",
-                "w": 1280,
-                "h": 720,
-                "bytes": 35769,
-                "sha256": "59ebad0b6f25342d3391c0a82f955271954e076b03f3029bc58de2ff1964c845"
-              },
-              {
-                "file": "wood-garnet-16x9-1600.jpg",
-                "w": 1600,
                 "h": 900,
-                "bytes": 51286,
-                "sha256": "e46550f13bfc7cd3860c792dc0ec171f3e79ea430bc6cbd786fcebcc02cf10a4"
+                "bytes": 26610,
+                "sha256": "f25dcb49e8a3b8a48d3e83b0a4e31931528209e6f97e24289b1792304e0da576"
               },
               {
-                "file": "wood-garnet-16x9-1920.jpg",
-                "w": 1920,
-                "h": 1080,
-                "bytes": 68973,
-                "sha256": "61565db19589c6f03429eecaf4ddbfe8b7704db8b719e915fb45b8f27053f939"
+                "file": "wood-garnet-4x5-960.jpg",
+                "w": 960,
+                "h": 1200,
+                "bytes": 41944,
+                "sha256": "23969d1c380521474a79f74daa07d5f5816ac069f6a4c9245beddd4bebaae001"
+              },
+              {
+                "file": "wood-garnet-4x5-1200.jpg",
+                "w": 1200,
+                "h": 1500,
+                "bytes": 60963,
+                "sha256": "612f944a4cf1e6666f792f386a029779f7f7c620f7d27b2db80f875e6651e55a"
+              }
+            ]
+          }
+        },
+        "1x1": {
+          "aspect": 1.0,
+          "box": [
+            1248,
+            312,
+            4368,
+            3432
+          ],
+          "files": {
+            "avif": [
+              {
+                "file": "wood-garnet-1x1-320.avif",
+                "w": 320,
+                "h": 320,
+                "bytes": 2429,
+                "sha256": "64384431608e26e9fa253855db9fb72d0a5d9c5379bc21705238ce13681dde19"
+              },
+              {
+                "file": "wood-garnet-1x1-480.avif",
+                "w": 480,
+                "h": 480,
+                "bytes": 3979,
+                "sha256": "fd6b5a7b9471496a75009c98f8611b75efa9a6087c2206da99f35ddce5f9d95a"
+              },
+              {
+                "file": "wood-garnet-1x1-640.avif",
+                "w": 640,
+                "h": 640,
+                "bytes": 5891,
+                "sha256": "a2da9791ea15abc35108be014261c172f71d88e18d9eef28caa0c9958f611f07"
+              }
+            ],
+            "webp": [
+              {
+                "file": "wood-garnet-1x1-320.webp",
+                "w": 320,
+                "h": 320,
+                "bytes": 2664,
+                "sha256": "a0fdc906eb390f0ed1ee21d1564b87fc4181f2f2109c917fb35543497dbc2554"
+              },
+              {
+                "file": "wood-garnet-1x1-480.webp",
+                "w": 480,
+                "h": 480,
+                "bytes": 4612,
+                "sha256": "4dd940bfac1927e05823df895411d96ff12d41afe8f9a79f06e8d702d59d8ce7"
+              },
+              {
+                "file": "wood-garnet-1x1-640.webp",
+                "w": 640,
+                "h": 640,
+                "bytes": 6974,
+                "sha256": "d20997e7f8de42d69baf38fc30096d1cfe9c1ac157bf97bde37465c6bf0633a3"
+              }
+            ],
+            "jpg": [
+              {
+                "file": "wood-garnet-1x1-320.jpg",
+                "w": 320,
+                "h": 320,
+                "bytes": 7265,
+                "sha256": "1668bc23859da18a78137147df05a4b6efae66424658fcc4b8d4beba99610aa6"
+              },
+              {
+                "file": "wood-garnet-1x1-480.jpg",
+                "w": 480,
+                "h": 480,
+                "bytes": 12922,
+                "sha256": "41197abb7dd5399fc0f8b2784f5f5cbe8557339c3679398632984eb47719af9f"
+              },
+              {
+                "file": "wood-garnet-1x1-640.jpg",
+                "w": 640,
+                "h": 640,
+                "bytes": 19639,
+                "sha256": "bada97df792303f4765b4b8b55842baf7d18b087b029fa9bda29341b57bfa1f0"
+              }
+            ]
+          }
+        },
+        "40x21": {
+          "aspect": 1.90476,
+          "box": [
+            0,
+            398,
+            5616,
+            3346
+          ],
+          "files": {
+            "jpg": [
+              {
+                "file": "wood-garnet-40x21-1200.jpg",
+                "w": 1200,
+                "h": 630,
+                "bytes": 31220,
+                "sha256": "96fda9337bdc0b6198e9e98bde301ded0c1f7c546384547a09614c1ead293e56"
               }
             ]
           }
@@ -615,107 +409,193 @@
       "people": "none",
       "logo_safe": true,
       "description": "A living room with a dark panelled wall, a wall-mounted television, lit shelving and a low sofa",
-      "retouched": [],
+      "retouched": [
+        "Titles on the stack of books on the top shelf",
+        "Titles and covers of the books on the first shelf, left",
+        "Titles on the stack of books on the first shelf, right",
+        "Titles and covers of the books on the third shelf",
+        "Titles on the stack of books on the fourth shelf"
+      ],
       "logos": [],
       "kind": "photo",
       "crops": {
         "4x5": {
           "aspect": 0.8,
           "box": [
-            0,
-            324,
-            1481,
-            2176
+            701,
+            438,
+            1999,
+            2062
           ],
           "files": {
             "avif": [
               {
                 "file": "tv-wall-4x5-480.avif",
                 "w": 480,
-                "h": 600,
-                "bytes": 12190,
-                "sha256": "a69949b29f4db57994076d06cbb10de130bb7886eb2d58db3004c00146bb672c"
+                "h": 601,
+                "bytes": 11068,
+                "sha256": "0b94e5b3219f4b74a6200c6f5d1dd09ed80f358ff12a7b3d49b7afd8b91ff52a"
               },
               {
                 "file": "tv-wall-4x5-720.avif",
                 "w": 720,
-                "h": 900,
-                "bytes": 23936,
-                "sha256": "d7579b82069f03c487e1046da8ea7cfc815e3c13bc351f9256d40351aed02f8f"
+                "h": 901,
+                "bytes": 22994,
+                "sha256": "b1c59b056a3424f816ec9af418742f56ecf3e558236756c733aa36db7ef6c1d0"
               },
               {
                 "file": "tv-wall-4x5-960.avif",
                 "w": 960,
-                "h": 1200,
-                "bytes": 40680,
-                "sha256": "e85fdfafade8f8b308e9cc15f879cf698aaf2159d94f316b74b2523728c2bc00"
+                "h": 1201,
+                "bytes": 41360,
+                "sha256": "41a7808d0ad801689f5b2913a832c332f4b3d1e40cceb1f688f7d58b45f56a9d"
               },
               {
                 "file": "tv-wall-4x5-1200.avif",
                 "w": 1200,
                 "h": 1501,
-                "bytes": 66968,
-                "sha256": "86465c6475cd473a1950951596a928a52df68135bf3b34c71adaef29de813e50"
+                "bytes": 71807,
+                "sha256": "0a1dc45d14bc77b50fd7f932919e5d7d2650296596ec8807cf3204b8fde402fe"
               }
             ],
             "webp": [
               {
                 "file": "tv-wall-4x5-480.webp",
                 "w": 480,
-                "h": 600,
-                "bytes": 20812,
-                "sha256": "648863f95121342d60fc7ba9ae4b80378fec5cbbe0dc68a9ee6c32ba4056fab9"
+                "h": 601,
+                "bytes": 18482,
+                "sha256": "e8e6f37fb28f434a392816e1e466f0bcf322a6bb2d59535b80fdf5c4adeaf8bb"
               },
               {
                 "file": "tv-wall-4x5-720.webp",
                 "w": 720,
-                "h": 900,
-                "bytes": 40808,
-                "sha256": "8d2eb095aabdd28afa14170eb2abe509651ac39077f8867513d06a770425679f"
+                "h": 901,
+                "bytes": 39414,
+                "sha256": "e41ad1544fdae4ce2b5dda5ee17e2c99ad81e72a5ed6a66f9760beed1cf5615b"
               },
               {
                 "file": "tv-wall-4x5-960.webp",
                 "w": 960,
-                "h": 1200,
-                "bytes": 71226,
-                "sha256": "48dffecd96294126e5242a120b808702260928c0dce6b7400e02c5c871b27cdd"
+                "h": 1201,
+                "bytes": 73958,
+                "sha256": "7b63177592bdf8298843cceda0779504b041c24051878c1122f37bffc311436f"
               },
               {
                 "file": "tv-wall-4x5-1200.webp",
                 "w": 1200,
                 "h": 1501,
-                "bytes": 116672,
-                "sha256": "e3be0f6b65ef76dba591797dab2f3680d687529c5b3c86cd52e8939084546a32"
+                "bytes": 122378,
+                "sha256": "fd03e6806bf189cc97eea870e37d2b6c55ab78b72599220c29351d7ca8479a9a"
               }
             ],
             "jpg": [
               {
                 "file": "tv-wall-4x5-480.jpg",
                 "w": 480,
-                "h": 600,
-                "bytes": 39503,
-                "sha256": "6c8e7921619559b89e56e08346eae082756a4ffdddfeef7524e52227fc8310ba"
+                "h": 601,
+                "bytes": 39549,
+                "sha256": "2d20f1c51b14416cd9b18fe7160b9ce73b31564304c300e4ece8c9900871e2e0"
               },
               {
                 "file": "tv-wall-4x5-720.jpg",
                 "w": 720,
-                "h": 900,
-                "bytes": 83475,
-                "sha256": "5d83ba172b6382ff71597934b33725e740ff9ebd3d05cb5af1b195f0416c9125"
+                "h": 901,
+                "bytes": 87280,
+                "sha256": "6bd930c6ba0655d8f04bd142149c5d0b0c311cc31a3201cb78ef922ec0363058"
               },
               {
                 "file": "tv-wall-4x5-960.jpg",
                 "w": 960,
-                "h": 1200,
-                "bytes": 147737,
-                "sha256": "564bb8b23787d6595b6d1b4695aeedbeeaeb9cb736842e311335892d6717fa78"
+                "h": 1201,
+                "bytes": 160254,
+                "sha256": "b20247ba8acdc64bcb5669488ce4ed43b3823704b6911bd5ce2bb3dbe3ec7f32"
               },
               {
                 "file": "tv-wall-4x5-1200.jpg",
                 "w": 1200,
                 "h": 1501,
-                "bytes": 234299,
-                "sha256": "ba5e3adff0b7a0db6f5ff05a80a7506280f038b61a7318a4b6d1c89d4eeba74a"
+                "bytes": 253764,
+                "sha256": "d9cb8e82aaa5699dc611631223aaf74167607c490d35fbcce044be2013ea9119"
+              }
+            ]
+          }
+        },
+        "1x1": {
+          "aspect": 1.0,
+          "box": [
+            772,
+            462,
+            1948,
+            1638
+          ],
+          "files": {
+            "avif": [
+              {
+                "file": "tv-wall-1x1-320.avif",
+                "w": 320,
+                "h": 320,
+                "bytes": 3668,
+                "sha256": "c35c4886b6bddb7ec7ddaa2e2ae04b217a46c479c0767f7f6072f3369bc79276"
+              },
+              {
+                "file": "tv-wall-1x1-480.avif",
+                "w": 480,
+                "h": 480,
+                "bytes": 6666,
+                "sha256": "7243a26c2338a0f9edf131fd554965dfa423ddd8ef686d0acc9421e870b7b57f"
+              },
+              {
+                "file": "tv-wall-1x1-640.avif",
+                "w": 640,
+                "h": 640,
+                "bytes": 10607,
+                "sha256": "880a97eb78ea7075293220711f08f095765fb4928d0c689684101954bfab28b8"
+              }
+            ],
+            "webp": [
+              {
+                "file": "tv-wall-1x1-320.webp",
+                "w": 320,
+                "h": 320,
+                "bytes": 5432,
+                "sha256": "6e2eed9e04de7e833706b42692fd586072ccc904b17f6cf47192001169b14e42"
+              },
+              {
+                "file": "tv-wall-1x1-480.webp",
+                "w": 480,
+                "h": 480,
+                "bytes": 10006,
+                "sha256": "3e61f448c69969f8b9cd59aa34bed98ec424fc2d4ff6016afe76cbf52ee27186"
+              },
+              {
+                "file": "tv-wall-1x1-640.webp",
+                "w": 640,
+                "h": 640,
+                "bytes": 16506,
+                "sha256": "03a857e7544946f5c5af39f4fc286c96cadf454bd445cec6dfbbd4852f37c451"
+              }
+            ],
+            "jpg": [
+              {
+                "file": "tv-wall-1x1-320.jpg",
+                "w": 320,
+                "h": 320,
+                "bytes": 13442,
+                "sha256": "2894909e52d86177f09bc39e49fe31780026eb63011f005eb03c7e77929cfb42"
+              },
+              {
+                "file": "tv-wall-1x1-480.jpg",
+                "w": 480,
+                "h": 480,
+                "bytes": 27181,
+                "sha256": "89d07d290b5ab8184bcaaa4b48c2f9f52c384829abc3efd5f8b73d90506a8a2e"
+              },
+              {
+                "file": "tv-wall-1x1-640.jpg",
+                "w": 640,
+                "h": 640,
+                "bytes": 47674,
+                "sha256": "ed4941ab59fbe38944eced2eceadc819906dff55a80fefafcedeca0332b7acd3"
               }
             ]
           }
@@ -733,10 +613,10 @@
         "license_url": "https://www.pexels.com/license/",
         "retrieved": "2026-10-26"
       },
-      "alt": "A modern house at dusk with its windows and entrance lit.",
+      "alt": "The lit wooden front door of a modern house at night, with the wet forecourt reflecting its light.",
       "people": "none",
       "logo_safe": true,
-      "description": "A modern house at dusk with its windows and entrance lit",
+      "description": "The lit front door and entrance of a modern house at night, with a wet forecourt reflecting the light; toned toward the site's garnet and champagne palette",
       "retouched": [],
       "logos": [],
       "kind": "photo",
@@ -744,10 +624,10 @@
         "4x5": {
           "aspect": 0.8,
           "box": [
-            0,
-            832,
-            4160,
-            6032
+            693,
+            2759,
+            3467,
+            6226
           ],
           "files": {
             "avif": [
@@ -755,29 +635,29 @@
                 "file": "house-dusk-4x5-480.avif",
                 "w": 480,
                 "h": 600,
-                "bytes": 14030,
-                "sha256": "07a186a52889821bf41d4926f2d35430417eca4d66ab7eb2bcb5a92b0f91c480"
+                "bytes": 13751,
+                "sha256": "4998ac27a2db29372062d1135a2406060777200669c7fc756a8e37a1dd9daaa8"
               },
               {
                 "file": "house-dusk-4x5-720.avif",
                 "w": 720,
                 "h": 900,
-                "bytes": 26594,
-                "sha256": "2b8866458be37cf3516503697ba491f7eb27d6faa5ac683e1968e001b06409a4"
+                "bytes": 25992,
+                "sha256": "8aedb9c0d07ad7c87082225e6ab5e408dbc5fd51bdb2f6a38bb45cc07ee663a1"
               },
               {
                 "file": "house-dusk-4x5-960.avif",
                 "w": 960,
                 "h": 1200,
-                "bytes": 41769,
-                "sha256": "b1942553bd040b556d5d7283d4bb1b2fd104edaf044714309f0d60c160663c4c"
+                "bytes": 41836,
+                "sha256": "09699099894310529ad76a82a7a2b73dbccffedc1d72219cfb5a8da0dfeadc84"
               },
               {
                 "file": "house-dusk-4x5-1200.avif",
                 "w": 1200,
                 "h": 1500,
-                "bytes": 59603,
-                "sha256": "7f4650345a0e058d5f478d1dcee63e4451a36934c0ecd6838e8dd135ff24026b"
+                "bytes": 59043,
+                "sha256": "d6bc72235bb91f105759af602c3e675ed7398ec0fb7730e604c19971239ae65a"
               }
             ],
             "webp": [
@@ -785,29 +665,29 @@
                 "file": "house-dusk-4x5-480.webp",
                 "w": 480,
                 "h": 600,
-                "bytes": 24394,
-                "sha256": "0250acaaa6512d0015ac94efc5781672544eb75c3062b74199579b4332986d51"
+                "bytes": 22220,
+                "sha256": "2b1d129e7452a8617576f9ecd01b889e25897c1f84ded412cea36a4b82156cd6"
               },
               {
                 "file": "house-dusk-4x5-720.webp",
                 "w": 720,
                 "h": 900,
-                "bytes": 43556,
-                "sha256": "c7b858b51e34f8869535bbc67e27e67f84529537496f6b19729f3d507d8ba2e9"
+                "bytes": 42184,
+                "sha256": "2d414e4c76023e5dfd5ca8a060dc5a8250d70fa2b6c37c54b17e864dbd401c5c"
               },
               {
                 "file": "house-dusk-4x5-960.webp",
                 "w": 960,
                 "h": 1200,
-                "bytes": 66246,
-                "sha256": "cc0a9d468e51ffb0b8d505cd02fbf481461c1590402e790e16a395ce106df90d"
+                "bytes": 65146,
+                "sha256": "99972cedea0ced79f7e562e2ffeb371d96b24b11f3f3239b11578e2d7271f6ea"
               },
               {
                 "file": "house-dusk-4x5-1200.webp",
                 "w": 1200,
                 "h": 1500,
-                "bytes": 90990,
-                "sha256": "a54c5c725cdfc8d460b51564f958563b2104c1a0e86ddf93076520b9afe97ffa"
+                "bytes": 90692,
+                "sha256": "19731de7366fb7d129f4f6dc8a2ca680bc923f69ccf74a3102eca89774a0b6fc"
               }
             ],
             "jpg": [
@@ -815,29 +695,29 @@
                 "file": "house-dusk-4x5-480.jpg",
                 "w": 480,
                 "h": 600,
-                "bytes": 44774,
-                "sha256": "696e4d2e37000723da00934a6f956d1f07c94cd8a2f41a8fb1ba150eaf3eee5d"
+                "bytes": 42840,
+                "sha256": "c86fe2cd17a51cc175b45ed6dd3cb2fec9b6ee9de0fdf1a377734fb8d89bd5da"
               },
               {
                 "file": "house-dusk-4x5-720.jpg",
                 "w": 720,
                 "h": 900,
-                "bytes": 86960,
-                "sha256": "ee60e44bf4d5155f673dcdadbaa6911bc7cb59360ad6f2c22d5c9267169ffb27"
+                "bytes": 84922,
+                "sha256": "4e2f2d06a9bf8d350dec1b6b0b84e99f4c56ffaa032911ccbdfdaeb06e96fb12"
               },
               {
                 "file": "house-dusk-4x5-960.jpg",
                 "w": 960,
                 "h": 1200,
-                "bytes": 139082,
-                "sha256": "a9c5eedd9c59024a36fdb53f5002d2921daa8af2706dfdba4650b3f21fc780d6"
+                "bytes": 137988,
+                "sha256": "819975fc0eee9ea2cc7cd3a6f3042bddd18516883e5ea41c270c7c3a92ea7b25"
               },
               {
                 "file": "house-dusk-4x5-1200.jpg",
                 "w": 1200,
                 "h": 1500,
-                "bytes": 203128,
-                "sha256": "f50fb9a27f185a68ee38d8f1f84fa8088c7aa1439bf434bd5a090344042e3202"
+                "bytes": 201246,
+                "sha256": "d1503bec2e60d1df2e1f27af053330cf60a45ac29e1a46ac626b068916c42b1e"
               }
             ]
           }
@@ -864,7 +744,8 @@
         "Recycling symbol and cell-type text on the battery label",
         "Certification mark and the maker's name printed on the battery label",
         "Safety-certification mark and its file number on the battery label",
-        "The maker's logo and part name printed on the small component label"
+        "The maker's logo and part name printed on the small component label",
+        "The maker's logo printed in gold on the circuit board"
       ],
       "logos": [],
       "kind": "photo",
@@ -883,43 +764,43 @@
                 "file": "internals-16x10-480.avif",
                 "w": 480,
                 "h": 300,
-                "bytes": 4659,
-                "sha256": "7d222a2ce7166ab61f732ff43267dab7364abbf2d0017f66a3258f6b8159ee9e"
+                "bytes": 4661,
+                "sha256": "4b006eeed6947078736230addf37324db546f2a269912ebff47a2d7068694851"
               },
               {
                 "file": "internals-16x10-720.avif",
                 "w": 720,
                 "h": 450,
-                "bytes": 9912,
-                "sha256": "389b5668021582a03fd4e18702e7169ccb7944ffce7971a34bdf49d65918002a"
+                "bytes": 9911,
+                "sha256": "82acfc5ef37329cbb737cdc1d086545c4e02f455f88281aca7e8027f09858825"
               },
               {
                 "file": "internals-16x10-960.avif",
                 "w": 960,
                 "h": 600,
-                "bytes": 16942,
-                "sha256": "e7fc7f36dee9ec95af6c9695b6e435f7121b1805f8326b4933ede7024d25663c"
+                "bytes": 16926,
+                "sha256": "15c4085cf9e86ba8f7f889c2d7017395196cd4eee0521f7db9ed2a3eb538753b"
               },
               {
                 "file": "internals-16x10-1280.avif",
                 "w": 1280,
                 "h": 800,
-                "bytes": 30292,
-                "sha256": "82f689c62290a8e2a70790c8b6e90c2d4fede33eae9ba957da3a40837525aad5"
+                "bytes": 30270,
+                "sha256": "5dbc11cf881f8c116baa92ea7828f44e50456562c009606d24406b7deefafe01"
               },
               {
                 "file": "internals-16x10-1600.avif",
                 "w": 1600,
                 "h": 1000,
-                "bytes": 46763,
-                "sha256": "f95c2270a12807cc0131819f68c5478684c51b8be04023267cd87fbb44d160ef"
+                "bytes": 46737,
+                "sha256": "3965cb08686f5a793dcdfd7f8a335c9b7b92b175f9d435de10305164c425d409"
               },
               {
                 "file": "internals-16x10-1920.avif",
                 "w": 1920,
                 "h": 1200,
-                "bytes": 66705,
-                "sha256": "f4d4d667c6e0eaf1ece0de515636903dfe2526119bae90ba7085812133e6e55b"
+                "bytes": 66653,
+                "sha256": "1379575a6943c213d67a0477087549b0bfa71353142cc7cfb66c8420fc3dbfec"
               }
             ],
             "webp": [
@@ -927,43 +808,43 @@
                 "file": "internals-16x10-480.webp",
                 "w": 480,
                 "h": 300,
-                "bytes": 6030,
-                "sha256": "bf64e985a87049c377a3ea09cdc4308348ffec51d9d4f782d040212b6aafa002"
+                "bytes": 6010,
+                "sha256": "779b8a8c4b46ec07177de995213aa4061366f4ea4a074c5da4231982d4dda4e8"
               },
               {
                 "file": "internals-16x10-720.webp",
                 "w": 720,
                 "h": 450,
-                "bytes": 12356,
-                "sha256": "c1044dfdc967a4435759b7c3e3bb0faa182f596ee626f1573a77cec881d3aff2"
+                "bytes": 12300,
+                "sha256": "d4e8dd29a85e8a58a0aa54c9b34f92ba1991b64cc2dd526e025a25d263e1bd8d"
               },
               {
                 "file": "internals-16x10-960.webp",
                 "w": 960,
                 "h": 600,
-                "bytes": 21106,
-                "sha256": "982e1b6be288837ecd928b52326832e6ba7c7dd3718b5484a16d96604de8f69b"
+                "bytes": 20982,
+                "sha256": "73514eec1461374c4bd649cdc0f2d408d42b7bfb66247e2670e150f85460538c"
               },
               {
                 "file": "internals-16x10-1280.webp",
                 "w": 1280,
                 "h": 800,
-                "bytes": 35258,
-                "sha256": "5983dc0e565e44c0d26a13f14a10a4311f62b87934ee6205e9e330f646fcd184"
+                "bytes": 35264,
+                "sha256": "143635eef697be159c4241687893ba1328e33586f986750a3cdcea5d853090ff"
               },
               {
                 "file": "internals-16x10-1600.webp",
                 "w": 1600,
                 "h": 1000,
-                "bytes": 55090,
-                "sha256": "bd8d6236edf2ca87f49098974cf008f0d8e09cb3ef09d0b91f3d8599d607c497"
+                "bytes": 55028,
+                "sha256": "25342cc4ce55b99ed931a3cbbe40ceb2280c84354f057498782e27eac2400f7b"
               },
               {
                 "file": "internals-16x10-1920.webp",
                 "w": 1920,
                 "h": 1200,
-                "bytes": 78534,
-                "sha256": "5859262d0bd756d3aaf7d0fc3f4bd61810b905cae89030cfc833f2dd3893da26"
+                "bytes": 78452,
+                "sha256": "d5c910d99891a679e6981eb436824f2981ae811c02913d2039bfdf3f23efdbe7"
               }
             ],
             "jpg": [
@@ -971,167 +852,123 @@
                 "file": "internals-16x10-480.jpg",
                 "w": 480,
                 "h": 300,
-                "bytes": 15275,
-                "sha256": "f94fd42fbb38d372e5ec1a2ae05070ea59aae7d32bc4d99b950ae93dfb44b5fb"
+                "bytes": 15266,
+                "sha256": "086d39dac07a5a284fc44a72e571c4ad0eb3fa736b3548b08ca3500ba6952bbb"
               },
               {
                 "file": "internals-16x10-720.jpg",
                 "w": 720,
                 "h": 450,
-                "bytes": 33584,
-                "sha256": "d8240b8389133fa7f4b21cfa6b614bd6390d070c8165fa70f5747c4ba40dfc86"
+                "bytes": 33573,
+                "sha256": "afd68fa9eeee1e042b6386294efb6d981c7cd636a689d0d078a8f356937b7dca"
               },
               {
                 "file": "internals-16x10-960.jpg",
                 "w": 960,
                 "h": 600,
-                "bytes": 58825,
-                "sha256": "7b5519003b16e86c035182aa9868fbfff855aca492378d54676170aef9f1e9bd"
+                "bytes": 58821,
+                "sha256": "7c03a324557f7eeffef01ee2c0f464bb0c224b0d5b59ab2c7bbf26bebf8bc8eb"
               },
               {
                 "file": "internals-16x10-1280.jpg",
                 "w": 1280,
                 "h": 800,
-                "bytes": 103002,
-                "sha256": "cec375a41a70300b6689aaa58a1568173830716f7efb0bb2f54803f91b6f254c"
+                "bytes": 103001,
+                "sha256": "73534eb85688354edee654896aaf5f323f5d4e997df61d3ba0da8b2c27688241"
               },
               {
                 "file": "internals-16x10-1600.jpg",
                 "w": 1600,
                 "h": 1000,
-                "bytes": 159223,
-                "sha256": "97474c1a960763c13e43289d58bac9a11aacb351a29ccc0d8557ebd071dc9bfb"
+                "bytes": 159169,
+                "sha256": "048e7397f24bc991c3348008416f9226984c98f49f25016cf04e2ebafd0434ec"
               },
               {
                 "file": "internals-16x10-1920.jpg",
                 "w": 1920,
                 "h": 1200,
-                "bytes": 227515,
-                "sha256": "98bdb222ad7e1aeb9aa4e34eb08ef10a8f98832f2c9542d44c6818ff539807b9"
+                "bytes": 227497,
+                "sha256": "a35c188efb863d39a07fed0e0d844746c47338b9edc17410efda565778ad199c"
               }
             ]
           }
-        }
-      }
-    },
-    "bench-lamp": {
-      "source": {
-        "provider": "Pexels",
-        "provider_id": "13625784",
-        "page_url": "https://www.pexels.com/photo/man-repairing-a-phone-13625784/",
-        "author": "Pictjoe",
-        "author_url": "https://www.pexels.com/@pictjoe-307181532/",
-        "license": "Pexels License",
-        "license_url": "https://www.pexels.com/license/",
-        "retrieved": "2026-10-26"
-      },
-      "alt": "Hands working on a phone with fine tools on a wooden bench under a lamp.",
-      "people": "no faces",
-      "logo_safe": true,
-      "description": "Hands working on a phone with fine tools on a wooden bench under a lamp",
-      "retouched": [
-        "The maker's logo and printed text on the battery label"
-      ],
-      "logos": [],
-      "kind": "photo",
-      "crops": {
-        "4x5": {
-          "aspect": 0.8,
+        },
+        "1x1": {
+          "aspect": 1.0,
           "box": [
-            699,
-            1250,
-            1999,
-            2875
+            1026,
+            487,
+            2974,
+            2434
           ],
           "files": {
             "avif": [
               {
-                "file": "bench-lamp-4x5-480.avif",
+                "file": "internals-1x1-320.avif",
+                "w": 320,
+                "h": 320,
+                "bytes": 5582,
+                "sha256": "2517137714b06f30747f578eb73307863d481609855e3eea639aec5d5c19f1ed"
+              },
+              {
+                "file": "internals-1x1-480.avif",
                 "w": 480,
-                "h": 600,
-                "bytes": 14329,
-                "sha256": "06ea01d6dbc5177f181e1ba573b5bacff0a35bf73da8e0007f5d2c7b35f913b4"
+                "h": 480,
+                "bytes": 10532,
+                "sha256": "72531a39bbd05852b64c02dcf388d2426b45a6c925d7ab9d47ab9241cccb3ecd"
               },
               {
-                "file": "bench-lamp-4x5-720.avif",
-                "w": 720,
-                "h": 900,
-                "bytes": 27450,
-                "sha256": "4bcbcb72651f8ffce895c7eee6c5574e880d99ec26d62648ea15e7ba8d5fc29d"
-              },
-              {
-                "file": "bench-lamp-4x5-960.avif",
-                "w": 960,
-                "h": 1200,
-                "bytes": 42894,
-                "sha256": "200f4d5f3d54f1d4f7bd98dc26194e0c400cf88de093b509a23ebfd44af62bd3"
-              },
-              {
-                "file": "bench-lamp-4x5-1200.avif",
-                "w": 1200,
-                "h": 1500,
-                "bytes": 60355,
-                "sha256": "5352f8137f5190e0138996ce68efc7b5394f9568fe4721a246fd43fda4474383"
+                "file": "internals-1x1-640.avif",
+                "w": 640,
+                "h": 640,
+                "bytes": 17361,
+                "sha256": "41f97ee4a28942a0fbab616aae358bd34e20a1cb79291c8f248ca886753e4ca8"
               }
             ],
             "webp": [
               {
-                "file": "bench-lamp-4x5-480.webp",
+                "file": "internals-1x1-320.webp",
+                "w": 320,
+                "h": 320,
+                "bytes": 8780,
+                "sha256": "68faa49bbecb64dd9524255dd8a57cc150ed1061d016f4dfbf98ca24bd73a821"
+              },
+              {
+                "file": "internals-1x1-480.webp",
                 "w": 480,
-                "h": 600,
-                "bytes": 22184,
-                "sha256": "04e0eab5c5206cfee80aa2e5bc893b80f6ae9991aee6b27123174952bff5eb36"
+                "h": 480,
+                "bytes": 16728,
+                "sha256": "6577be2861dd6896df38687ce228228e5a2b5871c97fe675c74f314cc67927fe"
               },
               {
-                "file": "bench-lamp-4x5-720.webp",
-                "w": 720,
-                "h": 900,
-                "bytes": 41522,
-                "sha256": "0cc91482827994133298c01a9ffe0bdc68f6d76da72958677a75c95e946718bc"
-              },
-              {
-                "file": "bench-lamp-4x5-960.webp",
-                "w": 960,
-                "h": 1200,
-                "bytes": 61898,
-                "sha256": "6d1de1f5f68bcd614c74a068f1d10791631b14c4dc74cf57f48bd963406b7a37"
-              },
-              {
-                "file": "bench-lamp-4x5-1200.webp",
-                "w": 1200,
-                "h": 1500,
-                "bytes": 82706,
-                "sha256": "2b8b813e3be76f6159aaa53cda8a55d4049ac637d6caf67652cfcc25c65fecb5"
+                "file": "internals-1x1-640.webp",
+                "w": 640,
+                "h": 640,
+                "bytes": 27298,
+                "sha256": "aea9bebe721a4447e4b0bf94a65447eed976c7b9cb593cf4f951d0cd62f7df54"
               }
             ],
             "jpg": [
               {
-                "file": "bench-lamp-4x5-480.jpg",
+                "file": "internals-1x1-320.jpg",
+                "w": 320,
+                "h": 320,
+                "bytes": 16956,
+                "sha256": "e064f20692bd57e8f4cac013a9a0c7e084b6a0cb7ad9645f2b33a3ed866b8fff"
+              },
+              {
+                "file": "internals-1x1-480.jpg",
                 "w": 480,
-                "h": 600,
-                "bytes": 38588,
-                "sha256": "7b15d136af018e82ea6e63c3def7f3f92e7ddf01ac2e6a3a35c4430fdffc58cb"
+                "h": 480,
+                "bytes": 34488,
+                "sha256": "3c61760d30fa7ac6c320db915c39539b11819ac819fedbd2fd290196666c74ac"
               },
               {
-                "file": "bench-lamp-4x5-720.jpg",
-                "w": 720,
-                "h": 900,
-                "bytes": 76699,
-                "sha256": "66032523515cbff02ee55272428c07f2f052fef2d4340c4af5e06b242b6ebe89"
-              },
-              {
-                "file": "bench-lamp-4x5-960.jpg",
-                "w": 960,
-                "h": 1200,
-                "bytes": 124223,
-                "sha256": "24a77735fe870c83a0ebc008325e4d6b970f3998186d3c5c8905aa7947e1f98c"
-              },
-              {
-                "file": "bench-lamp-4x5-1200.jpg",
-                "w": 1200,
-                "h": 1500,
-                "bytes": 179769,
-                "sha256": "66e64a45da5c65e6679704d13a045b5417a8bd13e59b7f58f0257931ee8acc38"
+                "file": "internals-1x1-640.jpg",
+                "w": 640,
+                "h": 640,
+                "bytes": 57737,
+                "sha256": "088343f27775ade10ca1ba07c85bd3dba52839d03a08af204e4d25d3eba2dec6"
               }
             ]
           }
@@ -1157,288 +994,183 @@
       "logos": [],
       "kind": "photo",
       "crops": {
-        "16x9": {
-          "aspect": 1.77778,
+        "4x5": {
+          "aspect": 0.8,
           "box": [
             0,
-            675,
+            200,
             4000,
-            2925
+            5200
           ],
           "files": {
             "avif": [
               {
-                "file": "marble-gold-16x9-480.avif",
+                "file": "marble-gold-4x5-480.avif",
                 "w": 480,
-                "h": 270,
-                "bytes": 8521,
-                "sha256": "7cdd204b8955cdf07128d9bcb56f2e95abe0653074f289f8108a974671d9170f"
+                "h": 600,
+                "bytes": 17942,
+                "sha256": "116b14133c7f25670f246db9ad00e3a193c189a860f408fa60c7c05dfa25f858"
               },
               {
-                "file": "marble-gold-16x9-720.avif",
+                "file": "marble-gold-4x5-720.avif",
                 "w": 720,
-                "h": 405,
-                "bytes": 15200,
-                "sha256": "81072a306e5e70710c8e3248951d1de8f47f085f9c049c4076dbeac9d7759375"
-              },
-              {
-                "file": "marble-gold-16x9-960.avif",
-                "w": 960,
-                "h": 540,
-                "bytes": 22370,
-                "sha256": "6fffc8df5e519f4914744def2b9a383e97b6e53da7a3b165f7e6ce40016da855"
-              },
-              {
-                "file": "marble-gold-16x9-1280.avif",
-                "w": 1280,
-                "h": 720,
-                "bytes": 32594,
-                "sha256": "2d5122a418cf236ce3dafe913ed4074e251c0ada986bc8f8fbc5e3243f0f5d79"
-              },
-              {
-                "file": "marble-gold-16x9-1600.avif",
-                "w": 1600,
                 "h": 900,
-                "bytes": 43442,
-                "sha256": "3223844cf6eea6f480b531cc1d4ce5247f7f0847a24ff0076cb48dd135c34c4b"
+                "bytes": 32127,
+                "sha256": "8e89b364836ed517298f3fc8e6c5da42fedd936bbcedb193e40719ef814dd5aa"
+              },
+              {
+                "file": "marble-gold-4x5-960.avif",
+                "w": 960,
+                "h": 1200,
+                "bytes": 48077,
+                "sha256": "11812436db10a1087d4d6aeabab982a2d27df0f2fb9c96866ef7b4c1bd973234"
+              },
+              {
+                "file": "marble-gold-4x5-1200.avif",
+                "w": 1200,
+                "h": 1500,
+                "bytes": 64285,
+                "sha256": "4efac67da23f8a3c076ec6cf445a5d8a8a4726fddee12c09fd6fae599cd7deb4"
               }
             ],
             "webp": [
               {
-                "file": "marble-gold-16x9-480.webp",
+                "file": "marble-gold-4x5-480.webp",
                 "w": 480,
-                "h": 270,
-                "bytes": 11066,
-                "sha256": "ef198326f215c29976fb663715239a3eb4b9ce69d96eed76e3160da6278b68f8"
+                "h": 600,
+                "bytes": 22972,
+                "sha256": "352c8b4d9e08c8fc1c7fb46499be8c315f0fa316385b3c86e9e9633aad1b800b"
               },
               {
-                "file": "marble-gold-16x9-720.webp",
+                "file": "marble-gold-4x5-720.webp",
                 "w": 720,
-                "h": 405,
-                "bytes": 18656,
-                "sha256": "2dcfce5c47ccd103ecdc888a248f2df65384fe0c53f900d3f906f2c8ea994ca7"
-              },
-              {
-                "file": "marble-gold-16x9-960.webp",
-                "w": 960,
-                "h": 540,
-                "bytes": 26818,
-                "sha256": "405270192a7ce717e9964f5d16d0321c3dac081ee79b67b58d8aabd074a996ba"
-              },
-              {
-                "file": "marble-gold-16x9-1280.webp",
-                "w": 1280,
-                "h": 720,
-                "bytes": 38086,
-                "sha256": "05eb7205e96d72eaffb9273481085ec12f0386a35d382a14e11f8ddb3c935a93"
-              },
-              {
-                "file": "marble-gold-16x9-1600.webp",
-                "w": 1600,
                 "h": 900,
-                "bytes": 50306,
-                "sha256": "f78908eebe72fb9d51b51ff0d07aaaaacfeb4ccd158603516da7c1f1d0731a37"
+                "bytes": 39394,
+                "sha256": "99c0b1b7554a842e7ce50810fd54d3b83f253c316c764836a7e6a5d8167d36d0"
+              },
+              {
+                "file": "marble-gold-4x5-960.webp",
+                "w": 960,
+                "h": 1200,
+                "bytes": 55876,
+                "sha256": "67aa5ba6b2e2c89cb7068e3bb1d3ab20d9353d7a0d2217abf06fdb4328b2bc70"
+              },
+              {
+                "file": "marble-gold-4x5-1200.webp",
+                "w": 1200,
+                "h": 1500,
+                "bytes": 74752,
+                "sha256": "68959678470f76a1b3341d714d6dca56653b6c36461ff4d2af8b08cf6d9d680f"
               }
             ],
             "jpg": [
               {
-                "file": "marble-gold-16x9-480.jpg",
+                "file": "marble-gold-4x5-480.jpg",
                 "w": 480,
-                "h": 270,
-                "bytes": 20609,
-                "sha256": "124b4f7dec7cd290059188055e6e56a508268922577b1eb37ee48a9113a1d1f1"
+                "h": 600,
+                "bytes": 43877,
+                "sha256": "244f465962bdbf4eaeeca1d8c7c46e7db3dd7a7d17d91aafaa9c7bcd3d9cdcc6"
               },
               {
-                "file": "marble-gold-16x9-720.jpg",
+                "file": "marble-gold-4x5-720.jpg",
                 "w": 720,
-                "h": 405,
-                "bytes": 38770,
-                "sha256": "ced91b249a16aa4cd3aa9b406d3f84919231bda8ee2c3a9af323eb898506bcc9"
-              },
-              {
-                "file": "marble-gold-16x9-960.jpg",
-                "w": 960,
-                "h": 540,
-                "bytes": 59401,
-                "sha256": "89df466c359653136cbd956509d455a6e94861f840203b4a46c990d47f40febe"
-              },
-              {
-                "file": "marble-gold-16x9-1280.jpg",
-                "w": 1280,
-                "h": 720,
-                "bytes": 90868,
-                "sha256": "d6f0ad17f1e0d39badb01cc5543a6fae0c6591af613bc2efc6c4427b54c2fdf4"
-              },
-              {
-                "file": "marble-gold-16x9-1600.jpg",
-                "w": 1600,
                 "h": 900,
-                "bytes": 127599,
-                "sha256": "821f8fca692a2d7f5177249d803d13a35d520d6a5ec9ad9ee76deff77b8afa04"
+                "bytes": 82831,
+                "sha256": "b8ebd1f70628a1f23cfec9783351a694f6aa342a391e3ae38bfb1e20621badb4"
+              },
+              {
+                "file": "marble-gold-4x5-960.jpg",
+                "w": 960,
+                "h": 1200,
+                "bytes": 127286,
+                "sha256": "c1b2cabfc91beb95f6ad6dd11a5d1a2537e1ee654dd6dd39a5d31301dff661b4"
+              },
+              {
+                "file": "marble-gold-4x5-1200.jpg",
+                "w": 1200,
+                "h": 1500,
+                "bytes": 177453,
+                "sha256": "1d41919ea400ae296495da15be2a13db19b50f248bf642fa9330534f221f08b8"
               }
             ]
           }
-        }
-      }
-    },
-    "bokeh-garnet": {
-      "source": {
-        "provider": "Pexels",
-        "provider_id": "4279016",
-        "page_url": "https://www.pexels.com/photo/abstract-background-with-bokeh-lights-4279016/",
-        "author": "Ave Calvar Martinez",
-        "author_url": "https://www.pexels.com/@shotbyrain/",
-        "license": "Pexels License",
-        "license_url": "https://www.pexels.com/license/",
-        "retrieved": "2026-10-26"
-      },
-      "alt": "Soft out-of-focus lights in deep red and gold.",
-      "people": "none",
-      "logo_safe": true,
-      "description": "Soft out-of-focus lights in deep red and gold",
-      "retouched": [],
-      "logos": [],
-      "kind": "photo",
-      "crops": {
-        "21x9": {
-          "aspect": 2.33333,
+        },
+        "1x1": {
+          "aspect": 1.0,
           "box": [
             0,
-            385,
-            3234,
-            1771
+            400,
+            4000,
+            4400
           ],
           "files": {
             "avif": [
               {
-                "file": "bokeh-garnet-21x9-480.avif",
+                "file": "marble-gold-1x1-320.avif",
+                "w": 320,
+                "h": 320,
+                "bytes": 7754,
+                "sha256": "bedf6c87ca0e4ac6f9053df3f74974904f5deaeb77914301673073130383f64d"
+              },
+              {
+                "file": "marble-gold-1x1-480.avif",
                 "w": 480,
-                "h": 206,
-                "bytes": 7945,
-                "sha256": "5da0893bd88bc549e3673651f77c5fb764d8ebc92745e53c83f820b353702ea0"
+                "h": 480,
+                "bytes": 14502,
+                "sha256": "82ff9bed407adf4a8b4cb8b6edbcdd862c36682e848fe9eb4937e64787e93870"
               },
               {
-                "file": "bokeh-garnet-21x9-720.avif",
-                "w": 720,
-                "h": 309,
-                "bytes": 14547,
-                "sha256": "f04f0080d532ecb861885797b1e87046983a617f0cf66deba543f45dae6192b6"
-              },
-              {
-                "file": "bokeh-garnet-21x9-960.avif",
-                "w": 960,
-                "h": 411,
-                "bytes": 22560,
-                "sha256": "6b971b335355134e0d996075b385a2469499f400f3fdb667e2acb55406982426"
-              },
-              {
-                "file": "bokeh-garnet-21x9-1280.avif",
-                "w": 1280,
-                "h": 549,
-                "bytes": 36061,
-                "sha256": "2d3742c5368c0ced43f30619ef2102b5b36961d62c679e3eeed378202cf672b7"
-              },
-              {
-                "file": "bokeh-garnet-21x9-1600.avif",
-                "w": 1600,
-                "h": 686,
-                "bytes": 53767,
-                "sha256": "4b007edb0945c5a92586a108d683c4059b311cbb6793ad75f711e50bf57be340"
-              },
-              {
-                "file": "bokeh-garnet-21x9-1920.avif",
-                "w": 1920,
-                "h": 823,
-                "bytes": 77605,
-                "sha256": "341bb6ef55b076cdeb350f352186093e3366136e95412149340b839afbf85ddd"
+                "file": "marble-gold-1x1-640.avif",
+                "w": 640,
+                "h": 640,
+                "bytes": 22114,
+                "sha256": "c0ab4f73674a51dfd68231f6a79a139ecb0a14109efae8b37fe6d14f2e287ad3"
               }
             ],
             "webp": [
               {
-                "file": "bokeh-garnet-21x9-480.webp",
+                "file": "marble-gold-1x1-320.webp",
+                "w": 320,
+                "h": 320,
+                "bytes": 10466,
+                "sha256": "d958f068ea48ff41b2c92a7199744dea4e660f99d7a37f5d4d70088d6740dd7d"
+              },
+              {
+                "file": "marble-gold-1x1-480.webp",
                 "w": 480,
-                "h": 206,
-                "bytes": 12068,
-                "sha256": "07c488c8ab47ad0fa8f0e5940ef224bdf06b5bff0fef2a705b948b1321838fec"
+                "h": 480,
+                "bytes": 18740,
+                "sha256": "e93a0fcc3e3895638071f94901076ee714a1db316d4386caa0987aea1253c46f"
               },
               {
-                "file": "bokeh-garnet-21x9-720.webp",
-                "w": 720,
-                "h": 309,
-                "bytes": 21124,
-                "sha256": "5b2959eb383b99bd0b95e8a53ae1598a19fa3229f38d5c5a1f6a4e35b2d5c879"
-              },
-              {
-                "file": "bokeh-garnet-21x9-960.webp",
-                "w": 960,
-                "h": 411,
-                "bytes": 31588,
-                "sha256": "bc76dc5bc59ea04dc15900b0625314fad55f0e76ada2acaac365db9998b06f94"
-              },
-              {
-                "file": "bokeh-garnet-21x9-1280.webp",
-                "w": 1280,
-                "h": 549,
-                "bytes": 48872,
-                "sha256": "e5a6947f4108fa51dad18cf44e45a894a85276bfe33a6a213160117ee17ce173"
-              },
-              {
-                "file": "bokeh-garnet-21x9-1600.webp",
-                "w": 1600,
-                "h": 686,
-                "bytes": 73768,
-                "sha256": "b8a6ac84cfa0ea1746ae9f7683f5bded3ff10e1fd03ab115944b70303b02b025"
-              },
-              {
-                "file": "bokeh-garnet-21x9-1920.webp",
-                "w": 1920,
-                "h": 823,
-                "bytes": 110674,
-                "sha256": "71da8e2aeb471de2f983180e7045a77537194766923ecd458605e0fd278da9d7"
+                "file": "marble-gold-1x1-640.webp",
+                "w": 640,
+                "h": 640,
+                "bytes": 27514,
+                "sha256": "20c4ac2df959e048061df9b92dc4704fbf396d872962a16d63b46a05880b7798"
               }
             ],
             "jpg": [
               {
-                "file": "bokeh-garnet-21x9-480.jpg",
+                "file": "marble-gold-1x1-320.jpg",
+                "w": 320,
+                "h": 320,
+                "bytes": 18418,
+                "sha256": "b291a17b324dd41ca27fad823d2b42667abf67b5835ce65f58637f6dc143782d"
+              },
+              {
+                "file": "marble-gold-1x1-480.jpg",
                 "w": 480,
-                "h": 206,
-                "bytes": 20214,
-                "sha256": "4ba86232ca2a1935b6f3d6e239acec3bde20e807255380a7e7b89fd14f4a7b44"
+                "h": 480,
+                "bytes": 35711,
+                "sha256": "d0954e2f5504c32ca3a39f256b761a74d4089f78fd3340c64b53781321628c1e"
               },
               {
-                "file": "bokeh-garnet-21x9-720.jpg",
-                "w": 720,
-                "h": 309,
-                "bytes": 38635,
-                "sha256": "20778ebf01234b450b5377a8771be02f3b75b49567365f5c22fa311cf34e8780"
-              },
-              {
-                "file": "bokeh-garnet-21x9-960.jpg",
-                "w": 960,
-                "h": 411,
-                "bytes": 61800,
-                "sha256": "6b42e024c7cadc6b0b60b87a1be1b4fabc2b36cd565648f1d8e7ef7e909c0f49"
-              },
-              {
-                "file": "bokeh-garnet-21x9-1280.jpg",
-                "w": 1280,
-                "h": 549,
-                "bytes": 101624,
-                "sha256": "816248f7c51167f8103dfc56ab9f07f7b4a75cbde77ed1062ace28e91f7969c0"
-              },
-              {
-                "file": "bokeh-garnet-21x9-1600.jpg",
-                "w": 1600,
-                "h": 686,
-                "bytes": 152226,
-                "sha256": "cedaab8027d7241c15a780739f9177146cf6c68274d4479d182fa1f526115a76"
-              },
-              {
-                "file": "bokeh-garnet-21x9-1920.jpg",
-                "w": 1920,
-                "h": 823,
-                "bytes": 218341,
-                "sha256": "e37401c046660d0f3de0d48d9c89dafef382ffd8e3be835f16a21d0c5c8d532f"
+                "file": "marble-gold-1x1-640.jpg",
+                "w": 640,
+                "h": 640,
+                "bytes": 55899,
+                "sha256": "b056105bb964ed944636f6e63c4469aba181b01873ddead8be23e08b253b3750"
               }
             ]
           }
@@ -1464,145 +1196,103 @@
       "logos": [],
       "kind": "photo",
       "crops": {
-        "21x9": {
-          "aspect": 2.33333,
+        "4x5": {
+          "aspect": 0.8,
           "box": [
+            1400,
             0,
-            714,
-            6000,
-            3286
+            4600,
+            4000
           ],
           "files": {
             "avif": [
               {
-                "file": "bokeh-amber-21x9-480.avif",
+                "file": "bokeh-amber-4x5-480.avif",
                 "w": 480,
-                "h": 206,
-                "bytes": 2618,
-                "sha256": "91796c2ca6ab0d34c24a12aa0cde89f06fc3c4e803e0d5e566e22454bab02ea9"
+                "h": 600,
+                "bytes": 3304,
+                "sha256": "57b76bb71bb0d21e51e35ca3e3161eb2701c788a717abc6e3662ac8ae0ac2fa2"
               },
               {
-                "file": "bokeh-amber-21x9-720.avif",
+                "file": "bokeh-amber-4x5-720.avif",
                 "w": 720,
-                "h": 309,
-                "bytes": 3792,
-                "sha256": "d3a7f130f24f5ca110e33da2df809bd8da8d11cd5f88f48f9339d22eff012ce6"
+                "h": 900,
+                "bytes": 4832,
+                "sha256": "7f9c1e2acd355072244669738b2a9c2f16c4bd2829bff65448ede541670365ad"
               },
               {
-                "file": "bokeh-amber-21x9-960.avif",
+                "file": "bokeh-amber-4x5-960.avif",
                 "w": 960,
-                "h": 412,
-                "bytes": 5037,
-                "sha256": "0841c6d341247ed2d40f984964026afa6294d6704e9a8654bea32bf45f6b607b"
+                "h": 1200,
+                "bytes": 6657,
+                "sha256": "82fa93b2dbd08c43c6e2da0e347e59e9f87e43cc7a7b33f63de870339d837096"
               },
               {
-                "file": "bokeh-amber-21x9-1280.avif",
-                "w": 1280,
-                "h": 549,
-                "bytes": 6683,
-                "sha256": "c3a42365873ca2d0b8bff07d83326adf07543d5173dc957d72f811670124dc72"
-              },
-              {
-                "file": "bokeh-amber-21x9-1600.avif",
-                "w": 1600,
-                "h": 686,
-                "bytes": 8925,
-                "sha256": "f5121b85f716898aeff2f164b0086beb019dbe4dfefe4a08b07faf4ee3e19ab6"
-              },
-              {
-                "file": "bokeh-amber-21x9-1920.avif",
-                "w": 1920,
-                "h": 823,
-                "bytes": 10851,
-                "sha256": "6a7b426b4216b0e6a3c983aa07a9dafebd36e7a2ad694264bde1a8863d7d3d50"
+                "file": "bokeh-amber-4x5-1200.avif",
+                "w": 1200,
+                "h": 1500,
+                "bytes": 8566,
+                "sha256": "22416571b8e833ab1cd4e4117e1a492d6c66567addca6e46916b23899d6eaf95"
               }
             ],
             "webp": [
               {
-                "file": "bokeh-amber-21x9-480.webp",
+                "file": "bokeh-amber-4x5-480.webp",
                 "w": 480,
-                "h": 206,
-                "bytes": 3540,
-                "sha256": "18bf0e5b60c7241900bbbd1efb0083d365f69aad0517ca05b649ba0d7f5bc403"
+                "h": 600,
+                "bytes": 4768,
+                "sha256": "aea56fa90d38ee4a30a4d7dcbaeca107ae721f8496431a1bfb0ab60737c4c35d"
               },
               {
-                "file": "bokeh-amber-21x9-720.webp",
+                "file": "bokeh-amber-4x5-720.webp",
                 "w": 720,
-                "h": 309,
-                "bytes": 5544,
-                "sha256": "1384cffeeee1aef35e10eaffb96c57ce8ebeae4c63452803dd46db4787e0e5ec"
+                "h": 900,
+                "bytes": 7812,
+                "sha256": "831a2f8fc480e7b01f6f2e40ae06cde1e4d4904a38dd57165c74ba7b689f6e73"
               },
               {
-                "file": "bokeh-amber-21x9-960.webp",
+                "file": "bokeh-amber-4x5-960.webp",
                 "w": 960,
-                "h": 412,
-                "bytes": 7554,
-                "sha256": "c5f4c285f92d93becf69492ce6e4f580a5119aa7c1723c631b2b68b508b856ae"
+                "h": 1200,
+                "bytes": 11276,
+                "sha256": "3b505347f2c6a68bcfc7e2899834cc1278728b93cce74b2ec66abf94bcc16b1b"
               },
               {
-                "file": "bokeh-amber-21x9-1280.webp",
-                "w": 1280,
-                "h": 549,
-                "bytes": 10900,
-                "sha256": "aa164c10ade75e809b78853fe95618cc085f431f3ec4690ce3c1b43dc0f8785f"
-              },
-              {
-                "file": "bokeh-amber-21x9-1600.webp",
-                "w": 1600,
-                "h": 686,
-                "bytes": 14406,
-                "sha256": "50c3d3dce69c83e28af02d37c52e31853c297d100aa15af84b7c62c5cc48a304"
-              },
-              {
-                "file": "bokeh-amber-21x9-1920.webp",
-                "w": 1920,
-                "h": 823,
-                "bytes": 18648,
-                "sha256": "265e8526a68702a2360484bd0e6a8c358b0eb737b91e8849652915b049776e5b"
+                "file": "bokeh-amber-4x5-1200.webp",
+                "w": 1200,
+                "h": 1500,
+                "bytes": 15370,
+                "sha256": "f18eb4a2cf060f04bafdbe607dce73b04b1473971fef1f2e659cde0b68841696"
               }
             ],
             "jpg": [
               {
-                "file": "bokeh-amber-21x9-480.jpg",
+                "file": "bokeh-amber-4x5-480.jpg",
                 "w": 480,
-                "h": 206,
-                "bytes": 8022,
-                "sha256": "1692b1fc7c1bd10d36f3df6de8520e894255e9826827792049787252dafd3937"
+                "h": 600,
+                "bytes": 11594,
+                "sha256": "011bcc75762abbf9a133a100a0ddd2d7ec16ea58914654f54fb9fd67e38ca76e"
               },
               {
-                "file": "bokeh-amber-21x9-720.jpg",
+                "file": "bokeh-amber-4x5-720.jpg",
                 "w": 720,
-                "h": 309,
-                "bytes": 13249,
-                "sha256": "eae113548b9f225f896bd69cb48c43629dfff6a3209089bfe4a970f27895d4fb"
+                "h": 900,
+                "bytes": 20196,
+                "sha256": "32bb875aa2b5d4a91e8518e2a7e6598aeb120005d8c708e94972f1c44e485dac"
               },
               {
-                "file": "bokeh-amber-21x9-960.jpg",
+                "file": "bokeh-amber-4x5-960.jpg",
                 "w": 960,
-                "h": 412,
-                "bytes": 19387,
-                "sha256": "a791d268cb4c5d9ab2c3bb6913f310de5afd43934fb1e670bfac0368858400a0"
+                "h": 1200,
+                "bytes": 31271,
+                "sha256": "9d15bcd0072b8147a1e963639145ce80eea4b2f60241fda65c215b1b77d5aa16"
               },
               {
-                "file": "bokeh-amber-21x9-1280.jpg",
-                "w": 1280,
-                "h": 549,
-                "bytes": 28925,
-                "sha256": "c3bea7d2baa6573f7de2d65bc0e1268895df8db01c0e3e2ab29cf5db15120bad"
-              },
-              {
-                "file": "bokeh-amber-21x9-1600.jpg",
-                "w": 1600,
-                "h": 686,
-                "bytes": 40718,
-                "sha256": "572ee62057ee93bc20489dfc0979b5fea8048793a5ce1ca9cfc72d6127ad8e6a"
-              },
-              {
-                "file": "bokeh-amber-21x9-1920.jpg",
-                "w": 1920,
-                "h": 823,
-                "bytes": 55682,
-                "sha256": "164e1623cc901984a30c7cefa60a6cd4f7832a8a86fc04c850a3911c009309cd"
+                "file": "bokeh-amber-4x5-1200.jpg",
+                "w": 1200,
+                "h": 1500,
+                "bytes": 46757,
+                "sha256": "2dea41b4401f8b53a64a80cfe78e114ab1c6e0e9d8a9da524586a6fb8c03ba67"
               }
             ]
           }

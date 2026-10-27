@@ -36,11 +36,12 @@
             {{{ hours_rows }}}
           </tbody>
         </table>
+        <p class="hours-note">Holiday hours may differ, so phone first on a public holiday.</p>
       </div>
       <div>
         <h2>Before you come</h2>
         <ul class="checklist">
-          <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg><span>For a new plan or a switch, bring government-issued photo ID.</span></li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg><span>For a new plan or a switch, bring photo ID, in case the provider asks for it.</span></li>
           <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg><span>Switching providers? Bring your current account number.</span></li>
           <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg><span>Getting a repair? Back up your phone first if you can.</span></li>
         </ul>
@@ -65,7 +66,7 @@
         </div>
         <div class="field">
           <label for="v-phone">Phone number</label>
-          <input id="v-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required>
+          <input id="v-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" pattern="[\d\s+.\x28\x29\x2d]{7,}" title="A phone number, such as 647-707-1093" required>
         </div>
         <div class="field">
           <label for="v-reason">What do you need help with?</label>

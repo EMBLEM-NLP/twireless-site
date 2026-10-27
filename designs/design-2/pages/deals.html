@@ -1,67 +1,78 @@
 <!--page
 {
-  "title": "What's on this month: phone, plan, internet and repair deals | T Wireless Brampton",
-  "description": "Phone, plan, home internet and repair offers at T Wireless on Bovaird Dr W in Brampton, across Bell, Virgin Plus and Lucky Mobile. Phone or drop in for today's prices.",
+  "title": "Deals and ways to pay: phones, plans, internet and repairs | T Wireless Brampton",
+  "description": "How Bell SmartPay, the Device Return Option and Lucky Mobile prepaid work, plus this month's phone, plan, home internet and repair offers at T Wireless, 965 Bovaird Dr W, Brampton.",
   "nav": "deals"
 }
 -->
 <main id="main">
   <section class="intro" aria-labelledby="page-title">
     <div class="wrap">
-      <h1 id="page-title">What's on at the store this month</h1>
-      <p class="lead">The deals on phones, plans, home internet, TV and repairs change often. Phone or drop in to hear what's on today.</p>
-      {{{ example_note }}}
+      <h1 id="page-title">Deals, and how to pay for them</h1>
+      <p class="lead">Our deals change from month to month, so ring or drop in for today's. First comes how each way of paying works, then what is on the shelf.</p>
     </div>
   </section>
 
-  <section class="section section--tight" aria-labelledby="offers-title">
+  <section class="section section--tight" aria-labelledby="ways-title">
     <div class="wrap">
-      <h2 id="offers-title" class="visually-hidden">The cards on this page</h2>
+      <div class="head">
+        <h2 id="ways-title">Three ways to pay</h2>
+        <a class="head__link" href="brands.html">How the three providers differ</a>
+      </div>
+      <div class="table-wrap">
+        <table class="compare">
+          <caption class="visually-hidden">The three ways to pay, compared</caption>
+          <thead>
+            <tr><th scope="col">Way to pay</th><th scope="col">How it works</th><th scope="col">Worth knowing</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Bell SmartPay</th>
+              <td data-label="How it works">The phone's price is split across 24 months, with nothing down and 0% interest.</td>
+              <td data-label="Worth knowing">You need an eligible 2-year Bell plan, and Bell checks your credit first. Leave the plan or end the agreement early and Bell asks for whatever is still owing on the handset.</td>
+            </tr>
+            <tr>
+              <th scope="row">Device Return Option</th>
+              <td data-label="How it works">On eligible Bell phones, part of the price can wait until your 2-year term ends.</td>
+              <td data-label="Worth knowing">Hand the phone back in good working condition then, or keep it and pay that part. Bell also calls this Flex Option, and the details depend on the plan.</td>
+            </tr>
+            <tr>
+              <th scope="row">Lucky Mobile prepaid</th>
+              <td data-label="How it works">Each month is paid for before you use it, so nothing is billed later.</td>
+              <td data-label="Worth knowing">You sign up without a credit check or a contract.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--mist" aria-labelledby="offers-title">
+    <div class="wrap">
+      <div class="head">
+        <h2 id="offers-title">On the shelf this month</h2>
+        <p>Phones, plans, home internet, TV and repairs. Pick a group, or look at everything.</p>
+      </div>
+      {{{ example_note }}}
       <div class="filters filters--pending" role="group" aria-label="Show offers for">
         <button type="button" class="chip" data-filter="all" aria-pressed="true">Everything</button>
         <button type="button" class="chip" data-filter="mobile" aria-pressed="false">Phones and plans</button>
         <button type="button" class="chip" data-filter="home" aria-pressed="false">Internet and TV</button>
         <button type="button" class="chip" data-filter="repairs" aria-pressed="false">Repairs</button>
       </div>
-      <div class="deals" data-offers>
+      <div class="deals deals--rows" data-offers>
         {{{ deals_all }}}
       </div>
-      <p class="note" data-offers-empty hidden>We have no offers in this group at the moment. Phone the store to hear what's on the way.</p>
+      <p class="note" data-offers-empty hidden>Nothing is on the shelf in this group at the moment. Phone the store to hear what's on the way.</p>
       <p class="note">Prices don't include applicable taxes. Bell, Virgin Plus and Lucky Mobile can change their plans and prices at any time, so check the full terms with us before you commit to a deal.</p>
-    </div>
-  </section>
-
-  <section class="section section--mist" aria-labelledby="ways-title">
-    <div class="wrap">
-      <div class="head">
-        <h2 id="ways-title">How you can pay for a phone</h2>
-        <a class="head__link" href="brands.html">See how the three differ</a>
-      </div>
-      <ul class="tiles tiles--three">
-        <li class="tile">
-          <svg class="icon" aria-hidden="true"><use href="#i-calendar"></use></svg>
-          <h3>Bell SmartPay</h3>
-          <p>The price is split across 24 months, with nothing down and 0% interest. You need an eligible 2-year Bell plan, and Bell checks your credit first.</p>
-        </li>
-        <li class="tile">
-          <svg class="icon" aria-hidden="true"><use href="#i-swap"></use></svg>
-          <h3>Device Return Option</h3>
-          <p>On eligible Bell phones, part of the price can wait until your 2-year term ends. Hand the phone back in good working condition then, or keep it and pay that part.</p>
-        </li>
-        <li class="tile">
-          <svg class="icon" aria-hidden="true"><use href="#i-card"></use></svg>
-          <h3>Lucky Mobile prepaid</h3>
-          <p>Sign up without a credit check or a contract. Each month is paid for before you use it, so nothing is billed later.</p>
-        </li>
-      </ul>
     </div>
   </section>
 
   <section class="band" aria-labelledby="compare-title">
     <div class="wrap band__grid">
       <div>
-        <h2 id="compare-title">Want to talk it through?</h2>
-        <p>Describe how you use your phone and what your bill is now, and we'll narrow the list down for you.</p>
+        <h2 id="compare-title">Rather hear it from a person?</h2>
+        <p>Not sure which suits you? Describe your usage and your current bill, and we'll suggest an offer.</p>
       </div>
       <div class="buttons">
         <a class="button button--light" href="tel:{{ store.phone_e164 }}">Call {{ store.phone_display }}</a>

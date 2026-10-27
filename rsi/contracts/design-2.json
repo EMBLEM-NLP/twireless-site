@@ -127,7 +127,7 @@
    "visit": [
     "965 Bovaird",
     "647-707-1093",
-    "10 a\\.m\\. to 8 p\\.m\\."
+    "10\\sa\\.m\\.\\sto\\s8\\sp\\.m\\."
    ]
   },
   "hide_in_screenshots": [
@@ -208,7 +208,7 @@
   "siblings": [
    {
     "design_id": "design-1",
-    "run": "rsi/runs/design-1/v7-candidate"
+    "run": "rsi/runs/design-1/v9-candidate"
    }
   ],
   "max_visual_similarity": 0.45,

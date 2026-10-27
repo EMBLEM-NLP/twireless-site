@@ -1,14 +1,14 @@
-"""Design 3: a one-colour, light-on-dark version of the T Wireless wordmark.
+"""Design 3: a champagne-gold, light-on-dark version of the T Wireless wordmark.
 
 The store's logo (src/assets/img/t-wireless-logo-960.png) is red letters and a grey phone on a clear
 background. Placed on design 3's dark ground it needed a white box, which looked pasted on. This script
-re-inks the same artwork in champagne: the letters and the phone's body become champagne with a soft
-vertical gradient, and the phone's white screen becomes clear, so the dark page shows through. The
-shapes, spacing and proportions are not touched.
+re-inks the same artwork in champagne gold: the letters and the phone's body take one gold with a soft
+vertical gradient (lighter at the top, bronze at the foot), and the phone's white screen becomes clear, so
+the dark page shows through. The shapes, spacing and proportions are not touched.
 
 Only the store's own mark is treated this way. Bell, Virgin Plus and Lucky Mobile stay exactly as
 supplied, on pearl cards. The full-colour logo is still shipped (structured data uses it) and designs
-1 and 2 still show it as it is. The store should approve this one-colour version before launch.
+1 and 2 still show it as it is. The store should approve this gold version before launch.
 
 Run from the repository root:  python3 designs/design-3/imagery/logo_light.py
 """

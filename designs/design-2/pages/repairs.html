@@ -12,7 +12,7 @@
         <h1 id="page-title">Hand us the broken phone. We'll tell you the price first.</h1>
         <p class="lead">Cracked screens, tired batteries and phones that won't charge, on phones and tablets alike. The price comes first, then the repair.</p>
         <div class="buttons">
-          <a class="button" href="#book">Arrange a repair</a>
+          <a class="button" href="#book">Get a quote</a>
           <a class="button button--quiet" href="tel:{{ store.phone_e164 }}">Phone for a price</a>
         </div>
       </div>
@@ -23,81 +23,78 @@
   <section class="section section--tight" aria-labelledby="fix-title">
     <div class="wrap">
       <div class="head">
-        <h2 id="fix-title">What we repair</h2>
+        <h2 id="fix-title">Find your fault</h2>
         <p>The price depends on your model and the part it needs, so every repair is quoted first.</p>
       </div>
-      <div class="fixes">
+      <div class="fixes fixes--table">
         <div class="fixes__photo">{{{ pic.cracked_tile }}}</div>
-        <ul class="fixes__list">
-          {{{ repair_items }}}
-        </ul>
+        <div class="table-wrap">
+          <table class="compare compare--faults">
+            <caption class="visually-hidden">Common faults and what we do about them</caption>
+            <thead>
+              <tr><th scope="col">Fault</th><th scope="col">What you notice</th><th scope="col">What we do</th></tr>
+            </thead>
+            <tbody>
+              {{{ repair_rows }}}
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="section section--mist" aria-labelledby="how-title">
-    <div class="wrap">
-      <div class="head">
-        <h2 id="how-title">From the counter to pick-up</h2>
-        <p>Before you come in, copy your photos and files somewhere safe if you're able.</p>
-      </div>
-      <ol class="steps steps--four">
-        <li>
-          <h3>Arrange it, or drop by</h3>
-          <p>Send the form below, or call in {{ hours_phrase }}.</p>
-        </li>
-        <li>
-          <h3>We look it over</h3>
-          <p>We work out what's wrong and quote you. Nothing starts before you've heard the price.</p>
-        </li>
-        <li>
-          <h3>We repair it</h3>
-          <p>You'll hear when to come back and collect it.</p>
-        </li>
-        <li>
-          <h3>Check it with us</h3>
-          <p>Switch it on and try it in front of us before you leave.</p>
-        </li>
-      </ol>
-    </div>
-  </section>
-
-  <section class="section" id="book" aria-labelledby="book-title">
+  <section class="section section--mist" id="book" aria-labelledby="book-title">
     <div class="wrap form-split">
-      <div>
-        <h2 id="book-title">Arrange a repair</h2>
-        <p>Describe the fault and we'll phone you to agree a time.</p>
-        <p>If you'd rather speak to someone, phone the store on <a href="tel:{{ store.phone_e164 }}">{{ store.phone_display }}</a>, or email <a href="mailto:{{ store.email }}">{{ store.email }}</a>.</p>
+      <div class="form-split__intro">
+        <h2 id="book-title">Tell us what it's doing</h2>
+        <p>Describe the fault and we'll phone you to agree a time to bring the device in.</p>
+        <h3>What you can count on</h3>
+        <ul class="ticks">
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg><span><strong>The price comes first.</strong> We find the fault and name the price before we touch the device.</span></li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg><span><strong>Your yes comes next.</strong> Nothing starts until you've agreed to that price.</span></li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg><span><strong>You try it before you go.</strong> When it's ready, switch it on and test it at the counter.</span></li>
+        </ul>
+        <p>If you can, copy your photos and files somewhere safe before you come in.</p>
+        <p>Rather talk? Phone the store on <a href="tel:{{ store.phone_e164 }}">{{ store.phone_display }}</a>, or email <a href="mailto:{{ store.email }}">{{ store.email }}</a>.</p>
       </div>
       <form class="form" name="repair" method="post" {{{ form_attrs }}}>
         <input type="hidden" name="form-name" value="repair">
         <p class="visually-hidden"><label>Leave this field empty <input type="text" name="company" tabindex="-1" autocomplete="off"></label></p>
-        <div class="field">
-          <label for="r-name">Your name</label>
-          <input id="r-name" name="name" type="text" autocomplete="name" required>
+        <div class="form__row">
+          <div class="field">
+            <label for="r-name">Your name</label>
+            <input id="r-name" name="name" type="text" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="r-phone">Phone number</label>
+            <input id="r-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" pattern="[\d\s+.\x28\x29\x2d]{7,}" title="A phone number, such as 647-707-1093" required>
+          </div>
         </div>
+        <fieldset class="field field--group">
+          <legend>What is it?</legend>
+          <div class="choices">
+            <label class="choice"><input type="radio" name="kind" value="Phone" checked><span>A phone</span></label>
+            <label class="choice"><input type="radio" name="kind" value="Tablet"><span>A tablet</span></label>
+          </div>
+        </fieldset>
         <div class="field">
-          <label for="r-phone">Phone number</label>
-          <input id="r-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required>
-        </div>
-        <div class="field">
-          <label for="r-device">Which device?</label>
+          <label for="r-device">Make and model</label>
           <input id="r-device" name="device" type="text" required aria-describedby="r-device-hint">
           <p class="hint" id="r-device-hint">Such as a Pixel 8 or an iPad Air.</p>
         </div>
         <div class="field">
-          <label for="r-problem">What's the problem?</label>
+          <label for="r-problem">What's it doing?</label>
           <textarea id="r-problem" name="problem" rows="4" required></textarea>
         </div>
         <div class="field">
-          <label for="r-when">When suits you?</label>
+          <label for="r-when">Best time for our call</label>
           <select id="r-when" name="when">
-            <option>Any day</option>
-            <option>A weekday</option>
-            <option>A weekend</option>
+            <option>Morning</option>
+            <option>Afternoon</option>
+            <option>Evening</option>
           </select>
         </div>
-        <button class="button" type="submit">Ask for this repair</button>
+        <button class="button" type="submit">Get my quote</button>
         <p class="hint">We'll only use these details to get back to you. <a href="privacy.html">Privacy</a></p>
       </form>
     </div>

@@ -1,7 +1,7 @@
 <!--page
 {
-  "title": "Handsets, plans and number transfers in Brampton | T Wireless",
-  "description": "iPhone and Android handsets on Bell, Virgin Plus or Lucky Mobile, with your number kept when you switch. Come to 965 Bovaird Dr W, Brampton, to choose in person.",
+  "title": "Choose a phone, a plan and how to pay | T Wireless, Brampton",
+  "description": "Choose a phone, match it with a plan from Bell, Virgin Plus or Lucky Mobile, and settle how to pay. T Wireless, 965 Bovaird Dr W, Brampton.",
   "nav": "mobile"
 }
 -->
@@ -9,71 +9,69 @@
   <section class="intro intro--split" aria-labelledby="page-title">
     <div class="wrap intro__grid">
       <div class="intro__text">
-        <h1 id="page-title">Your handset, your plan and your number, discussed together</h1>
-        <p class="lead">Choose the handset you like and the provider you prefer, and we will put the two together for you, with your number moving across if you wish.</p>
+        <h1 id="page-title">Choose a phone, a plan and how to pay</h1>
+        <p class="lead">Four steps, in the order most people take them: the phone, the plan, how to pay, and moving your number if you are changing provider.</p>
         <div class="buttons">
           <a class="button" href="tel:{{ store.phone_e164 }}"><svg class="icon" aria-hidden="true"><use href="#i-call"></use></svg>Ask if a model is in</a>
-          <a class="button button--line" href="deals.html">See current offers</a>
+          <a class="button button--line" href="deals.html">See offers</a>
         </div>
       </div>
-      <figure class="frame intro__media">{{{ pic.handset_top }}}</figure>
+      <figure class="frame intro__media">{{{ pic.phones_top }}}</figure>
     </div>
   </section>
 
-  <section class="section" aria-labelledby="cases-title">
+  <section class="section section--tight" aria-label="How a phone and a plan come together">
     <div class="wrap">
-      <div class="head">
-        <h2 id="cases-title">Where are you starting from?</h2>
-        <p>Most visits begin in one of four places. Find yours and we will take it from there.</p>
-      </div>
-      <ul class="tiles tiles--two">
-        <li class="tile">
-          <svg class="icon" aria-hidden="true"><use href="#i-phone"></use></svg>
-          <h3>You want a new handset</h3>
-          <p>Telephone first and we will tell you whether the model is in the store; we carry both iPhone and Android handsets. Bell SmartPay spreads a handset’s price over 24 monthly payments with no interest, provided your 2-year plan is an eligible one and Bell approves your credit.</p>
+      <ol class="steps">
+        <li class="step">
+          <h2>Choose a phone</h2>
+          <div class="step__body">
+            <p>We carry iPhone and Android phones. If you have a model or a colour in mind, call first and we will say whether it is in the store.</p>
+            <p>Happy with the phone you have? A plan can be set up on it, and it may be worth something against the next one, so ask us how a trade-in works.</p>
+          </div>
         </li>
-        <li class="tile">
-          <svg class="icon" aria-hidden="true"><use href="#i-swap"></use></svg>
-          <h3>You like the phone you have</h3>
-          <p>A plan can be fitted to the phone already in your pocket. It may also be worth something against the next one; ask us how a trade-in works.</p>
+        <li class="step">
+          <h2>Choose a plan</h2>
+          <div class="step__body">
+            <p>Bell and Virgin Plus bill monthly, and Lucky Mobile is paid ahead. All three run on Bell’s mobile network.</p>
+            {{{ provider_strip }}}
+            <p><a class="textlink" href="brands.html">Compare the three on the Plans page</a></p>
+          </div>
         </li>
-        <li class="tile">
-          <svg class="icon" aria-hidden="true"><use href="#i-signal"></use></svg>
-          <h3>You are leaving another provider</h3>
-          <p>Changing provider need not mean a new number, because you can keep your number. Bring a recent bill, which carries the account number the transfer needs, and photo ID in case it is asked for. Please do not cancel the old plan yourself: the transfer ends it once the number has gone across.</p>
+        <li class="step">
+          <h2>Choose how to pay</h2>
+          <div class="step__body">
+            <p>With a Bell plan, a new phone can be paid for in either of two ways.</p>
+            <div class="options">
+              <div class="option">
+                <h3>Bell SmartPay</h3>
+                <p>Over two years, the phone is paid off in 24 monthly payments. There is no down payment, and no interest is charged. Only an eligible 2-year Bell plan qualifies, and Bell decides each application on credit. End the agreement or the plan early and the balance still owing on the phone must be paid.</p>
+              </div>
+              <div class="option">
+                <h3>Device Return Option</h3>
+                <p>A share of an eligible Bell phone’s price is held over for the 2-year term. If the phone then comes back in good working condition, that share is waived; if you keep it, you pay it. Some Bell plans call this Flex Option instead, and the terms differ from plan to plan.</p>
+              </div>
+            </div>
+          </div>
         </li>
-        <li class="tile">
-          <svg class="icon" aria-hidden="true"><use href="#i-briefcase"></use></svg>
-          <h3>You are equipping a team</h3>
-          <p>Handsets and mobile plans from Bell can be put together here for a small team. A telephone call or a visit is all it takes to begin. <a href="brands.html#business">Read about Bell for business</a>.</p>
+        <li class="step">
+          <h2>Keep your number</h2>
+          <div class="step__body">
+            <p>Changing provider does not mean changing number. Bring a recent bill, since the account number printed on it is what the transfer needs, and photo ID in case it is asked for.</p>
+            <p>Leave your old plan in place. The transfer closes it once your number has moved.</p>
+          </div>
         </li>
-      </ul>
+      </ol>
     </div>
   </section>
 
-  <div class="strip strip--letterbox" aria-hidden="true">{{{ pic.marble }}}</div>
-
-  <section class="section section--raised" aria-labelledby="names-title">
-    <div class="wrap">
-      <div class="head head--split">
-        <h2 id="names-title">Then choose the name on the plan</h2>
-        <a class="textlink" href="brands.html">The three, compared in full</a>
-      </div>
-      {{{ providers }}}
-      <p class="note">Plans from every provider run on Bell’s mobile network. For pricing as it stands today, see <a href="deals.html">the offers page</a>.</p>
-    </div>
-  </section>
-
-  <section class="section" aria-labelledby="ahead-title">
-    <div class="wrap spread">
-      <figure class="frame spread__media">{{{ pic.wood }}}</figure>
-      <div class="spread__text">
-        <h2 id="ahead-title">Call ahead for a particular model</h2>
-        <p>Stock changes often. Telephone before you set out if you have a model or a colour in mind, and we will tell you whether it is in the store.</p>
-        <div class="buttons">
-          <a class="button" href="tel:{{ store.phone_e164 }}"><svg class="icon" aria-hidden="true"><use href="#i-call"></use></svg>Call {{ store.phone_display }}</a>
-          <a class="button button--line" href="{{ booking_href }}">Book a visit</a>
-        </div>
+  <section class="section section--raised" aria-labelledby="ask-title">
+    <div class="wrap closer">
+      <h2 id="ask-title">Have a model in mind?</h2>
+      <p>Call the store and we will say whether it is in. Bring your latest bill as well, and we will go through the plans with you.</p>
+      <div class="buttons">
+        <a class="button" href="tel:{{ store.phone_e164 }}"><svg class="icon" aria-hidden="true"><use href="#i-call"></use></svg>Call {{ store.phone_display }}</a>
+        <a class="button button--line" href="{{ booking_href }}">Book a visit</a>
       </div>
     </div>
   </section>

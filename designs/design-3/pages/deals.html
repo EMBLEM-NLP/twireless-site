@@ -1,76 +1,37 @@
 <!--page
 {
-  "title": "This month’s offers on handsets, plans, home services and repairs | T Wireless",
-  "description": "Offers listed at T Wireless, 965 Bovaird Dr W, Brampton, for Bell, Virgin Plus and Lucky Mobile plans, home internet and repairs. Ask us what applies today.",
+  "title": "This month’s offers at T Wireless, Brampton",
+  "description": "Offers the store lists for plans from Bell, Virgin Plus and Lucky Mobile, home internet and repairs. Ask which deals apply to you today.",
   "nav": "deals"
 }
 -->
 <main id="main">
-  <section class="intro" aria-labelledby="page-title">
-    <div class="wrap">
-      <h1 id="page-title">What is on offer this month</h1>
-      <p class="lead">Offers change with the month and with the provider. Telephone the store, or visit, to hear which deals apply today.</p>
-      {{{ example_note }}}
+  <section class="intro intro--split" aria-labelledby="page-title">
+    <div class="wrap intro__grid">
+      <div class="intro__text">
+        <h1 id="page-title">This month’s offers</h1>
+        <p class="lead">Plans, home internet and repairs, with the deals each provider is running. Ask which of them apply to you today.</p>
+        <div class="buttons">
+          <a class="button" href="tel:{{ store.phone_e164 }}"><svg class="icon" aria-hidden="true"><use href="#i-call"></use></svg>Call {{ store.phone_display }}</a>
+          <a class="button button--line" href="{{ booking_href }}">Book a visit</a>
+        </div>
+        {{{ example_note }}}
+      </div>
+      <figure class="frame intro__media">{{{ pic.marble_top }}}</figure>
     </div>
   </section>
 
-  <div class="strip strip--letterbox" aria-hidden="true">{{{ pic.marble_top }}}</div>
-
-  <section class="section section--tight" aria-labelledby="offers-title">
+  <section class="section section--tight" aria-label="Offers by kind">
     <div class="wrap">
-      <h2 id="offers-title" class="visually-hidden">The offers below</h2>
-      <div class="filters filters--pending" role="group" aria-label="Show offers for">
-        <button type="button" class="chip" data-filter="all" aria-pressed="true">All offers</button>
-        <button type="button" class="chip" data-filter="mobile" aria-pressed="false">Handsets and plans</button>
-        <button type="button" class="chip" data-filter="home" aria-pressed="false">Home services</button>
-        <button type="button" class="chip" data-filter="repairs" aria-pressed="false">Repairs</button>
+      {{{ deals_board }}}
+      <div class="board__ask">
+        <p>Rather have the figures explained? Bring your latest bill and we will go through the offers with you.</p>
+        <div class="buttons">
+          <a class="button" href="tel:{{ store.phone_e164 }}"><svg class="icon" aria-hidden="true"><use href="#i-call"></use></svg>Call {{ store.phone_display }}</a>
+          <a class="button button--line" href="{{ booking_href }}">Book a visit</a>
+        </div>
       </div>
-      <div class="offers" data-offers>
-        {{{ deals_all }}}
-      </div>
-      <p class="note" data-offers-empty hidden>No offers are listed under this heading today. Ring the store and we will tell you what may be coming.</p>
-      <p class="note">All prices are before taxes. The three providers set and revise their own plans and prices, so ask us for the complete terms of any offer before you agree to it.</p>
-    </div>
-  </section>
-
-  <section class="section section--raised" aria-labelledby="ways-title">
-    <div class="wrap">
-      <div class="head head--split">
-        <h2 id="ways-title">Paying for a handset, and for service</h2>
-        <a class="textlink" href="brands.html">How the providers differ</a>
-      </div>
-      <ul class="tiles tiles--three">
-        <li class="tile">
-          <svg class="icon" aria-hidden="true"><use href="#i-calendar"></use></svg>
-          <h3>Bell SmartPay</h3>
-          <p>A handset can be paid off over 24 monthly instalments, with no down payment and no interest charged. Only an eligible 2-year Bell plan qualifies, and Bell approves each application on credit.</p>
-        </li>
-        <li class="tile">
-          <svg class="icon" aria-hidden="true"><use href="#i-swap"></use></svg>
-          <h3>Device Return Option</h3>
-          <p>Part of an eligible Bell handset’s cost is deferred across the 2-year term. A handset handed back in good working condition clears that part; one you keep means paying it.</p>
-        </li>
-        <li class="tile">
-          <svg class="icon" aria-hidden="true"><use href="#i-card"></use></svg>
-          <h3>Paying ahead with Lucky Mobile</h3>
-          <p>You pay for each month at the start, and that is the end of it: nothing is billed afterwards. There is no credit check and no commitment beyond the month you have paid for.</p>
-        </li>
-      </ul>
-    </div>
-  </section>
-
-  <div class="strip" aria-hidden="true">{{{ pic.amber }}}</div>
-
-  <section class="band" aria-labelledby="talk-title">
-    <div class="wrap band__grid">
-      <div>
-        <h2 id="talk-title">Rather have the figures explained?</h2>
-        <p>We can reduce a long list of offers to the one or two that suit you. It helps to bring your latest bill.</p>
-      </div>
-      <div class="buttons">
-        <a class="button" href="tel:{{ store.phone_e164 }}"><svg class="icon" aria-hidden="true"><use href="#i-call"></use></svg>Call {{ store.phone_display }}</a>
-        <a class="button button--line" href="{{ booking_href }}">Book a visit</a>
-      </div>
+      <p class="note">All prices are before taxes. Each provider sets and changes its own plans and prices, so ask for the full terms of an offer before you agree to it.</p>
     </div>
   </section>
 </main>

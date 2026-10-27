@@ -1,0 +1,1847 @@
+{
+  "schema": "web.design.measured.v1",
+  "schema_version": "2.1.0",
+  "measurement_series": "WEB-DESIGN-RSI-1.0",
+  "target_id": "T-WIRELESS-SITE",
+  "design_id": null,
+  "site": "site",
+  "site_source": "/home/claude/t-wireless-site/dist",
+  "site_sha256": "a6fc25d6c6b505509aedbf2b6d22ddf5c9c286b10bcfa045d2920b73829d40b5",
+  "page_roles": {
+    "index.html": "home",
+    "brands.html": "brand_family",
+    "deals.html": "deals",
+    "mobile.html": "mobile",
+    "internet-tv.html": "home_services",
+    "repairs.html": "repairs",
+    "visit.html": "visit"
+  },
+  "checks_total": 151,
+  "checks_failed": 0,
+  "failed_checks": [],
+  "declaration_blockers": [],
+  "measured_pass": true,
+  "pages": {
+    "index.html": {
+      "role": "home",
+      "lighthouse": {
+        "scores": {
+          "performance": 98,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 100
+        },
+        "lcp_ms": 2340,
+        "cls": 0.0005,
+        "tbt_ms": 42,
+        "requests": 13,
+        "transfer_kib": 222,
+        "outside_domains": [],
+        "lighthouse_version": "13.5.0"
+      },
+      "viewports": {
+        "phone": {
+          "overflow_px": 0,
+          "h1_count": 1,
+          "heading_skips": 0,
+          "type_sizes": [
+            13,
+            15,
+            17,
+            19,
+            22,
+            27,
+            36
+          ],
+          "min_text_px": 13,
+          "hero_ratio": 2.1,
+          "imgs_without_alt": 0,
+          "height": 8427
+        },
+        "small_phone": {
+          "overflow_px": 0,
+          "h1_count": 1,
+          "heading_skips": 0,
+          "type_sizes": [
+            13,
+            15,
+            17,
+            19,
+            22,
+            26,
+            35
+          ],
+          "min_text_px": 13,
+          "hero_ratio": 2.05,
+          "imgs_without_alt": 0,
+          "height": 8638
+        },
+        "desktop": {
+          "overflow_px": 0,
+          "h1_count": 1,
+          "heading_skips": 0,
+          "type_sizes": [
+            13,
+            15,
+            17,
+            19,
+            22,
+            37,
+            58
+          ],
+          "min_text_px": 13,
+          "hero_ratio": 3.39,
+          "imgs_without_alt": 0,
+          "height": 5039
+        }
+      }
+    },
+    "brands.html": {
+      "role": "brand_family",
+      "lighthouse": {
+        "scores": {
+          "performance": 99,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 100
+        },
+        "lcp_ms": 2106,
+        "cls": 0.0004,
+        "tbt_ms": 0,
+        "requests": 11,
+        "transfer_kib": 148,
+        "outside_domains": [],
+        "lighthouse_version": "13.5.0"
+      },
+      "viewports": {
+        "phone": {
+          "overflow_px": 0,
+          "h1_count": 1,
+          "heading_skips": 0,
+          "type_sizes": [
+            13,
+            15,
+            17,
+            19,
+            27,
+            36
+          ],
+          "min_text_px": 13,
+          "hero_ratio": 2.1,
+          "imgs_without_alt": 0,
+          "height": 6541
+        },
+        "small_phone": {
+          "overflow_px": 0,
+          "h1_count": 1,
+          "heading_skips": 0,
+          "type_sizes": [
+            13,
+            15,
+            17,
+            19,
+            26,
+            35
+          ],
+          "min_text_px": 13,
+          "hero_ratio": 2.05,
+          "imgs_without_alt": 0,
+          "height": 7066
+        },
+        "desktop": {
+          "overflow_px": 0,
+          "h1_count": 1,
+          "heading_skips": 0,
+          "type_sizes": [
+            15,
+            17,
+            19,
+            37,
+            58
+          ],
+          "min_text_px": 15,
+          "hero_ratio": 3.39,
+          "imgs_without_alt": 0,
+          "height": 3671
+        }
+      }
+    },
+    "deals.html": {
+      "role": "deals",
+      "lighthouse": {
+        "scores": {
+          "performance": 99,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 100
+        },
+        "lcp_ms": 2128,
+        "cls": 0.0009,
+        "tbt_ms": 0,
+        "requests": 12,
+        "transfer_kib": 166,
+        "outside_domains": [],
+        "lighthouse_version": "13.5.0"
+      },
+      "viewports": {
+        "phone": {
+          "overflow_px": 0,
+          "h1_count": 1,
+          "heading_skips": 0,
+          "type_sizes": [
+            13,
+            15,
+            17,
+            19,
+            22,
+            27,
+            36
+          ],
+          "min_text_px": 13,
+          "hero_ratio": 2.1,
+          "imgs_without_alt": 0,
+          "height": 5297
+        },
+        "small_phone": {
+          "overflow_px": 0,
+          "h1_count": 1,
+          "heading_skips": 0,
+          "type_sizes": [
+            13,
+            15,
+            17,
+            19,
+            22,
+            26,
+            35
+          ],
+          "min_text_px": 13,
+          "hero_ratio": 2.05,
+          "imgs_without_alt": 0,
+          "height": 5572
+        },
+        "desktop": {
+          "overflow_px": 0,
+          "h1_count": 1,
+          "heading_skips": 0,
+          "type_sizes": [
+            13,
+            15,
+            17,
+            19,
+            22,
+            37,
+            58
+          ],
+          "min_text_px": 13,
+          "hero_ratio": 3.39,
+          "imgs_without_alt": 0,
+          "height": 2870
+        }
+      }
+    },
+    "mobile.html": {
+      "role": "mobile",
+      "lighthouse": {
+        "scores": {
+          "performance": 99,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 100
+        },
+        "lcp_ms": 2105,
+        "cls": 0.0001,
+        "tbt_ms": 11,
+        "requests": 12,
+        "transfer_kib": 164,
+        "outside_domains": [],
+        "lighthouse_version": "13.5.0"
+      },
+      "viewports": {
+        "phone": {
+          "overflow_px": 0,
+          "h1_count": 1,
+          "heading_skips": 0,
+          "type_sizes": [
+            13,
+            15,
+            17,
+            19,
+            22,
+            27,
+            36
+          ],
+          "min_text_px": 13,
+          "hero_ratio": 2.1,
+          "imgs_without_alt": 0,
+          "height": 4801
+        },
+        "small_phone": {
+          "overflow_px": 0,
+          "h1_count": 1,
+          "heading_skips": 0,
+          "type_sizes": [
+            13,
+            15,
+            17,
+            19,
+            22,
+            26,
+            35
+          ],
+          "min_text_px": 13,
+          "hero_ratio": 2.05,
+          "imgs_without_alt": 0,
+          "height": 4882
+        },
+        "desktop": {
+          "overflow_px": 0,
+          "h1_count": 1,
+          "heading_skips": 0,
+          "type_sizes": [
+            15,
+            17,
+            19,
+            22,
+            37,
+            58
+          ],
+          "min_text_px": 15,
+          "hero_ratio": 3.39,
+          "imgs_without_alt": 0,
+          "height": 2854
+        }
+      }
+    },
+    "internet-tv.html": {
+      "role": "home_services",
+      "lighthouse": {
+        "scores": {
+          "performance": 99,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 100
+        },
+        "lcp_ms": 1807,
+        "cls": 0.0001,
+        "tbt_ms": 0,
+        "requests": 9,
+        "transfer_kib": 146,
+        "outside_domains": [],
+        "lighthouse_version": "13.5.0"
+      },
+      "viewports": {
+        "phone": {
+          "overflow_px": 0,
+          "h1_count": 1,
+          "heading_skips": 0,
+          "type_sizes": [
+            13,
+            15,
+            17,
+            19,
+            22,
+            27,
+            36
+          ],
+          "min_text_px": 13,
+          "hero_ratio": 2.1,
+          "imgs_without_alt": 0,
+          "height": 4521
+        },
+        "small_phone": {
+          "overflow_px": 0,
+          "h1_count": 1,
+          "heading_skips": 0,
+          "type_sizes": [
+            13,
+            15,
+            17,
+            19,
+            22,
+            26,
+            35
+          ],
+          "min_text_px": 13,
+          "hero_ratio": 2.05,
+          "imgs_without_alt": 0,
+          "height": 4637
+        },
+        "desktop": {
+          "overflow_px": 0,
+          "h1_count": 1,
+          "heading_skips": 0,
+          "type_sizes": [
+            15,
+            17,
+            19,
+            22,
+            37,
+            58
+          ],
+          "min_text_px": 15,
+          "hero_ratio": 3.39,
+          "imgs_without_alt": 0,
+          "height": 2671
+        }
+      }
+    },
+    "repairs.html": {
+      "role": "repairs",
+      "lighthouse": {
+        "scores": {
+          "performance": 99,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 100
+        },
+        "lcp_ms": 1813,
+        "cls": 0.0003,
+        "tbt_ms": 0,
+        "requests": 9,
+        "transfer_kib": 147,
+        "outside_domains": [],
+        "lighthouse_version": "13.5.0"
+      },
+      "viewports": {
+        "phone": {
+          "overflow_px": 0,
+          "h1_count": 1,
+          "heading_skips": 0,
+          "type_sizes": [
+            13,
+            15,
+            17,
+            19,
+            22,
+            27,
+            36
+          ],
+          "min_text_px": 13,
+          "hero_ratio": 2.1,
+          "imgs_without_alt": 0,
+          "height": 5044
+        },
+        "small_phone": {
+          "overflow_px": 0,
+          "h1_count": 1,
+          "heading_skips": 0,
+          "type_sizes": [
+            13,
+            15,
+            17,
+            19,
+            22,
+            26,
+            35
+          ],
+          "min_text_px": 13,
+          "hero_ratio": 2.05,
+          "imgs_without_alt": 0,
+          "height": 5130
+        },
+        "desktop": {
+          "overflow_px": 0,
+          "h1_count": 1,
+          "heading_skips": 0,
+          "type_sizes": [
+            15,
+            17,
+            19,
+            22,
+            37,
+            58
+          ],
+          "min_text_px": 15,
+          "hero_ratio": 3.39,
+          "imgs_without_alt": 0,
+          "height": 3202
+        }
+      }
+    },
+    "visit.html": {
+      "role": "visit",
+      "lighthouse": {
+        "scores": {
+          "performance": 100,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 100
+        },
+        "lcp_ms": 1652,
+        "cls": 0.0002,
+        "tbt_ms": 21,
+        "requests": 8,
+        "transfer_kib": 130,
+        "outside_domains": [],
+        "lighthouse_version": "13.5.0"
+      },
+      "viewports": {
+        "phone": {
+          "overflow_px": 0,
+          "h1_count": 1,
+          "heading_skips": 0,
+          "type_sizes": [
+            13,
+            15,
+            17,
+            19,
+            22,
+            27,
+            36
+          ],
+          "min_text_px": 13,
+          "hero_ratio": 2.1,
+          "imgs_without_alt": 0,
+          "height": 4628
+        },
+        "small_phone": {
+          "overflow_px": 0,
+          "h1_count": 1,
+          "heading_skips": 0,
+          "type_sizes": [
+            13,
+            15,
+            17,
+            19,
+            22,
+            26,
+            35
+          ],
+          "min_text_px": 13,
+          "hero_ratio": 2.05,
+          "imgs_without_alt": 0,
+          "height": 4766
+        },
+        "desktop": {
+          "overflow_px": 0,
+          "h1_count": 1,
+          "heading_skips": 0,
+          "type_sizes": [
+            15,
+            17,
+            19,
+            22,
+            37,
+            58
+          ],
+          "min_text_px": 15,
+          "hero_ratio": 3.39,
+          "imgs_without_alt": 0,
+          "height": 3137
+        }
+      }
+    }
+  },
+  "imagery": {},
+  "evidence": [
+    {
+      "page": "index.html",
+      "role": "home",
+      "viewport": "phone",
+      "path": "evidence/index-phone.png",
+      "sha256": "7a3685181cdfc2913f39038cc6fc31b4537edb465ce2670d7b035a63ce734dac"
+    },
+    {
+      "page": "index.html",
+      "role": "home",
+      "viewport": "desktop",
+      "path": "evidence/index-desktop.png",
+      "sha256": "7eef8909d70491379ddca74b32e97f3893957fa0fad2af9d9704eee5e621ca33"
+    },
+    {
+      "page": "brands.html",
+      "role": "brand_family",
+      "viewport": "phone",
+      "path": "evidence/brands-phone.png",
+      "sha256": "fc8a5ded4eab0b4373404ab49010d387c1826ef3fb0dcb44babc743b353a6e85"
+    },
+    {
+      "page": "brands.html",
+      "role": "brand_family",
+      "viewport": "desktop",
+      "path": "evidence/brands-desktop.png",
+      "sha256": "bfa9abe4cfae274a5e41cecb8ece191d2adfb32980a9ff6aae3b411460ce4a33"
+    },
+    {
+      "page": "deals.html",
+      "role": "deals",
+      "viewport": "phone",
+      "path": "evidence/deals-phone.png",
+      "sha256": "54f945dc44a23df5d34fe247e13b5db36fb97874690762e14fc05c8817a89b1f"
+    },
+    {
+      "page": "deals.html",
+      "role": "deals",
+      "viewport": "desktop",
+      "path": "evidence/deals-desktop.png",
+      "sha256": "e79681c65a783d4cda7f1f332ed65441c3dac5121e97646b156159afffc7a9f5"
+    },
+    {
+      "page": "mobile.html",
+      "role": "mobile",
+      "viewport": "phone",
+      "path": "evidence/mobile-phone.png",
+      "sha256": "41906ab4047bd09e15a246341fd3be8a7ddabb429bd24e292e1a469ea768ce79"
+    },
+    {
+      "page": "mobile.html",
+      "role": "mobile",
+      "viewport": "desktop",
+      "path": "evidence/mobile-desktop.png",
+      "sha256": "961211142b43609d238fc27b8b7c6b4760f2b982eb7a57f94c31a80713c73447"
+    },
+    {
+      "page": "internet-tv.html",
+      "role": "home_services",
+      "viewport": "phone",
+      "path": "evidence/internet-tv-phone.png",
+      "sha256": "e77f8156c467c06d3e5bb22c30e57dcc9d25c73134c1ffab054be529ec3356b6"
+    },
+    {
+      "page": "internet-tv.html",
+      "role": "home_services",
+      "viewport": "desktop",
+      "path": "evidence/internet-tv-desktop.png",
+      "sha256": "4ccdd5e0a72adbfc1a0b00f3f073238bcb90446673a1cc53b2e5bc41bb4476ed"
+    },
+    {
+      "page": "repairs.html",
+      "role": "repairs",
+      "viewport": "phone",
+      "path": "evidence/repairs-phone.png",
+      "sha256": "073e99ecdbdad59249ea9161c4fc29a8b1e1210404540b63214542e690e7f6ce"
+    },
+    {
+      "page": "repairs.html",
+      "role": "repairs",
+      "viewport": "desktop",
+      "path": "evidence/repairs-desktop.png",
+      "sha256": "7bab4a6a5e32e6e1c7ffada2edc8300711338c27e23320a4d45d3f465a80f297"
+    },
+    {
+      "page": "visit.html",
+      "role": "visit",
+      "viewport": "phone",
+      "path": "evidence/visit-phone.png",
+      "sha256": "9935229eb7c654dd94a100bd69794235d26d5d3c43797b89361e7d7c149b166f"
+    },
+    {
+      "page": "visit.html",
+      "role": "visit",
+      "viewport": "desktop",
+      "path": "evidence/visit-desktop.png",
+      "sha256": "03dafdbcaf5fae33f416e0b1409d73eb3fcfff653d713d291535a7e9a5342601"
+    }
+  ],
+  "checks": [
+    {
+      "id": "page_present",
+      "page": "index.html",
+      "viewport": null,
+      "pass": true,
+      "measured": true,
+      "threshold": true
+    },
+    {
+      "id": "lighthouse_performance",
+      "page": "index.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": 98,
+      "threshold": 90
+    },
+    {
+      "id": "lighthouse_accessibility",
+      "page": "index.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": 100,
+      "threshold": 100
+    },
+    {
+      "id": "lighthouse_best-practices",
+      "page": "index.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": 100,
+      "threshold": 95
+    },
+    {
+      "id": "lighthouse_seo",
+      "page": "index.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": 100,
+      "threshold": 100
+    },
+    {
+      "id": "cls",
+      "page": "index.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": 0.0005,
+      "threshold": 0.1
+    },
+    {
+      "id": "lcp",
+      "page": "index.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": 2340,
+      "threshold": 2500
+    },
+    {
+      "id": "transfer",
+      "page": "index.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": 222,
+      "threshold": 1500
+    },
+    {
+      "id": "outside_domains",
+      "page": "index.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": [],
+      "threshold": 5
+    },
+    {
+      "id": "no_horizontal_overflow",
+      "page": "index.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 0,
+      "threshold": 0
+    },
+    {
+      "id": "h1_exactly",
+      "page": "index.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 1,
+      "threshold": 1
+    },
+    {
+      "id": "heading_order",
+      "page": "index.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 0,
+      "threshold": 0
+    },
+    {
+      "id": "type_scale_discipline",
+      "page": "index.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 7,
+      "threshold": 10
+    },
+    {
+      "id": "min_text_size",
+      "page": "index.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 13,
+      "threshold": 12
+    },
+    {
+      "id": "hero_hierarchy_ratio",
+      "page": "index.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 2.1,
+      "threshold": 2.0
+    },
+    {
+      "id": "image_alt",
+      "page": "index.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 0,
+      "threshold": 0
+    },
+    {
+      "id": "required_text",
+      "page": "index.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": "Bell Authorised Retailer",
+      "threshold": "present"
+    },
+    {
+      "id": "required_text",
+      "page": "index.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": "647-707-1093",
+      "threshold": "present"
+    },
+    {
+      "id": "required_text",
+      "page": "index.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": "Virgin Plus",
+      "threshold": "present"
+    },
+    {
+      "id": "required_text",
+      "page": "index.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": "Lucky Mobile",
+      "threshold": "present"
+    },
+    {
+      "id": "no_horizontal_overflow",
+      "page": "index.html",
+      "viewport": "small_phone",
+      "pass": true,
+      "measured": 0,
+      "threshold": 0
+    },
+    {
+      "id": "no_horizontal_overflow",
+      "page": "index.html",
+      "viewport": "desktop",
+      "pass": true,
+      "measured": 0,
+      "threshold": 0
+    },
+    {
+      "id": "page_present",
+      "page": "brands.html",
+      "viewport": null,
+      "pass": true,
+      "measured": true,
+      "threshold": true
+    },
+    {
+      "id": "lighthouse_performance",
+      "page": "brands.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": 99,
+      "threshold": 90
+    },
+    {
+      "id": "lighthouse_accessibility",
+      "page": "brands.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": 100,
+      "threshold": 100
+    },
+    {
+      "id": "lighthouse_best-practices",
+      "page": "brands.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": 100,
+      "threshold": 95
+    },
+    {
+      "id": "lighthouse_seo",
+      "page": "brands.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": 100,
+      "threshold": 100
+    },
+    {
+      "id": "cls",
+      "page": "brands.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": 0.0004,
+      "threshold": 0.1
+    },
+    {
+      "id": "lcp",
+      "page": "brands.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": 2106,
+      "threshold": 2500
+    },
+    {
+      "id": "transfer",
+      "page": "brands.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": 148,
+      "threshold": 1500
+    },
+    {
+      "id": "outside_domains",
+      "page": "brands.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": [],
+      "threshold": 5
+    },
+    {
+      "id": "no_horizontal_overflow",
+      "page": "brands.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 0,
+      "threshold": 0
+    },
+    {
+      "id": "h1_exactly",
+      "page": "brands.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 1,
+      "threshold": 1
+    },
+    {
+      "id": "heading_order",
+      "page": "brands.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 0,
+      "threshold": 0
+    },
+    {
+      "id": "type_scale_discipline",
+      "page": "brands.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 6,
+      "threshold": 10
+    },
+    {
+      "id": "min_text_size",
+      "page": "brands.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 13,
+      "threshold": 12
+    },
+    {
+      "id": "hero_hierarchy_ratio",
+      "page": "brands.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 2.1,
+      "threshold": 2.0
+    },
+    {
+      "id": "image_alt",
+      "page": "brands.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 0,
+      "threshold": 0
+    },
+    {
+      "id": "required_text",
+      "page": "brands.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": "Bell",
+      "threshold": "present"
+    },
+    {
+      "id": "required_text",
+      "page": "brands.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": "Virgin Plus",
+      "threshold": "present"
+    },
+    {
+      "id": "required_text",
+      "page": "brands.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": "Lucky Mobile",
+      "threshold": "present"
+    },
+    {
+      "id": "required_text",
+      "page": "brands.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": "[Ii]nternet",
+      "threshold": "present"
+    },
+    {
+      "id": "required_text",
+      "page": "brands.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": "TV",
+      "threshold": "present"
+    },
+    {
+      "id": "required_text",
+      "page": "brands.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": "[Hh]ome phone",
+      "threshold": "present"
+    },
+    {
+      "id": "no_horizontal_overflow",
+      "page": "brands.html",
+      "viewport": "small_phone",
+      "pass": true,
+      "measured": 0,
+      "threshold": 0
+    },
+    {
+      "id": "no_horizontal_overflow",
+      "page": "brands.html",
+      "viewport": "desktop",
+      "pass": true,
+      "measured": 0,
+      "threshold": 0
+    },
+    {
+      "id": "page_present",
+      "page": "deals.html",
+      "viewport": null,
+      "pass": true,
+      "measured": true,
+      "threshold": true
+    },
+    {
+      "id": "lighthouse_performance",
+      "page": "deals.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": 99,
+      "threshold": 90
+    },
+    {
+      "id": "lighthouse_accessibility",
+      "page": "deals.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": 100,
+      "threshold": 100
+    },
+    {
+      "id": "lighthouse_best-practices",
+      "page": "deals.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": 100,
+      "threshold": 95
+    },
+    {
+      "id": "lighthouse_seo",
+      "page": "deals.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": 100,
+      "threshold": 100
+    },
+    {
+      "id": "cls",
+      "page": "deals.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": 0.0009,
+      "threshold": 0.1
+    },
+    {
+      "id": "lcp",
+      "page": "deals.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": 2128,
+      "threshold": 2500
+    },
+    {
+      "id": "transfer",
+      "page": "deals.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": 166,
+      "threshold": 1500
+    },
+    {
+      "id": "outside_domains",
+      "page": "deals.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": [],
+      "threshold": 5
+    },
+    {
+      "id": "no_horizontal_overflow",
+      "page": "deals.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 0,
+      "threshold": 0
+    },
+    {
+      "id": "h1_exactly",
+      "page": "deals.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 1,
+      "threshold": 1
+    },
+    {
+      "id": "heading_order",
+      "page": "deals.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 0,
+      "threshold": 0
+    },
+    {
+      "id": "type_scale_discipline",
+      "page": "deals.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 7,
+      "threshold": 10
+    },
+    {
+      "id": "min_text_size",
+      "page": "deals.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 13,
+      "threshold": 12
+    },
+    {
+      "id": "hero_hierarchy_ratio",
+      "page": "deals.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 2.1,
+      "threshold": 2.0
+    },
+    {
+      "id": "image_alt",
+      "page": "deals.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 0,
+      "threshold": 0
+    },
+    {
+      "id": "required_text",
+      "page": "deals.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": "deals",
+      "threshold": "present"
+    },
+    {
+      "id": "required_text",
+      "page": "deals.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": "taxes",
+      "threshold": "present"
+    },
+    {
+      "id": "no_horizontal_overflow",
+      "page": "deals.html",
+      "viewport": "small_phone",
+      "pass": true,
+      "measured": 0,
+      "threshold": 0
+    },
+    {
+      "id": "no_horizontal_overflow",
+      "page": "deals.html",
+      "viewport": "desktop",
+      "pass": true,
+      "measured": 0,
+      "threshold": 0
+    },
+    {
+      "id": "page_present",
+      "page": "mobile.html",
+      "viewport": null,
+      "pass": true,
+      "measured": true,
+      "threshold": true
+    },
+    {
+      "id": "lighthouse_performance",
+      "page": "mobile.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": 99,
+      "threshold": 90
+    },
+    {
+      "id": "lighthouse_accessibility",
+      "page": "mobile.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": 100,
+      "threshold": 100
+    },
+    {
+      "id": "lighthouse_best-practices",
+      "page": "mobile.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": 100,
+      "threshold": 95
+    },
+    {
+      "id": "lighthouse_seo",
+      "page": "mobile.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": 100,
+      "threshold": 100
+    },
+    {
+      "id": "cls",
+      "page": "mobile.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": 0.0001,
+      "threshold": 0.1
+    },
+    {
+      "id": "lcp",
+      "page": "mobile.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": 2105,
+      "threshold": 2500
+    },
+    {
+      "id": "transfer",
+      "page": "mobile.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": 164,
+      "threshold": 1500
+    },
+    {
+      "id": "outside_domains",
+      "page": "mobile.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": [],
+      "threshold": 5
+    },
+    {
+      "id": "no_horizontal_overflow",
+      "page": "mobile.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 0,
+      "threshold": 0
+    },
+    {
+      "id": "h1_exactly",
+      "page": "mobile.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 1,
+      "threshold": 1
+    },
+    {
+      "id": "heading_order",
+      "page": "mobile.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 0,
+      "threshold": 0
+    },
+    {
+      "id": "type_scale_discipline",
+      "page": "mobile.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 7,
+      "threshold": 10
+    },
+    {
+      "id": "min_text_size",
+      "page": "mobile.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 13,
+      "threshold": 12
+    },
+    {
+      "id": "hero_hierarchy_ratio",
+      "page": "mobile.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 2.1,
+      "threshold": 2.0
+    },
+    {
+      "id": "image_alt",
+      "page": "mobile.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 0,
+      "threshold": 0
+    },
+    {
+      "id": "required_text",
+      "page": "mobile.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": "Bell",
+      "threshold": "present"
+    },
+    {
+      "id": "required_text",
+      "page": "mobile.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": "Virgin Plus",
+      "threshold": "present"
+    },
+    {
+      "id": "required_text",
+      "page": "mobile.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": "Lucky Mobile",
+      "threshold": "present"
+    },
+    {
+      "id": "required_text",
+      "page": "mobile.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": "keep your (phone )?number",
+      "threshold": "present"
+    },
+    {
+      "id": "no_horizontal_overflow",
+      "page": "mobile.html",
+      "viewport": "small_phone",
+      "pass": true,
+      "measured": 0,
+      "threshold": 0
+    },
+    {
+      "id": "no_horizontal_overflow",
+      "page": "mobile.html",
+      "viewport": "desktop",
+      "pass": true,
+      "measured": 0,
+      "threshold": 0
+    },
+    {
+      "id": "page_present",
+      "page": "internet-tv.html",
+      "viewport": null,
+      "pass": true,
+      "measured": true,
+      "threshold": true
+    },
+    {
+      "id": "lighthouse_performance",
+      "page": "internet-tv.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": 99,
+      "threshold": 90
+    },
+    {
+      "id": "lighthouse_accessibility",
+      "page": "internet-tv.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": 100,
+      "threshold": 100
+    },
+    {
+      "id": "lighthouse_best-practices",
+      "page": "internet-tv.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": 100,
+      "threshold": 95
+    },
+    {
+      "id": "lighthouse_seo",
+      "page": "internet-tv.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": 100,
+      "threshold": 100
+    },
+    {
+      "id": "cls",
+      "page": "internet-tv.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": 0.0001,
+      "threshold": 0.1
+    },
+    {
+      "id": "lcp",
+      "page": "internet-tv.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": 1807,
+      "threshold": 2500
+    },
+    {
+      "id": "transfer",
+      "page": "internet-tv.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": 146,
+      "threshold": 1500
+    },
+    {
+      "id": "outside_domains",
+      "page": "internet-tv.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": [],
+      "threshold": 5
+    },
+    {
+      "id": "no_horizontal_overflow",
+      "page": "internet-tv.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 0,
+      "threshold": 0
+    },
+    {
+      "id": "h1_exactly",
+      "page": "internet-tv.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 1,
+      "threshold": 1
+    },
+    {
+      "id": "heading_order",
+      "page": "internet-tv.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 0,
+      "threshold": 0
+    },
+    {
+      "id": "type_scale_discipline",
+      "page": "internet-tv.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 7,
+      "threshold": 10
+    },
+    {
+      "id": "min_text_size",
+      "page": "internet-tv.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 13,
+      "threshold": 12
+    },
+    {
+      "id": "hero_hierarchy_ratio",
+      "page": "internet-tv.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 2.1,
+      "threshold": 2.0
+    },
+    {
+      "id": "image_alt",
+      "page": "internet-tv.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 0,
+      "threshold": 0
+    },
+    {
+      "id": "required_text",
+      "page": "internet-tv.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": "[Ii]nternet",
+      "threshold": "present"
+    },
+    {
+      "id": "required_text",
+      "page": "internet-tv.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": "TV",
+      "threshold": "present"
+    },
+    {
+      "id": "required_text",
+      "page": "internet-tv.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": "[Hh]ome phone",
+      "threshold": "present"
+    },
+    {
+      "id": "no_horizontal_overflow",
+      "page": "internet-tv.html",
+      "viewport": "small_phone",
+      "pass": true,
+      "measured": 0,
+      "threshold": 0
+    },
+    {
+      "id": "no_horizontal_overflow",
+      "page": "internet-tv.html",
+      "viewport": "desktop",
+      "pass": true,
+      "measured": 0,
+      "threshold": 0
+    },
+    {
+      "id": "page_present",
+      "page": "repairs.html",
+      "viewport": null,
+      "pass": true,
+      "measured": true,
+      "threshold": true
+    },
+    {
+      "id": "lighthouse_performance",
+      "page": "repairs.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": 99,
+      "threshold": 90
+    },
+    {
+      "id": "lighthouse_accessibility",
+      "page": "repairs.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": 100,
+      "threshold": 100
+    },
+    {
+      "id": "lighthouse_best-practices",
+      "page": "repairs.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": 100,
+      "threshold": 95
+    },
+    {
+      "id": "lighthouse_seo",
+      "page": "repairs.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": 100,
+      "threshold": 100
+    },
+    {
+      "id": "cls",
+      "page": "repairs.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": 0.0003,
+      "threshold": 0.1
+    },
+    {
+      "id": "lcp",
+      "page": "repairs.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": 1813,
+      "threshold": 2500
+    },
+    {
+      "id": "transfer",
+      "page": "repairs.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": 147,
+      "threshold": 1500
+    },
+    {
+      "id": "outside_domains",
+      "page": "repairs.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": [],
+      "threshold": 5
+    },
+    {
+      "id": "no_horizontal_overflow",
+      "page": "repairs.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 0,
+      "threshold": 0
+    },
+    {
+      "id": "h1_exactly",
+      "page": "repairs.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 1,
+      "threshold": 1
+    },
+    {
+      "id": "heading_order",
+      "page": "repairs.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 0,
+      "threshold": 0
+    },
+    {
+      "id": "type_scale_discipline",
+      "page": "repairs.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 7,
+      "threshold": 10
+    },
+    {
+      "id": "min_text_size",
+      "page": "repairs.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 13,
+      "threshold": 12
+    },
+    {
+      "id": "hero_hierarchy_ratio",
+      "page": "repairs.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 2.1,
+      "threshold": 2.0
+    },
+    {
+      "id": "image_alt",
+      "page": "repairs.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 0,
+      "threshold": 0
+    },
+    {
+      "id": "required_text",
+      "page": "repairs.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": "[Ss]creen",
+      "threshold": "present"
+    },
+    {
+      "id": "required_text",
+      "page": "repairs.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": "[Bb]atter",
+      "threshold": "present"
+    },
+    {
+      "id": "required_text",
+      "page": "repairs.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": "quote",
+      "threshold": "present"
+    },
+    {
+      "id": "no_horizontal_overflow",
+      "page": "repairs.html",
+      "viewport": "small_phone",
+      "pass": true,
+      "measured": 0,
+      "threshold": 0
+    },
+    {
+      "id": "no_horizontal_overflow",
+      "page": "repairs.html",
+      "viewport": "desktop",
+      "pass": true,
+      "measured": 0,
+      "threshold": 0
+    },
+    {
+      "id": "page_present",
+      "page": "visit.html",
+      "viewport": null,
+      "pass": true,
+      "measured": true,
+      "threshold": true
+    },
+    {
+      "id": "lighthouse_performance",
+      "page": "visit.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": 100,
+      "threshold": 90
+    },
+    {
+      "id": "lighthouse_accessibility",
+      "page": "visit.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": 100,
+      "threshold": 100
+    },
+    {
+      "id": "lighthouse_best-practices",
+      "page": "visit.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": 100,
+      "threshold": 95
+    },
+    {
+      "id": "lighthouse_seo",
+      "page": "visit.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": 100,
+      "threshold": 100
+    },
+    {
+      "id": "cls",
+      "page": "visit.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": 0.0002,
+      "threshold": 0.1
+    },
+    {
+      "id": "lcp",
+      "page": "visit.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": 1652,
+      "threshold": 2500
+    },
+    {
+      "id": "transfer",
+      "page": "visit.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": 130,
+      "threshold": 1500
+    },
+    {
+      "id": "outside_domains",
+      "page": "visit.html",
+      "viewport": "lighthouse_mobile",
+      "pass": true,
+      "measured": [],
+      "threshold": 5
+    },
+    {
+      "id": "no_horizontal_overflow",
+      "page": "visit.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 0,
+      "threshold": 0
+    },
+    {
+      "id": "h1_exactly",
+      "page": "visit.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 1,
+      "threshold": 1
+    },
+    {
+      "id": "heading_order",
+      "page": "visit.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 0,
+      "threshold": 0
+    },
+    {
+      "id": "type_scale_discipline",
+      "page": "visit.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 7,
+      "threshold": 10
+    },
+    {
+      "id": "min_text_size",
+      "page": "visit.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 13,
+      "threshold": 12
+    },
+    {
+      "id": "hero_hierarchy_ratio",
+      "page": "visit.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 2.1,
+      "threshold": 2.0
+    },
+    {
+      "id": "image_alt",
+      "page": "visit.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": 0,
+      "threshold": 0
+    },
+    {
+      "id": "required_text",
+      "page": "visit.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": "965 Bovaird",
+      "threshold": "present"
+    },
+    {
+      "id": "required_text",
+      "page": "visit.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": "647-707-1093",
+      "threshold": "present"
+    },
+    {
+      "id": "required_text",
+      "page": "visit.html",
+      "viewport": "phone",
+      "pass": true,
+      "measured": "10\\sa\\.m\\.\\sto\\s8\\sp\\.m\\.",
+      "threshold": "present"
+    },
+    {
+      "id": "no_horizontal_overflow",
+      "page": "visit.html",
+      "viewport": "small_phone",
+      "pass": true,
+      "measured": 0,
+      "threshold": 0
+    },
+    {
+      "id": "no_horizontal_overflow",
+      "page": "visit.html",
+      "viewport": "desktop",
+      "pass": true,
+      "measured": 0,
+      "threshold": 0
+    }
+  ]
+}

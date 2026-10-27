@@ -112,7 +112,7 @@
         "Bell",
         "Virgin Plus",
         "Lucky Mobile",
-        "keep your (phone )?number"
+        "[Kk]eep your (phone )?number"
       ],
       "home_services": [
         "[Ii]nternet",
@@ -127,7 +127,7 @@
       "visit": [
         "965 Bovaird",
         "647-707-1093",
-        "10 a\\.m\\. to 8 p\\.m\\."
+        "10\\sa\\.m\\.\\sto\\s8\\sp\\.m\\."
       ]
     },
     "hide_in_screenshots": [
@@ -146,12 +146,12 @@
       "no faces"
     ],
     "min_photos": {
-      "home": 6,
-      "brand_family": 3,
-      "deals": 2,
-      "mobile": 3,
-      "home_services": 3,
-      "repairs": 2,
+      "home": 5,
+      "brand_family": 0,
+      "deals": 1,
+      "mobile": 1,
+      "home_services": 2,
+      "repairs": 1,
       "visit": 1
     },
     "formats": [
@@ -212,11 +212,11 @@
     "siblings": [
       {
         "design_id": "design-1",
-        "run": "rsi/runs/design-1/v7-candidate"
+        "run": "rsi/runs/design-1/v9-candidate"
       },
       {
         "design_id": "design-2",
-        "run": "rsi/runs/design-2/v7-candidate"
+        "run": "rsi/runs/design-2/v9-candidate"
       }
     ],
     "max_visual_similarity": 0.45,
@@ -300,7 +300,7 @@
       "from": "Mark (EMBLEM-NLP), looking at designs 1 and 2 on an iPhone",
       "said": "We don't like the mobile header menus on both versions",
       "changes": [
-        "On phones design 3 keeps a slim header that stays in view: the engraved nameplate and one Menu button. The page links open in a sheet under the header, with a backdrop, a call button and a way out by Escape, by tapping outside or by choosing a link. Wide screens show the links as a row under a centred masthead. With scripts off, the links are listed under the nameplate (nojs.css)."
+        "On phones design 3 keeps a slim header that stays in view (the champagne wordmark and a Call button) and puts the page links in a bar along the bottom of the screen, within thumb reach: Home, Offers, Phones, Repairs and More. More opens a sheet with the other three pages, the live open or closed line, a call button and directions, with a backdrop and a way out by Escape, by tapping outside or by choosing a link. The bar marks the page you are on. Wide screens show a centred masthead with a row of links instead. With scripts off the bar is dropped and the links are listed under the wordmark (nojs.css). On a phone held sideways the header scrolls away and the bar slims down. The first version of design 3 used the same header-and-Menu-button pattern as designs 1 and 2, and the independent review marked that down."
       ]
     },
     {
@@ -309,9 +309,30 @@
       "said": "Give a 3rd complete redesign with royalty free images and imagery this 3rd option need to be luxurious",
       "changes": [
         "Design 3 (\"Lamplight\") is a complete third site: all 11 pages, its own layout, its own wording (designs/design-3/content.json and pages) and its own photography. A showroom after dark: garnet-black pages, champagne rules and type, Noto Serif Display with Jost, and carrier logos on pearl mount cards.",
-        "Eleven royalty-free Pexels photographs (Pexels License, which allows commercial use without attribution; credits are on the Photo credits page anyway). None is a composite. People appear only as hands, with no faces. Printed maker names and labels were retouched out of four of them, and each retouch is listed on the credits page.",
+        "Seven royalty-free Pexels photographs (Pexels License, which allows commercial use without attribution; credits are on the Photo credits page anyway). None is a composite. People appear only as a hand, with no face. Printed maker names and labels were retouched out of three of them, and each retouch is listed on the credits page. One photograph (a house at night) had its colours shifted further than the rest, to match the page; the credits page says so.",
         "Original imagery: the engine-turned patterns (a tile, a dial and a hallmark seal) are generated from a formula by designs/design-3/imagery/ornaments.py, so there is no licence to carry. The site's own favicon and touch icon are drawn the same way.",
         "distinctness.siblings lists designs 1 and 2: the wording, layout, palette and headline typeface must all differ from both."
+      ]
+    },
+    {
+      "date": "2026-10-26",
+      "from": "Mark (EMBLEM-NLP), looking at design 3 on an iPhone",
+      "said": "Reviewing the design, doesn’t pair well with the word art on white background box",
+      "changes": [
+        "The T Wireless wordmark no longer sits in a white box. A champagne-gold version (one gold, with a soft gradient from light at the top to bronze at the foot) is drawn straight onto the dark page (designs/design-3/imagery/logo_light.py, from the store's own wordmark), in the header, the footer and wherever the store's own name stands in for a carrier. It is a change to the store's logo, so the owner has to approve it before launch.",
+        "The Bell, Virgin Plus and Lucky Mobile logos are not changed. They stay on pearl mount cards, never on the dark page and never on a photograph (logos.plate_min_rgb 245 checks the card colour)."
+      ]
+    },
+    {
+      "date": "2026-10-27",
+      "from": "Independent reviewer (a Claude agent working from the build alone, not a human), reading design 3 v2: 71.7 overall, below the 85 gate",
+      "said": "Distinctiveness 60 and information economy 60; copy_written_for_this_design failed. The wording was not written for this design, the phone menu repeated designs 1 and 2, and the pages were long and repeated the same cards and sections.",
+      "changes": [
+        "Version 4 rewrites every page. Each fact now lives on one page only: the payment options (Bell SmartPay and the Device Return Option) are explained on Phones and nowhere else; the Virgin Plus prepaid ending on Plans; the Virgin Plus home internet and TV notice on Home services; what to bring on Visit.",
+        "New navigation: a bottom tab bar on phones (see the first answer on the menus) and a masthead with a row of links on wide screens. Design 3 now has its own page names (Offers, Plans, Phones, Home services, Repairs, Visit).",
+        "Shorter pages. Home is a hero, four photo links, the store with its map, and five questions. Plans has three profiles with the same three rows each. Phones is four numbered steps, because a phone is chosen in that order. Repairs is three steps, the six things that are mended, and a four-field form. Visit has four fields too.",
+        "Photographs went from eleven to seven: the ones that repeated a subject or looked like stock were dropped and the rest recropped. Pages that are read rather than browsed carry fewer photographs, so imagery.min_photos was lowered (home 5, plans 0, offers 1, phones 1, home services 2, repairs 1, visit 1) and the README says why.",
+        "Checked again against Bell's pages after the independent review of design 1 (77.8) found overstatements that design 3 shared: the Fibe TV download line now says select on-demand movies and series on a phone or tablet; the Virgin Plus home line now says that Bell says existing customers keep their plans; the SmartPay line now says the remaining phone payments fall due if the agreement or plan ends early; the privacy page now says the map loads from Google when you press Show the map."
       ]
     }
   ]

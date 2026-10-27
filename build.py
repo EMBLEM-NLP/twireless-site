@@ -107,7 +107,8 @@ def time_label(hhmm):
     h, m = (int(x) for x in hhmm.split(":"))
     h12 = h % 12 or 12
     suffix = "a.m." if h < 12 else "p.m."
-    return f"{h12} {suffix}" if m == 0 else f"{h12}:{m:02d} {suffix}"
+    nbsp = " "  # keeps "8 p.m." together, so a line never ends on "8" and starts on "p.m."
+    return f"{h12}{nbsp}{suffix}" if m == 0 else f"{h12}:{m:02d}{nbsp}{suffix}"
 
 
 def day_span(hours):
@@ -532,7 +533,7 @@ def main():
         for r in data["repairs"])
     ctx["repairs_full"] = "\n".join(
         f'<li><svg class="icon" aria-hidden="true"><use href="#{esc(r.get("icon", "i-wrench"))}"></use></svg>'
-        f'<h3>{esc(r["title"])}</h3><p>{esc(render(r["text"], ctx, "repairs", escape=False))}</p></li>'
+        f'<h3>{esc(r["title"])}</h3><p>{esc(render(r.get("text") or r.get("notice", ""), ctx, "repairs", escape=False))}</p></li>'
         for r in data["repairs"])
     ctx["faq_items"] = "\n".join(
         f'<details><summary>{esc(f["q"])}</summary><p>{esc(render(f["a"], ctx, "faq", escape=False))}</p></details>'

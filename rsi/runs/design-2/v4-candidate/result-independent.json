@@ -1,0 +1,88 @@
+{
+  "schema": "web.design.result.v1",
+  "measurement_series": "WEB-DESIGN-RSI-2.0",
+  "target_id": "T-WIRELESS-SITE-D2",
+  "candidate_sha256": "40e9b03aee6eca6f9eb6c1a35db7c9c47d0b99e28f300efeb2838e26d474bfc3",
+  "reviewer_id": "independent-subagent-reviewer",
+  "reviewer_role": "independent_reviewer",
+  "independent_review": true,
+  "measured_checks_failed": 0,
+  "measured_failed_checks": [],
+  "declaration_blockers": [],
+  "dimension_scores": {
+    "first_impression": 80.0,
+    "imagery_quality": 70.0,
+    "logo_integration": 80.0,
+    "service_clarity": 80.0,
+    "navigation_wayfinding": 80.0,
+    "conversion_paths": 80.0,
+    "distinctiveness": 70.0,
+    "brand_identity": 70.0,
+    "trust_signals": 70.0,
+    "information_economy": 70.0,
+    "typography_hierarchy": 80.0,
+    "grid_whitespace_rhythm": 70.0,
+    "mobile_ergonomics": 80.0
+  },
+  "overall_score": 75.7,
+  "page_role_scores": [
+    {
+      "role": "home",
+      "page": "index.html",
+      "score": 84.0
+    },
+    {
+      "role": "brand_family",
+      "page": "brands.html",
+      "score": 82.0
+    },
+    {
+      "role": "deals",
+      "page": "deals.html",
+      "score": 74.0
+    },
+    {
+      "role": "mobile",
+      "page": "mobile.html",
+      "score": 82.0
+    },
+    {
+      "role": "home_services",
+      "page": "internet-tv.html",
+      "score": 84.0
+    },
+    {
+      "role": "repairs",
+      "page": "repairs.html",
+      "score": 82.0
+    },
+    {
+      "role": "visit",
+      "page": "visit.html",
+      "score": 84.0
+    }
+  ],
+  "weakest_dimension": "brand_identity",
+  "weakest_dimension_score": 70.0,
+  "gates": {
+    "measured_layer": true,
+    "evidence_complete": false,
+    "overall": false,
+    "critical_dimensions": true,
+    "page_roles": true,
+    "accuracy": false
+  },
+  "diagnostic_pass": false,
+  "release_eligible": false,
+  "blockers": [
+    "accuracy gate failed/unknown: no_fabricated_offers_or_reviews",
+    "accuracy gate failed/unknown: unverified_flagged_for_owner",
+    "accuracy gate failed/unknown: no_third_party_brand_marks_in_photos",
+    "accuracy gate failed/unknown: copy_written_for_this_design"
+  ],
+  "release_blockers": [
+    "Design contract is not approved_for_production.",
+    "Design diagnostic gates are not all passing."
+  ],
+  "score_note": "Review-derived design score plus Lighthouse and Playwright measurements; not a visitor-behaviour measurement."
+}

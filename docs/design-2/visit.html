@@ -18,9 +18,10 @@
 <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 <link rel="preload" href="assets/fonts/atkinson-hyperlegible-next-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/css/site.css?v=8edda5e0">
-<noscript><link rel="stylesheet" href="assets/css/nojs.css?v=8edda5e0"></noscript>
-<script src="assets/js/site.js?v=8edda5e0" defer></script>
+<link rel="preload" href="assets/fonts/public-sans-digits-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/site.css?v=31ef7fa7">
+<noscript><link rel="stylesheet" href="assets/css/nojs.css?v=31ef7fa7"></noscript>
+<script src="assets/js/site.js?v=31ef7fa7" defer></script>
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -56,7 +57,7 @@
  "hasMap": "https://www.google.com/maps/search/?api=1&query=T%20Wireless%20965%20Bovaird%20Dr%20W%20Brampton%20ON"
 }
 </script>
-<link rel="stylesheet" href="assets/css/demo.css?v=8edda5e0">
+<link rel="stylesheet" href="assets/css/demo.css?v=31ef7fa7">
 
 </head>
 <body class="">
@@ -124,7 +125,7 @@
   <section class="intro" aria-labelledby="page-title">
     <div class="wrap">
       <h1 id="page-title">Come and see us</h1>
-      <p class="lead">Just east of Chinguacousy Road, on the south side of Bovaird. Drop in whenever you like, every day from 10 a.m. to 8 p.m.; book a time only if you want us ready for you.</p>
+      <p class="lead">We're on the south side of Bovaird, just east of Chinguacousy Road, and the door is open every day from 10 a.m. to 8 p.m. You don't need to book.</p>
     </div>
   </section>
 
@@ -135,7 +136,7 @@
         <div class="store">
   <p class="status status--line" data-hours="[[&quot;10:00&quot;,&quot;20:00&quot;],[&quot;10:00&quot;,&quot;20:00&quot;],[&quot;10:00&quot;,&quot;20:00&quot;],[&quot;10:00&quot;,&quot;20:00&quot;],[&quot;10:00&quot;,&quot;20:00&quot;],[&quot;10:00&quot;,&quot;20:00&quot;],[&quot;10:00&quot;,&quot;20:00&quot;]]" data-tz="America/Toronto">
     <span class="status__sign is-pending">Open</span>
-    <span class="status__text">Open every day, 10 a.m. to 8 p.m.</span>
+    <span class="status__text">Open every day, 10 a.m. to 8 p.m.</span>
   </p>
   <ul class="store__list">
     <li><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg><span>965 Bovaird Dr W, Unit 1<br>Brampton, ON L6X 0G3</span></li>
@@ -146,15 +147,16 @@
   <table class="hours">
     <caption class="visually-hidden">Store hours</caption>
     <tbody>
-      <tr data-day="1"><th scope="row">Monday</th><td>10 a.m. to 8 p.m.</td></tr>
-<tr data-day="2"><th scope="row">Tuesday</th><td>10 a.m. to 8 p.m.</td></tr>
-<tr data-day="3"><th scope="row">Wednesday</th><td>10 a.m. to 8 p.m.</td></tr>
-<tr data-day="4"><th scope="row">Thursday</th><td>10 a.m. to 8 p.m.</td></tr>
-<tr data-day="5"><th scope="row">Friday</th><td>10 a.m. to 8 p.m.</td></tr>
-<tr data-day="6"><th scope="row">Saturday</th><td>10 a.m. to 8 p.m.</td></tr>
-<tr data-day="0"><th scope="row">Sunday</th><td>10 a.m. to 8 p.m.</td></tr>
+      <tr data-day="1"><th scope="row">Monday</th><td>10 a.m. to 8 p.m.</td></tr>
+<tr data-day="2"><th scope="row">Tuesday</th><td>10 a.m. to 8 p.m.</td></tr>
+<tr data-day="3"><th scope="row">Wednesday</th><td>10 a.m. to 8 p.m.</td></tr>
+<tr data-day="4"><th scope="row">Thursday</th><td>10 a.m. to 8 p.m.</td></tr>
+<tr data-day="5"><th scope="row">Friday</th><td>10 a.m. to 8 p.m.</td></tr>
+<tr data-day="6"><th scope="row">Saturday</th><td>10 a.m. to 8 p.m.</td></tr>
+<tr data-day="0"><th scope="row">Sunday</th><td>10 a.m. to 8 p.m.</td></tr>
     </tbody>
   </table>
+  <p class="hours-note">On public holidays, phone first to check.</p>
   <div class="buttons">
     <a class="button" href="https://www.google.com/maps/dir/?api=1&amp;destination=T%20Wireless%20965%20Bovaird%20Dr%20W%20Brampton%20ON">Get directions</a>
     <a class="button button--quiet" href="visit.html#book">Book a visit</a>
@@ -214,45 +216,57 @@
   <section class="section" id="book" aria-labelledby="book-title">
     <div class="wrap form-split">
       <div class="form-split__intro">
-        <h2 id="book-title">Pick a time to visit</h2>
-        <p>Tell us what you're coming in for and which day works, and we'll phone you back to settle a time.</p>
+        <h2 id="book-title">Tell us when you're coming</h2>
+        <p>Want us ready for you? Say what the visit is about and which day suits, and we'll phone you back to settle a time.</p>
+        <h3>Before you set out</h3>
+        <dl class="errands">
+          <div>
+            <dt>Choosing a phone or plan</dt>
+            <dd>Bring photo ID, in case we need it to set up a plan. Have one model in mind? Ring ahead and we'll check it's in.</dd>
+          </div>
+          <div>
+            <dt>Moving your number</dt>
+            <dd>Bring a recent bill: it carries your account number. Leave the old plan alone, because it closes by itself once the number has moved.</dd>
+          </div>
+          <div>
+            <dt>Dropping off a repair</dt>
+            <dd>Bring the phone or tablet. If you can, copy its photos and files somewhere safe first.</dd>
+          </div>
+        </dl>
         <p>Easier to talk it over? Ask for Ali on <a href="tel:+16477071093">647-707-1093</a>, or write to <a href="mailto:twireless965@gmail.com">twireless965@gmail.com</a>.</p>
-        <h3>Have these with you</h3>
-        <ul class="ticks">
-          <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg><span>Photo ID, in case we need it to set up a plan or a switch.</span></li>
-          <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg><span>A recent bill, if you're switching, because it carries your account number.</span></li>
-          <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg><span>The phone or tablet, if it's here for a repair. Copy your data somewhere safe first, if you're able.</span></li>
-        </ul>
-        <p>On Google we're rated 4.1 out of 5 (95 reviews, October 2026). <a href="https://www.google.com/maps/search/?api=1&amp;query=T%20Wireless%20Bell%20Authorised%20Retailer%20965%20Bovaird%20Dr%20W%20Brampton">Read what they wrote</a>.</p>
+        <p>Google rates us 4.1 out of 5 (95 reviews, October 2026). <a href="https://www.google.com/maps/search/?api=1&amp;query=T%20Wireless%20Bell%20Authorised%20Retailer%20965%20Bovaird%20Dr%20W%20Brampton">Read what they wrote</a>.</p>
       </div>
       <form class="form" name="visit" method="get" action="thanks.html">
         <input type="hidden" name="form-name" value="visit">
         <p class="visually-hidden"><label>Leave this field empty <input type="text" name="company" tabindex="-1" autocomplete="off"></label></p>
-        <div class="field">
-          <label for="v-name">Your name</label>
-          <input id="v-name" name="name" type="text" autocomplete="name" required>
+        <div class="form__row">
+          <div class="field">
+            <label for="v-name">Your name</label>
+            <input id="v-name" name="name" type="text" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="v-phone">Phone number</label>
+            <input id="v-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" pattern="[\d\s+.\x28\x29\x2d]{7,}" title="A phone number, such as 647-707-1093" required>
+          </div>
         </div>
+        <fieldset class="field field--group">
+          <legend>What is the visit about?</legend>
+          <div class="choices">
+            <label class="choice"><input type="checkbox" name="about_phones" value="Looking at phones"><span>Looking at phones</span></label>
+            <label class="choice"><input type="checkbox" name="about_plans" value="Comparing plans"><span>Comparing plans</span></label>
+            <label class="choice"><input type="checkbox" name="about_number" value="Moving my number"><span>Moving my number</span></label>
+            <label class="choice"><input type="checkbox" name="about_home" value="Home internet or TV"><span>Home internet or TV</span></label>
+            <label class="choice"><input type="checkbox" name="about_repair" value="Dropping off a repair"><span>Dropping off a repair</span></label>
+            <label class="choice"><input type="checkbox" name="about_other" value="Something else"><span>Something else</span></label>
+          </div>
+        </fieldset>
         <div class="field">
-          <label for="v-phone">Phone number</label>
-          <input id="v-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required>
-        </div>
-        <div class="field">
-          <label for="v-reason">What are you coming in for?</label>
-          <select id="v-reason" name="reason">
-            <option>Choosing a phone or plan</option>
-            <option>Transferring my number</option>
-            <option>Internet, TV or a home phone line</option>
-            <option>A repair</option>
-            <option>Something else</option>
-          </select>
-        </div>
-        <div class="field">
-          <label for="v-when">Which day and time suit you?</label>
+          <label for="v-when">Which day suits you?</label>
           <input id="v-when" name="when" type="text" aria-describedby="v-when-hint">
-          <p class="hint" id="v-when-hint">Say, Saturday around 2.</p>
+          <p class="hint" id="v-when-hint">Say, Saturday afternoon.</p>
         </div>
         <div class="field">
-          <label for="v-notes">Is there anything we should prepare? <span class="optional">(optional)</span></label>
+          <label for="v-notes">Anything we should have ready? <span class="optional">(optional)</span></label>
           <textarea id="v-notes" name="notes" rows="3"></textarea>
         </div>
         <button class="button" type="submit">Send my request</button>
@@ -272,7 +286,7 @@
         </picture>
       </a>
       <p><strong>Bell Authorised Retailer</strong><br>965 Bovaird Dr W, Unit 1<br>Brampton, ON L6X 0G3</p>
-      <p>Open every day, 10 a.m. to 8 p.m.</p>
+      <p>Open every day, 10 a.m. to 8 p.m.</p>
     </div>
     <div>
       <h2 class="foot__title">Get in touch</h2>

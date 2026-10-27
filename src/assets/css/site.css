@@ -108,10 +108,12 @@ strong { font-weight: 700; }
 .site-nav a:hover { color: var(--blue); }
 .site-nav a[aria-current="page"] { border-bottom-color: var(--blue); }
 @media (max-width: 899px) {
-  html { scroll-padding-top: 5.5rem; }
+  html { scroll-padding-top: 5.5rem; scroll-padding-bottom: calc(5rem + env(safe-area-inset-bottom, 0px)); }
   html.has-menu-open { overflow: hidden; }
   .site-header { position: sticky; top: 0; z-index: 60; box-shadow: 0 2px 10px rgba(0, 37, 63, 0.14); }
   .sign__inner { flex-wrap: nowrap; justify-content: space-between; gap: 0.75rem; padding-block: 0.6rem; }
+  .sign__brand { flex: 0 1 auto; min-width: 0; }
+  .sign__brand img { width: clamp(9.5rem, 46vw, 12.5rem); }
   .menu { position: absolute; top: 100%; left: 0; right: 0; max-height: calc(100vh - 5rem); max-height: calc(100dvh - 5rem); overflow-y: auto; overscroll-behavior: contain; border-top: 3px solid var(--sign-red); border-radius: 0 0 var(--radius) var(--radius); background: var(--night); visibility: hidden; opacity: 0; }
   .site-header.is-menu-open .menu { visibility: visible; opacity: 1; }
   .site-nav ul { display: block; max-width: none; padding: 0; }
@@ -127,6 +129,13 @@ strong { font-weight: 700; }
 @media (min-width: 600px) and (max-width: 899px) {
   .sign__tag-more { display: inline; }
   .menu { left: auto; right: var(--gutter); top: calc(100% + 0.5rem); width: 22rem; max-height: calc(100vh - 6rem); max-height: calc(100dvh - 6rem); border: 1px solid rgba(255, 255, 255, 0.3); border-top: 3px solid var(--sign-red); border-radius: var(--radius); }
+}
+/* A phone on its side has little height to spare: the sign scrolls away with the page, and the quick-action bar
+   shrinks to one row of icon and word. */
+@media (max-width: 899px) and (max-height: 500px) and (orientation: landscape) {
+  html { scroll-padding-top: 0.75rem; scroll-padding-bottom: calc(3.75rem + env(safe-area-inset-bottom, 0px)); }
+  .site-header { position: relative; z-index: 60; box-shadow: none; }
+  .sign__inner { padding-block: 0.4rem; }
 }
 @media (max-width: 899px) and (prefers-reduced-motion: no-preference) {
   .menu { transform: translateY(-0.5rem); transition: opacity 0.18s ease, transform 0.18s ease, visibility 0s linear 0.18s; }
@@ -389,6 +398,7 @@ strong { font-weight: 700; }
 .hours td { text-align: right; }
 .hours tr.is-today th, .hours tr.is-today td { font-weight: 700; }
 .hours tr.is-today th::after { content: " (today)"; color: var(--slate); font-weight: 400; }
+.hours-note { margin: -0.75rem 0 1.25rem; color: var(--slate); font-size: var(--fs-sm); }
 /* The whole drawing, with the address card under it so nothing on the map is covered. */
 .map { position: relative; width: 100%; max-width: 100%; overflow: hidden; border-radius: var(--radius); background: #e9eef4; box-shadow: 0 0 0 1px rgba(0, 37, 63, 0.12); }
 .map__drawing { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; }
@@ -481,6 +491,9 @@ strong { font-weight: 700; }
 .actionbar a { display: flex; flex-direction: column; align-items: center; gap: 0.2rem; padding: 0.55rem 0.25rem 0.5rem; color: var(--ink); font-size: var(--fs-xs); font-weight: 700; text-decoration: none; }
 .actionbar a:first-child { color: var(--blue); }
 .actionbar .icon { width: 1.4rem; height: 1.4rem; }
+@media (max-width: 899px) and (max-height: 500px) and (orientation: landscape) {
+  .actionbar a { flex-direction: row; justify-content: center; gap: 0.5rem; min-height: 2.75rem; padding: 0.3rem 0.25rem; }
+}
 @media (min-width: 900px) { body { padding-bottom: 0; } .actionbar { display: none; } }
 
 @media print {

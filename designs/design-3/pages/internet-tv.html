@@ -1,7 +1,7 @@
 <!--page
 {
-  "title": "Home internet, TV and phone from Bell: ask about your address | T Wireless",
-  "description": "Give T Wireless your address and we will check whether Bell internet, Fibe TV, Satellite TV and a Home Phone line can be connected there. 965 Bovaird Dr W, Brampton.",
+  "title": "What can Bell connect at your address? | T Wireless, Brampton",
+  "description": "Bell internet, Fibe TV, Satellite TV and a home phone line depend on your address. T Wireless, 965 Bovaird Dr W, Brampton, checks it with you.",
   "nav": "internet-tv"
 }
 -->
@@ -9,35 +9,20 @@
   <section class="intro intro--split" aria-labelledby="page-title">
     <div class="wrap intro__grid">
       <div class="intro__text">
-        <h1 id="page-title">Your address decides what Bell can bring home</h1>
-        <p class="lead">What can be connected to a home (internet, TV, a landline) depends on its street and unit number. Give us both and we will look the address up with you.</p>
+        <h1 id="page-title">What can Bell connect at your address?</h1>
+        <p class="lead">Whether a service reaches a home depends on its exact address, down to the unit. Give us yours and we will look it up with you.</p>
         <div class="buttons">
           <a class="button" href="{{ booking_href }}">Book a visit</a>
           <a class="button button--line" href="tel:{{ store.phone_e164 }}">Call {{ store.phone_display }}</a>
         </div>
       </div>
-      <figure class="frame intro__media">{{{ pic.living_top }}}</figure>
+      <figure class="frame intro__media intro__media--living">{{{ pic.living_top }}}</figure>
     </div>
   </section>
 
-  <section class="section section--tight" aria-labelledby="lookup-title">
-    <div class="wrap narrow-split">
-      <div class="narrow-split__title">
-        <h2 id="lookup-title">What we need for the lookup</h2>
-        <p>Have these to hand and the address can be checked while you are with us.</p>
-      </div>
-      <ul class="ticks">
-        <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg><span>The full address, including any unit number</span></li>
-        <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg><span>Photo identification, in case the account requires it</span></li>
-        <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg><span>Moving from another company? Bring its most recent bill.</span></li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="section section--raised" aria-labelledby="allow-title">
+  <section class="section section--tight" aria-labelledby="allow-title">
     <div class="wrap">
-      <div class="head head--mark">
-        {{{ plate_deco.bell }}}
+      <div class="head">
         <h2 id="allow-title">What the address may allow</h2>
       </div>
       <dl class="ledger">
@@ -48,37 +33,32 @@
         <div>
           <dt><svg class="icon" aria-hidden="true"><use href="#i-tv"></use></svg>Fibe TV</dt>
           <dd>
-            <p>Through the Fibe TV app, a screen can show live channels and on-demand programs. A Bell Internet connection is required.</p>
-            <p>The app is available on a Bell Streamer, Apple TV, Android TV, Amazon Fire TV and Google Chromecast.</p>
-            <p>Offline viewing is supported: selected programs you have recorded, and shows saved from the on-demand list, can be played on a phone or tablet with no connection.</p>
+            <p>Television, live or on demand, comes through the Fibe TV app, which needs a Bell Internet connection.</p>
+            <p>The app runs on a Bell Streamer, Apple TV, Android TV, Amazon Fire TV and Google Chromecast.</p>
+            <p>On a phone or tablet, select movies and series from on-demand channels such as Crave can be downloaded and watched without a connection.</p>
           </dd>
         </div>
         <div>
           <dt><svg class="icon" aria-hidden="true"><use href="#i-dish"></use></svg>Satellite TV</dt>
-          <dd>Television from Bell, delivered by satellite to a dish.</dd>
+          <dd>Bell television delivered by satellite to a dish.</dd>
         </div>
         <div>
-          <dt><svg class="icon" aria-hidden="true"><use href="#i-call"></use></svg>Home Phone</dt>
-          <dd>A fixed line into the house, available as the only service or beside internet and TV.</dd>
+          <dt><svg class="icon" aria-hidden="true"><use href="#i-call"></use></svg>Home phone</dt>
+          <dd>A fixed line into the house. Bell decides, address by address, whether it can be had without internet or TV.</dd>
         </div>
       </dl>
     </div>
   </section>
 
-  <div class="strip" aria-hidden="true">{{{ pic.amber }}}</div>
-
-  <section class="section" aria-labelledby="after-title">
-    <div class="wrap spread">
-      <figure class="frame spread__media spread__media--tall">{{{ pic.house_tall }}}</figure>
+  <section class="section section--raised" aria-labelledby="after-title">
+    <div class="wrap spread spread--tall">
+      <figure class="frame spread__media">{{{ pic.house }}}</figure>
       <div class="spread__text">
-        <h2 id="after-title">Once we know what reaches you</h2>
-        <p>Take any combination of internet, TV and a home phone line, and we will show how it sits beside your mobile plan. Where a technician has to install it, we make the booking and explain what to expect on the day.</p>
+        <h2 id="after-title">After the lookup</h2>
+        <p>Once we know what reaches you, we go through the choices with you. Where a technician has to install it, we make the booking and explain what to expect on the day.</p>
+        <p>Have your full address ready, including the unit number, and bring the latest bill if you are moving from another company.</p>
         <div class="notice">
-          <p><strong>Already have Virgin Plus at home?</strong> According to Virgin Plus, you may carry on as you are, with the same plan, price and equipment. Since January 14, 2026, a household in Ontario that is not already a customer cannot start Virgin Plus home internet or TV, so a new home is set up with Bell services instead. We will check which of them reach your address.</p>
-        </div>
-        <div class="buttons">
-          <a class="button" href="{{ booking_href }}">Book a visit</a>
-          <a class="button button--line" href="tel:{{ store.phone_e164 }}">Call {{ store.phone_display }}</a>
+          <p><strong>Already have Virgin Plus at home?</strong> Households that already have it are not affected, Bell says: the plan, the price and the equipment stay as they are. Since January 14, 2026, a household in Ontario that is not already a customer cannot start Virgin Plus home internet or TV, so a new home is set up with Bell services instead.</p>
         </div>
       </div>
     </div>
