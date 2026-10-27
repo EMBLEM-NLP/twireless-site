@@ -11,22 +11,22 @@
       <p>{{ hours_summary }}</p>
     </div>
     <div>
-      <h2 class="foot__title">Contact</h2>
+      <h2 class="foot__title">Get in touch</h2>
       <ul class="foot__links">
         <li><a href="tel:{{ store.phone_e164 }}">{{ store.phone_display }}</a></li>
         <li><a href="mailto:{{ store.email }}">{{ store.email }}</a></li>
-        <li><a href="{{ store.directions_url }}">Get directions</a></li>
+        <li><a href="{{ store.directions_url }}">Directions in Google Maps</a></li>
       </ul>
     </div>
     <nav aria-label="Footer">
-      <h2 class="foot__title">Pages</h2>
+      <h2 class="foot__title">Around the site</h2>
       <ul class="foot__links foot__links--two">
         {{{ footer_nav }}}
       </ul>
     </nav>
   </div>
   <div class="wrap foot__small">
-    <p>T Wireless is a Bell Authorised Retailer. Bell, Virgin Plus and Lucky Mobile are trademarks of their respective owners. The photos are stock photos: they don't show our store, staff or customers.</p>
+    <p>Bell, Virgin Plus and Lucky Mobile are trademarks of their respective owners. Our photos are stock photos, so none of them show the store, our staff or our customers.</p>
     <p>&copy; {{ year }} T Wireless. <a href="{{ root }}privacy.html">Privacy</a> <a href="{{ root }}credits.html">Photo credits</a></p>
   </div>
 </footer>

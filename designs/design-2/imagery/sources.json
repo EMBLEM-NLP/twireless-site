@@ -36,30 +36,20 @@
   },
   "photos": [
     {
-      "id": "hand-phone",
+      "id": "hand-blue-phone",
       "provider": "Pexels",
-      "provider_id": "9164565",
-      "page_url": "https://www.pexels.com/photo/person-holding-mobile-phone-9164565/",
-      "download_url": "https://images.pexels.com/photos/9164565/pexels-photo-9164565.jpeg",
-      "author": "Nandhu Kumar",
-      "author_url": "https://www.pexels.com/@nandhukumar/",
+      "provider_id": "11772521",
+      "page_url": "https://www.pexels.com/photo/a-person-holding-a-smartphone-11772521/",
+      "download_url": "https://images.pexels.com/photos/11772521/pexels-photo-11772521.jpeg",
+      "author": "Imad Clicks",
+      "author_url": "https://www.pexels.com/@imadclicks/",
       "license": "Pexels License",
       "retrieved": "2026-10-26",
-      "original": "originals/pexels-9164565.jpg",
-      "original_sha256": "b2083bbbc544262a578a9247d702e2055d6bb2d4492aeb1458060e3a07399a69",
+      "original": "originals/pexels-11772521.jpg",
       "people": "no faces",
-      "description": "Hand holding a smartphone with a blank screen outdoors",
-      "alt": "A hand holding up a phone. On its screen: the T Wireless logo, Bell Authorised Retailer in Brampton, and the Bell, Virgin Plus and Lucky Mobile logos.",
-      "screen": {
-        "ui": "screens/hand-phone.html",
-        "css_width": 540,
-        "logos": [
-          "t-wireless",
-          "bell",
-          "virgin-plus",
-          "lucky-mobile"
-        ]
-      },
+      "people_note": "one hand",
+      "description": "A hand holding a blue smartphone with garden plants and flowers blurred behind it",
+      "alt": "A hand holding up a blue phone, with flowers and plants blurred behind it.",
       "crops": {
         "4x5": {
           "focus": [
@@ -73,53 +63,35 @@
             1280,
             1600
           ]
-        }
-      },
-      "original_size": [
-        3200,
-        4896
-      ],
-      "people_note": "one hand"
-    },
-    {
-      "id": "hand-new-phones",
-      "provider": "Pexels",
-      "provider_id": "30909364",
-      "page_url": "https://www.pexels.com/photo/hand-holding-smartphone-with-blank-screen-30909364/",
-      "download_url": "https://images.pexels.com/photos/30909364/pexels-photo-30909364.jpeg",
-      "author": "Jakub Zerdzicki",
-      "author_url": "https://www.pexels.com/@jakubzerdzicki/",
-      "license": "Pexels License",
-      "retrieved": "2026-10-26",
-      "original": "originals/pexels-30909364.jpg",
-      "original_sha256": "8e100e9ce4362e10d8e3bff77515529ca6978b25b7b4fe3e9bb6f23ffb7d5906",
-      "people": "no faces",
-      "people_note": "one hand",
-      "description": "A hand holding a smartphone with a blank screen",
-      "alt": "A hand holding up a phone. Its screen shows the T Wireless logo and New phones, iPhone and Android.",
-      "screen": {
-        "ui": "screens/new-phones.html",
-        "css_width": 540,
-        "logos": [
-          "t-wireless"
-        ]
-      },
-      "crops": {
-        "16x10": {
+        },
+        "40x21": {
           "focus": [
-            0.56,
-            0.44
+            0.5,
+            0.38
           ],
           "widths": [
-            640,
-            960,
-            1280
+            1200
+          ],
+          "formats": [
+            "jpg"
           ]
         }
       },
+      "original_sha256": "3cd43461de72810327e1629896152d76e2e60f99b9ac0eb7c7a4f9587aa6a6b5",
       "original_size": [
-        2800,
-        2800
+        6336,
+        7920
+      ],
+      "retouch": [
+        {
+          "box": [
+            3010,
+            4850,
+            3780,
+            5110
+          ],
+          "why": "maker's name, faintly printed on the back of the phone"
+        }
       ]
     },
     {
@@ -167,7 +139,63 @@
         4245,
         6367
       ],
-      "people_note": "hands only"
+      "people_note": "hands only",
+      "retouch": [
+        {
+          "box": [
+            3708,
+            1992,
+            3998,
+            2082
+          ],
+          "fill": "rows",
+          "band": 6,
+          "smooth": 2.0,
+          "feather": 8,
+          "cap": 14,
+          "why": "words printed on the clear case"
+        },
+        {
+          "poly": [
+            [
+              1095,
+              2800
+            ],
+            [
+              1180,
+              2788
+            ],
+            [
+              1250,
+              2792
+            ],
+            [
+              1295,
+              2838
+            ],
+            [
+              1300,
+              2890
+            ],
+            [
+              1100,
+              2925
+            ],
+            [
+              1040,
+              2890
+            ]
+          ],
+          "fill": "marks",
+          "whole": true,
+          "method": "laplace",
+          "protect_sat": 30,
+          "scale": 3,
+          "window": 41,
+          "feather": 6,
+          "why": "maker's logo, faintly printed on the back of the white case"
+        }
+      ]
     },
     {
       "id": "concert",
@@ -213,7 +241,67 @@
         5120,
         3200
       ],
-      "people_note": "crowd seen from behind"
+      "people_note": "crowd seen from behind",
+      "retouch": [
+        {
+          "poly": [
+            [
+              3430,
+              3050
+            ],
+            [
+              3530,
+              3072
+            ],
+            [
+              3595,
+              3040
+            ],
+            [
+              3640,
+              3015
+            ],
+            [
+              3690,
+              2980
+            ],
+            [
+              3702,
+              2945
+            ],
+            [
+              3680,
+              2895
+            ],
+            [
+              3650,
+              2892
+            ],
+            [
+              3600,
+              2930
+            ],
+            [
+              3550,
+              2970
+            ],
+            [
+              3490,
+              3015
+            ],
+            [
+              3442,
+              3030
+            ]
+          ],
+          "fill": "marks",
+          "whole": true,
+          "method": "laplace",
+          "scale": 4,
+          "feather": 4,
+          "why": "lettering printed on the wristband"
+        }
+      ]
     },
     {
       "id": "train",
@@ -280,6 +368,15 @@
             3260
           ],
           "why": "sticker on the ticket machine"
+        },
+        {
+          "box": [
+            2100,
+            3530,
+            2250,
+            3670
+          ],
+          "why": "a dark smear on the out-of-focus pole"
         }
       ]
     },
@@ -484,13 +581,110 @@
       ],
       "retouch": [
         {
-          "box": [
-            605,
-            1815,
-            735,
-            1945
+          "poly": [
+            [
+              590,
+              1935
+            ],
+            [
+              745,
+              1940
+            ],
+            [
+              860,
+              1925
+            ],
+            [
+              935,
+              1855
+            ],
+            [
+              995,
+              1805
+            ],
+            [
+              1120,
+              1765
+            ],
+            [
+              1155,
+              1730
+            ],
+            [
+              1225,
+              1700
+            ],
+            [
+              1285,
+              1660
+            ],
+            [
+              1335,
+              1625
+            ],
+            [
+              1350,
+              1585
+            ],
+            [
+              1415,
+              1560
+            ],
+            [
+              1445,
+              1490
+            ],
+            [
+              1450,
+              1425
+            ],
+            [
+              1290,
+              1410
+            ],
+            [
+              1205,
+              1440
+            ],
+            [
+              1120,
+              1495
+            ],
+            [
+              1035,
+              1528
+            ],
+            [
+              958,
+              1558
+            ],
+            [
+              848,
+              1603
+            ],
+            [
+              798,
+              1632
+            ],
+            [
+              722,
+              1722
+            ],
+            [
+              640,
+              1752
+            ],
+            [
+              585,
+              1790
+            ]
           ],
-          "why": "Apple logo on the battery"
+          "fill": "marks",
+          "whole": true,
+          "method": "laplace",
+          "scale": 6,
+          "feather": 8,
+          "why": "Apple logo and the printed label on the battery (maker's name, certification and recycling marks, small print)"
         },
         {
           "box": [
@@ -500,6 +694,79 @@
             1930
           ],
           "why": "Apple logo on the logic board chip"
+        },
+        {
+          "box": [
+            3830,
+            3335,
+            4150,
+            3510
+          ],
+          "fill": "marks",
+          "surface": "median",
+          "mark": "dark",
+          "delta": 3,
+          "max_delta": 70,
+          "window": 101,
+          "grow": 16,
+          "feather": 10,
+          "why": "maker's mark printed on the mat"
+        },
+        {
+          "poly": [
+            [
+              4225,
+              3455
+            ],
+            [
+              5200,
+              3680
+            ],
+            [
+              5200,
+              3830
+            ],
+            [
+              4225,
+              3610
+            ]
+          ],
+          "fill": "marks",
+          "surface": "median",
+          "mark": "dark",
+          "delta": 3,
+          "max_delta": 70,
+          "window": 101,
+          "grow": 16,
+          "feather": 10,
+          "why": "maker's name printed on the mat"
+        },
+        {
+          "poly": [
+            [
+              2650,
+              2505
+            ],
+            [
+              2950,
+              2590
+            ],
+            [
+              2954,
+              2640
+            ],
+            [
+              2650,
+              2565
+            ]
+          ],
+          "fill": "marks",
+          "mark": "light",
+          "delta": 5,
+          "window": 47,
+          "grow": 8,
+          "feather": 2,
+          "why": "maker's name and logo printed on a part"
         }
       ]
     },
@@ -591,7 +858,189 @@
         4377,
         6565
       ],
-      "people_note": "one adult"
+      "people_note": "one adult",
+      "retouch": [
+        {
+          "poly": [
+            [
+              3189,
+              4104
+            ],
+            [
+              3264,
+              4104
+            ],
+            [
+              3272,
+              4150
+            ],
+            [
+              3264,
+              4170
+            ],
+            [
+              3247,
+              4178
+            ],
+            [
+              3244,
+              4204
+            ],
+            [
+              3189,
+              4204
+            ]
+          ],
+          "fill": "marks",
+          "whole": true,
+          "method": "laplace",
+          "scale": 2,
+          "window": 41,
+          "feather": 3,
+          "why": "maker's emblem embroidered on the shirt",
+          "texture": "copy"
+        },
+        {
+          "box": [
+            3722,
+            4070,
+            3855,
+            4198
+          ],
+          "fill": "marks",
+          "whole": true,
+          "method": "laplace",
+          "scale": 2,
+          "window": 41,
+          "feather": 3,
+          "why": "maker's emblem embroidered on the shirt",
+          "texture": "copy"
+        },
+        {
+          "box": [
+            2764,
+            5290,
+            2870,
+            5412
+          ],
+          "fill": "marks",
+          "whole": true,
+          "method": "laplace",
+          "scale": 2,
+          "window": 41,
+          "feather": 3,
+          "why": "maker's emblem embroidered on the shirt",
+          "texture": "copy"
+        },
+        {
+          "box": [
+            2545,
+            5510,
+            2645,
+            5612
+          ],
+          "fill": "marks",
+          "whole": true,
+          "method": "laplace",
+          "scale": 2,
+          "window": 41,
+          "feather": 3,
+          "why": "maker's emblem embroidered on the shirt",
+          "texture": "copy"
+        },
+        {
+          "box": [
+            3266,
+            5645,
+            3390,
+            5755
+          ],
+          "fill": "marks",
+          "whole": true,
+          "method": "laplace",
+          "scale": 2,
+          "window": 41,
+          "feather": 3,
+          "why": "maker's emblem embroidered on the shirt",
+          "texture": "copy"
+        },
+        {
+          "box": [
+            3808,
+            5664,
+            3892,
+            5712
+          ],
+          "fill": "marks",
+          "whole": true,
+          "method": "laplace",
+          "scale": 2,
+          "window": 41,
+          "feather": 3,
+          "why": "maker's emblem embroidered on the shirt",
+          "texture": "copy"
+        },
+        {
+          "poly": [
+            [
+              4098,
+              3595
+            ],
+            [
+              4104,
+              3615
+            ],
+            [
+              4118,
+              3638
+            ],
+            [
+              4126,
+              3656
+            ],
+            [
+              4140,
+              3690
+            ],
+            [
+              4148,
+              3716
+            ],
+            [
+              4182,
+              3714
+            ],
+            [
+              4176,
+              3692
+            ],
+            [
+              4163,
+              3660
+            ],
+            [
+              4156,
+              3640
+            ],
+            [
+              4142,
+              3615
+            ],
+            [
+              4134,
+              3590
+            ]
+          ],
+          "fill": "marks",
+          "whole": true,
+          "method": "laplace",
+          "scale": 2,
+          "window": 41,
+          "feather": 3,
+          "why": "maker's emblem embroidered on the sleeve edge",
+          "texture": "copy"
+        }
+      ]
     },
     {
       "id": "seniors-phone",
@@ -640,31 +1089,165 @@
         4480
       ],
       "people_note": "two adults"
-    }
-  ],
-  "cards": [
+    },
     {
-      "id": "og-image",
-      "html": "cards/og.html",
-      "size": [
-        1200,
-        630
+      "id": "unboxing",
+      "provider": "Pexels",
+      "provider_id": "7190924",
+      "page_url": "https://www.pexels.com/photo/a-person-holding-a-phone-in-the-box-7190924/",
+      "download_url": "https://images.pexels.com/photos/7190924/pexels-photo-7190924.jpeg",
+      "author": "Pavel Danilyuk",
+      "author_url": "https://www.pexels.com/@pavel-danilyuk/",
+      "license": "Pexels License",
+      "retrieved": "2026-10-26",
+      "original": "originals/pexels-7190924.jpg",
+      "people": "no faces",
+      "people_note": "two hands; the words printed on the card were removed",
+      "description": "Hands lifting a new smartphone out of its box on a white desk",
+      "alt": "Two hands lifting a new phone out of its box on a white desk.",
+      "crops": {
+        "16x10": {
+          "focus": [
+            0.4,
+            0.42
+          ],
+          "zoom": 1.16,
+          "widths": [
+            640,
+            960,
+            1280
+          ]
+        }
+      },
+      "original_sha256": "0abd65df2bdaf325c150d60d87e637b68f6fae2bc3cc450ae7ac6d9e18e8179c",
+      "original_size": [
+        4191,
+        2798
       ],
-      "formats": [
-        "jpg"
-      ],
-      "uses": [
-        "hand-phone"
-      ],
-      "logos": [
-        "t-wireless",
-        "bell",
-        "virgin-plus",
-        "lucky-mobile"
-      ],
-      "alt": "T Wireless, Bell Authorised Retailer in Brampton, with a phone showing the T Wireless logo."
+      "retouch": [
+        {
+          "box": [
+            1285,
+            968,
+            1500,
+            1045
+          ],
+          "fill": "marks",
+          "mark": "dark",
+          "delta": 8,
+          "sat": 36,
+          "window": 25,
+          "grow": 5,
+          "keep": [
+            [
+              [
+                1458,
+                1016
+              ],
+              [
+                1476,
+                996
+              ],
+              [
+                1500,
+                981
+              ],
+              [
+                1530,
+                972
+              ],
+              [
+                1575,
+                968
+              ],
+              [
+                1575,
+                1090
+              ],
+              [
+                1390,
+                1090
+              ],
+              [
+                1412,
+                1068
+              ],
+              [
+                1436,
+                1040
+              ]
+            ]
+          ],
+          "keep_margin": 2,
+          "why": "printed words on the card",
+          "feather": 3
+        },
+        {
+          "box": [
+            1566,
+            1010,
+            1622,
+            1043
+          ],
+          "fill": "marks",
+          "mark": "dark",
+          "delta": 8,
+          "sat": 36,
+          "window": 25,
+          "grow": 5,
+          "why": "printed words on the card",
+          "feather": 3
+        },
+        {
+          "poly": [
+            [
+              2566,
+              0
+            ],
+            [
+              2805,
+              603
+            ],
+            [
+              2827,
+              639
+            ],
+            [
+              2853,
+              659
+            ],
+            [
+              2914,
+              668
+            ],
+            [
+              3297,
+              535
+            ],
+            [
+              3350,
+              487
+            ],
+            [
+              3349,
+              412
+            ],
+            [
+              3172,
+              0
+            ]
+          ],
+          "fill": "marks",
+          "whole": true,
+          "method": "laplace",
+          "scale": 6,
+          "feather": 6,
+          "why": "picture of a phone printed on the retail carton"
+        }
+      ]
     }
   ],
+  "cards": [],
   "people_vocabulary": {
     "none": "no people",
     "no faces": "hands, backs or a crowd; nobody can be recognised",

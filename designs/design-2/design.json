@@ -2,8 +2,22 @@
   "id": "design-2",
   "label": "Design 2",
   "name": "In hand",
-  "summary": "Photo-led: every picture centres on a phone in someone's hand, a home or the repair bench, with the logos placed on the photos.",
+  "summary": "Photo-led and conversational: real photographs of phones in hands, homes and the repair bench, with the carrier logos on white plates, and its own plain-spoken copy.",
   "module": "design.py",
-  "og_image": "assets/img/photos/og-image.jpg",
-  "skip_shared_assets": ["css", "fonts", "img/og-image.png"]
+  "content": "content.json",
+  "nav": {
+    "index": "Home",
+    "deals": "Deals",
+    "brands": "Compare plans",
+    "mobile": "Phones",
+    "internet-tv": "Internet & TV",
+    "repairs": "Repairs",
+    "visit": "Find us"
+  },
+  "og_image": "assets/img/photos/hand-blue-phone-40x21-1200.jpg",
+  "skip_shared_assets": [
+    "css",
+    "fonts",
+    "img/og-image.png"
+  ]
 }

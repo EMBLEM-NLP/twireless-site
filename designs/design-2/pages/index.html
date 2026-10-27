@@ -1,7 +1,7 @@
 <!--page
 {
-  "title": "T Wireless: Bell Authorised Retailer in Brampton",
-  "description": "Phones and plans from Bell, Virgin Plus and Lucky Mobile, Bell internet and TV, and phone and tablet repair at 965 Bovaird Dr W, Brampton. Open every day.",
+  "title": "T Wireless in Brampton: phones, plans and repairs from a Bell Authorised Retailer",
+  "description": "Pick up a phone and ask a real person at T Wireless, 965 Bovaird Dr W, Brampton: Bell, Virgin Plus and Lucky Mobile plans, internet, TV and repairs. Open every day.",
   "nav": "index",
   "body_class": "page-home"
 }
@@ -15,21 +15,14 @@
           <span class="status__sign is-pending">Open</span>
           <span class="status__text">{{ hours_summary }}</span>
         </p>
+        {{{ hero_plates }}}
       </div>
       <div class="hero__text">
-        <h1 id="hero-title">Phones, plans and repairs on Bovaird Drive West</h1>
-        <p class="lead">Compare Bell, Virgin Plus and Lucky Mobile at one counter, set up Bell internet and TV at home, or get your phone or tablet fixed.</p>
+        <h1 id="hero-title">Pick up a phone. Ask a real person.</h1>
+        <p class="lead">Bring your old phone and your last bill. We'll lay out Bell, Virgin Plus and Lucky Mobile next to what you pay now, so you can choose with the phone in your hand.</p>
         <div class="buttons">
           <a class="button" href="tel:{{ store.phone_e164 }}"><svg class="icon" aria-hidden="true"><use href="#i-call"></use></svg>Call {{ store.phone_display }}</a>
-          <a class="button button--quiet" href="deals.html">See this month's deals</a>
-        </div>
-        <div class="carriers">
-          <p class="carriers__label" id="carriers-label">Plans from</p>
-          <ul class="carriers__list" aria-labelledby="carriers-label">
-            <li>{{{ plate.bell }}}</li>
-            <li>{{{ plate.virgin_plus }}}</li>
-            <li>{{{ plate.lucky_mobile }}}</li>
-          </ul>
+          <a class="button button--quiet" href="deals.html">See deals</a>
         </div>
       </div>
     </div>
@@ -38,7 +31,7 @@
   <div class="wrap">
     <ul class="facts" aria-label="About the store">
       <li><svg class="icon" aria-hidden="true"><use href="#i-shield"></use></svg><span>Bell Authorised Retailer</span></li>
-      <li><svg class="icon" aria-hidden="true"><use href="#i-star"></use></svg><a href="{{ store.reviews_url }}">{{ store.rating.value }} stars on Google ({{ store.rating.count }} reviews)</a></li>
+      <li><svg class="icon" aria-hidden="true"><use href="#i-star"></use></svg><a href="{{ store.reviews_url }}">{{ store.rating.value }} on Google, from {{ store.rating.count }} reviews</a></li>
       <li><svg class="icon" aria-hidden="true"><use href="#i-access"></use></svg><span>Wheelchair-accessible entrance</span></li>
     </ul>
   </div>
@@ -46,9 +39,9 @@
   <section class="section" aria-labelledby="providers-title">
     <div class="wrap">
       <div class="head">
-        <h2 id="providers-title">Three providers, one counter</h2>
-        <p>All three run on Bell's mobile network. Compare them side by side before you choose.</p>
-        <a class="head__link" href="brands.html">Compare the brands</a>
+        <h2 id="providers-title">One network, three ways in</h2>
+        <p>Bell, Virgin Plus and Lucky Mobile all run on Bell's mobile network. What changes is how you pay and what comes with the plan.</p>
+        <a class="head__link" href="brands.html">See them side by side</a>
       </div>
       {{{ providers }}}
     </div>
@@ -61,15 +54,15 @@
         {{{ plate_photo.bell }}}
       </div>
       <div class="feature__text">
-        <h2 id="home-title">Bell internet, TV and home phone</h2>
-        <p>Bring your address, including any unit number, and we'll check which Bell services reach your home.</p>
+        <h2 id="home-title">Home internet and TV start with your address</h2>
+        <p>Tell us your address, unit number included, and we'll look up which Bell services you can get at home.</p>
         <ul class="minis">
           <li><svg class="icon" aria-hidden="true"><use href="#i-wifi"></use></svg><span>Bell Internet</span></li>
           <li><svg class="icon" aria-hidden="true"><use href="#i-tv"></use></svg><span>Fibe TV</span></li>
           <li><svg class="icon" aria-hidden="true"><use href="#i-dish"></use></svg><span>Satellite TV</span></li>
           <li><svg class="icon" aria-hidden="true"><use href="#i-call"></use></svg><span>Home Phone</span></li>
         </ul>
-        <a class="button button--quiet" href="internet-tv.html">How home setup works</a>
+        <a class="button button--quiet" href="internet-tv.html">See how home setup works</a>
       </div>
     </div>
   </section>
@@ -77,8 +70,8 @@
   <section class="section" aria-labelledby="deals-title">
     <div class="wrap">
       <div class="head">
-        <h2 id="deals-title">This month's deals</h2>
-        <a class="head__link" href="deals.html">See all deals</a>
+        <h2 id="deals-title">On offer this month</h2>
+        <a class="head__link" href="deals.html">All offers</a>
       </div>
       <div class="deals deals--compact">
         {{{ deals_preview }}}
@@ -93,14 +86,14 @@
         {{{ plate_photo.t_wireless }}}
       </div>
       <div class="feature__text">
-        <h2 id="repairs-title">We fix phones and tablets</h2>
-        <p>Bring your device to the store. We'll find the problem and quote the repair before we start.</p>
+        <h2 id="repairs-title">Cracked screen? Hand it over.</h2>
+        <p>Bring the phone or tablet in and we'll look it over. You'll have a price before we touch it.</p>
         <ul class="ticks ticks--two">
           {{{ repair_names }}}
         </ul>
         <div class="buttons">
-          <a class="button" href="repairs.html#book">Book a repair</a>
-          <a class="button button--quiet" href="tel:{{ store.phone_e164 }}">Call for a quote</a>
+          <a class="button" href="repairs.html#book">Arrange a repair</a>
+          <a class="button button--quiet" href="tel:{{ store.phone_e164 }}">Phone for a price</a>
         </div>
       </div>
     </div>
@@ -109,21 +102,21 @@
   <section class="section" aria-labelledby="switch-title">
     <div class="wrap">
       <div class="head">
-        <h2 id="switch-title">Switching? Keep your number</h2>
-        <p>In Canada you can keep your phone number when you change providers. Moving to Bell, Virgin Plus or Lucky Mobile takes three steps.</p>
+        <h2 id="switch-title">Changing providers? Your number can come too</h2>
+        <p>Canadians can take their phone number to a new provider. Here's how that goes if you're moving to Bell, Virgin Plus or Lucky Mobile.</p>
       </div>
       <ol class="steps">
         <li>
-          <h3>Bring what we need</h3>
-          <p>Government-issued photo ID and your current account number, which is on your bill.</p>
+          <h3>Your latest bill</h3>
+          <p>It shows the account number we need. Bring photo ID too, in case we need it.</p>
         </li>
         <li>
-          <h3>Choose your plan and phone</h3>
-          <p>We compare options from all three providers with you.</p>
+          <h3>Pick together</h3>
+          <p>We set the three providers next to each other, along with the phones you like, and you decide.</p>
         </li>
         <li>
-          <h3>We move your number</h3>
-          <p>Don't cancel your old plan first. Moving your number ends that service for you.</p>
+          <h3>We transfer it</h3>
+          <p>Leave your old plan running. When the number moves over, that service closes by itself.</p>
         </li>
       </ol>
     </div>
@@ -132,7 +125,7 @@
   <section class="section section--mist" aria-labelledby="visit-title">
     <div class="wrap visit">
       <div>
-        <h2 id="visit-title">Visit the store</h2>
+        <h2 id="visit-title">Come by the store</h2>
         <p class="address">{{ store.street }}<br>{{ store.city }}, {{ store.province }} {{ store.postal }}</p>
         <table class="hours">
           <caption class="visually-hidden">Store hours</caption>
@@ -150,8 +143,11 @@
   </section>
 
   <section class="section" aria-labelledby="faq-title">
-    <div class="wrap narrow">
-      <h2 id="faq-title">Questions we hear a lot</h2>
+    <div class="wrap faq-split">
+      <div class="faq-split__intro">
+        <h2 id="faq-title">Questions people ask us</h2>
+        <p>Not on the list? Ring <a href="tel:{{ store.phone_e164 }}">{{ store.phone_display }}</a> and ask us directly.</p>
+      </div>
       <div class="faq">
         {{{ faq_items }}}
       </div>

@@ -1,23 +1,23 @@
 <!--page
 {
-  "title": "Deals on phones, plans and repairs | T Wireless Brampton",
-  "description": "This month's deals at T Wireless on Bell, Virgin Plus and Lucky Mobile plans, Bell internet and TV, and phone repairs. 965 Bovaird Dr W, Brampton.",
+  "title": "What's on this month: phone, plan, internet and repair deals | T Wireless Brampton",
+  "description": "Phone, plan, home internet and repair offers at T Wireless on Bovaird Dr W in Brampton, across Bell, Virgin Plus and Lucky Mobile. Ring or drop in for today's prices.",
   "nav": "deals"
 }
 -->
 <main id="main">
   <section class="intro" aria-labelledby="page-title">
     <div class="wrap">
-      <h1 id="page-title">This month's deals</h1>
-      <p class="lead">Offers on phones, plans, home services and repairs. Prices change often, so call or visit for today's pricing.</p>
+      <h1 id="page-title">What's on at the store this month</h1>
+      <p class="lead">Here are the deals running on phones, plans, home internet, TV and repairs. They change often, so ring or drop in to hear what's on today.</p>
     </div>
   </section>
 
   <section class="section section--tight" aria-labelledby="offers-title">
     <div class="wrap">
-      <h2 id="offers-title" class="visually-hidden">Current offers</h2>
-      <div class="filters filters--pending" role="group" aria-label="Show deals for">
-        <button type="button" class="chip" data-filter="all" aria-pressed="true">All deals</button>
+      <h2 id="offers-title" class="visually-hidden">Offers running now</h2>
+      <div class="filters filters--pending" role="group" aria-label="Show offers for">
+        <button type="button" class="chip" data-filter="all" aria-pressed="true">Everything</button>
         <button type="button" class="chip" data-filter="mobile" aria-pressed="false">Phones and plans</button>
         <button type="button" class="chip" data-filter="home" aria-pressed="false">Internet and TV</button>
         <button type="button" class="chip" data-filter="repairs" aria-pressed="false">Repairs</button>
@@ -25,32 +25,32 @@
       <div class="deals" data-offers>
         {{{ deals_all }}}
       </div>
-      <p class="note" data-offers-empty hidden>No deals in this group right now. Call us and we'll tell you what's on.</p>
-      <p class="note">Plans and prices from Bell, Virgin Plus and Lucky Mobile can change at any time, and prices are plus applicable taxes. Ask us for the full terms before you sign up.</p>
+      <p class="note" data-offers-empty hidden>We have no offers in this group at the moment. Phone the store to hear what's on the way.</p>
+      <p class="note">Prices don't include applicable taxes. Bell, Virgin Plus and Lucky Mobile can change their plans and prices at any time, so check the full terms with us before you commit to a deal.</p>
     </div>
   </section>
 
   <section class="section section--mist" aria-labelledby="ways-title">
     <div class="wrap">
       <div class="head">
-        <h2 id="ways-title">Ways to pay less for a new phone</h2>
-        <a class="head__link" href="brands.html">Compare Bell, Virgin Plus and Lucky Mobile</a>
+        <h2 id="ways-title">How you can pay for a phone</h2>
+        <a class="head__link" href="brands.html">Compare the three providers</a>
       </div>
       <ul class="tiles tiles--three">
         <li class="tile">
           <svg class="icon" aria-hidden="true"><use href="#i-calendar"></use></svg>
           <h3>Bell SmartPay</h3>
-          <p>$0 down and 24 months at 0% interest on an eligible 2-year Bell plan, with Bell's credit approval.</p>
+          <p>The price is split across 24 months, with nothing down and 0% interest. You need an eligible 2-year Bell plan, and Bell checks your credit first.</p>
         </li>
         <li class="tile">
           <svg class="icon" aria-hidden="true"><use href="#i-swap"></use></svg>
           <h3>Device Return Option</h3>
-          <p>On eligible Bell phones, return the phone at the end of your 2-year term instead of paying the deferred amount.</p>
+          <p>On eligible Bell phones, a slice of the price isn't due until your 2-year term is over. Hand the phone back in good working condition and that slice is waived. Keep the phone and you pay it then.</p>
         </li>
         <li class="tile">
           <svg class="icon" aria-hidden="true"><use href="#i-card"></use></svg>
-          <h3>Prepaid with Lucky Mobile</h3>
-          <p>No credit check and no contract. You pay before each month, and you can bring your own phone.</p>
+          <h3>Lucky Mobile prepaid</h3>
+          <p>You can start without a credit check or a contract. Each month is paid in advance, so you never get a bill afterwards.</p>
         </li>
       </ul>
     </div>
@@ -59,8 +59,8 @@
   <section class="band" aria-labelledby="compare-title">
     <div class="wrap band__grid">
       <div>
-        <h2 id="compare-title">Not sure which deal fits?</h2>
-        <p>Tell us how you use your phone and what you pay now. We'll compare options from Bell, Virgin Plus and Lucky Mobile with you.</p>
+        <h2 id="compare-title">Not sure which suits you?</h2>
+        <p>Describe how you use your phone and what your bill is now, and we'll narrow the list down for you.</p>
       </div>
       <div class="buttons">
         <a class="button button--light" href="tel:{{ store.phone_e164 }}">Call {{ store.phone_display }}</a>

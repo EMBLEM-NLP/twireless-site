@@ -1,22 +1,22 @@
 <!--page
 {
-  "title": "Visit T Wireless at 965 Bovaird Dr W, Brampton",
-  "description": "T Wireless is at 965 Bovaird Dr W, Unit 1, Brampton, open every day from 10 a.m. to 8 p.m. Call 647-707-1093, email twireless965@gmail.com or book a visit.",
+  "title": "Find T Wireless at 965 Bovaird Dr W, Brampton: hours, map and directions",
+  "description": "Hours, map and directions for T Wireless, 965 Bovaird Dr W, Unit 1, Brampton. Walk in any day from 10 a.m. to 8 p.m., ring 647-707-1093 or email twireless965@gmail.com.",
   "nav": "visit"
 }
 -->
 <main id="main">
   <section class="intro" aria-labelledby="page-title">
     <div class="wrap">
-      <h1 id="page-title">Visit T Wireless</h1>
-      <p class="lead">Find us at {{ store.street_long }} in {{ store.city }}, on the south side of Bovaird just east of Chinguacousy Road. We&#8217;re open {{ hours_phrase }}.</p>
+      <h1 id="page-title">Come and see us</h1>
+      <p class="lead">Just east of Chinguacousy Road, on the south side of Bovaird. Walk in {{ hours_phrase }}, or book a time to have us ready.</p>
     </div>
   </section>
 
   <section class="section section--tight" aria-labelledby="where-title">
-    <div class="wrap visit">
+    <div class="wrap visit visit--match">
       <div>
-        <h2 id="where-title" class="visually-hidden">Where we are</h2>
+        <h2 id="where-title" class="visually-hidden">Where to find us</h2>
         {{{ store_card }}}
       </div>
       {{{ map }}}
@@ -26,7 +26,7 @@
   <section class="section section--mist" aria-labelledby="hours-title">
     <div class="wrap visit">
       <div>
-        <h2 id="hours-title">Store hours</h2>
+        <h2 id="hours-title">When we're open</h2>
         <table class="hours">
           <caption class="visually-hidden">Store hours</caption>
           <tbody>
@@ -35,13 +35,13 @@
         </table>
       </div>
       <div>
-        <h2>Before you come</h2>
+        <h2>Have these with you</h2>
         <ul class="ticks">
-          <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg><span>For a new plan or a switch, bring government-issued photo ID.</span></li>
-          <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg><span>Switching providers? Bring your current account number.</span></li>
-          <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg><span>Getting a repair? Back up your phone first if you can.</span></li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg><span>Photo ID, in case we need it to set up a plan or a switch.</span></li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg><span>A recent bill, if you're switching, because it carries your account number.</span></li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg><span>The phone or tablet, if it's coming in for a repair. If you can, save a copy of your data first.</span></li>
         </ul>
-        <p><a href="{{ store.reviews_url }}">Read our Google reviews</a> ({{ store.rating.value }} stars from {{ store.rating.count }} reviews)</p>
+        <p>On Google we're rated {{ store.rating.value }} out of 5 across {{ store.rating.count }} reviews. <a href="{{ store.reviews_url }}">Read what they wrote</a>.</p>
       </div>
     </div>
   </section>
@@ -49,9 +49,9 @@
   <section class="section" id="book" aria-labelledby="book-title">
     <div class="wrap form-split">
       <div>
-        <h2 id="book-title">Book a visit</h2>
-        <p>Tell us what you need and when suits you. We'll call to confirm a time.</p>
-        <p>Prefer to talk? Call {{ store.contact_name }} at <a href="tel:{{ store.phone_e164 }}">{{ store.phone_display }}</a>, or email <a href="mailto:{{ store.email }}">{{ store.email }}</a>.</p>
+        <h2 id="book-title">Pick a time to visit</h2>
+        <p>Say what you're coming in for and which day suits you, and we'll ring back to lock in a time.</p>
+        <p>Rather talk first? Ring {{ store.contact_name }} on <a href="tel:{{ store.phone_e164 }}">{{ store.phone_display }}</a>, or email <a href="mailto:{{ store.email }}">{{ store.email }}</a>.</p>
       </div>
       <form class="form" name="visit" method="post" {{{ form_attrs }}}>
         <input type="hidden" name="form-name" value="visit">
@@ -65,26 +65,26 @@
           <input id="v-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required>
         </div>
         <div class="field">
-          <label for="v-reason">What do you need help with?</label>
+          <label for="v-reason">What are you coming in for?</label>
           <select id="v-reason" name="reason">
-            <option>A new phone or plan</option>
-            <option>Switching providers</option>
-            <option>Internet and TV at home</option>
+            <option>Buying a phone or plan</option>
+            <option>Moving my number from another provider</option>
+            <option>Home internet or TV</option>
             <option>A repair</option>
             <option>Something else</option>
           </select>
         </div>
         <div class="field">
-          <label for="v-when">Preferred day and time</label>
+          <label for="v-when">Which day and time suit you?</label>
           <input id="v-when" name="when" type="text" aria-describedby="v-when-hint">
-          <p class="hint" id="v-when-hint">For example, Saturday afternoon.</p>
+          <p class="hint" id="v-when-hint">For example, Saturday around 2.</p>
         </div>
         <div class="field">
-          <label for="v-notes">Anything else we should know? <span class="optional">(optional)</span></label>
+          <label for="v-notes">Anything we should know before you arrive? <span class="optional">(optional)</span></label>
           <textarea id="v-notes" name="notes" rows="3"></textarea>
         </div>
-        <button class="button" type="submit">Request a visit</button>
-        <p class="hint">We use your details only to reply to this request. <a href="privacy.html">Privacy</a></p>
+        <button class="button" type="submit">Send my request</button>
+        <p class="hint">We'll only use these details to get back to you. <a href="privacy.html">Privacy</a></p>
       </form>
     </div>
   </section>

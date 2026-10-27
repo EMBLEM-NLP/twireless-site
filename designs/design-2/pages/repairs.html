@@ -1,7 +1,7 @@
 <!--page
 {
-  "title": "Phone and tablet repair in Brampton | T Wireless",
-  "description": "Cracked screens, batteries, charging ports, cameras and water damage. Phone and tablet repair at T Wireless, 965 Bovaird Dr W, Brampton. Ask for a quote.",
+  "title": "Phone and tablet repairs in Brampton, quoted before we start | T Wireless",
+  "description": "Phone and tablet repairs at T Wireless in Brampton: cracked screens, worn batteries, charging ports, cameras, speakers and water damage. Get a quote at 965 Bovaird Dr W.",
   "nav": "repairs"
 }
 -->
@@ -9,11 +9,11 @@
   <section class="intro intro--photo" aria-labelledby="page-title">
     <div class="wrap intro__grid">
       <div class="intro__text">
-        <h1 id="page-title">Phone and tablet repair</h1>
-        <p class="lead">Cracked screen, weak battery or a port that won't charge? Bring it to the store and we'll take a look.</p>
+        <h1 id="page-title">Hand us the broken phone. We'll tell you the price first.</h1>
+        <p class="lead">Phones and tablets, from cracked screens to tired batteries. Show us the problem and you'll hear the price before we pick up a tool.</p>
         <div class="buttons">
-          <a class="button" href="#book">Book a repair</a>
-          <a class="button button--quiet" href="tel:{{ store.phone_e164 }}">Call for a quote</a>
+          <a class="button" href="#book">Arrange a repair</a>
+          <a class="button button--quiet" href="tel:{{ store.phone_e164 }}">Phone for a price</a>
         </div>
       </div>
       <div class="intro__media">{{{ pic.repair_wide_top }}}</div>
@@ -23,8 +23,8 @@
   <section class="section section--tight" aria-labelledby="fix-title">
     <div class="wrap">
       <div class="head">
-        <h2 id="fix-title">What we fix</h2>
-        <p>Repair prices depend on your device and the part. We'll quote the repair before we start.</p>
+        <h2 id="fix-title">What we repair</h2>
+        <p>The price depends on your model and the part it needs, so every repair is quoted first.</p>
       </div>
       <div class="fixes">
         <div class="fixes__photo">{{{ pic.cracked_tile }}}</div>
@@ -38,25 +38,25 @@
   <section class="section section--mist" aria-labelledby="how-title">
     <div class="wrap">
       <div class="head">
-        <h2 id="how-title">How a repair works</h2>
-        <p>If you can, back up your phone before you bring it in.</p>
+        <h2 id="how-title">From the counter to pick-up</h2>
+        <p>Save a copy of your photos and files first, if you can.</p>
       </div>
       <ol class="steps steps--four">
         <li>
-          <h3>Book or walk in</h3>
-          <p>Book below, or come by {{ hours_phrase }}.</p>
+          <h3>Arrange it, or drop by</h3>
+          <p>Fill in the form below, or just walk in {{ hours_phrase }}.</p>
         </li>
         <li>
-          <h3>We check your device</h3>
-          <p>We find the problem and give you a price before any work starts.</p>
+          <h3>We look it over</h3>
+          <p>We work out what's wrong and quote you. Nothing starts before you've heard the price.</p>
         </li>
         <li>
-          <h3>We fix it</h3>
-          <p>We tell you when it will be ready.</p>
+          <h3>We repair it</h3>
+          <p>We give you a time to come and collect it.</p>
         </li>
         <li>
-          <h3>Pick it up</h3>
-          <p>Test it with us at the counter before you go.</p>
+          <h3>Check it with us</h3>
+          <p>Switch it on and try it in front of us before you leave.</p>
         </li>
       </ol>
     </div>
@@ -65,9 +65,9 @@
   <section class="section" id="book" aria-labelledby="book-title">
     <div class="wrap form-split">
       <div>
-        <h2 id="book-title">Book a repair</h2>
-        <p>Tell us about your device and we'll call you to set a time.</p>
-        <p>Prefer to talk? Call <a href="tel:{{ store.phone_e164 }}">{{ store.phone_display }}</a> or email <a href="mailto:{{ store.email }}">{{ store.email }}</a>.</p>
+        <h2 id="book-title">Arrange a repair</h2>
+        <p>Describe the fault and we'll ring you back to agree a time.</p>
+        <p>Would you sooner speak to someone? Ring the store on <a href="tel:{{ store.phone_e164 }}">{{ store.phone_display }}</a>, or write to <a href="mailto:{{ store.email }}">{{ store.email }}</a>.</p>
       </div>
       <form class="form" name="repair" method="post" {{{ form_attrs }}}>
         <input type="hidden" name="form-name" value="repair">
@@ -81,24 +81,24 @@
           <input id="r-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required>
         </div>
         <div class="field">
-          <label for="r-device">Device</label>
+          <label for="r-device">Which device?</label>
           <input id="r-device" name="device" type="text" required aria-describedby="r-device-hint">
-          <p class="hint" id="r-device-hint">For example, iPhone 14 or Galaxy Tab A9.</p>
+          <p class="hint" id="r-device-hint">For example, a Pixel 8 or an iPad Air.</p>
         </div>
         <div class="field">
-          <label for="r-problem">What's wrong with it?</label>
+          <label for="r-problem">What's the problem?</label>
           <textarea id="r-problem" name="problem" rows="4" required></textarea>
         </div>
         <div class="field">
-          <label for="r-when">When would you like to come in?</label>
+          <label for="r-when">When suits you?</label>
           <select id="r-when" name="when">
             <option>Any day</option>
             <option>A weekday</option>
             <option>A weekend</option>
           </select>
         </div>
-        <button class="button" type="submit">Send repair request</button>
-        <p class="hint">We use your details only to reply to this request. <a href="privacy.html">Privacy</a></p>
+        <button class="button" type="submit">Send my repair request</button>
+        <p class="hint">We'll only use these details to get back to you. <a href="privacy.html">Privacy</a></p>
       </form>
     </div>
   </section>

@@ -1,7 +1,9 @@
 """Design 2 ("In hand"): snippets the page templates use, added to each page's context by build.py.
 
 Photos come from assets/img/photos/photos.json (rsi/imagery.py render). Carrier logos always sit on
-white plates with clear space around them, whether on a photo or beside text.
+white plates with clear space around them, whether on a photo or beside text. The wording of the
+snippets built here (carrier lines, the deal button) comes from content.json, so it stays this
+design's own.
 """
 import re
 
@@ -10,13 +12,8 @@ CARRIER_PHOTO = {"bell": "two-phones", "virgin-plus": "concert", "lucky-mobile":
 OFFER_PHOTO = {("Bell", "mobile"): "two-phones", ("Virgin Plus", "mobile"): "concert",
                ("Lucky Mobile", "mobile"): "train", ("Bell", "home"): "living-room",
                ("T Wireless", "repairs"): "cracked-screen"}
-CARRIER_LINE = {
-    "bell": "Monthly plans on Bell's network, the newest iPhone and Android phones, and 24 months to pay with Bell SmartPay.",
-    "virgin-plus": "Monthly plans with Member Benefits: offers on entertainment, travel, shopping and food at no extra cost.",
-    "lucky-mobile": "Prepaid plans on Bell's network. No credit check and no long-term contract.",
-}
 SIZES = {
-    "hero": "(min-width: 900px) 480px, 100vw",
+    "hero": "(min-width: 900px) 480px, calc(100vw - 16px)",
     "provider": "(min-width: 900px) 360px, 40vw",
     "wide": "(min-width: 900px) 660px, calc(100vw - 32px)",
     "half": "(min-width: 900px) 560px, calc(100vw - 32px)",
@@ -42,6 +39,7 @@ def extend(p, kit):
     esc, logos, photos, data = kit["esc"], kit["logos"], kit["photos"], kit["data"]
     root = p["root"]
     phone = p["store"]["phone_e164"]
+    copy = data["copy"]
 
     def pic(pid, crop, size, cls="", alt=None, priority=False):
         return photos.picture(pid, crop, root, SIZES[size], alt=alt, cls=cls, priority=priority)
@@ -63,7 +61,7 @@ def extend(p, kit):
             f'  <div class="provider__media">{pic(CARRIER_PHOTO[cid], "4x5", "provider", alt="")}{plate(cid, alt="", cls="plate plate--on-photo")}</div>\n'
             f'  <div class="provider__body">\n'
             f'    <h3 class="provider__name"><a href="{root}brands.html#{esc(cid)}">{esc(c["name"])}</a></h3>\n'
-            f'    <p>{esc(CARRIER_LINE[cid])}</p>\n'
+            f'    <p>{esc(copy["carrier_line"][cid])}</p>\n'
             f'  </div>\n'
             f'</li>')
     providers = '<ul class="providers">\n' + "\n".join(rows) + "\n</ul>"
@@ -91,8 +89,15 @@ def extend(p, kit):
                 f'    <h3 class="deal__title">{esc(text["title"])}</h3>\n'
                 f'    <p class="deal__price">{esc(text["price"])}</p>\n'
                 f'    <p class="deal__detail">{esc(text["detail"])}</p>\n{terms}'
-                f'    <a class="button button--quiet" href="tel:{esc(phone)}">Call about this deal</a>\n'
+                f'    <a class="button button--quiet" href="tel:{esc(phone)}">{esc(copy["deal_cta"])}</a>\n'
                 f'  </div>\n</article>')
+
+    # The three logos on one white bar along the foot of the hero photo.
+    bar = "".join(f'<li>{logos.plate(cid, root, cls="mark") or esc(logos.by_id[cid]["name"])}</li>'
+                  for cid in ("bell", "virgin-plus", "lucky-mobile"))
+    hero_plates = f'<div class="hero__plates"><p class="hero__plates-label">Plans from</p><ul>{bar}</ul></div>'
+    # The same three logos on a plate of their own, for the top of the Compare plans page.
+    provider_strip = f'<div class="provider-strip"><ul>{bar}</ul></div>'
 
     repair_items = "\n".join(
         f'<li>{ICON.format(esc(r.get("icon", "i-wrench")))}<div><h3>{esc(r["title"])}</h3>'
@@ -122,15 +127,17 @@ def extend(p, kit):
         "repair_items": repair_items,
         "repair_names": repair_names,
         "credits_list": "\n".join(credits),
+        "hero_plates": hero_plates,
+        "provider_strip": provider_strip,
         "pic": {
-            "hero": pic("hand-phone", "4x5", "hero", cls="hero__photo", priority=True),
+            "hero": pic("hand-blue-phone", "4x5", "hero", cls="hero__photo", priority=True),
             "living_wide": pic("living-room", "16x10", "wide"),
             "family_wide_top": pic("family-tv", "16x10", "wide", priority=True),
             "repair_wide": pic("repair-mat", "16x10", "wide"),
             "repair_wide_top": pic("repair-mat", "16x10", "wide", priority=True),
             "cracked_tile": pic("cracked-screen", "1x1", "tile"),
             "seniors_wide_top": pic("seniors-phone", "16x10", "wide", priority=True),
-            "new_phones_wide": pic("hand-new-phones", "16x10", "half"),
+            "new_phones_wide": pic("unboxing", "16x10", "half"),
             "video_call_wide": pic("video-call", "16x10", "half"),
             "cafe_wide": pic("cafe-business", "16x10", "half"),
             "brand_bell": pic("two-phones", "4x5", "half", alt=""),

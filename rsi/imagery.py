@@ -12,7 +12,8 @@ Layout for a design folder (designs/design-2/ for example):
   imagery/sources.json      what each photo is, where it came from, its licence and its crops
   imagery/originals/        downloaded originals; not committed, `fetch` restores and checks them
   imagery/screens/*.html    what a phone screen in a photo shows (logos included)
-  imagery/cards/*.html      composed images such as the social preview
+  imagery/cards/*.html      composed images (HTML rendered to a picture); design 2 has none, its link
+                            preview is a plain crop of the hero photo ("formats": ["jpg"] on that crop)
   assets/img/photos/        rendered files plus photos.json, shipped with the site
 
 Exit: 0 pass, 3 audit failures, 2 blocked.
@@ -169,9 +170,271 @@ def to_srgb(im: Image.Image) -> Image.Image:
     return im.convert("RGB")
 
 
+def _grain(shape, spread, rng, cv2, np, sigma=0.9):
+    """Grain like the photographs' own: luminance noise of the photo's grain size (about 0.9 px),
+    the same in all three channels with a trace of independent colour. `spread` is the standard
+    deviation of the residual against a 1.5 px blur, which is how the grain is measured."""
+    h, w = shape[:2]
+    n = cv2.GaussianBlur(rng.normal(0, 1, (h, w)).astype(np.float32), (0, 0), sigma)
+    n /= float(n.std()) + 1e-6
+    r = float((n - cv2.GaussianBlur(n, (0, 0), 1.5)).std()) + 1e-6
+    c = cv2.GaussianBlur(rng.normal(0, 1, (h, w, 3)).astype(np.float32), (0, 0), sigma)
+    c /= float(c.std()) + 1e-6
+    return (n[..., None] * 0.97 + c * 0.1) * (spread / r)
+
+
+def _grain_spread(img, around, cv2, np):
+    """The spread of the photo's grain in the pixels flagged by `around`, measured robustly (the
+    median absolute deviation of the luminance residual, so an edge in the ring does not inflate it)."""
+    lum = img.mean(2)
+    res = lum - cv2.GaussianBlur(lum, (0, 0), 1.5)
+    v = res[around]
+    if v.size < 20:
+        return 1.0
+    return float(np.clip(1.4826 * np.median(np.abs(v - np.median(v))), 0.3, 6.0))
+
+
+def _texture(f, mask, forbid, cv2, np):
+    """The photo's own fine texture (weave, grain, noise) for a filled gap: the detail of a clean
+    patch of the same surface beside the mark, found by looking at every position around it that
+    does not touch the mark or anything in `forbid`, and taking the one with the least going on.
+    Returns an image-sized float array of that detail (zero outside the gap's bounding box), or
+    None when there is no clean patch to take it from."""
+    h, w = mask.shape
+    ys, xs = np.nonzero(mask)
+    y0, y1, x0, x1 = int(ys.min()), int(ys.max()) + 1, int(xs.min()), int(xs.max()) + 1
+    bh, bw = y1 - y0, x1 - x0
+    low = cv2.GaussianBlur(f, (0, 0), 4)
+    detail = f - low
+    forb = cv2.dilate(((mask > 0) | (forbid > 0)).astype(np.uint8), np.ones((9, 9), np.uint8)) > 0
+    step = max(6, min(bw, bh) // 8)
+    best, best_score = None, None
+    for dy in range(-(bh + 40), bh + 41, step):
+        for dx in range(-(bw + 40), bw + 41, step):
+            sy, sx = y0 + dy, x0 + dx
+            if sy < 0 or sx < 0 or sy + bh > h or sx + bw > w or forb[sy:sy + bh, sx:sx + bw].any():
+                continue
+            patch = detail[sy:sy + bh, sx:sx + bw]
+            score = float(np.abs(patch).mean()) + 0.5 * float(np.abs(np.diff(low[sy:sy + bh, sx:sx + bw].mean(2), axis=1)).mean())
+            if best_score is None or score < best_score:
+                best, best_score = (sy, sx), score
+    if best is None:
+        return None
+    sy, sx = best
+    out = np.zeros_like(f)
+    out[y0:y1, x0:x1] = detail[sy:sy + bh, sx:sx + bw]
+    return out
+
+
+def _harmonic(img, unknown, scale, cv2, np):
+    """Fill the `unknown` pixels of a float image with the smooth (Laplace) continuation of the
+    known ones around them. It is worked out coarse to fine, on grids `scale` times (and 2 and 4
+    times) coarser than the image, so a large gap converges, then scaled back up."""
+    h, w = unknown.shape
+    s0 = max(1, int(scale))
+    u = None
+    for s, iters in ((s0 * 4, 600), (s0 * 2, 500), (s0, 500)):
+        gh, gw = max(3, h // s), max(3, w // s)
+        small = cv2.resize(img, (gw, gh), interpolation=cv2.INTER_AREA)
+        # A coarse cell is unknown when any part of it is, so no known value is polluted by a mark.
+        unk = cv2.resize(unknown.astype(np.uint8) * 255, (gw, gh), interpolation=cv2.INTER_AREA) > 0
+        known = ~unk
+        if not known.any():
+            return img
+        if u is None:
+            cur = small.copy()
+            cur[unk] = small[known].mean(0)
+        else:
+            cur = np.where(unk[..., None], cv2.resize(u, (gw, gh), interpolation=cv2.INTER_LINEAR), small)
+        for _ in range(iters):
+            p = np.pad(cur, ((1, 1), (1, 1), (0, 0)), mode="edge")
+            avg = (p[:-2, 1:-1] + p[2:, 1:-1] + p[1:-1, :-2] + p[1:-1, 2:]) / 4
+            new = np.where(unk[..., None], avg, cur)
+            done = float(np.abs(new - cur).max()) < 0.005
+            cur = new
+            if done:
+                break
+        u = cur
+    return cv2.resize(u, (w, h), interpolation=cv2.INTER_CUBIC)
+
+
+def _erase_marks(out, fix, cv2, np):
+    """Erase printed marks (letters, a small logo) from a smooth surface.
+
+    Only the pixels that differ from their surroundings the way printing does are filled, and only
+    inside the fix's box or polygon, so skin, shadows and edges next to the mark are left alone.
+    The surface is estimated by a morphological closing (dark marks) or opening (light marks) with
+    a window larger than the strokes (a number, or [width, height] for a flat window that follows a
+    band's rows); with "surface": "median" a median of that window is used instead, which follows a
+    tone that changes across the box. Pixels that sit `delta` to `max_delta` levels away from it,
+    and are no more colourful than `sat` (0-255), are the mark. The mark is grown by `grow` pixels
+    to take its soft edge, filled from what surrounds it, and given the surface's own grain.
+    `keep` lists polygons (a finger, an edge) that are never touched, widened by `keep_margin`;
+    `protect_sat` (0-255) also leaves alone every pixel more colourful than that (skin beside a
+    white case), so the fill cannot dull an edge. For a faint, soft ghost that has no crisp strokes
+    to threshold, "whole": true erases the whole polygon, and "method": "laplace" fills it by
+    smoothly continuing the tone of the pixels around it (`scale` sets the working grid), which
+    follows a gradient the way a flat fill cannot. A fill is smoother than the photo, so it is
+    given the photo's grain back: noise like it by default, or with "texture": "copy" the real
+    fine detail of a clean patch of the same surface beside the mark (for a woven fabric).
+    """
+    h, w = out.shape[:2]
+    if "poly" in fix:
+        pts = np.array(fix["poly"], np.int32)
+        x0, y0 = pts.min(0)
+        x1, y1 = pts.max(0)
+    else:
+        x0, y0, x1, y1 = fix["box"]
+        pts = np.array([[x0, y0], [x1, y0], [x1, y1], [x0, y1]], np.int32)
+    win = fix.get("window", 61)
+    kw, kh = (int(win[0]) | 1, int(win[1]) | 1) if isinstance(win, (list, tuple)) else (int(win) | 1, int(win) | 1)
+    k = max(kw, kh)
+    grow = int(fix.get("grow", 3))
+    radius = int(fix.get("radius", 4))
+    pad = k + grow + radius + 8
+    if fix.get("texture") == "copy":  # room to look for a clean patch beside the mark
+        pad = max(pad, int(max(x1 - x0, y1 - y0)) * 2 + 60)
+    X0, Y0, X1, Y1 = max(0, int(x0) - pad), max(0, int(y0) - pad), min(w, int(x1) + pad), min(h, int(y1) + pad)
+    roi = out[Y0:Y1, X0:X1].copy()
+    lum = cv2.cvtColor(roi, cv2.COLOR_BGR2GRAY).astype(np.int16)
+    sat = cv2.cvtColor(roi, cv2.COLOR_BGR2HSV)[..., 1]
+    light = fix.get("mark", "dark") == "light"
+    se = cv2.getStructuringElement(cv2.MORPH_RECT if isinstance(win, (list, tuple)) else cv2.MORPH_ELLIPSE, (kw, kh))
+    median = fix.get("surface") == "median"  # for a tone that changes across the box: a median follows it, an envelope lifts it
+    if median:
+        surface = cv2.medianBlur(lum.astype(np.uint8), k).astype(np.int16)
+    else:
+        surface = cv2.morphologyEx(lum.astype(np.uint8), cv2.MORPH_OPEN if light else cv2.MORPH_CLOSE, se).astype(np.int16)
+    diff = (lum - surface) if light else (surface - lum)
+    region = np.zeros(lum.shape, np.uint8)
+    cv2.fillPoly(region, [(pts - np.array([X0, Y0])).astype(np.int32)], 255)
+    mark = (diff >= fix.get("delta", 12)) & (diff <= fix.get("max_delta", 255)) & (sat <= fix.get("sat", 255))
+    mask = (mark & (region > 0)).astype(np.uint8) * 255
+    if fix.get("whole"):
+        mask = region.copy()
+    if grow and not fix.get("whole"):
+        mask = cv2.dilate(mask, cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (2 * grow + 1, 2 * grow + 1)))
+    mask[region == 0] = 0
+    protect = None
+    if "protect_sat" in fix:  # colourful pixels (skin) beside a neutral surface are never touched
+        protect = (sat > int(fix["protect_sat"])).astype(np.uint8) * 255
+        protect = cv2.dilate(protect, np.ones((3, 3), np.uint8))
+        mask[protect > 0] = 0
+    keep_mask = None
+    if fix.get("keep"):  # polygons that must stay as they are: a finger, an edge that touches the mark
+        keep = np.zeros(lum.shape, np.uint8)
+        for poly in fix["keep"]:
+            cv2.fillPoly(keep, [(np.array(poly, np.int32) - np.array([X0, Y0])).astype(np.int32)], 255)
+        m = int(fix.get("keep_margin", 0))
+        if m:
+            keep = cv2.dilate(keep, cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (2 * m + 1, 2 * m + 1)))
+        mask[keep > 0] = 0
+        keep_mask = keep
+    if not mask.any():
+        raise ImageryError(f"retouch found nothing to erase: {fix.get('why', '')}")
+    method = fix.get("method", "surface")
+    if method == "inpaint":
+        filled = cv2.inpaint(roi, mask, radius, cv2.INPAINT_TELEA).astype(np.float32)
+    elif method == "laplace":
+        unknown = (mask > 0) | (protect > 0 if protect is not None else False)
+        if keep_mask is not None:
+            unknown |= keep_mask > 0
+        filled = _harmonic(roi.astype(np.float32), unknown, int(fix.get("scale", 6)), cv2, np)
+    else:
+        # Fill with the surface itself, channel by channel, so a neighbouring finger or edge cannot
+        # bleed its colour into the gap the way inpainting lets it.
+        op = cv2.MORPH_OPEN if light else cv2.MORPH_CLOSE
+        if median:
+            surf = cv2.merge([cv2.medianBlur(roi[..., c], k) for c in range(3)]).astype(np.float32)
+        else:
+            surf = cv2.merge([cv2.morphologyEx(roi[..., c], op, se) for c in range(3)]).astype(np.float32)
+        filled = cv2.GaussianBlur(surf, (0, 0), sigmaX=max(1.0, kw / 20), sigmaY=max(1.0, kh / 20))
+    # An envelope sits a little below (or above) the surface's mean tone, so shift the fill to the
+    # tone of the untouched pixels around the mark; then add their grain back, as a fill is smoother.
+    f = roi.astype(np.float32)
+    ring = cv2.dilate(mask, np.ones((25, 25), np.uint8)) > 0
+    ring &= mask == 0
+    if keep_mask is not None:
+        ring &= keep_mask == 0
+    if protect is not None:
+        ring &= protect == 0
+    if ring.any() and method == "surface":
+        filled = filled + np.median(f[ring] - filled[ring], axis=0)
+    rng = np.random.default_rng(11)
+    tex = None
+    if fix.get("texture") == "copy":
+        forbid = np.zeros(mask.shape, np.uint8)
+        if keep_mask is not None:
+            forbid |= keep_mask
+        if protect is not None:
+            forbid |= protect
+        tex = _texture(f, mask, forbid, cv2, np)
+    if tex is not None:
+        filled = filled + tex
+    else:
+        sd = _grain_spread(f, ring, cv2, np) if ring.any() else 1.0
+        filled = filled + _grain(filled.shape, sd, rng, cv2, np)
+    soft = cv2.GaussianBlur(mask.astype(np.float32) / 255.0, (0, 0), float(fix.get("feather", 1.5)))[..., None]
+    soft = np.maximum(soft, (mask > 0)[..., None].astype(np.float32))
+    if protect is not None:
+        soft[protect > 0] = 0
+    if keep_mask is not None:
+        soft[keep_mask > 0] = 0
+    filled = np.clip(f * (1 - soft) + filled * soft, 0, 255).astype(np.uint8)
+    out[Y0:Y1, X0:X1] = filled
+    return out
+
+
+def _fill_rows(out, fix, cv2, np):
+    """Fill a box row by row, from the pixels just left and right of it (or column by column, from
+    the pixels above and below, with "axis": "cols"). For a band or rim whose tone changes across
+    it but not along it, this continues the tone exactly, where a four-sided blend leaves a flat
+    patch. Grain from the surroundings is added back."""
+    x0, y0, x1, y1 = fix["box"]
+    band = int(fix.get("band", 8))
+    f = out.astype(np.float32)
+    rng = np.random.default_rng(11)
+    if fix.get("axis", "rows") == "rows":
+        a = cv2.GaussianBlur(f[y0:y1, x0 - band:x0].mean(1, keepdims=True), (0, 0), sigmaX=0.1, sigmaY=float(fix.get("smooth", 1.5)))
+        b = cv2.GaussianBlur(f[y0:y1, x1:x1 + band].mean(1, keepdims=True), (0, 0), sigmaX=0.1, sigmaY=float(fix.get("smooth", 1.5)))
+        if "cap" in fix:  # a highlight at the far end must not streak across the whole patch
+            b = np.minimum(b, a + float(fix["cap"]))
+        t = ((np.arange(x1 - x0) + 0.5) / (x1 - x0))[None, :, None]
+        patch = (1 - t) * a + t * b
+        ring = np.concatenate([f[y0:y1, x0 - band:x0].reshape(-1, 3), f[y0:y1, x1:x1 + band].reshape(-1, 3)])
+    else:
+        a = cv2.GaussianBlur(f[y0 - band:y0, x0:x1].mean(0, keepdims=True), (0, 0), sigmaX=float(fix.get("smooth", 1.5)), sigmaY=0.1)
+        b = cv2.GaussianBlur(f[y1:y1 + band, x0:x1].mean(0, keepdims=True), (0, 0), sigmaX=float(fix.get("smooth", 1.5)), sigmaY=0.1)
+        t = ((np.arange(y1 - y0) + 0.5) / (y1 - y0))[:, None, None]
+        patch = (1 - t) * a + t * b
+        ring = np.concatenate([f[y0 - band:y0, x0:x1].reshape(-1, 3), f[y1:y1 + band, x0:x1].reshape(-1, 3)])
+    sd = 1.0
+    if ring.size:
+        near = f[y0:y1, x0 - band:x0] if fix.get("axis", "rows") == "rows" else f[y0 - band:y0, x0:x1]
+        nl = near.mean(2)
+        nres = nl - cv2.GaussianBlur(nl, (0, 0), 1.5)
+        sd = float(np.clip(1.4826 * np.median(np.abs(nres - np.median(nres))), 0.3, 6.0))
+    patch = patch + _grain(patch.shape, sd, rng, cv2, np)
+    # Fade the patch in over `feather` pixels at every side so no edge shows.
+    fe = int(fix.get("feather", 0))
+    if fe:
+        hh, ww = y1 - y0, x1 - x0
+        wy = np.clip(np.minimum(np.arange(hh) + 1, hh - np.arange(hh)) / fe, 0, 1)[:, None, None]
+        wx = np.clip(np.minimum(np.arange(ww) + 1, ww - np.arange(ww)) / fe, 0, 1)[None, :, None]
+        w = np.minimum(wy, wx) if fix.get("fade_all", True) else (wx if fix.get("axis", "rows") == "rows" else wy)
+        patch = out[y0:y1, x0:x1].astype(np.float32) * (1 - w) + patch * w
+    out[y0:y1, x0:x1] = np.clip(patch, 0, 255).astype(np.uint8)
+    return out
+
+
 def retouch(im: Image.Image, fixes: list) -> Image.Image:
     """Fill listed boxes from their surroundings (OpenCV inpainting): small third-party logos on
-    parts or signs that a photo happens to show. Each fix records why."""
+    parts or signs that a photo happens to show. Each fix records why.
+
+    A fix is a box or a polygon plus `fill`: "smooth" (the default: blend the box from its edges),
+    "inpaint" (OpenCV inpainting over the whole box), "rows" (continue each row from its two ends,
+    for a band; see _fill_rows) or "marks" (only the printed pixels inside the box or polygon are
+    erased; see _erase_marks)."""
     if not fixes:
         return im
     import cv2
@@ -180,7 +443,13 @@ def retouch(im: Image.Image, fixes: list) -> Image.Image:
     out = arr.copy()
     rng = np.random.default_rng(11)
     for fix in fixes:
+        if fix.get("fill") == "marks":
+            out = _erase_marks(out, fix, cv2, np)
+            continue
         x0, y0, x1, y1 = fix["box"]
+        if fix.get("fill") == "rows":
+            out = _fill_rows(out, fix, cv2, np)
+            continue
         if fix.get("fill", "smooth") == "inpaint":
             mask = np.zeros(arr.shape[:2], np.uint8)
             mask[y0:y1, x0:x1] = 255
@@ -201,10 +470,10 @@ def retouch(im: Image.Image, fixes: list) -> Image.Image:
         c01, c11 = f[y1, x0 - 1], f[y1, x1]
         patch = ((1 - v) * top[None] + v * bot[None] + (1 - u) * lef[:, None] + u * rig[:, None]
                  - ((1 - u) * (1 - v) * c00 + u * (1 - v) * c10 + (1 - u) * v * c01 + u * v * c11))
-        ring = np.concatenate([f[y0 - band:y0, x0:x1].reshape(-1, 3), f[y1:y1 + band, x0:x1].reshape(-1, 3)])
-        grain = cv2.GaussianBlur(f[y0 - band:y0, x0:x1], (0, 0), 2)
-        sd = float(np.clip((f[y0 - band:y0, x0:x1] - grain).std(), 0.5, 6.0)) if ring.size else 1.0
-        patch += rng.normal(0, sd, patch.shape).astype(np.float32)
+        above = f[y0 - band:y0, x0:x1].mean(2)
+        ares = above - cv2.GaussianBlur(above, (0, 0), 1.5)
+        sd = float(np.clip(1.4826 * np.median(np.abs(ares - np.median(ares))), 0.3, 6.0)) if above.size else 1.0
+        patch += _grain(patch.shape, sd, rng, cv2, np)
         out[y0:y1, x0:x1] = np.clip(patch, 0, 255).astype(np.uint8)
     return Image.fromarray(cv2.cvtColor(out, cv2.COLOR_BGR2RGB))
 
@@ -391,7 +660,7 @@ def render(design: Path, only: list[str] | None = None) -> dict:
             im = grade(retouch(to_srgb(Image.open(orig)), p.get("retouch", [])), {**src.get("grade", {}), **p.get("grade", {})})
             entry = {"source": credit_of(p, src.get("licenses", {})), "alt": p["alt"], "people": p.get("people"),
                      "logo_safe": p.get("people") in LOGO_SAFE_PEOPLE,
-                     "description": p.get("description"), "retouched": [f["why"] for f in p.get("retouch", [])],
+                     "description": p.get("description"), "retouched": list(dict.fromkeys(f["why"] for f in p.get("retouch", []))),
                      "logos": [], "kind": "photo", "crops": {}}
             if p.get("screen"):
                 quad, mask = find_screen(im)
@@ -406,12 +675,13 @@ def render(design: Path, only: list[str] | None = None) -> dict:
             for crop_name, spec in p["crops"].items():
                 box = crop_box(im.size, parse_aspect(crop_name), spec.get("focus", [0.5, 0.5]), spec.get("zoom", 1.0))
                 cut = im.crop(box)
-                files = {f: [] for f in FORMATS}
+                fmts = tuple(spec.get("formats", FORMATS))  # a crop used only as a JPEG (the link preview) lists just that
+                files = {f: [] for f in fmts}
                 widths = [w for w in spec["widths"] if w <= cut.width] or [cut.width]
                 for w in widths:
                     h = round(w * cut.height / cut.width)
                     small = cut.resize((w, h), Image.LANCZOS)
-                    for fmt in FORMATS:
+                    for fmt in fmts:
                         data = encode(small, fmt, settings)
                         name = f"{p['id']}-{crop_name}-{w}.{fmt}"
                         (out_dir / name).write_bytes(data)
@@ -481,8 +751,8 @@ def audit(design: Path, require_originals: bool = False) -> dict:
         if not str(p.get("page_url", "")).startswith("https://"):
             errors.append(f"{pid}: page_url must be an https link to the photo's page")
         for fix in p.get("retouch", []):
-            if not fix.get("why") or len(fix.get("box", [])) != 4:
-                errors.append(f"{pid}: each retouch needs a box and a reason")
+            if not fix.get("why") or not (len(fix.get("box", [])) == 4 or (len(fix.get("poly", [])) >= 3 and fix.get("fill") == "marks")):
+                errors.append(f"{pid}: each retouch needs a box (or, for fill 'marks', a polygon) and a reason")
         if p.get("people") not in PEOPLE:
             errors.append(f"{pid}: people must be one of {', '.join(PEOPLE)}")
         if p.get("screen") and p.get("people") not in LOGO_SAFE_PEOPLE:

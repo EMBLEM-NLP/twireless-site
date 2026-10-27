@@ -4,290 +4,170 @@
   "design_id": "design-2",
   "generated": "2026-10-26",
   "photos": {
-    "hand-phone": {
+    "hand-blue-phone": {
       "source": {
         "provider": "Pexels",
-        "provider_id": "9164565",
-        "page_url": "https://www.pexels.com/photo/person-holding-mobile-phone-9164565/",
-        "author": "Nandhu Kumar",
-        "author_url": "https://www.pexels.com/@nandhukumar/",
+        "provider_id": "11772521",
+        "page_url": "https://www.pexels.com/photo/a-person-holding-a-smartphone-11772521/",
+        "author": "Imad Clicks",
+        "author_url": "https://www.pexels.com/@imadclicks/",
         "license": "Pexels License",
         "license_url": "https://www.pexels.com/license/",
         "retrieved": "2026-10-26"
       },
-      "alt": "A hand holding up a phone. On its screen: the T Wireless logo, Bell Authorised Retailer in Brampton, and the Bell, Virgin Plus and Lucky Mobile logos.",
+      "alt": "A hand holding up a blue phone, with flowers and plants blurred behind it.",
       "people": "no faces",
       "logo_safe": true,
-      "description": "Hand holding a smartphone with a blank screen outdoors",
-      "logos": [
-        "t-wireless",
-        "bell",
-        "virgin-plus",
-        "lucky-mobile"
+      "description": "A hand holding a blue smartphone with garden plants and flowers blurred behind it",
+      "retouched": [
+        "maker's name, faintly printed on the back of the phone"
       ],
-      "kind": "composite",
+      "logos": [],
+      "kind": "photo",
       "crops": {
         "4x5": {
           "aspect": 0.8,
           "box": [
             0,
-            448,
-            3200,
-            4448
+            0,
+            6336,
+            7920
           ],
           "files": {
             "avif": [
               {
-                "file": "hand-phone-4x5-480.avif",
+                "file": "hand-blue-phone-4x5-480.avif",
                 "w": 480,
                 "h": 600,
-                "bytes": 8584,
-                "sha256": "67bf2acb8078430015e52a2487cd591f3bfbed6d09b481237a5b19806d50d778"
+                "bytes": 10414,
+                "sha256": "2e2eb560ad72b9290dcf0517c3684d94a3e2ae166922f77f15c4c1209bca59e7"
               },
               {
-                "file": "hand-phone-4x5-720.avif",
+                "file": "hand-blue-phone-4x5-720.avif",
                 "w": 720,
                 "h": 900,
-                "bytes": 14173,
-                "sha256": "32958682f393a888c8be346bb0073645c9486e03290cfb2cf099ac32a579208a"
+                "bytes": 16580,
+                "sha256": "b26723d9dd6f86855ae4a4fcf88f56bc681bdd72ac29f0f5c592a5c2bb428bf5"
               },
               {
-                "file": "hand-phone-4x5-960.avif",
+                "file": "hand-blue-phone-4x5-960.avif",
                 "w": 960,
                 "h": 1200,
-                "bytes": 20035,
-                "sha256": "b497b2056ee8422d6b949b2c0d7b13fb8235757f2a3b5491e146f47998270362"
+                "bytes": 23258,
+                "sha256": "c6100d23558d61476c8bca8b29f03ed95a62be8f5f44483aef74ca74ff3d8329"
               },
               {
-                "file": "hand-phone-4x5-1280.avif",
+                "file": "hand-blue-phone-4x5-1280.avif",
                 "w": 1280,
                 "h": 1600,
-                "bytes": 29639,
-                "sha256": "c2ca27127e28abd35e163ad61e1f58228b5b9a962262a9481654160562986d57"
+                "bytes": 32918,
+                "sha256": "54856c880c62c4a8a17579eb03967906df05965aaa91d3c3d85355e3c1723cac"
               },
               {
-                "file": "hand-phone-4x5-1600.avif",
+                "file": "hand-blue-phone-4x5-1600.avif",
                 "w": 1600,
                 "h": 2000,
-                "bytes": 40855,
-                "sha256": "ea9bb435b0e6a0dee01c20069b8c337f63aafd9761372e68f3f297c29593c16f"
+                "bytes": 42945,
+                "sha256": "aba359dc2f89089dd3bf2e518fc4cd88d9d0dd35b4dd38e3a566b5be4cd7841b"
               }
             ],
             "webp": [
               {
-                "file": "hand-phone-4x5-480.webp",
+                "file": "hand-blue-phone-4x5-480.webp",
                 "w": 480,
                 "h": 600,
-                "bytes": 11304,
-                "sha256": "f4498ef1d468101cab340cc4f8e90340dd707dcc56132fafdd46d6e72fe44944"
+                "bytes": 14190,
+                "sha256": "d7ab6a84e6a43f4a02b057102bf7bd8110553e56e8b8becbbd6441e21e417be8"
               },
               {
-                "file": "hand-phone-4x5-720.webp",
+                "file": "hand-blue-phone-4x5-720.webp",
                 "w": 720,
                 "h": 900,
-                "bytes": 18826,
-                "sha256": "084968ed314b1fbf34aa58291b6829177e81aa2c4267487e6b69e6255367c1aa"
+                "bytes": 22794,
+                "sha256": "0cfd114be130626459d0aedebfdc39558bdd81183abd836ef3ce1c13943b7b21"
               },
               {
-                "file": "hand-phone-4x5-960.webp",
+                "file": "hand-blue-phone-4x5-960.webp",
                 "w": 960,
                 "h": 1200,
-                "bytes": 27212,
-                "sha256": "f55569a1880ceedda7763fbebea5ff0fb7d85798b47fc9a21a6e557ab5a9a7d7"
+                "bytes": 31834,
+                "sha256": "c97894cad4d904ba09c6b937df9d59973cf263cff5194c774c05a296b8cbfc52"
               },
               {
-                "file": "hand-phone-4x5-1280.webp",
+                "file": "hand-blue-phone-4x5-1280.webp",
                 "w": 1280,
                 "h": 1600,
-                "bytes": 38604,
-                "sha256": "ce1be070b7f054e4b06c0a462abcab31a4540a5208813bb4ee366f92a177589e"
+                "bytes": 45992,
+                "sha256": "4745fd8aac86736494cf4f17cde6665b843f5623294cb7ef86a644cd34cc363b"
               },
               {
-                "file": "hand-phone-4x5-1600.webp",
+                "file": "hand-blue-phone-4x5-1600.webp",
                 "w": 1600,
                 "h": 2000,
-                "bytes": 52086,
-                "sha256": "214b28b8b13b4d6eb175ddc5cac7a0e3c5193a06fd9c8cc44aa0faddb06477d5"
+                "bytes": 60342,
+                "sha256": "19c6d802af945ab5722e6fd5217e517dc1488bb03185bc30b7884160ae32219c"
               }
             ],
             "jpg": [
               {
-                "file": "hand-phone-4x5-480.jpg",
+                "file": "hand-blue-phone-4x5-480.jpg",
                 "w": 480,
                 "h": 600,
-                "bytes": 23770,
-                "sha256": "3d3f2298210cc5e3804e1808297fc4a9750260c0c738dbe9efea8d74ddb358da"
+                "bytes": 29592,
+                "sha256": "b5e569d8b20a66f594e692a09b9008bbacb02531b0b43ca26534c3a6f158599d"
               },
               {
-                "file": "hand-phone-4x5-720.jpg",
+                "file": "hand-blue-phone-4x5-720.jpg",
                 "w": 720,
                 "h": 900,
-                "bytes": 43237,
-                "sha256": "0741894d784c78991fa618d5a264d0c682e7a7c3a0be73c86e47eab875302595"
+                "bytes": 52335,
+                "sha256": "fece4180402203b9dea588ec8427e1733a6db70cb87ae86a1c835790018b27ad"
               },
               {
-                "file": "hand-phone-4x5-960.jpg",
+                "file": "hand-blue-phone-4x5-960.jpg",
                 "w": 960,
                 "h": 1200,
-                "bytes": 66283,
-                "sha256": "ee24a125f35d99bd6880135e3d569ce5ab3cf5d30c2982e61a04dd3775695f3d"
+                "bytes": 78714,
+                "sha256": "b7e9ce812c951585ec51909c2cf525d63148ae6ea0eb43f9afc9e75866939df1"
               },
               {
-                "file": "hand-phone-4x5-1280.jpg",
+                "file": "hand-blue-phone-4x5-1280.jpg",
                 "w": 1280,
                 "h": 1600,
-                "bytes": 102538,
-                "sha256": "2fb0ff1735ccd5eab4a73c66b7a91ebfe0bc32a6db6a3212224d4150a6733868"
+                "bytes": 119635,
+                "sha256": "0a982d98664952fcea0908028e4811970a1745b84f4e0135c89e950ef76a3e56"
               },
               {
-                "file": "hand-phone-4x5-1600.jpg",
+                "file": "hand-blue-phone-4x5-1600.jpg",
                 "w": 1600,
                 "h": 2000,
-                "bytes": 148622,
-                "sha256": "c50304a9d1161edf59c6ab23086799c4d72d3f47e69dfbf77fc8eeb9ce96356a"
+                "bytes": 167072,
+                "sha256": "41343459cea4892df459784aab717c8fd84d2307aa2de4446fb7776cb691a04c"
               }
             ]
           }
-        }
-      },
-      "screen_quad": [
-        [
-          1041.0,
-          1194.5
-        ],
-        [
-          2114.0,
-          1174.8
-        ],
-        [
-          2157.8,
-          3619.8
-        ],
-        [
-          1041.0,
-          3631.8
-        ]
-      ]
-    },
-    "hand-new-phones": {
-      "source": {
-        "provider": "Pexels",
-        "provider_id": "30909364",
-        "page_url": "https://www.pexels.com/photo/hand-holding-smartphone-with-blank-screen-30909364/",
-        "author": "Jakub Zerdzicki",
-        "author_url": "https://www.pexels.com/@jakubzerdzicki/",
-        "license": "Pexels License",
-        "license_url": "https://www.pexels.com/license/",
-        "retrieved": "2026-10-26"
-      },
-      "alt": "A hand holding up a phone. Its screen shows the T Wireless logo and New phones, iPhone and Android.",
-      "people": "no faces",
-      "logo_safe": true,
-      "description": "A hand holding a smartphone with a blank screen",
-      "logos": [
-        "t-wireless"
-      ],
-      "kind": "composite",
-      "crops": {
-        "16x10": {
-          "aspect": 1.6,
+        },
+        "40x21": {
+          "aspect": 1.90476,
           "box": [
             0,
-            357,
-            2800,
-            2107
+            1346,
+            6336,
+            4673
           ],
           "files": {
-            "avif": [
-              {
-                "file": "hand-new-phones-16x10-640.avif",
-                "w": 640,
-                "h": 400,
-                "bytes": 7805,
-                "sha256": "1e1c22285535e749f4768ab1dad3b6beb2fdbe203ecad2f2e8e51b8b5e4b8262"
-              },
-              {
-                "file": "hand-new-phones-16x10-960.avif",
-                "w": 960,
-                "h": 600,
-                "bytes": 13226,
-                "sha256": "1b3140c870253e463763f9aa157bb80d2af8c5c4e9f5e4ff12c9fc094ad3624a"
-              },
-              {
-                "file": "hand-new-phones-16x10-1280.avif",
-                "w": 1280,
-                "h": 800,
-                "bytes": 19215,
-                "sha256": "6ed4a5db91739016d0f34f328fee182e37d3aec4d9e398975de79c9e4981685d"
-              }
-            ],
-            "webp": [
-              {
-                "file": "hand-new-phones-16x10-640.webp",
-                "w": 640,
-                "h": 400,
-                "bytes": 11214,
-                "sha256": "e98c2bb2bfd18cda0f5b0cc881c3fa93bcda34a08b91d784f316ea558e06b41f"
-              },
-              {
-                "file": "hand-new-phones-16x10-960.webp",
-                "w": 960,
-                "h": 600,
-                "bytes": 18976,
-                "sha256": "615653722210f13996f90b5386fee2af37f12fdb6f5c4ade5fdc08a569a51965"
-              },
-              {
-                "file": "hand-new-phones-16x10-1280.webp",
-                "w": 1280,
-                "h": 800,
-                "bytes": 26786,
-                "sha256": "e207292aa6b39ac6b11273893f4d8b4d7f8ccff2468a6336cc6d11762d706366"
-              }
-            ],
             "jpg": [
               {
-                "file": "hand-new-phones-16x10-640.jpg",
-                "w": 640,
-                "h": 400,
-                "bytes": 22517,
-                "sha256": "2622c872893e6c118d0c859d7ec9f1f80b113919c20cb8508ee5eeaf679949bf"
-              },
-              {
-                "file": "hand-new-phones-16x10-960.jpg",
-                "w": 960,
-                "h": 600,
-                "bytes": 41304,
-                "sha256": "71484b8ebeaa0b128cca25c43949f52e8c4eb1f8242a71f55e3ba0415b5baa9b"
-              },
-              {
-                "file": "hand-new-phones-16x10-1280.jpg",
-                "w": 1280,
-                "h": 800,
-                "bytes": 62210,
-                "sha256": "e2fae1cae5863eed87f18ec851ab5db7da5ba3d2dc69c8d4674f847fa4d4ed7a"
+                "file": "hand-blue-phone-40x21-1200.jpg",
+                "w": 1200,
+                "h": 630,
+                "bytes": 49389,
+                "sha256": "b2a9567e18966bc59bc3bfa9879ba44cfa21a411d7b0d57ecefa4de918991b74"
               }
             ]
           }
         }
-      },
-      "screen_quad": [
-        [
-          1697.2,
-          430.2
-        ],
-        [
-          2286.2,
-          817.7
-        ],
-        [
-          1416.6,
-          2033.7
-        ],
-        [
-          840.7,
-          1667.3
-        ]
-      ]
+      }
     },
     "two-phones": {
       "source": {
@@ -304,6 +184,10 @@
       "people": "no faces",
       "logo_safe": true,
       "description": "Close-up of hands holding two smartphones",
+      "retouched": [
+        "words printed on the clear case",
+        "maker's logo, faintly printed on the back of the white case"
+      ],
       "logos": [],
       "kind": "photo",
       "crops": {
@@ -321,29 +205,29 @@
                 "file": "two-phones-4x5-400.avif",
                 "w": 400,
                 "h": 500,
-                "bytes": 6177,
-                "sha256": "f051f9d955706bbc6afed927029bc1b8a4f502fcb871b6e814729e2361a77705"
+                "bytes": 6218,
+                "sha256": "4cfece2fa1ac913469c969a1dfaf8d9a0a1ec89e8b156abe924fe40f0ba2232f"
               },
               {
                 "file": "two-phones-4x5-600.avif",
                 "w": 600,
                 "h": 750,
-                "bytes": 9892,
-                "sha256": "0fb7a7cfd72af072a0b2c60e6c439a6911785f86d9176262d06036fc81afe7ca"
+                "bytes": 9856,
+                "sha256": "39872b7b4d0c47e1bb2e3aa27db6245843e08a69fe48487bed9c4c00dcbf1021"
               },
               {
                 "file": "two-phones-4x5-800.avif",
                 "w": 800,
                 "h": 1000,
-                "bytes": 14087,
-                "sha256": "e298410c968128580259c78c71c9bf3d67ff40d41f8d1860d54dd26cd6ed7bdd"
+                "bytes": 14015,
+                "sha256": "d3e946078220c5665017c8650e83299e64fb652a5adad1e44b4c6367a0614254"
               },
               {
                 "file": "two-phones-4x5-1000.avif",
                 "w": 1000,
                 "h": 1250,
-                "bytes": 18555,
-                "sha256": "7b480d2e0f68fd705c718ead9eb422198a4cb1d1518d385b2c5fb423c93171e2"
+                "bytes": 18546,
+                "sha256": "b6565fe4aada944827bb2fe7fa8a5392ccf73c6c524af5d4a9608211690aa099"
               }
             ],
             "webp": [
@@ -351,29 +235,29 @@
                 "file": "two-phones-4x5-400.webp",
                 "w": 400,
                 "h": 500,
-                "bytes": 7992,
-                "sha256": "33fd9e710ee3c94219557cd4e1f913416029d349c99e6ee7cdba35f81597edee"
+                "bytes": 7978,
+                "sha256": "ac2879988d1dc903bdbd0215a57873b045a3a5e7ed34c1072737051a75b2a8be"
               },
               {
                 "file": "two-phones-4x5-600.webp",
                 "w": 600,
                 "h": 750,
-                "bytes": 13266,
-                "sha256": "5c32322f2a71d0bf9bee4cf7be40fb60aee14f2ad54a5b2deb78fe924805beac"
+                "bytes": 13114,
+                "sha256": "8e29c765e94e879418c39d40283b0938fd348473a415b0c288a400aabf650b7d"
               },
               {
                 "file": "two-phones-4x5-800.webp",
                 "w": 800,
                 "h": 1000,
-                "bytes": 18860,
-                "sha256": "06ec1ace4c48589898a62e3b7c583b1425beee7fdf6dc1eaf14cbef1f84ce2d1"
+                "bytes": 18824,
+                "sha256": "50d2ebdc15049a7b270313acd8c544585f68ba5e982269fa52288f1e0dae7bc2"
               },
               {
                 "file": "two-phones-4x5-1000.webp",
                 "w": 1000,
                 "h": 1250,
-                "bytes": 25112,
-                "sha256": "f4d20ae9c2aeea6186dfc2e0d106d13861bdab1a3588597bd18d8b24c04a45a5"
+                "bytes": 25008,
+                "sha256": "424dee404cfc70effdb9eeef4d15a7a1d8e265ba74448015c0d8ce5b33a0099e"
               }
             ],
             "jpg": [
@@ -381,29 +265,29 @@
                 "file": "two-phones-4x5-400.jpg",
                 "w": 400,
                 "h": 500,
-                "bytes": 17517,
-                "sha256": "95e0e31c6c5d6f9cc5ffdd495e554c377c27176a38dc6de760d05668d0df8051"
+                "bytes": 17493,
+                "sha256": "c1c265dd31a4ed3be0dfe1a944a8a2f7e8e963532e6d706b8786e9f0e9d71c60"
               },
               {
                 "file": "two-phones-4x5-600.jpg",
                 "w": 600,
                 "h": 750,
-                "bytes": 30740,
-                "sha256": "2e51196f70cdf5d3c7366cd12572d33d2e7843fef27b2d213039b9132c924b8e"
+                "bytes": 30707,
+                "sha256": "05af3124381a6fecd1c818479f27cb2060185bec7f8834976eec70607859d155"
               },
               {
                 "file": "two-phones-4x5-800.jpg",
                 "w": 800,
                 "h": 1000,
-                "bytes": 46230,
-                "sha256": "5fc7d9fc6342b20cedb0e2be7ed9c42834454b252ad901df770e20b02dee35b0"
+                "bytes": 46197,
+                "sha256": "f8f50d3f8ebb2f6458eb48932eeb4be9991ddfa2bb625b0a19d3e73d35f28384"
               },
               {
                 "file": "two-phones-4x5-1000.jpg",
                 "w": 1000,
                 "h": 1250,
-                "bytes": 64765,
-                "sha256": "ab3b798dd018552c1d2b6a2d3d7ff85c7b639fdd111079e0ce997474058fc63e"
+                "bytes": 64727,
+                "sha256": "1be6c2338deb011b72b5c744bfa94534d7a5d23a6158d270c8038a1cdfc53e62"
               }
             ]
           }
@@ -422,22 +306,22 @@
                 "file": "two-phones-16x9-480.avif",
                 "w": 480,
                 "h": 270,
-                "bytes": 6284,
-                "sha256": "4d5c8e87f67aee7e05d2a332ea90ddcca974c5e918c7c8147be919a05a1a4875"
+                "bytes": 6228,
+                "sha256": "75470a8f5b27e1d74ae4419bac033f0ba3f408b78cfba378d502d8e637b1a01d"
               },
               {
                 "file": "two-phones-16x9-720.avif",
                 "w": 720,
                 "h": 405,
-                "bytes": 10006,
-                "sha256": "49d380b1e7a893e57f11f148d40e0e3e04fd37945a8927a934c9c0d6e69836e9"
+                "bytes": 9938,
+                "sha256": "9c5dc23166e0fea11a69a39c27768151b209e91b9b383d16eae6d60684d7e28e"
               },
               {
                 "file": "two-phones-16x9-960.avif",
                 "w": 960,
                 "h": 540,
-                "bytes": 13970,
-                "sha256": "e7e806db11c775c51460c2967552cfa6709b95eba1f962d19368a6a78bb50515"
+                "bytes": 13860,
+                "sha256": "c132e163499212158607991f3485787b1a05c979ad2291799dfa6541a21b568d"
               }
             ],
             "webp": [
@@ -445,22 +329,22 @@
                 "file": "two-phones-16x9-480.webp",
                 "w": 480,
                 "h": 270,
-                "bytes": 8182,
-                "sha256": "ff657e6d163f719278e5a2fffffdddfbe15b4dbb71b6e1a40b138147c6fe9e3c"
+                "bytes": 8104,
+                "sha256": "1205f631b96a5100dadfaba326dfa584a66f3c3de55549afb994e2a4b8e691a3"
               },
               {
                 "file": "two-phones-16x9-720.webp",
                 "w": 720,
                 "h": 405,
-                "bytes": 13104,
-                "sha256": "d76e7227ec48dafd688349ce10bba5ce924266ca5e45e14901dc57098cadd6bd"
+                "bytes": 12954,
+                "sha256": "f6bf3725d386b4388b9bad9c33f84eb8c4d8fa8e98c6ade786158aa3d44dd496"
               },
               {
                 "file": "two-phones-16x9-960.webp",
                 "w": 960,
                 "h": 540,
-                "bytes": 18776,
-                "sha256": "945da81c82c3741d044273bfd1d8f066bed9a369731b99703841dcebfa781e65"
+                "bytes": 18688,
+                "sha256": "270fb312179d52d8ff561aa0b15d540c3c85944c8fa5d1946d1fe9bb6ba1eaaa"
               }
             ],
             "jpg": [
@@ -468,22 +352,22 @@
                 "file": "two-phones-16x9-480.jpg",
                 "w": 480,
                 "h": 270,
-                "bytes": 16076,
-                "sha256": "a4f9b92035273546541b9231b752b8321bc4e353db8c567f389bc849235a3104"
+                "bytes": 16021,
+                "sha256": "af9e8a523d6b7b5512f8547710a021dc9a95447a33f442301a87b1220ca2dfc6"
               },
               {
                 "file": "two-phones-16x9-720.jpg",
                 "w": 720,
                 "h": 405,
-                "bytes": 28173,
-                "sha256": "b44958f05197b34dd1c4383ee5497d20ded02279694c3aa5a908007c0cc14836"
+                "bytes": 28113,
+                "sha256": "4e1e057a0283e3ba8a6edcf3b971577b3bd5874952dfc57b2df05cbd945281c4"
               },
               {
                 "file": "two-phones-16x9-960.jpg",
                 "w": 960,
                 "h": 540,
-                "bytes": 42491,
-                "sha256": "17e3d4f15b792ace37defd8033a446aa9e76a88a8af99e81b89b2a93b69300f3"
+                "bytes": 42364,
+                "sha256": "ac579b22a6f5bede42b1318fbb4f63ee7b8d183a17d297ce5a5b65536f579e6f"
               }
             ]
           }
@@ -505,6 +389,9 @@
       "people": "no faces",
       "logo_safe": true,
       "description": "An audience member recording a concert on a smartphone",
+      "retouched": [
+        "lettering printed on the wristband"
+      ],
       "logos": [],
       "kind": "photo",
       "crops": {
@@ -522,29 +409,29 @@
                 "file": "concert-4x5-400.avif",
                 "w": 400,
                 "h": 500,
-                "bytes": 7276,
-                "sha256": "5b490300f1a5cf3666deea1dea19364b2483bea89971292b27b66b507bd1840a"
+                "bytes": 7257,
+                "sha256": "460c50b1cebc8b3be5dcc0f23e72ae1678377e39f96403a9c5467b66f6a10ef4"
               },
               {
                 "file": "concert-4x5-600.avif",
                 "w": 600,
                 "h": 750,
-                "bytes": 12070,
-                "sha256": "c295ad1c162ddbec51b1474101c9c289b2ebe503b066be268db5e47f28eb3ba6"
+                "bytes": 12031,
+                "sha256": "6fb4a897e4ec450592040ce3d1a1263c18e3fb00e35d6c80be99e215226e9e59"
               },
               {
                 "file": "concert-4x5-800.avif",
                 "w": 800,
                 "h": 1000,
-                "bytes": 18029,
-                "sha256": "730a414cfa20ac6d8cf61e35256fb241911cfe7edc0707c27ddd4af835f8524d"
+                "bytes": 18011,
+                "sha256": "c4e990458b22a9c197d9476a479a08b68cc034bb776832c5332844ae0f6a47a3"
               },
               {
                 "file": "concert-4x5-1000.avif",
                 "w": 1000,
                 "h": 1250,
-                "bytes": 27325,
-                "sha256": "4cebc8e2c57bd5ceeae4d877a011dc440978668e033fb20328c015c47103ce4e"
+                "bytes": 27335,
+                "sha256": "58e326e1cf42eb8e6d990eba54bb4fc8cbc4c61732d3c25eb04997df0d3f04f5"
               }
             ],
             "webp": [
@@ -552,29 +439,29 @@
                 "file": "concert-4x5-400.webp",
                 "w": 400,
                 "h": 500,
-                "bytes": 9606,
-                "sha256": "9977dd5d32f78f6de1193327c9e6c50982561126aec90f99eae4d5638abeb9dc"
+                "bytes": 9630,
+                "sha256": "10ac13b191f6fc344a5decbfe1bc494460a60c2bcc6db62a2bbf07d0775ac61f"
               },
               {
                 "file": "concert-4x5-600.webp",
                 "w": 600,
                 "h": 750,
-                "bytes": 15742,
-                "sha256": "375d29582ffff6f6b368bbb98ad8d6ddc4e9f46e388141b712cdbc9ebb9e2cb3"
+                "bytes": 15768,
+                "sha256": "ec37b0a2f4c2dc39a7bd6da83975befd39472b60bd0df387b889a4756b19d590"
               },
               {
                 "file": "concert-4x5-800.webp",
                 "w": 800,
                 "h": 1000,
-                "bytes": 22484,
-                "sha256": "08c7c4336a3f432be08763d066ad69973bfa819d0f8b8500963cdb692bcc5fcc"
+                "bytes": 22294,
+                "sha256": "c8da18ff1c59f18daa5621fa9d5e4f249856cb9738766506cb005ba4b75048a1"
               },
               {
                 "file": "concert-4x5-1000.webp",
                 "w": 1000,
                 "h": 1250,
-                "bytes": 31674,
-                "sha256": "dd83a6f8b137d265731d7683072f268605cb8563f00777dfdaba54f4ce574e27"
+                "bytes": 31666,
+                "sha256": "d6a1ba2708422e1df5c27616241ba6ed88c3449b20c702e043b49ec66eb05ff1"
               }
             ],
             "jpg": [
@@ -582,29 +469,29 @@
                 "file": "concert-4x5-400.jpg",
                 "w": 400,
                 "h": 500,
-                "bytes": 19709,
-                "sha256": "562e29d6f0bd6ed6c77d356e14f3f0455e72c6228e1cfb46404003f0c66b045f"
+                "bytes": 19679,
+                "sha256": "f147b865e736f961f22df227bb547c13bce7955462ed4f9c4711ec68bc4f7eb7"
               },
               {
                 "file": "concert-4x5-600.jpg",
                 "w": 600,
                 "h": 750,
-                "bytes": 36881,
-                "sha256": "69fe44e3bdd0f47fc87f13055da19d269b08f159da62ca428d675866f28b71a3"
+                "bytes": 36841,
+                "sha256": "5985be3f89d391fe24edc9aad0809f7f4d13bcbfa2b9e68a206f1cda40c2963c"
               },
               {
                 "file": "concert-4x5-800.jpg",
                 "w": 800,
                 "h": 1000,
-                "bytes": 61416,
-                "sha256": "a3b36ce99f205bb43b9ad3344967c42ae8ac24e6eead7252c974ff7819af16dc"
+                "bytes": 61388,
+                "sha256": "a4f3bb699eb6a2ed666b0fad9a2be0a80bd4c74dce1d9fa7445d641eb2e8c877"
               },
               {
                 "file": "concert-4x5-1000.jpg",
                 "w": 1000,
                 "h": 1250,
-                "bytes": 100056,
-                "sha256": "2e1f0a8abd236edb4b8a851dafd3edd192dafab725ad767dcc5c5d77729fa11c"
+                "bytes": 100066,
+                "sha256": "307946f72534f294c58d85e71799e6c819086f712ca65b9b8861ff4d6b2d3d51"
               }
             ]
           }
@@ -623,22 +510,22 @@
                 "file": "concert-16x9-480.avif",
                 "w": 480,
                 "h": 270,
-                "bytes": 5925,
-                "sha256": "060f4880db5a2d8937d7776c36920ccb916ad278043360890cfe1fa2667cc429"
+                "bytes": 5921,
+                "sha256": "6190a97a32aab6512678af2f0b897de710821a4c00614ac2313f76fcb62045ed"
               },
               {
                 "file": "concert-16x9-720.avif",
                 "w": 720,
                 "h": 405,
-                "bytes": 9658,
-                "sha256": "392428b192e69c19360f2e666f550b161c2d898b80b59cd252a8ba3588e4f301"
+                "bytes": 9640,
+                "sha256": "4581a66e50bad63bcd2282429d0107319158673de6af69f92b7780a2f124331e"
               },
               {
                 "file": "concert-16x9-960.avif",
                 "w": 960,
                 "h": 540,
-                "bytes": 13293,
-                "sha256": "538de062584b424d7791bb228cd75447b5cf10e979d6ed9b7896011a0758f5d3"
+                "bytes": 13285,
+                "sha256": "74daebe9a696e4ce8dc16acb644fd024d7ce9604ef6df86b62aa2823b46257c1"
               }
             ],
             "webp": [
@@ -646,22 +533,22 @@
                 "file": "concert-16x9-480.webp",
                 "w": 480,
                 "h": 270,
-                "bytes": 7850,
-                "sha256": "4f92a0752e8be79c540916ed5e6c21d3a8adcf6d3f8ef254d497e2bb81430b53"
+                "bytes": 7852,
+                "sha256": "fae4b31ce75c53cfe0f0acea7167637459c82c968a4f1011adadacd0873af2ec"
               },
               {
                 "file": "concert-16x9-720.webp",
                 "w": 720,
                 "h": 405,
-                "bytes": 12706,
-                "sha256": "bf13afdd68cbab468a99e189af7dcf2f9ed2bf5864e835663db8e252cea9405a"
+                "bytes": 12698,
+                "sha256": "5b2423247d12832679a95f133c24bde899891afe98194db74456fd7ab469316f"
               },
               {
                 "file": "concert-16x9-960.webp",
                 "w": 960,
                 "h": 540,
-                "bytes": 17928,
-                "sha256": "afc162853253fa2bbfd6f697321cea268e93110284dadaba1727d7f357c30d0c"
+                "bytes": 17918,
+                "sha256": "83428e93ab2814a64e075d8ef37d544720d12986891d3dba64f22d5aad2f0d87"
               }
             ],
             "jpg": [
@@ -669,22 +556,22 @@
                 "file": "concert-16x9-480.jpg",
                 "w": 480,
                 "h": 270,
-                "bytes": 14897,
-                "sha256": "69f0e66e8ea59d888bca802429824652d071819affdb0ac979eb8704de751f50"
+                "bytes": 14890,
+                "sha256": "4db234798696ac4c04cae324bfd05b47cbfdef01b12b6f6a9031519edcce8b2c"
               },
               {
                 "file": "concert-16x9-720.jpg",
                 "w": 720,
                 "h": 405,
-                "bytes": 26508,
-                "sha256": "d9387d0316c4882ad0535d56c37cd4e2517ae7fe4984073e5809061eed424767"
+                "bytes": 26499,
+                "sha256": "105cdbf096b5655c5ba310eaf63a5128832052104ae59d3b983219c41ac8e60e"
               },
               {
                 "file": "concert-16x9-960.jpg",
                 "w": 960,
                 "h": 540,
-                "bytes": 40678,
-                "sha256": "5af5212c6d41eb47537f44b742c0d69685fab02885ecd430df7334e0eb14dec2"
+                "bytes": 40657,
+                "sha256": "9787bbb44b801ee0f717507a3868f9a3df25ca2f31f574689de2a00885652267"
               }
             ]
           }
@@ -708,7 +595,8 @@
       "description": "Adult in a black coat checking a smartphone while commuting on public transport",
       "retouched": [
         "transit operator's logo on the ticket machine",
-        "sticker on the ticket machine"
+        "sticker on the ticket machine",
+        "a dark smear on the out-of-focus pole"
       ],
       "logos": [],
       "kind": "photo",
@@ -727,29 +615,29 @@
                 "file": "train-4x5-400.avif",
                 "w": 400,
                 "h": 500,
-                "bytes": 6990,
-                "sha256": "4db26eea44f6eb461616f9b1e93152c75714b1164c5080d037ea4d31f81f6b31"
+                "bytes": 6976,
+                "sha256": "7e04cd2051892a2c42be861a636eb4cf187ad0a18ba9cc48fd5ed909cdb49717"
               },
               {
                 "file": "train-4x5-600.avif",
                 "w": 600,
                 "h": 750,
-                "bytes": 11850,
-                "sha256": "4493c94ae71dffdde6304b8767ff36b559902350fcd27ec9e839593b4e55bd9c"
+                "bytes": 11801,
+                "sha256": "abb74b178be6bc692e31f4f7a281fd8267d396745c2403b46c63b9ce759df2da"
               },
               {
                 "file": "train-4x5-800.avif",
                 "w": 800,
                 "h": 1000,
-                "bytes": 17505,
-                "sha256": "83b68338d115dc0f06ff05a64a461149955acfc8b01028a97b30b44988c6ff7c"
+                "bytes": 17502,
+                "sha256": "458a4a6097646eb09c0c69cfef9a024b3a7bb51b54e2acf9db6a61eda14db54a"
               },
               {
                 "file": "train-4x5-1000.avif",
                 "w": 1000,
                 "h": 1249,
-                "bytes": 24913,
-                "sha256": "24219fa26fbaa2d2f2d5171e9cc455d31c09cbc4fcd06230680a9df6afac64c0"
+                "bytes": 25031,
+                "sha256": "61f4849bb28c8a6e6a15844b6979b8407ccc38ec3afcff28ad12b596587d19d4"
               }
             ],
             "webp": [
@@ -757,29 +645,29 @@
                 "file": "train-4x5-400.webp",
                 "w": 400,
                 "h": 500,
-                "bytes": 8322,
-                "sha256": "6a442fc4774be80ab48497f1ac346899990a2762178ad4aa551df002130e8b49"
+                "bytes": 8304,
+                "sha256": "b02a0c7b6f21c35df010411cd8565adf7e542c98b2d9e1c3ca7e6824513328fc"
               },
               {
                 "file": "train-4x5-600.webp",
                 "w": 600,
                 "h": 750,
-                "bytes": 13492,
-                "sha256": "696205754c658992c6acbea838bb1c178461973d85a09198974c609fc4f223e7"
+                "bytes": 13446,
+                "sha256": "d85ffb2cfb555f2dfd90050e646999c9b77ab0ca89dae0a250e50ecdc1ee9035"
               },
               {
                 "file": "train-4x5-800.webp",
                 "w": 800,
                 "h": 1000,
-                "bytes": 19514,
-                "sha256": "6c656b33b39a9cf930acc3daeedc9277f6a6acebf9dc6188bd7d1dc3f894894d"
+                "bytes": 19526,
+                "sha256": "1b4ec023b40e279ee549e82f2949155e96254a2b13b2fc12ec7ba860c4bd4ce2"
               },
               {
                 "file": "train-4x5-1000.webp",
                 "w": 1000,
                 "h": 1249,
-                "bytes": 26510,
-                "sha256": "7d943fe260d59d3698808b686b4474b8c1c3c17ff8035dfe618c0f15d1c11a06"
+                "bytes": 26500,
+                "sha256": "1858e5069247ad27128c8cf685e88e3be9d504c71bc55ae0b6aef56714f25a6b"
               }
             ],
             "jpg": [
@@ -787,29 +675,29 @@
                 "file": "train-4x5-400.jpg",
                 "w": 400,
                 "h": 500,
-                "bytes": 20227,
-                "sha256": "b5c2737f4b00c9fd3c53948b0e9800cff16c9f5ed3717008c170c741805135e6"
+                "bytes": 20205,
+                "sha256": "ddbb0829a84ce5e162176a0ddccedccfdec62b7a60fe6b0bce4f88d536965653"
               },
               {
                 "file": "train-4x5-600.jpg",
                 "w": 600,
                 "h": 750,
-                "bytes": 36519,
-                "sha256": "716462093e7fa6782bce0ad9c16091048fdb51157ea615757ec1a3f7f0bc5500"
+                "bytes": 36588,
+                "sha256": "bb54c9acdf6892b75384d2db4587aa58e62eb37e4e97e9e88accc97f7a9142e7"
               },
               {
                 "file": "train-4x5-800.jpg",
                 "w": 800,
                 "h": 1000,
-                "bytes": 57602,
-                "sha256": "4682efceeca70210c4d7a95718f4d0fd555b437e2ff0d6c53ed0e3fa904c5fb0"
+                "bytes": 57859,
+                "sha256": "cd37d5ba21831b37d40c1abcb5cf52584119d670d94e566ba6da541f466df5c8"
               },
               {
                 "file": "train-4x5-1000.jpg",
                 "w": 1000,
                 "h": 1249,
-                "bytes": 84153,
-                "sha256": "10660476c4259e51136d22358d5639bbd9b2e41a2854cc9bdb6f6e4b63cb0d59"
+                "bytes": 84812,
+                "sha256": "7fef0a686232c84e7aa36341d649a54d18f05380d77c0c8b3c0977508c99d57b"
               }
             ]
           }
@@ -828,22 +716,22 @@
                 "file": "train-16x9-480.avif",
                 "w": 480,
                 "h": 270,
-                "bytes": 5141,
-                "sha256": "e3b4fd56f2ca9a94fd542d9643d8635a8292fa72148ec69abb303f8c4e50ec31"
+                "bytes": 5122,
+                "sha256": "2de6218b4df20bac17b418258e54c7aba573a6a7163f54bebea93301b8ad6311"
               },
               {
                 "file": "train-16x9-720.avif",
                 "w": 720,
                 "h": 405,
-                "bytes": 8776,
-                "sha256": "a6f16308c3e002df64a931ba4e352ee3ac5f01aec8ac5e385a1ece38492a58ed"
+                "bytes": 8762,
+                "sha256": "609bb6bf084c1331ae6a83c561cc9502723f4630f989f4972d46f899bfc3ca31"
               },
               {
                 "file": "train-16x9-960.avif",
                 "w": 960,
                 "h": 540,
-                "bytes": 12980,
-                "sha256": "35d0c631d024478be61eb764a9b869219478e96eee3948628e3c67c46023c9e4"
+                "bytes": 12930,
+                "sha256": "78ab277d04f35374aab98e9fd6bdc30d6c72b283dd4f79e864ec4538ab48ff3b"
               }
             ],
             "webp": [
@@ -851,22 +739,22 @@
                 "file": "train-16x9-480.webp",
                 "w": 480,
                 "h": 270,
-                "bytes": 6106,
-                "sha256": "a3ce7808d74b4ec96ee669f7ed9cdef14669dbfe6a1b469ce8a6b4bff7602fba"
+                "bytes": 6098,
+                "sha256": "21741a453438ae54ebdac27b0832f51be5cc4666cd31bbc0317239b402dd4053"
               },
               {
                 "file": "train-16x9-720.webp",
                 "w": 720,
                 "h": 405,
-                "bytes": 10294,
-                "sha256": "c9f6528608bd5d6e0c1a0f725e8b04c69bd520d08f52857327ef987617f2b4b0"
+                "bytes": 10284,
+                "sha256": "9b7399c8d23d0320c8e0531b9e9e30f52c211a860df7f7e9d3e13ce369052002"
               },
               {
                 "file": "train-16x9-960.webp",
                 "w": 960,
                 "h": 540,
-                "bytes": 15066,
-                "sha256": "e58b9feed190565be2f4115ef898c0d886f9ae53a8fb6974d1ed5d0a9886349b"
+                "bytes": 15050,
+                "sha256": "fd3182823a1b39cd2eca3fffb38fbe85a4fd154c6a1519c226ca9709351fb9fe"
               }
             ],
             "jpg": [
@@ -874,22 +762,22 @@
                 "file": "train-16x9-480.jpg",
                 "w": 480,
                 "h": 270,
-                "bytes": 14563,
-                "sha256": "d7e4cc1c8b226b6adc4763452a18e634cfed06dc4921b7012c0bb73295777a5c"
+                "bytes": 14546,
+                "sha256": "a90f7dd9f4bd302accce1ba91acfa374af09d559149419f51bfdb67a157aec60"
               },
               {
                 "file": "train-16x9-720.jpg",
                 "w": 720,
                 "h": 405,
-                "bytes": 26706,
-                "sha256": "92a46715cc235fc766f8bd8c599d7b80cbbe559e8eda6541f1ae875513a1a544"
+                "bytes": 26686,
+                "sha256": "d8a39d103e0f5b2f2775471dd20c5e58f1e26cba23df010885e325c51659ea90"
               },
               {
                 "file": "train-16x9-960.jpg",
                 "w": 960,
                 "h": 540,
-                "bytes": 41648,
-                "sha256": "07ca170b62171e94a80cdea345bc7926451a3691fae5a0f82d56ff7f430d6741"
+                "bytes": 41687,
+                "sha256": "ba9ce3d6b78a33845388ce9da9cf5f3eaa5e111ad896bbef9747e372ec55feeb"
               }
             ]
           }
@@ -911,6 +799,7 @@
       "people": "identifiable",
       "logo_safe": false,
       "description": "A family sitting and enjoying leisure time together on the sofa in a living room",
+      "retouched": [],
       "logos": [],
       "kind": "photo",
       "crops": {
@@ -1133,6 +1022,7 @@
       "people": "none",
       "logo_safe": true,
       "description": "Stylish modern living room with a grey couch, white walls and a TV",
+      "retouched": [],
       "logos": [],
       "kind": "photo",
       "crops": {
@@ -1435,6 +1325,7 @@
       "people": "identifiable",
       "logo_safe": false,
       "description": "A woman enjoys a video call on her laptop in a kitchen",
+      "retouched": [],
       "logos": [],
       "kind": "photo",
       "crops": {
@@ -1616,8 +1507,11 @@
       "logo_safe": true,
       "description": "Disassembled smartphone parts on a blue repair mat with tools",
       "retouched": [
-        "Apple logo on the battery",
-        "Apple logo on the logic board chip"
+        "Apple logo and the printed label on the battery (maker's name, certification and recycling marks, small print)",
+        "Apple logo on the logic board chip",
+        "maker's mark printed on the mat",
+        "maker's name printed on the mat",
+        "maker's name and logo printed on a part"
       ],
       "logos": [],
       "kind": "photo",
@@ -1636,29 +1530,29 @@
                 "file": "repair-mat-16x10-640.avif",
                 "w": 640,
                 "h": 400,
-                "bytes": 15004,
-                "sha256": "2bdb9b4f9197d67f1e124f06b2c33a859c82710c14d35726ef35e01632f6f39b"
+                "bytes": 14680,
+                "sha256": "bf98309feeb905ed4223696f06b6f08674de74679084c18619b0746b1fc0ad78"
               },
               {
                 "file": "repair-mat-16x10-960.avif",
                 "w": 960,
                 "h": 600,
-                "bytes": 26094,
-                "sha256": "179905bf25eaebee91fbd1219df43e2610c8a68e6e5483b34e5ceff524b175e0"
+                "bytes": 25598,
+                "sha256": "afb7571fcbc0648c2624a3addef665906706c5a6c77ae359d819e60f529a048b"
               },
               {
                 "file": "repair-mat-16x10-1280.avif",
                 "w": 1280,
                 "h": 800,
-                "bytes": 39416,
-                "sha256": "325a8c3ea158c0ff431287c7b09c474b6a313214463e848a19a904bb394d3e9c"
+                "bytes": 38589,
+                "sha256": "48b122e2105caa7b8bec9049fd49be3ab6b93bd785502cc597cafa33a9e5c6a4"
               },
               {
                 "file": "repair-mat-16x10-1600.avif",
                 "w": 1600,
                 "h": 1000,
-                "bytes": 55653,
-                "sha256": "766b7f028f2ac6346293b56b0dd3f6724e0e477c69e1431ff76cd84c8dd293cb"
+                "bytes": 54498,
+                "sha256": "ddb9f8f3e5ed2c14ac8b797bfaeeada61a612ccef677f1487a0ebc15c2cb73cf"
               }
             ],
             "webp": [
@@ -1666,29 +1560,29 @@
                 "file": "repair-mat-16x10-640.webp",
                 "w": 640,
                 "h": 400,
-                "bytes": 25436,
-                "sha256": "e22c9a4335fe1c3738c9eeddc532e7968fe40c4dec878a9b7bbd53ad580713bc"
+                "bytes": 24618,
+                "sha256": "b76503aca110a1301b0a71acc21fc3de03496e042b0f5e3210487bf5c9feae98"
               },
               {
                 "file": "repair-mat-16x10-960.webp",
                 "w": 960,
                 "h": 600,
-                "bytes": 42518,
-                "sha256": "d9bfc9b1999da0b0a39f54a1446cfc0d96a5703dc8578ee2ff2096b2fae2ddf9"
+                "bytes": 41580,
+                "sha256": "c5225ce74057ee48ee36a8ae2588380e99491a0602b25e9cc661b0b3f8b8be53"
               },
               {
                 "file": "repair-mat-16x10-1280.webp",
                 "w": 1280,
                 "h": 800,
-                "bytes": 61282,
-                "sha256": "cd4541df7ae9aca5d0db0f20a2af1d37ac01a912ed9096a32d105d1e6495557f"
+                "bytes": 59922,
+                "sha256": "455636ce38b6ff1d183bb90c396fe1bc076cc39419693b8bcbf86f6a8e1d3b58"
               },
               {
                 "file": "repair-mat-16x10-1600.webp",
                 "w": 1600,
                 "h": 1000,
-                "bytes": 83228,
-                "sha256": "42a0cb5b9c8c136dac41796742aa58cf3cf557259e4516c6358ce18aa46b4c51"
+                "bytes": 81190,
+                "sha256": "d43be922f97fdb351da23ad0cd29a829c8853f2d88d09355b4d75f95ba368e97"
               }
             ],
             "jpg": [
@@ -1696,29 +1590,29 @@
                 "file": "repair-mat-16x10-640.jpg",
                 "w": 640,
                 "h": 400,
-                "bytes": 42967,
-                "sha256": "6f00958a4f50393c881e4b549a32ea2ea41835febbbf767880b433e9fef5a888"
+                "bytes": 42266,
+                "sha256": "81c9c3eeee26c2b280e71ae7fa2ef35bf180584995f8c849f5acd25c85d1b19c"
               },
               {
                 "file": "repair-mat-16x10-960.jpg",
                 "w": 960,
                 "h": 600,
-                "bytes": 78422,
-                "sha256": "208a237d83290af2757408d273814ea8afe02de8c09d8e53ae09ffaebf30f866"
+                "bytes": 77144,
+                "sha256": "88ace1b6b784ca1139eb4ff19808954c4ae6e73a8a645f5f217405abcf7578b5"
               },
               {
                 "file": "repair-mat-16x10-1280.jpg",
                 "w": 1280,
                 "h": 800,
-                "bytes": 123489,
-                "sha256": "2bf94ae1ac10d717d7b1865b1568f17258374bcda0d58b76eac83d893b357488"
+                "bytes": 121635,
+                "sha256": "576e8a4a455eed683fa27564739b61a9c1aec4efe734c977fa262a29c0843d8a"
               },
               {
                 "file": "repair-mat-16x10-1600.jpg",
                 "w": 1600,
                 "h": 1000,
-                "bytes": 180693,
-                "sha256": "6c34c236fad5f25b046db32a3847c7109b06e4746282970cebb5d16539a18d6f"
+                "bytes": 178230,
+                "sha256": "0d5f2626c58ae7e95711864e1d9229d21919d643d93e53d8ba2f150f82951dc6"
               }
             ]
           }
@@ -1737,29 +1631,29 @@
                 "file": "repair-mat-4x5-400.avif",
                 "w": 400,
                 "h": 500,
-                "bytes": 11527,
-                "sha256": "d5bd7d1273da88851459ddecf9473d86d5e9baa347a2c52b89e0a9f3e91e9e4c"
+                "bytes": 11412,
+                "sha256": "eb77c6e32e741352df6c8041cd8f6b8e84e34db4ff944ba64cd371332036a877"
               },
               {
                 "file": "repair-mat-4x5-600.avif",
                 "w": 600,
                 "h": 750,
-                "bytes": 20805,
-                "sha256": "987881030c0fffdec748e76fce8679bee4013931f681bdcc5e15ac34d41242ef"
+                "bytes": 20531,
+                "sha256": "097cb35f413656eef9d113c048775ba22678b32746eebd1ce2fa83eef4aa56f1"
               },
               {
                 "file": "repair-mat-4x5-800.avif",
                 "w": 800,
                 "h": 1000,
-                "bytes": 32491,
-                "sha256": "2ccf195021909b0fc0512c5c25714e099812dc165326405598e943fb18121845"
+                "bytes": 32196,
+                "sha256": "0607b93e596f7bde4087c2fde35cf3c21a0bb7b87090f45921969e28e7053b1a"
               },
               {
                 "file": "repair-mat-4x5-1000.avif",
                 "w": 1000,
                 "h": 1249,
-                "bytes": 47815,
-                "sha256": "bc7fd43be8d6de318094e0ecf9ad0450a22a176bae8ed857aaeac1492c8605b5"
+                "bytes": 47371,
+                "sha256": "4b6523393d2559300d44e22d54427daa9e75e3284cfc29ed200d2e5393ddb0de"
               }
             ],
             "webp": [
@@ -1767,29 +1661,29 @@
                 "file": "repair-mat-4x5-400.webp",
                 "w": 400,
                 "h": 500,
-                "bytes": 20010,
-                "sha256": "7d9add9ad97d34f07ae30fc25e5ab804ce05732f0c77667b1a0c45eb4ccd439e"
+                "bytes": 19848,
+                "sha256": "690782730be41b1d0b108a632382bd2795b946dac306bd9f49a12e70aa2d08a9"
               },
               {
                 "file": "repair-mat-4x5-600.webp",
                 "w": 600,
                 "h": 750,
-                "bytes": 33458,
-                "sha256": "be5f7009102e146a364466539abe43ef6b8f5df65cd6ff8ee29ce3378208e34d"
+                "bytes": 33164,
+                "sha256": "1924eb2cf791f99f0f8f6eff01087dee7545fea26863cbad065fbddee30b7db8"
               },
               {
                 "file": "repair-mat-4x5-800.webp",
                 "w": 800,
                 "h": 1000,
-                "bytes": 48918,
-                "sha256": "36f25b7be218fd814392487325ebb045a79147bf302eac55b0c7cd9b7864eb16"
+                "bytes": 48932,
+                "sha256": "9a3f7ded27a31883e8da201e1f0a041680e709813c090192fa58f684258c959d"
               },
               {
                 "file": "repair-mat-4x5-1000.webp",
                 "w": 1000,
                 "h": 1249,
-                "bytes": 68858,
-                "sha256": "9039944bbf46c56987f47f1a661227171ca31b60b3f6bf3a906dde20ae16268a"
+                "bytes": 68390,
+                "sha256": "e9b1d4e482218ae4a607025f92d3f1695bdbb3e8d6b332912ee6e0b8736a4060"
               }
             ],
             "jpg": [
@@ -1797,29 +1691,29 @@
                 "file": "repair-mat-4x5-400.jpg",
                 "w": 400,
                 "h": 500,
-                "bytes": 34009,
-                "sha256": "6c1d8a143e50204546dc753c0c4248e5b58f21747289cc55817bcc25dcdc9895"
+                "bytes": 33715,
+                "sha256": "69803c0382b110d18b1ef43e6d5f9d611cf121b5eb5a52590773f1142d552e3d"
               },
               {
                 "file": "repair-mat-4x5-600.jpg",
                 "w": 600,
                 "h": 750,
-                "bytes": 63214,
-                "sha256": "0879c94542a6f4541a905a1073e43d9b428ad2883bf230ad73d8571e1d3f1bef"
+                "bytes": 62693,
+                "sha256": "07fd4e15da9c6e237d0d7131aac2832b64809667493f1dfb5b03c1b99ba66bfe"
               },
               {
                 "file": "repair-mat-4x5-800.jpg",
                 "w": 800,
                 "h": 1000,
-                "bytes": 101835,
-                "sha256": "2861d4dc347933de9bd1ee7d54475bc93c03e07d4d4660c2825214b5e374d599"
+                "bytes": 101065,
+                "sha256": "a0727247e408681dcd03d349552884fa521043806047db8215d4196df4899ec1"
               },
               {
                 "file": "repair-mat-4x5-1000.jpg",
                 "w": 1000,
                 "h": 1249,
-                "bytes": 151633,
-                "sha256": "c0dcfb5f5284d8b3e6318c2856726373a3494f5d5b8d10cb8492935014c4e79d"
+                "bytes": 150523,
+                "sha256": "f36039bfa0a9818140f646b35fafe894ac94cb169920e549c96d01849ea4c3b4"
               }
             ]
           }
@@ -1841,6 +1735,7 @@
       "people": "none",
       "logo_safe": true,
       "description": "Two broken smartphone screens on an orange background",
+      "retouched": [],
       "logos": [],
       "kind": "photo",
       "crops": {
@@ -2021,6 +1916,10 @@
       "people": "identifiable",
       "logo_safe": false,
       "description": "Young woman using a smartphone and laptop inside a cafe",
+      "retouched": [
+        "maker's emblem embroidered on the shirt",
+        "maker's emblem embroidered on the sleeve edge"
+      ],
       "logos": [],
       "kind": "photo",
       "crops": {
@@ -2038,29 +1937,29 @@
                 "file": "cafe-business-4x5-400.avif",
                 "w": 400,
                 "h": 500,
-                "bytes": 13820,
-                "sha256": "0c5f7b4a8fe1a179ae630c32efe02171c364c13d1ae75aaeb989c4659e4b7712"
+                "bytes": 13747,
+                "sha256": "caaaa6657070360f4a470fa552e80462a3959b60f4ea1337bcd9bf7b7a956d72"
               },
               {
                 "file": "cafe-business-4x5-600.avif",
                 "w": 600,
                 "h": 750,
-                "bytes": 24101,
-                "sha256": "27edc4d0e231f4b8cf34352f51bd5ec91707b910511f536376d357deb1972d36"
+                "bytes": 23804,
+                "sha256": "e25647b511c2b76cc21664116153ddaf3ae371f912a7421c5c593d3123825951"
               },
               {
                 "file": "cafe-business-4x5-800.avif",
                 "w": 800,
                 "h": 1000,
-                "bytes": 36840,
-                "sha256": "77f8c354190f22822b52f9fa61e1963340c0d868f2f762cac7ab4fe6eb9ab7ba"
+                "bytes": 36491,
+                "sha256": "1444b153fc93edcfa36a04533ae40d20ac5ce0b5d34acea4cce1e1f679c00ed0"
               },
               {
                 "file": "cafe-business-4x5-1000.avif",
                 "w": 1000,
                 "h": 1250,
-                "bytes": 53309,
-                "sha256": "a5c65547ada5d6fd07a3540ccdbf2008d4bb6c26f9a24e14638e8e8a8891911e"
+                "bytes": 52676,
+                "sha256": "70dfe1d4d6f0885c74cb2dbc96e9fb7f4329f99e4e5c3fbfb8e6809179b0d7e8"
               }
             ],
             "webp": [
@@ -2068,29 +1967,29 @@
                 "file": "cafe-business-4x5-400.webp",
                 "w": 400,
                 "h": 500,
-                "bytes": 19052,
-                "sha256": "9ae7c8f7a48746872c56df8a1ff6580f37658e5398c56532d94b8bc802567c0a"
+                "bytes": 19096,
+                "sha256": "1c19ef6372b766ca26a51267a1e6beee642ac91689343d36dcae92ed487c8bc3"
               },
               {
                 "file": "cafe-business-4x5-600.webp",
                 "w": 600,
                 "h": 750,
-                "bytes": 33560,
-                "sha256": "737933165184176b5cc7c41e9ad6261924758812f0d0b260200ec9350bee3b9f"
+                "bytes": 33118,
+                "sha256": "c3b17c7f43cb06e90e6d1909d1099db6321e38d1fe187f5ae949dcd7c0dc9476"
               },
               {
                 "file": "cafe-business-4x5-800.webp",
                 "w": 800,
                 "h": 1000,
-                "bytes": 50096,
-                "sha256": "4eda0cb4458b676198b8fd5cee9ac1c6430904f39c2b754e6c895ca3725ce8f9"
+                "bytes": 49534,
+                "sha256": "776cb8e17dcd7615803e10d8264b9eb1f2f9c35e560c0046f93d5c0e7e3f3127"
               },
               {
                 "file": "cafe-business-4x5-1000.webp",
                 "w": 1000,
                 "h": 1250,
-                "bytes": 71200,
-                "sha256": "4cd6500a1afaf458e950d55e027ecf3c9b45808f4f77f02569901b5d6e6a9efd"
+                "bytes": 70328,
+                "sha256": "6a4687b56318305c4425e1f83c66d8b8f20b5122e26ed0538bc9a9f690706de8"
               }
             ],
             "jpg": [
@@ -2098,29 +1997,29 @@
                 "file": "cafe-business-4x5-400.jpg",
                 "w": 400,
                 "h": 500,
-                "bytes": 34450,
-                "sha256": "d0ee29742a562033b322fce064b27736886fc9c4209644c72d4c28c79a67e0fa"
+                "bytes": 34263,
+                "sha256": "65c746531f446a1082b25b859c1f062132e07bcf62daf9d8006cb8aeba78e84b"
               },
               {
                 "file": "cafe-business-4x5-600.jpg",
                 "w": 600,
                 "h": 750,
-                "bytes": 64438,
-                "sha256": "6a9945559eb86530b40b274be9d0fbd3ed65fc54d045293c15024dd1a983f1bc"
+                "bytes": 64054,
+                "sha256": "e9850e08ef3493b977cab3c5564ba90e5651917a48a468de8637835c57e49367"
               },
               {
                 "file": "cafe-business-4x5-800.jpg",
                 "w": 800,
                 "h": 1000,
-                "bytes": 103291,
-                "sha256": "70785cb74ce9275709fa5a8499cf3d09e0c58628b1595ad029690ef8536cc5c2"
+                "bytes": 102631,
+                "sha256": "84d9571ed1953e147d4bb9665b80e7abc74cedd555f40b631bcf47772e3296c7"
               },
               {
                 "file": "cafe-business-4x5-1000.jpg",
                 "w": 1000,
                 "h": 1250,
-                "bytes": 153969,
-                "sha256": "113cca5f21dbafee4a2b969d5de5f482ad10fbe374f769ccb84d4a3e736c1e9c"
+                "bytes": 153116,
+                "sha256": "e49a2a5612b21e0dad43d4fe3ab2f623067d3ac4d4fefe663f2766efb28d5030"
               }
             ]
           }
@@ -2139,22 +2038,22 @@
                 "file": "cafe-business-16x10-640.avif",
                 "w": 640,
                 "h": 400,
-                "bytes": 14132,
-                "sha256": "ef5a484f7d4b5030d89fff2f51f11c6c0874b2fe669022bc2a193730f7c21b1a"
+                "bytes": 14054,
+                "sha256": "420c986f90a28f518f64dc1e4293c81d81321211d2325ee2b713baed6f5a5a1c"
               },
               {
                 "file": "cafe-business-16x10-960.avif",
                 "w": 960,
                 "h": 600,
-                "bytes": 27048,
-                "sha256": "d9bc4ea1707b1da9a02dadb9eaf3e7b1340b9b8f173fff0249cf3f9fb22d5319"
+                "bytes": 26736,
+                "sha256": "b2cf811c703f0af752e7ee42509876b61812d82d1f27f94b92cca28a30728c90"
               },
               {
                 "file": "cafe-business-16x10-1280.avif",
                 "w": 1280,
                 "h": 800,
-                "bytes": 46961,
-                "sha256": "fcb2615b3f7479d7d96f49370bc0a7ceb9bfad4ead03cd5f67d6133d92801de6"
+                "bytes": 46474,
+                "sha256": "57b0a87c6dfc91e8782b4d0d4314b8c270b42f128e980f8490c230295e01725d"
               }
             ],
             "webp": [
@@ -2162,22 +2061,22 @@
                 "file": "cafe-business-16x10-640.webp",
                 "w": 640,
                 "h": 400,
-                "bytes": 18794,
-                "sha256": "649b68889b41855eb044c36c941855fe1971caeb1648f1c22cbdb34839395b5a"
+                "bytes": 18590,
+                "sha256": "fca752d8c87c12485c03ff36bfb9a837afa4074c5d6d75e35b2ded211fecaeb4"
               },
               {
                 "file": "cafe-business-16x10-960.webp",
                 "w": 960,
                 "h": 600,
-                "bytes": 35112,
-                "sha256": "85d07f28a8746402340ffce1ca210d0230d7d27d05403c538460fea5a8a87607"
+                "bytes": 34714,
+                "sha256": "a0cf4cdd8eeab3bc0ab5503c248cbda7e95fe1939f18e899d548782aa77e81c5"
               },
               {
                 "file": "cafe-business-16x10-1280.webp",
                 "w": 1280,
                 "h": 800,
-                "bytes": 57056,
-                "sha256": "3d9567a0834cd6abb956dc60822d49a5a6f45261f87ca127852940cde8a219c2"
+                "bytes": 56314,
+                "sha256": "ccdd58251a0f74a4019c3e84a0e34bcc93b11627d5967545baeef6ebdf549774"
               }
             ],
             "jpg": [
@@ -2185,22 +2084,22 @@
                 "file": "cafe-business-16x10-640.jpg",
                 "w": 640,
                 "h": 400,
-                "bytes": 37664,
-                "sha256": "826e7ca72fae17bea576b7636bbd885692c9eb196299ce69fbabeb652f895e59"
+                "bytes": 37464,
+                "sha256": "c44034f2c215200dffd1bf73a64f44627d79c2d694eebdfa72c93a68df81fb16"
               },
               {
                 "file": "cafe-business-16x10-960.jpg",
                 "w": 960,
                 "h": 600,
-                "bytes": 75782,
-                "sha256": "f30f4723acc2df98fbb1d05df4902ad0f078d4c552d173fd9d27b82164278805"
+                "bytes": 75340,
+                "sha256": "ac51b8d7aa08fa0174be2b9c8516dbb67f69c1fce187191380b9c76584d69b88"
               },
               {
                 "file": "cafe-business-16x10-1280.jpg",
                 "w": 1280,
                 "h": 800,
-                "bytes": 131291,
-                "sha256": "254eca9247ebfcce090284cb611e52de51e0f185b86c80d7f0f3b66bbc009159"
+                "bytes": 130577,
+                "sha256": "1891217c2d1567229f0ce62ec41f789fc530d80ebe37a08482ff06b01d22889e"
               }
             ]
           }
@@ -2222,6 +2121,7 @@
       "people": "identifiable",
       "logo_safe": false,
       "description": "Senior couple at a kitchen table looking at a smartphone together",
+      "retouched": [],
       "logos": [],
       "kind": "photo",
       "crops": {
@@ -2428,32 +2328,111 @@
           }
         }
       }
-    }
-  },
-  "cards": {
-    "og-image": {
-      "kind": "card",
-      "alt": "T Wireless, Bell Authorised Retailer in Brampton, with a phone showing the T Wireless logo.",
-      "uses": [
-        "hand-phone"
+    },
+    "unboxing": {
+      "source": {
+        "provider": "Pexels",
+        "provider_id": "7190924",
+        "page_url": "https://www.pexels.com/photo/a-person-holding-a-phone-in-the-box-7190924/",
+        "author": "Pavel Danilyuk",
+        "author_url": "https://www.pexels.com/@pavel-danilyuk/",
+        "license": "Pexels License",
+        "license_url": "https://www.pexels.com/license/",
+        "retrieved": "2026-10-26"
+      },
+      "alt": "Two hands lifting a new phone out of its box on a white desk.",
+      "people": "no faces",
+      "logo_safe": true,
+      "description": "Hands lifting a new smartphone out of its box on a white desk",
+      "retouched": [
+        "printed words on the card",
+        "picture of a phone printed on the retail carton"
       ],
-      "logos": [
-        "t-wireless",
-        "bell",
-        "virgin-plus",
-        "lucky-mobile"
-      ],
-      "files": {
-        "jpg": [
-          {
-            "file": "og-image.jpg",
-            "w": 1200,
-            "h": 630,
-            "bytes": 60587,
-            "sha256": "d98864290176b1c58a9ac110a53713157517336fc24c0045b82d3ad11d80b0dd"
+      "logos": [],
+      "kind": "photo",
+      "crops": {
+        "16x10": {
+          "aspect": 1.6,
+          "box": [
+            0,
+            46,
+            3613,
+            2304
+          ],
+          "files": {
+            "avif": [
+              {
+                "file": "unboxing-16x10-640.avif",
+                "w": 640,
+                "h": 400,
+                "bytes": 7231,
+                "sha256": "be1900747c323ad2e8f5d4f9f18946841e0364f7466eb979d0ca99a6be3a46ad"
+              },
+              {
+                "file": "unboxing-16x10-960.avif",
+                "w": 960,
+                "h": 600,
+                "bytes": 12515,
+                "sha256": "496c3076f0a78f5bf6fddc79919c37f4a289208df749ea88695870517817a235"
+              },
+              {
+                "file": "unboxing-16x10-1280.avif",
+                "w": 1280,
+                "h": 800,
+                "bytes": 19668,
+                "sha256": "4418b45dba5acbe59ff7db7a7c33c09dfb9c9253f26ceccdfc6e869be67347e7"
+              }
+            ],
+            "webp": [
+              {
+                "file": "unboxing-16x10-640.webp",
+                "w": 640,
+                "h": 400,
+                "bytes": 8748,
+                "sha256": "f132fc05b74ae71bf35f02a78dae3325d21dcbfbb5f1bfea6e0dc6e51bccd4c9"
+              },
+              {
+                "file": "unboxing-16x10-960.webp",
+                "w": 960,
+                "h": 600,
+                "bytes": 14772,
+                "sha256": "72c21c47a73e10343fa9d0534938b70dca189d2dbf8a0b96c829e356c307d59c"
+              },
+              {
+                "file": "unboxing-16x10-1280.webp",
+                "w": 1280,
+                "h": 800,
+                "bytes": 22286,
+                "sha256": "14f3ab334affbfbee07abe75dd56dc8c8a0292c6d49ac92193f38e47788e020d"
+              }
+            ],
+            "jpg": [
+              {
+                "file": "unboxing-16x10-640.jpg",
+                "w": 640,
+                "h": 400,
+                "bytes": 21661,
+                "sha256": "43e5e10f68c6f9bc76e8d655d0b08b81ea60ddd3564e2d692d36683dc37757da"
+              },
+              {
+                "file": "unboxing-16x10-960.jpg",
+                "w": 960,
+                "h": 600,
+                "bytes": 41636,
+                "sha256": "c04e6252d5991bb9776b821d41f1429caf616ca36ef80e71e17c93f0b5b56209"
+              },
+              {
+                "file": "unboxing-16x10-1280.jpg",
+                "w": 1280,
+                "h": 800,
+                "bytes": 70594,
+                "sha256": "d1fd81fa82248a340260a7a087669dffadab48022f7ca845453ee58c7c9cca0d"
+              }
+            ]
           }
-        ]
+        }
       }
     }
-  }
+  },
+  "cards": {}
 }

@@ -19,15 +19,20 @@ gives shared links a preview image (og:image) without a canonical link.
 
 Designs: design 1 lives in src/. Each other design has designs/<id>/design.json, pages/, partials/
 (any partial it doesn't have comes from src/partials), assets/ (copied over the shared scripts and
-images from src/assets) and an optional design.py whose extend(page_context, kit) adds that
-design's own snippets. Photos come from assets/img/photos/photos.json, written by rsi/imagery.py.
+images from src/assets), an optional design.py whose extend(page_context, kit) adds that design's
+own snippets, and an optional content.json: the design's own wording for the shared lists (repairs,
+FAQ) and its small pieces of microcopy, which replace those keys of src/site.json for that design
+only. Facts (store, hours, site, carriers, offers) stay in src/site.json and can't be overridden.
+design.json can also relabel the navigation ("nav": {"mobile": "Phones"}).
+Photos come from assets/img/photos/photos.json, written by rsi/imagery.py.
 
 Carrier logos: put the official files in src/assets/img/brands/ as bell, virgin-plus and
 lucky-mobile (.svg preferred, or .png on a transparent background, optionally with a .webp twin
 that browsers with WebP load instead). Pages show each logo once its file is there, and keep
 the plain-text names and icons until then.
 
-Store details, hours, offers, repairs and FAQ live in src/site.json.
+Store details, hours, offers, repairs and FAQ live in src/site.json (a design's content.json can
+reword the repairs and FAQ for that design).
 Page copy lives in src/pages/*.html; shared parts in src/partials/*.html.
 Tokens: {{ name }} inserts escaped text, {{{ name }}} inserts ready-made HTML.
 Needs only Python 3.8+ (no packages).
@@ -57,6 +62,7 @@ NAV = [
     ("visit", "visit.html", "Visit us"),
 ]
 OFFER_ART = {"mobile": "art-mobile", "home": "art-home", "repairs": "art-repair"}
+FACT_KEYS = ("store", "hours", "site", "carriers", "offers")  # shared by every design; content.json can't change them
 LOGO_DIR = SRC / "assets" / "img" / "brands"
 LOGO_EXTS = (".svg", ".png", ".webp")  # a .png wins over .webp so it can serve as the fallback
 TOKEN = re.compile(r"\{\{\{\s*([\w.]+)\s*\}\}\}|\{\{\s*([\w.]+)\s*\}\}")
@@ -217,7 +223,7 @@ def load_design(name):
     if not name or name == "design-1":
         return {"id": "design-1", "label": "Design 1", "pages": SRC / "pages", "partials": [SRC / "partials"],
                 "assets": SRC / "assets", "skip": [], "og_image": "assets/img/og-image.png", "module": None,
-                "photos": None}
+                "photos": None, "content": None, "nav": {}}
     folder = DESIGNS / name
     if not (folder / "design.json").is_file():
         raise SystemExit(f"No design called {name}: designs/{name}/design.json is missing")
@@ -226,7 +232,8 @@ def load_design(name):
             "partials": [SRC / "partials", folder / "partials"], "assets": folder / "assets",
             "skip": cfg.get("skip_shared_assets", ["css", "fonts", "img/og-image.png"]),
             "og_image": cfg.get("og_image", ""), "module": folder / cfg["module"] if cfg.get("module") else None,
-            "photos": folder / "assets" / "img" / "photos" / "photos.json"}
+            "photos": folder / "assets" / "img" / "photos" / "photos.json",
+            "content": folder / cfg["content"] if cfg.get("content") else None, "nav": cfg.get("nav", {})}
 
 
 def load_module(path):
@@ -379,16 +386,18 @@ def jsonld(data, base):
     return f'<script type="application/ld+json">\n{body}\n</script>'
 
 
-def nav_html(current, root):
+def nav_html(current, root, labels=None):
+    labels = labels or {}
     items = []
     for key, href, label in NAV:
         here = ' aria-current="page"' if key == current else ""
-        items.append(f'<li><a href="{root}{href}"{here}>{esc(label)}</a></li>')
+        items.append(f'<li><a href="{root}{href}"{here}>{esc(labels.get(key, label))}</a></li>')
     return "<ul>\n" + "\n".join(items) + "\n</ul>"
 
 
-def footer_nav(root):
-    links = [("index.html", "Home")] + [(href, label) for _, href, label in NAV]
+def footer_nav(root, labels=None):
+    labels = labels or {}
+    links = [("index.html", labels.get("index", "Home"))] + [(href, labels.get(key, label)) for key, href, label in NAV]
     return "\n".join(f'<li><a href="{root}{href}">{esc(label)}</a></li>' for href, label in links)
 
 
@@ -427,6 +436,12 @@ def main():
     public_url = (sys.argv[sys.argv.index("--public-url") + 1].rstrip("/")
                   if "--public-url" in sys.argv and demo else "")
     data = json.loads((SRC / "site.json").read_text(encoding="utf-8"))
+    if design["content"]:  # the design's own wording for the lists and microcopy it rewrites
+        content = json.loads(design["content"].read_text(encoding="utf-8"))
+        clash = [k for k in content if k in FACT_KEYS]
+        if clash:
+            raise SystemExit(f"{design['content'].name}: {', '.join(clash)} are facts shared by every design: change them in src/site.json")
+        data.update(content)
     # A demo never points search engines or social previews at the real domain.
     base = "" if demo else (data["site"].get("base_url") or "").rstrip("/")
     problems, notes = [], []
@@ -478,9 +493,11 @@ def main():
     if demo:
         form_attrs = 'action="thanks.html"'  # GitHub Pages can't receive forms; the thank-you page explains
     phone_link = f'<a href="tel:{esc(data["store"]["phone_e164"])}">{esc(data["store"]["phone_display"])}</a>'
-    thanks_message = (f"This is a preview of the new website, so your request wasn't sent. To reach the store, call {phone_link}."
+    thanks = data.get("copy", {}).get("thanks", {})
+    thanks_message = ((thanks.get("demo") or "This is a preview of the new website, so your request wasn't sent. To reach the store, call {phone}.")
                       if demo else
-                      f"We'll contact you at the number you gave us. If it's urgent, call the store at {phone_link}.")
+                      (thanks.get("live") or "We'll contact you at the number you gave us. If it's urgent, call the store at {phone}."))
+    thanks_message = thanks_message.replace("{phone}", phone_link)
     demo_banner = ('\n<p class="demo-banner">Preview of the new T Wireless website. It isn\'t live yet, so forms here don\'t send.</p>'
                    if demo else "")
 
@@ -531,8 +548,8 @@ def main():
             "page": page,
             "root": root,
             "booking_href": booking if booking.startswith("http") else root + booking,
-            "nav": nav_html(page["nav"], root),
-            "footer_nav": footer_nav(root),
+            "nav": nav_html(page["nav"], root, design["nav"]),
+            "footer_nav": footer_nav(root, design["nav"]),
             "head_extra": head_extra(base, path.name, meta.get("noindex") or demo, design["og_image"], public_url),
             "sprite": partials["sprite"],
         })

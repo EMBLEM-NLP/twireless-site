@@ -15,18 +15,26 @@ release needs an independent reviewer and an approved contract.
                 budget, lazy below the fold and prioritised when it is the hero; the imagery audit
                 (rsi/imagery.py) passes and the build carries the current manifest
   logos         required logos are visible on each page, unaltered (file hashes), big enough, on a
-                clean white plate, never on a photo of someone who can be recognised; the home page
-                shows the composite photo that carries them
+                clean white plate, never on a photo of someone who can be recognised
   distinctness  the design's first screens, palette and headline typeface differ enough from the
                 other designs of the same site (sibling runs)
   accuracy      the review's accuracy questions come from the contract
+
+2.1 (the same 2.0 contracts and runs, plus optional keys) adds:
+  copy          distinctness.copy: the design's wording is its own. Page titles, descriptions, h1s and
+                leads differ from the sibling's; few of its four-word phrases, no whole sentences and
+                few headings are shared. Facts every design must state (address, phone, hours, brand and
+                product names, offers) are taken out first. The comparison is saved as hashed evidence.
+  composites    imagery.max_composites_per_page and imagery.hero_not_composite: no composed images
+                (a photo with something painted into it), and never as the lead photo on a first screen
 
   measure   Serve the built site locally, run Lighthouse (mobile) and Playwright checks at three
             viewports, scroll each page so lazy images load, save hashed screenshots as evidence.
   template  Write an unreviewed review skeleton bound to a measured run's evidence.
   evaluate  Score a completed review against its measured run.
   compare   Promotion gate: incumbent (measured+review) versus candidate (measured+review).
-  distinct  How different two measured runs look (first screens, palette, typefaces).
+  distinct  How different two measured runs look (first screens, palette, typefaces, wording).
+  copy      How much wording two builds or runs share (page fields, headings, sentences, phrases).
 
 Exit: 0 pass/promoted, 3 completed but gates not passing, 2 blocked.
 Needs: Python 3.10+, Playwright for Python with Chromium, Node with Lighthouse; for 2.0 imagery
@@ -36,7 +44,9 @@ from __future__ import annotations
 
 import argparse
 import functools
+import difflib
 import hashlib
+import html.parser
 import http.server
 import io
 import json
@@ -57,7 +67,7 @@ SERIES_V1 = "WEB-DESIGN-RSI-1.0"
 SERIES = "WEB-DESIGN-RSI-2.0"
 CONTRACT_SCHEMAS = {SERIES_V1: "web.design.contract.v1", SERIES: "web.design.contract.v2"}
 MEASURED_SCHEMAS = {SERIES_V1: "web.design.measured.v1", SERIES: "web.design.measured.v2"}
-SCHEMA_VERSION = "2.0.0"
+SCHEMA_VERSION = "2.1.0"
 REPO = Path(__file__).resolve().parent.parent
 PAGE_ROLE_DIMENSIONS = ("purpose_clarity", "hierarchy", "consistency", "legibility", "information_gain")
 ACCURACY_GATES = ("content_matches_sources", "no_fabricated_offers_or_reviews", "unverified_flagged_for_owner")
@@ -365,6 +375,15 @@ def _imagery_checks(page_file: str, role: str, probe: dict, contract: dict, mani
                 add("lead_photo_priority", page_file, "phone", lead["fetchpriority"] == "high" and lead["loading"] != "lazy",
                     {"photo": lead["src"].rsplit("/", 1)[-1], "fetchpriority": lead["fetchpriority"], "loading": lead["loading"]},
                     "the biggest photo on the first screen loads eagerly with fetchpriority=high")
+                if im_cfg.get("hero_not_composite"):
+                    kind = (lead["entry"] or {}).get("kind")
+                    add("hero_is_photograph", page_file, "phone", kind != "composite",
+                        {"photo": lead.get("photo_id"), "kind": kind}, "the lead photo on the first screen is a photograph, not a composed image")
+        if im_cfg.get("max_composites_per_page") is not None:
+            limit = im_cfg["max_composites_per_page"]
+            composed = sorted({p["photo_id"] for p in shown if p["entry"] and p["entry"].get("kind") == "composite"})
+            add("composites_within_limit", page_file, "phone", len(composed) <= limit, composed,
+                f"<= {limit} composed images on the page")
         no_alt = [p["fallback"] for p in photos if p["alt"] is None]
         add("photo_alt", page_file, "phone", not no_alt, no_alt, "alt attribute on every photo")
     if logo_cfg:
@@ -495,6 +514,306 @@ def compare_signatures(a: dict, a_dir: Path, b: dict, b_dir: Path) -> dict:
             "body_fonts": [a["fonts"].get("body"), b["fonts"].get("body")],
             "same_headline_font": a["fonts"].get("h1") == b["fonts"].get("h1"),
             "same_body_font": a["fonts"].get("body") == b["fonts"].get("body")}
+
+
+# ---------------------------------------------------------------- copy distinctness
+
+_BLOCK_TAGS = {"p", "li", "ul", "ol", "dl", "dt", "dd", "h1", "h2", "h3", "h4", "h5", "h6", "td", "th", "tr", "table",
+               "thead", "tbody", "caption", "label", "button", "select", "option", "textarea", "summary", "details",
+               "figure", "figcaption", "div", "section", "article", "aside", "main", "header", "footer", "nav", "form",
+               "blockquote", "br", "hr"}
+_SKIP_TAGS = {"script", "style", "svg", "template", "noscript"}
+_VOID_TAGS = {"area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta", "source", "track", "wbr"}
+_STOPWORDS = frozenset("""a about all also an and any are as at be been but by can could do does for from get has have how i if in into
+is it its just may more most no not of on one only or other our out so some than that the their them then there these they this
+those to up us was we were what when where which who will with would you your yours""".split())
+_BREAK = "¦"  # marks where a fact was taken out, so a phrase never runs across the gap
+
+
+class _Node:
+    __slots__ = ("tag", "attrs", "kids")
+
+    def __init__(self, tag: str, attrs: dict):
+        self.tag, self.attrs, self.kids = tag, attrs, []
+
+    def classes(self) -> set:
+        return set((self.attrs.get("class") or "").split())
+
+
+class _TreeBuilder(html.parser.HTMLParser):
+    """A small DOM for the HTML this repository builds; enough to read headings, leads and text blocks."""
+
+    def __init__(self):
+        super().__init__(convert_charrefs=True)
+        self.root = _Node("#root", {})
+        self.stack = [self.root]
+
+    def handle_starttag(self, tag, attrs):
+        node = _Node(tag, {k: (v or "") for k, v in attrs})
+        self.stack[-1].kids.append(node)
+        if tag not in _VOID_TAGS:
+            self.stack.append(node)
+
+    def handle_startendtag(self, tag, attrs):
+        self.stack[-1].kids.append(_Node(tag, {k: (v or "") for k, v in attrs}))
+
+    def handle_endtag(self, tag):
+        for i in range(len(self.stack) - 1, 0, -1):
+            if self.stack[i].tag == tag:
+                del self.stack[i:]
+                return
+
+    def handle_data(self, data):
+        self.stack[-1].kids.append(data)
+
+
+def _tree(html_text: str) -> _Node:
+    b = _TreeBuilder()
+    b.feed(html_text)
+    b.close()
+    return b.root
+
+
+def _find(node, pred):
+    for k in node.kids:
+        if isinstance(k, _Node):
+            if pred(k):
+                return k
+            hit = _find(k, pred)
+            if hit:
+                return hit
+    return None
+
+
+def _find_all(node, pred, out=None):
+    out = [] if out is None else out
+    for k in node.kids:
+        if isinstance(k, _Node):
+            if pred(k):
+                out.append(k)
+            _find_all(k, pred, out)
+    return out
+
+
+def _flat_text(node) -> str:
+    if isinstance(node, str):
+        return node
+    if node.tag in _SKIP_TAGS:
+        return ""
+    return "".join(_flat_text(k) for k in node.kids)
+
+
+def _blocks(node, out=None, cur=None):
+    """Text of a subtree as separate blocks (paragraphs, list items, headings, cells...)."""
+    top = out is None
+    out = [] if out is None else out
+    cur = [] if cur is None else cur
+
+    def flush():
+        s = re.sub(r"\s+", " ", "".join(cur)).strip()
+        if s:
+            out.append(s)
+        cur.clear()
+    for k in node.kids:
+        if isinstance(k, str):
+            cur.append(k)
+        elif k.tag in _SKIP_TAGS:
+            continue
+        elif k.tag in _BLOCK_TAGS:
+            flush()
+            _blocks(k, out, cur)
+            flush()
+        else:
+            _blocks(k, out, cur)
+    if top:
+        flush()
+    return out
+
+
+def _norm(s: str) -> str:
+    s = (s or "").replace("’", "'").replace("‘", "'").replace("“", '"').replace("”", '"')
+    s = s.replace(" ", " ").replace("&", " and ")
+    return re.sub(r"\s+", " ", s).strip()
+
+
+def extract_copy(html_text: str) -> dict:
+    """What a visitor reads on one page: title, description, h1, lead, headings, text blocks, nav labels."""
+    root = _tree(html_text)
+    title = _find(root, lambda n: n.tag == "title")
+    desc = _find(root, lambda n: n.tag == "meta" and n.attrs.get("name") == "description")
+    main = _find(root, lambda n: n.tag == "main") or root
+    h1 = _find(main, lambda n: n.tag == "h1")
+    lead = _find(main, lambda n: "lead" in n.classes()) or _find(main, lambda n: n.tag == "p")
+    nav = _find(root, lambda n: n.tag == "nav" and n.attrs.get("aria-label") == "Main")
+    return {
+        "title": _norm(_flat_text(title)) if title else "",
+        "description": _norm(desc.attrs.get("content", "")) if desc else "",
+        "h1": _norm(_flat_text(h1)) if h1 else "",
+        "lead": _norm(_flat_text(lead)) if lead else "",
+        "headings": [_norm(_flat_text(h)) for h in _find_all(main, lambda n: n.tag in ("h2", "h3", "h4"))],
+        "blocks": [_norm(b) for b in _blocks(main)],
+        "nav": [_norm(_flat_text(a)) for a in _find_all(nav, lambda n: n.tag == "a")] if nav else [],
+    }
+
+
+def _fact_patterns(cfg: dict) -> list:
+    """Compiled patterns for words that are facts, not wording: addresses, phone numbers, brand and product names."""
+    facts = set(cfg.get("shared_phrases", []))
+    src = cfg.get("facts_from")
+    if src:
+        data = _load(_repo_path(src))
+
+        def walk(v):
+            if isinstance(v, str):
+                facts.add(v)
+            elif isinstance(v, dict):
+                for x in v.values():
+                    walk(x)
+            elif isinstance(v, list):
+                for x in v:
+                    walk(x)
+        for key in cfg.get("fact_keys", []):
+            walk(data.get(key))
+    pats = []
+    for f in sorted({_norm(x) for x in facts if len(_norm(x)) >= 4 and not _norm(x).isdigit()}, key=len, reverse=True):
+        body = r"\s+".join(re.escape(w) for w in f.split())
+        pats.append(re.compile(r"(?<![A-Za-z0-9])" + body + r"(?![A-Za-z0-9])", re.I))
+    return pats
+
+
+def _strip_facts(text: str, pats: list) -> str:
+    for p in pats:
+        text = p.sub(f" {_BREAK} ", text)
+    return text
+
+
+def _sentences(text: str, pats: list) -> list:
+    """Word lists, one per sentence, with the facts taken out."""
+    text = _strip_facts(_norm(text), pats)
+    out = []
+    for s in re.split(r"(?<=[.!?:;])\s+|" + _BREAK, text):
+        words = re.findall(r"[a-z0-9]+(?:'[a-z]+)?", s.lower())
+        if words:
+            out.append(words)
+    return out
+
+
+def _grams(sentences: list, n: int) -> set:
+    out = set()
+    for words in sentences:
+        for i in range(len(words) - n + 1):
+            g = tuple(words[i:i + n])
+            if sum(w not in _STOPWORDS and not w.isdigit() for w in g) >= 2:  # small words and bare numbers say nothing
+                out.add(g)
+    return out
+
+
+def _similar(a: list, b: list, floor: float) -> float:
+    if not a or not b:
+        return 0.0
+    sm = difflib.SequenceMatcher(None, a, b, autojunk=False)
+    if sm.real_quick_ratio() < floor or sm.quick_ratio() < floor:
+        return 0.0
+    return sm.ratio()
+
+
+def _site_copy(site: Path) -> dict:
+    return {p.name: extract_copy(p.read_text(encoding="utf-8", errors="replace")) for p in sorted(Path(site).glob("*.html"))}
+
+
+def compare_copy(site_a: Path, site_b: Path, cfg: dict | None = None, pages: list | None = None) -> dict:
+    """How much of build A's wording is also in build B (a sibling design of the same site).
+
+    Facts are taken out first (address, phone, hours, brand and product names, example offers), because
+    every design must state them. What is left is wording: page fields (title, description, h1, lead),
+    headings, whole sentences and four-word phrases."""
+    cfg = cfg or {}
+    n = int(cfg.get("ngram", 4))
+    floor = float(cfg.get("field_similarity_max", 0.7))
+    sentence_floor = float(cfg.get("sentence_similarity", 0.85))
+    pats = _fact_patterns(cfg)
+    a, b = _site_copy(site_a), _site_copy(site_b)
+    names = [p for p in (pages or sorted(a)) if p in a]
+    allow_headings = {_norm(h).lower() for h in cfg.get("allow_headings", [])}
+
+    # fields that must differ page by page
+    fields, flagged = {}, []
+    for page in names:
+        if page not in b:
+            continue
+        fields[page] = {}
+        for f in cfg.get("fields", ["title", "description", "h1", "lead"]):
+            wa = [w for s in _sentences(a[page][f], pats) for w in s]
+            wb = [w for s in _sentences(b[page][f], pats) for w in s]
+            same = a[page][f].lower() == b[page][f].lower() and bool(a[page][f])
+            sim = 1.0 if same else round(_similar(wa, wb, 0.0), 3)
+            fields[page][f] = {"a": a[page][f], "b": b[page][f], "similarity": sim}
+            if sim >= floor:
+                flagged.append({"page": page, "field": f, "similarity": sim, "a": a[page][f], "b": b[page][f]})
+
+    # phrases, sentences, headings
+    sent_a = {p: [s for blk in a[p]["blocks"] for s in _sentences(blk, pats)] for p in names}
+    sent_b = [s for p in b for blk in b[p]["blocks"] for s in _sentences(blk, pats)]
+    grams_b = _grams(sent_b, n)
+    all_a, by_page = set(), {}
+    reused_total = counted_total = 0
+    reused_examples = []
+    b_joined = {" ".join(s) for s in sent_b}
+    for p in names:
+        ga = _grams(sent_a[p], n)
+        all_a |= ga
+        long_a = [s for s in sent_a[p] if len(s) >= 6]
+        reused = 0
+        for s in long_a:
+            if " ".join(s) in b_joined or any(_similar(s, t, sentence_floor) >= sentence_floor for t in sent_b if len(t) >= 6):
+                reused += 1
+                reused_examples.append({"page": p, "sentence": " ".join(s)})
+        reused_total += reused
+        counted_total += len(long_a)
+        by_page[p] = {"phrases": len(ga), "phrases_shared": len(ga & grams_b),
+                      "phrase_overlap": round(len(ga & grams_b) / len(ga), 4) if ga else 0.0,
+                      "sentences": len(long_a), "sentences_reused": reused}
+    shared = all_a & grams_b
+    def head_key(h):  # a heading with its facts taken out; a heading that is only facts (a brand name) says nothing
+        s = _strip_facts(_norm(h), pats).replace(_BREAK, " ")
+        return re.sub(r"\s+", " ", re.sub(r"[^a-z0-9 ]", "", s.lower())).strip()
+    heads_a = {head_key(h) for p in names for h in a[p]["headings"]} - {""}
+    heads_b = {head_key(h) for p in b for h in b[p]["headings"]} - {""}
+    allowed = {head_key(h) for h in allow_headings}
+    shared_heads = sorted((heads_a & heads_b) - allowed)
+    nav_a = {x.lower() for x in next((a[p]["nav"] for p in names if a[p]["nav"]), [])}
+    nav_b = {x.lower() for x in next((b[p]["nav"] for p in b if b[p]["nav"]), [])}
+    return {
+        "schema": "web.design.copy.v1", "phrase_words": n, "pages": names,
+        "facts_removed": len(pats),
+        "phrase_overlap": round(len(shared) / len(all_a), 4) if all_a else 0.0,
+        "phrases": {"build": len(all_a), "shared": len(shared)},
+        "reused_sentence_ratio": round(reused_total / counted_total, 4) if counted_total else 0.0,
+        "sentences": {"counted": counted_total, "reused": reused_total}, "reused_sentence_examples": reused_examples[:80],
+        "shared_heading_ratio": round(len(shared_heads) / len(heads_a), 4) if heads_a else 0.0,
+        "shared_headings": shared_heads, "headings": len(heads_a),
+        "shared_nav_labels": sorted(nav_a & nav_b), "nav_labels": sorted(nav_a),
+        "flagged_fields": flagged, "fields": fields, "by_page": by_page,
+        "shared_phrase_examples": [" ".join(g) for g in sorted(shared)[:40]],
+    }
+
+
+def copy_checks(cmp: dict, cfg: dict) -> list:
+    """(id, pass, measured, threshold) for each copy rule in the contract's distinctness.copy."""
+    n_words = cmp["phrase_words"]
+    return [
+        ("distinct_copy_fields", not cmp["flagged_fields"],
+         [f'{x["page"]} {x["field"]} ({x["similarity"]})' for x in cmp["flagged_fields"]],
+         f'title, description, h1 and lead differ from the sibling (similarity < {cfg.get("field_similarity_max", 0.7)})'),
+        ("distinct_copy_phrases", cmp["phrase_overlap"] <= cfg.get("max_phrase_overlap", 0.2), cmp["phrase_overlap"],
+         f'<= {cfg.get("max_phrase_overlap", 0.2)} of the {n_words}-word phrases shared with the sibling'),
+        ("distinct_copy_sentences", cmp["reused_sentence_ratio"] <= cfg.get("max_reused_sentences", 0.05), cmp["reused_sentence_ratio"],
+         f'<= {cfg.get("max_reused_sentences", 0.05)} of sentences reused'),
+        ("distinct_copy_headings", cmp["shared_heading_ratio"] <= cfg.get("max_shared_headings", 0.15), cmp["shared_heading_ratio"],
+         f'<= {cfg.get("max_shared_headings", 0.15)} of headings shared'),
+        ("distinct_copy_nav", len(cmp["shared_nav_labels"]) <= cfg.get("max_shared_nav_labels", 3), cmp["shared_nav_labels"],
+         f'<= {cfg.get("max_shared_nav_labels", 3)} navigation labels shared'),
+    ]
 
 
 def _run_site(run_dir: Path) -> Path:
@@ -638,6 +957,16 @@ def measure(site: Path, contract_path: Path, out_dir: Path, lighthouse: str, chr
                 sib_sig = capture_signature(_run_site(sib_dir), Path(tmp), chrome, prefix=sib["design_id"])
                 cmp = compare_signatures(sig, out_dir / "evidence", sib_sig, Path(tmp))
             cmp["run"] = sib["run"]
+            ccfg = dcfg.get("copy")
+            if ccfg:
+                cc = compare_copy(site, _run_site(sib_dir), ccfg)
+                cpath = out_dir / "evidence" / f"copy-comparison-{sib['design_id']}.json"
+                cpath.write_text(json.dumps(cc, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+                keep(cpath, None, None, "copy_comparison")
+                cmp["copy"] = {k: cc[k] for k in ("phrase_overlap", "reused_sentence_ratio", "shared_heading_ratio",
+                                                  "shared_nav_labels", "flagged_fields")}
+                for cid, ok, got, need in copy_checks(cc, ccfg):
+                    add(cid, None, sib["design_id"], ok, got, need)
             extra["distinctness"][sib["design_id"]] = cmp
             add("distinct_visual", None, sib["design_id"], cmp["visual_similarity"] <= dcfg.get("max_visual_similarity", 0.55),
                 cmp["visual_similarity"], f"<= {dcfg.get('max_visual_similarity', 0.55)}")
@@ -674,9 +1003,12 @@ def review_template(measured: dict, contract: dict, reviewer_id: str, role: str)
         return [{"path": e["path"], "sha256": e["sha256"]} for e in ev if e["page"] == page]
     home = next((p for p, r in measured["page_roles"].items() if r == "home"), None)
     sheet = [{"path": e["path"], "sha256": e["sha256"]} for e in ev if e["viewport"] == "imagery_sheet"]
+    wording = [{"path": e["path"], "sha256": e["sha256"]} for e in ev if e["viewport"] == "copy_comparison"]
 
     def dim_evidence(d):
         base = for_page(home) if home else []
+        if d == "distinctiveness":
+            return base + wording
         return base + sheet if d in IMAGERY_DIMENSIONS else base
     return {
         "schema": "web.design.review.v1", "measurement_series": contract["measurement_series"], "target_id": measured["target_id"],
@@ -829,14 +1161,24 @@ def compare(contract_path: Path, incumbent: tuple[Path, Path], candidate: tuple[
             "candidate_release_blockers": cand["release_blockers"], "incumbent": inc, "candidate": cand}
 
 
-def distinct(run_a: Path, run_b: Path, chrome: str | None) -> dict:
-    """First screens, palettes and typefaces of two measured runs, side by side."""
+def distinct(run_a: Path, run_b: Path, chrome: str | None, contract: dict | None = None) -> dict:
+    """First screens, palettes, typefaces and wording of two measured runs, side by side."""
     with tempfile.TemporaryDirectory() as tmp:
         ta, tb = Path(tmp) / "a", Path(tmp) / "b"
         sa = capture_signature(_run_site(Path(run_a)), ta, chrome, "a")
         sb = capture_signature(_run_site(Path(run_b)), tb, chrome, "b")
         result = compare_signatures(sa, ta, sb, tb)
+    ccfg = ((contract or {}).get("distinctness") or {}).get("copy") or {}
+    wording = compare_copy(_run_site(Path(run_a)), _run_site(Path(run_b)), ccfg)
+    result["copy"] = {k: wording[k] for k in ("phrase_overlap", "reused_sentence_ratio", "shared_heading_ratio",
+                                              "shared_headings", "shared_nav_labels", "flagged_fields")}
     return {"schema": "web.design.distinct.v1", "measurement_series": SERIES, "a": str(run_a), "b": str(run_b), **result}
+
+
+def _build_dir(path: Path) -> Path:
+    """A measured run folder (its copy of the build) or a plain build folder."""
+    path = Path(path)
+    return _run_site(path) if (path / "measured.json").is_file() else path
 
 
 def _write(path: Path, data: dict) -> None:
@@ -876,7 +1218,13 @@ def main(argv=None) -> int:
     d.add_argument("--run-a", type=Path, required=True, help="A measured run folder, for example rsi/runs/design-1/v6-candidate")
     d.add_argument("--run-b", type=Path, required=True)
     d.add_argument("--chrome", default=os.environ.get("CHROME_PATH"))
+    d.add_argument("--contract", type=Path, help="Use the wording rules (distinctness.copy) of this contract")
     d.add_argument("--out", type=Path)
+    cp = sub.add_parser("copy", help="How much wording two builds share")
+    cp.add_argument("--a", type=Path, required=True, help="A build folder or measured run folder")
+    cp.add_argument("--b", type=Path, required=True, help="The sibling design's build folder or run folder")
+    cp.add_argument("--contract", type=Path, help="Use the wording rules (distinctness.copy) of this contract")
+    cp.add_argument("--out", type=Path, help="Write the full comparison here")
     a = ap.parse_args(argv)
     try:
         if a.cmd == "measure":
@@ -894,11 +1242,22 @@ def main(argv=None) -> int:
             print(f"Wrote unreviewed template {a.out}")
             return 0
         if a.cmd == "distinct":
-            d = distinct(a.run_a, a.run_b, a.chrome)
+            d = distinct(a.run_a, a.run_b, a.chrome, validate_contract(_load(a.contract)) if a.contract else None)
             if a.out:
                 _write(a.out, d)
             print(json.dumps(d, indent=2))
             return 0
+        if a.cmd == "copy":
+            ccfg = ((validate_contract(_load(a.contract)).get("distinctness") or {}).get("copy") or {}) if a.contract else {}
+            d = compare_copy(_build_dir(a.a), _build_dir(a.b), ccfg)
+            checks = copy_checks(d, ccfg)
+            if a.out:
+                _write(a.out, d)
+            print(json.dumps({k: d[k] for k in ("phrase_overlap", "reused_sentence_ratio", "shared_heading_ratio",
+                                                "shared_headings", "shared_nav_labels", "flagged_fields")}, indent=2))
+            for cid, ok, got, need in checks:
+                print(f"  {'PASS' if ok else 'FAIL'} {cid}: {got}, needs {need}")
+            return 0 if all(ok for _, ok, _, _ in checks) else 3
         if a.cmd == "evaluate":
             d = evaluate(a.contract, a.measured, a.review)
             ok = d["diagnostic_pass"]

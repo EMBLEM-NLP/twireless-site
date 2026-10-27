@@ -1,0 +1,38 @@
+{
+  "schema": "web.design.distinct.v1",
+  "measurement_series": "WEB-DESIGN-RSI-2.0",
+  "a": "rsi/runs/design-2/v6-candidate",
+  "b": "rsi/runs/design-1/v6-candidate",
+  "visual_similarity": 0.1076,
+  "visual_similarity_by_viewport": {
+    "phone": 0.0554,
+    "desktop": 0.1598
+  },
+  "palette_distance": 14.02,
+  "palette_distance_by_viewport": {
+    "phone": 13.45,
+    "desktop": 14.58
+  },
+  "headline_fonts": [
+    "Atkinson Hyperlegible Next",
+    "Source Serif 4"
+  ],
+  "body_fonts": [
+    "Atkinson Hyperlegible Next",
+    "Figtree"
+  ],
+  "same_headline_font": false,
+  "same_body_font": false,
+  "copy": {
+    "phrase_overlap": 0.0287,
+    "reused_sentence_ratio": 0.0,
+    "shared_heading_ratio": 0.0,
+    "shared_headings": [],
+    "shared_nav_labels": [
+      "deals",
+      "internet and tv",
+      "repairs"
+    ],
+    "flagged_fields": []
+  }
+}

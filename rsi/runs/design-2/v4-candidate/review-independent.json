@@ -1,0 +1,576 @@
+{
+  "schema": "web.design.review.v1",
+  "measurement_series": "WEB-DESIGN-RSI-2.0",
+  "target_id": "T-WIRELESS-SITE-D2",
+  "candidate_sha256": "40e9b03aee6eca6f9eb6c1a35db7c9c47d0b99e28f300efeb2838e26d474bfc3",
+  "reviewer_id": "independent-subagent-reviewer",
+  "reviewer_role": "independent_reviewer",
+  "ratings": {
+    "first_impression": {
+      "score": 4.0,
+      "status": "reviewed",
+      "rationale": "On the 390x844 home screenshot (evidence/index-phone-top.png) the first things are a natural photograph of a hand holding a teal phone against blurred flowers, an 'Open until 8 p.m. today' chip, the white 'Plans from' bar with the three logos along the photo's foot, then the H1 'Pick up a phone. Ask a real person.' That answers Mark's complaint: nothing is composited and the wording is plain and new. Held back by: the two hero buttons sit under the sticky Call / Directions / Book bar on the first screen, the header spends about 110 px on a two-line tagline (v4 orphans 'Dr W') plus two rows of nav pills, and 'Brampton' is not visible above the fold.",
+      "evidence": [
+        {
+          "path": "evidence/index-phone-top.png",
+          "sha256": "9bb6c0a9ef25d56d05897af7b1545214c4d42d8723159cef7a86c8c013f96e20"
+        },
+        {
+          "path": "evidence/index-phone.png",
+          "sha256": "0dbbc1b93fc45ecaf9dbaacd6c1295490b80d6ffe3402cb5f3b3273e181a47a2"
+        },
+        {
+          "path": "evidence/index-desktop.png",
+          "sha256": "4df250a15a0925dfbe36af4042594c38676167e5130b7a554973f4a1da451528"
+        },
+        {
+          "path": "evidence/signature-home-phone.png",
+          "sha256": "9bb6c0a9ef25d56d05897af7b1545214c4d42d8723159cef7a86c8c013f96e20"
+        },
+        {
+          "path": "evidence/signature-home-desktop.png",
+          "sha256": "8ebf0003b1b2137e97b247a82f951a8963beb7504869c2f4c1a6ed761d130f07"
+        }
+      ]
+    },
+    "imagery_quality": {
+      "score": 3.5,
+      "status": "reviewed",
+      "rationale": "Twelve Pexels photos share one grade and read as a coherent set; the hero, repair-mat, cracked-screen and living-room shots are sharp (measured sharpness above 0.85, AVIF/WebP/JPEG, pages 97-217 KiB) and no page carries a composite (evidence/imagery-sheet.png, index-phone.png). Held back by: marks I could still read at full size (certification marks and Li-ion lettering on the battery label in repair-mat-16x10-1600.jpg, partial wristband lettering in concert-4x5-1000.jpg, faint retouch smudges where the Apple logo and the train ticket-machine sticker were), the same four phone photos (two-phones, concert, train, living-room) repeating on home, brands, mobile and deals, generic stock people (seniors, cafe, video call) and no real photo of the store. The social preview og-image.jpg is a composed card (hero plus wordmark, headline and logos), the very pattern Mark disliked.",
+      "evidence": [
+        {
+          "path": "evidence/index-phone-top.png",
+          "sha256": "9bb6c0a9ef25d56d05897af7b1545214c4d42d8723159cef7a86c8c013f96e20"
+        },
+        {
+          "path": "evidence/index-phone.png",
+          "sha256": "0dbbc1b93fc45ecaf9dbaacd6c1295490b80d6ffe3402cb5f3b3273e181a47a2"
+        },
+        {
+          "path": "evidence/index-desktop.png",
+          "sha256": "4df250a15a0925dfbe36af4042594c38676167e5130b7a554973f4a1da451528"
+        },
+        {
+          "path": "evidence/signature-home-phone.png",
+          "sha256": "9bb6c0a9ef25d56d05897af7b1545214c4d42d8723159cef7a86c8c013f96e20"
+        },
+        {
+          "path": "evidence/signature-home-desktop.png",
+          "sha256": "8ebf0003b1b2137e97b247a82f951a8963beb7504869c2f4c1a6ed761d130f07"
+        },
+        {
+          "path": "evidence/imagery-sheet.png",
+          "sha256": "c59851ec6dcc0c09aa12af195a357c071e5092fde75404701683fe157ffef4e2"
+        }
+      ]
+    },
+    "logo_integration": {
+      "score": 4.0,
+      "status": "reviewed",
+      "rationale": "All eight logo files match the contract hashes and in the screenshots they are undistorted, uncropped and uncoloured on white rounded plates: the 'Plans from' bar on the home hero (index-phone-top.png), bottom-left plates on the two-phones, concert, train and living-room photos (deals-phone.png, mobile-phone.png, brands-phone.png) and heading plates beside the Bell sections. Plates never sit on identifiable-person photos (the Bell plate on brands.html and mobile.html is in the text column beside the cafe photo). Held back by: the 'by Bell' tag in the Lucky Mobile logo is tiny at phone size, plates cover a photo corner (on deals-phone the first Bell plate is partly under the sticky bar) and the README still lists brand sign-off as open.",
+      "evidence": [
+        {
+          "path": "evidence/index-phone-top.png",
+          "sha256": "9bb6c0a9ef25d56d05897af7b1545214c4d42d8723159cef7a86c8c013f96e20"
+        },
+        {
+          "path": "evidence/index-phone.png",
+          "sha256": "0dbbc1b93fc45ecaf9dbaacd6c1295490b80d6ffe3402cb5f3b3273e181a47a2"
+        },
+        {
+          "path": "evidence/index-desktop.png",
+          "sha256": "4df250a15a0925dfbe36af4042594c38676167e5130b7a554973f4a1da451528"
+        },
+        {
+          "path": "evidence/signature-home-phone.png",
+          "sha256": "9bb6c0a9ef25d56d05897af7b1545214c4d42d8723159cef7a86c8c013f96e20"
+        },
+        {
+          "path": "evidence/signature-home-desktop.png",
+          "sha256": "8ebf0003b1b2137e97b247a82f951a8963beb7504869c2f4c1a6ed761d130f07"
+        },
+        {
+          "path": "evidence/imagery-sheet.png",
+          "sha256": "c59851ec6dcc0c09aa12af195a357c071e5092fde75404701683fe157ffef4e2"
+        }
+      ]
+    },
+    "service_clarity": {
+      "score": 4.0,
+      "status": "reviewed",
+      "rationale": "Home explains each of Bell, Virgin Plus and Lucky Mobile in one line ('One network, three ways in'), then internet and TV starting from your address, repairs quoted first and number porting in three steps; brands.html adds a 'short version' table that stacks into three cards on phone, and the facts I checked match Bell and press sources. Held back by: the offer cards on index.html and deals.html show '$XX/mo' and 'Replace with this month's ... offer' instructions, the opening of brands-phone.png is a 4-line H1 and 6-line lead with no photo or logo, and SmartPay is re-explained on four pages.",
+      "evidence": [
+        {
+          "path": "evidence/index-phone-top.png",
+          "sha256": "9bb6c0a9ef25d56d05897af7b1545214c4d42d8723159cef7a86c8c013f96e20"
+        },
+        {
+          "path": "evidence/index-phone.png",
+          "sha256": "0dbbc1b93fc45ecaf9dbaacd6c1295490b80d6ffe3402cb5f3b3273e181a47a2"
+        },
+        {
+          "path": "evidence/index-desktop.png",
+          "sha256": "4df250a15a0925dfbe36af4042594c38676167e5130b7a554973f4a1da451528"
+        },
+        {
+          "path": "evidence/signature-home-phone.png",
+          "sha256": "9bb6c0a9ef25d56d05897af7b1545214c4d42d8723159cef7a86c8c013f96e20"
+        },
+        {
+          "path": "evidence/signature-home-desktop.png",
+          "sha256": "8ebf0003b1b2137e97b247a82f951a8963beb7504869c2f4c1a6ed761d130f07"
+        }
+      ]
+    },
+    "navigation_wayfinding": {
+      "score": 4.0,
+      "status": "reviewed",
+      "rationale": "The same six plain labels on every page (Deals, Compare plans, Phones, Internet & TV, Repairs, Find us) with the current page in a dark pill, a header Call button, the sticky Call / Directions / Book bar, a skip link, anchor pills on brands.html and a footer index (every *-phone-top.png). Held back by: the pills wrap onto two rows at 390 px (about 110 px of every first screen), Home is reachable only through the logo and the footer, and 'Compare plans' versus 'Phones' takes a moment to tell apart.",
+      "evidence": [
+        {
+          "path": "evidence/index-phone-top.png",
+          "sha256": "9bb6c0a9ef25d56d05897af7b1545214c4d42d8723159cef7a86c8c013f96e20"
+        },
+        {
+          "path": "evidence/index-phone.png",
+          "sha256": "0dbbc1b93fc45ecaf9dbaacd6c1295490b80d6ffe3402cb5f3b3273e181a47a2"
+        },
+        {
+          "path": "evidence/index-desktop.png",
+          "sha256": "4df250a15a0925dfbe36af4042594c38676167e5130b7a554973f4a1da451528"
+        },
+        {
+          "path": "evidence/signature-home-phone.png",
+          "sha256": "9bb6c0a9ef25d56d05897af7b1545214c4d42d8723159cef7a86c8c013f96e20"
+        },
+        {
+          "path": "evidence/signature-home-desktop.png",
+          "sha256": "8ebf0003b1b2137e97b247a82f951a8963beb7504869c2f4c1a6ed761d130f07"
+        }
+      ]
+    },
+    "conversion_paths": {
+      "score": 4.0,
+      "status": "reviewed",
+      "rationale": "The phone call is the main path and it is everywhere: header Call, the sticky bar, 'Call 647-707-1093' in hero and closing bands, tel: links on every offer card, 'Directions in Google Maps', plus a repair request form and a visit form with a tel input, autocomplete and a honeypot (visit-phone.png, repairs-phone.png). Held back by: the hero buttons sit under the sticky bar on the first phone screen, 'Book a visit' is a free-text day/time request rather than a slot, I did not submit the forms (the demo posts to thanks.html), and 'Ask about this offer' on placeholder cards leads to a call about an offer that does not exist yet.",
+      "evidence": [
+        {
+          "path": "evidence/index-phone-top.png",
+          "sha256": "9bb6c0a9ef25d56d05897af7b1545214c4d42d8723159cef7a86c8c013f96e20"
+        },
+        {
+          "path": "evidence/index-phone.png",
+          "sha256": "0dbbc1b93fc45ecaf9dbaacd6c1295490b80d6ffe3402cb5f3b3273e181a47a2"
+        },
+        {
+          "path": "evidence/index-desktop.png",
+          "sha256": "4df250a15a0925dfbe36af4042594c38676167e5130b7a554973f4a1da451528"
+        },
+        {
+          "path": "evidence/signature-home-phone.png",
+          "sha256": "9bb6c0a9ef25d56d05897af7b1545214c4d42d8723159cef7a86c8c013f96e20"
+        },
+        {
+          "path": "evidence/signature-home-desktop.png",
+          "sha256": "8ebf0003b1b2137e97b247a82f951a8963beb7504869c2f4c1a6ed761d130f07"
+        }
+      ]
+    },
+    "distinctiveness": {
+      "score": 3.5,
+      "status": "reviewed",
+      "rationale": "Against design 1 the look is clearly different: photo-led white page, one sans family, Bell-blue actions; measured visual similarity 0.11, palette distance 15.7, no shared headings, and page titles, H1s and leads are new. But my own sentence pairing found design-1 sentences lightly reworded rather than rewritten (privacy.html, repairs.html, mobile.html steps, deals.html small lines, Member Benefits and Fibe TV lines; listed in notes), the nav labels Deals, Internet & TV and Repairs are identical to design 1 (the allowed maximum of 3), and the page skeleton and section order match design 1.",
+      "evidence": [
+        {
+          "path": "evidence/index-phone-top.png",
+          "sha256": "9bb6c0a9ef25d56d05897af7b1545214c4d42d8723159cef7a86c8c013f96e20"
+        },
+        {
+          "path": "evidence/index-phone.png",
+          "sha256": "0dbbc1b93fc45ecaf9dbaacd6c1295490b80d6ffe3402cb5f3b3273e181a47a2"
+        },
+        {
+          "path": "evidence/index-desktop.png",
+          "sha256": "4df250a15a0925dfbe36af4042594c38676167e5130b7a554973f4a1da451528"
+        },
+        {
+          "path": "evidence/signature-home-phone.png",
+          "sha256": "9bb6c0a9ef25d56d05897af7b1545214c4d42d8723159cef7a86c8c013f96e20"
+        },
+        {
+          "path": "evidence/signature-home-desktop.png",
+          "sha256": "8ebf0003b1b2137e97b247a82f951a8963beb7504869c2f4c1a6ed761d130f07"
+        },
+        {
+          "path": "evidence/copy-comparison-design-1.json",
+          "sha256": "aca76ab06ce62df35d8cb7f51c6015765ec6fba3a29a301838ee56e2e67b6c37"
+        }
+      ]
+    },
+    "brand_identity": {
+      "score": 3.5,
+      "status": "reviewed",
+      "rationale": "The T Wireless wordmark (red serif with a phone glyph) is in every header and footer and the plain, second-person voice ('Ask a real person') is consistent across pages. But everything else is white with Bell blue (#00549a) for every action, so the site reads more like a Bell-family page than T Wireless's own, the red wordmark is the only store colour and its serif style is not echoed anywhere, and the README itself warns that Bell blue may be a trademarked shade. No real store imagery or other store-specific cue (index-phone.png, index-desktop.png).",
+      "evidence": [
+        {
+          "path": "evidence/index-phone-top.png",
+          "sha256": "9bb6c0a9ef25d56d05897af7b1545214c4d42d8723159cef7a86c8c013f96e20"
+        },
+        {
+          "path": "evidence/index-phone.png",
+          "sha256": "0dbbc1b93fc45ecaf9dbaacd6c1295490b80d6ffe3402cb5f3b3273e181a47a2"
+        },
+        {
+          "path": "evidence/index-desktop.png",
+          "sha256": "4df250a15a0925dfbe36af4042594c38676167e5130b7a554973f4a1da451528"
+        },
+        {
+          "path": "evidence/signature-home-phone.png",
+          "sha256": "9bb6c0a9ef25d56d05897af7b1545214c4d42d8723159cef7a86c8c013f96e20"
+        },
+        {
+          "path": "evidence/signature-home-desktop.png",
+          "sha256": "8ebf0003b1b2137e97b247a82f951a8963beb7504869c2f4c1a6ed761d130f07"
+        }
+      ]
+    },
+    "trust_signals": {
+      "score": 3.5,
+      "status": "reviewed",
+      "rationale": "Checkable and visible: 'Bell Authorised Retailer' on every page, address, phone and hours repeated, an open/closed chip, a named contact (Ali), an accessible-entrance line, a privacy page, an honest 'stock photos, not our store, staff or customers' footer, 'Example offer' badges and price and terms disclaimers. Bell's own store locator confirms the name, phone, address and 10-8 daily hours, but lists postal code L6X 5K7 where the site shows L6X 0G3 (flagged in the README). Held back by: I could not open the Google listing to check '4.1 on Google, from 91 reviews', there is no real photo of the store or team, and wheelchair access, trade-in credit and the photo-ID requirement have no source and are not on the owner checklist.",
+      "evidence": [
+        {
+          "path": "evidence/index-phone-top.png",
+          "sha256": "9bb6c0a9ef25d56d05897af7b1545214c4d42d8723159cef7a86c8c013f96e20"
+        },
+        {
+          "path": "evidence/index-phone.png",
+          "sha256": "0dbbc1b93fc45ecaf9dbaacd6c1295490b80d6ffe3402cb5f3b3273e181a47a2"
+        },
+        {
+          "path": "evidence/index-desktop.png",
+          "sha256": "4df250a15a0925dfbe36af4042594c38676167e5130b7a554973f4a1da451528"
+        },
+        {
+          "path": "evidence/signature-home-phone.png",
+          "sha256": "9bb6c0a9ef25d56d05897af7b1545214c4d42d8723159cef7a86c8c013f96e20"
+        },
+        {
+          "path": "evidence/signature-home-desktop.png",
+          "sha256": "8ebf0003b1b2137e97b247a82f951a8963beb7504869c2f4c1a6ed761d130f07"
+        }
+      ]
+    },
+    "information_economy": {
+      "score": 3.5,
+      "status": "reviewed",
+      "rationale": "Sentences are short and mostly earn their place, and FAQ answers sit in accordions. But facts recur: SmartPay on home, brands, mobile and deals, Fibe TV on brands and internet-tv, the Virgin Plus internet/TV notice on brands and internet-tv, porting steps on home, mobile and FAQ, hours in about six places. The home page is about 7,240 CSS px tall on a phone (measured 7,239 in v5) with ten sections, and each deal card carries a title, price, detail and a grey 'Replace with ...' line (deals-phone.png).",
+      "evidence": [
+        {
+          "path": "evidence/index-phone-top.png",
+          "sha256": "9bb6c0a9ef25d56d05897af7b1545214c4d42d8723159cef7a86c8c013f96e20"
+        },
+        {
+          "path": "evidence/index-phone.png",
+          "sha256": "0dbbc1b93fc45ecaf9dbaacd6c1295490b80d6ffe3402cb5f3b3273e181a47a2"
+        },
+        {
+          "path": "evidence/index-desktop.png",
+          "sha256": "4df250a15a0925dfbe36af4042594c38676167e5130b7a554973f4a1da451528"
+        },
+        {
+          "path": "evidence/signature-home-phone.png",
+          "sha256": "9bb6c0a9ef25d56d05897af7b1545214c4d42d8723159cef7a86c8c013f96e20"
+        },
+        {
+          "path": "evidence/signature-home-desktop.png",
+          "sha256": "8ebf0003b1b2137e97b247a82f951a8963beb7504869c2f4c1a6ed761d130f07"
+        }
+      ]
+    },
+    "typography_hierarchy": {
+      "score": 4.0,
+      "status": "reviewed",
+      "rationale": "One family on a six-size scale (15, 17, 20, 25, 28, 42 px; hero ratio 2.47; minimum text 15 px; one H1 per page, no heading skips), 800-weight headings, balanced wrapping and a 1.55 line height make every phone slice scan quickly, and buttons are clearly distinct from links. Held back by: the default slashed zeros in numerals ('1Ø a.m.', '7Ø7') look odd in the phone number and hours, the 4-line H1 on brands-phone-top.png, the v4 header tagline that orphans 'Dr W', and 15 px grey instruction text inside the offer cards.",
+      "evidence": [
+        {
+          "path": "evidence/index-phone-top.png",
+          "sha256": "9bb6c0a9ef25d56d05897af7b1545214c4d42d8723159cef7a86c8c013f96e20"
+        },
+        {
+          "path": "evidence/index-phone.png",
+          "sha256": "0dbbc1b93fc45ecaf9dbaacd6c1295490b80d6ffe3402cb5f3b3273e181a47a2"
+        },
+        {
+          "path": "evidence/index-desktop.png",
+          "sha256": "4df250a15a0925dfbe36af4042594c38676167e5130b7a554973f4a1da451528"
+        },
+        {
+          "path": "evidence/signature-home-phone.png",
+          "sha256": "9bb6c0a9ef25d56d05897af7b1545214c4d42d8723159cef7a86c8c013f96e20"
+        },
+        {
+          "path": "evidence/signature-home-desktop.png",
+          "sha256": "8ebf0003b1b2137e97b247a82f951a8963beb7504869c2f4c1a6ed761d130f07"
+        }
+      ]
+    },
+    "grid_whitespace_rhythm": {
+      "score": 3.5,
+      "status": "reviewed",
+      "rationale": "Consistent 16 px phone gutters, 22 px photo radii, alternating white and mist bands and a three-column desktop grid. Faults I saw in the v4 screenshots: the 'The short version' heading touches the first card (brands-phone.png), the checklist runs straight into the 'Google reviewers rate us' line (visit-phone.png), form headings crowd their intro text (repairs-phone.png, visit-phone.png), on deals-desktop.png the 'Ask about this offer' buttons sit at different heights because titles wrap and row two leaves an empty slot, the index-desktop.png FAQ leaves the right half empty, and visit-desktop.png has a large blank band under the store card.",
+      "evidence": [
+        {
+          "path": "evidence/index-phone-top.png",
+          "sha256": "9bb6c0a9ef25d56d05897af7b1545214c4d42d8723159cef7a86c8c013f96e20"
+        },
+        {
+          "path": "evidence/index-phone.png",
+          "sha256": "0dbbc1b93fc45ecaf9dbaacd6c1295490b80d6ffe3402cb5f3b3273e181a47a2"
+        },
+        {
+          "path": "evidence/index-desktop.png",
+          "sha256": "4df250a15a0925dfbe36af4042594c38676167e5130b7a554973f4a1da451528"
+        },
+        {
+          "path": "evidence/signature-home-phone.png",
+          "sha256": "9bb6c0a9ef25d56d05897af7b1545214c4d42d8723159cef7a86c8c013f96e20"
+        },
+        {
+          "path": "evidence/signature-home-desktop.png",
+          "sha256": "8ebf0003b1b2137e97b247a82f951a8963beb7504869c2f4c1a6ed761d130f07"
+        }
+      ]
+    },
+    "mobile_ergonomics": {
+      "score": 4.0,
+      "status": "reviewed",
+      "rationale": "Sticky three-target action bar with safe-area padding, 44-50 px pills, chips and buttons, a tel input type with autocomplete on the forms, FAQ accordions, a map that loads only on tap, zero horizontal overflow, minimum 15 px text, Lighthouse 99-100 with LCP at most 2.04 s and CLS near 0. Held back by: the sticky bar covers in-flow CTAs on first screens (hero buttons on index-phone-top.png, the Directions button on visit-phone-top.png), the two-row nav repeats on every page, Call appears twice at once (header and bar) and the home page is about 7,240 px long.",
+      "evidence": [
+        {
+          "path": "evidence/index-phone-top.png",
+          "sha256": "9bb6c0a9ef25d56d05897af7b1545214c4d42d8723159cef7a86c8c013f96e20"
+        },
+        {
+          "path": "evidence/index-phone.png",
+          "sha256": "0dbbc1b93fc45ecaf9dbaacd6c1295490b80d6ffe3402cb5f3b3273e181a47a2"
+        },
+        {
+          "path": "evidence/index-desktop.png",
+          "sha256": "4df250a15a0925dfbe36af4042594c38676167e5130b7a554973f4a1da451528"
+        },
+        {
+          "path": "evidence/signature-home-phone.png",
+          "sha256": "9bb6c0a9ef25d56d05897af7b1545214c4d42d8723159cef7a86c8c013f96e20"
+        },
+        {
+          "path": "evidence/signature-home-desktop.png",
+          "sha256": "8ebf0003b1b2137e97b247a82f951a8963beb7504869c2f4c1a6ed761d130f07"
+        }
+      ]
+    }
+  },
+  "page_roles": [
+    {
+      "id": "role-home",
+      "role": "home",
+      "page": "index.html",
+      "ratings": {
+        "purpose_clarity": 4.0,
+        "hierarchy": 4.0,
+        "consistency": 4.5,
+        "legibility": 4.5,
+        "information_gain": 4.0
+      },
+      "evidence": [
+        {
+          "path": "evidence/index-phone-top.png",
+          "sha256": "9bb6c0a9ef25d56d05897af7b1545214c4d42d8723159cef7a86c8c013f96e20"
+        },
+        {
+          "path": "evidence/index-phone.png",
+          "sha256": "0dbbc1b93fc45ecaf9dbaacd6c1295490b80d6ffe3402cb5f3b3273e181a47a2"
+        },
+        {
+          "path": "evidence/index-desktop.png",
+          "sha256": "4df250a15a0925dfbe36af4042594c38676167e5130b7a554973f4a1da451528"
+        },
+        {
+          "path": "evidence/signature-home-phone.png",
+          "sha256": "9bb6c0a9ef25d56d05897af7b1545214c4d42d8723159cef7a86c8c013f96e20"
+        },
+        {
+          "path": "evidence/signature-home-desktop.png",
+          "sha256": "8ebf0003b1b2137e97b247a82f951a8963beb7504869c2f4c1a6ed761d130f07"
+        }
+      ]
+    },
+    {
+      "id": "role-brand_family",
+      "role": "brand_family",
+      "page": "brands.html",
+      "ratings": {
+        "purpose_clarity": 4.5,
+        "hierarchy": 3.5,
+        "consistency": 4.0,
+        "legibility": 4.0,
+        "information_gain": 4.5
+      },
+      "evidence": [
+        {
+          "path": "evidence/brands-phone-top.png",
+          "sha256": "40d100df1d5bb801eaf4ce08165041ca90c6be8f29b21d45c47248e24bf2d6a4"
+        },
+        {
+          "path": "evidence/brands-phone.png",
+          "sha256": "c3ccba6ae47cad25654a132159475ec96c357d5c3aaecea996462b66ba27d391"
+        },
+        {
+          "path": "evidence/brands-desktop.png",
+          "sha256": "88eeb9312dd5b9b8eb1195d5512a59f11caf8d76dcfc0d1bb25d00569ab26489"
+        }
+      ]
+    },
+    {
+      "id": "role-deals",
+      "role": "deals",
+      "page": "deals.html",
+      "ratings": {
+        "purpose_clarity": 4.0,
+        "hierarchy": 4.0,
+        "consistency": 3.5,
+        "legibility": 4.0,
+        "information_gain": 3.0
+      },
+      "evidence": [
+        {
+          "path": "evidence/deals-phone-top.png",
+          "sha256": "f17765c89797c51889afbb84ca840d63ebdcd04ab415c3c118128a5ca9a42357"
+        },
+        {
+          "path": "evidence/deals-phone.png",
+          "sha256": "24c02dd2540edcc98a8ccc7387dbf62763c8d06728c2291b933117269a310fb2"
+        },
+        {
+          "path": "evidence/deals-desktop.png",
+          "sha256": "140ab294766620c89507b78d1b358aceefcff792d3a46fada65e0a0c40563317"
+        }
+      ]
+    },
+    {
+      "id": "role-mobile",
+      "role": "mobile",
+      "page": "mobile.html",
+      "ratings": {
+        "purpose_clarity": 4.5,
+        "hierarchy": 4.0,
+        "consistency": 4.0,
+        "legibility": 4.5,
+        "information_gain": 3.5
+      },
+      "evidence": [
+        {
+          "path": "evidence/mobile-phone-top.png",
+          "sha256": "66eb503747a3bef092f886983b146085e4d9e6017dcf897aa46ce76eaf6501a1"
+        },
+        {
+          "path": "evidence/mobile-phone.png",
+          "sha256": "17628650d0533b63a9a93b94ce13cb0aadab49b977b3ec2404ab0fc2d8dfdb4f"
+        },
+        {
+          "path": "evidence/mobile-desktop.png",
+          "sha256": "6292dc1be46680c429fdf956de2f19ed68a99ba928e6d87d70ab0a12d22ec6be"
+        }
+      ]
+    },
+    {
+      "id": "role-home_services",
+      "role": "home_services",
+      "page": "internet-tv.html",
+      "ratings": {
+        "purpose_clarity": 4.5,
+        "hierarchy": 4.0,
+        "consistency": 4.0,
+        "legibility": 4.5,
+        "information_gain": 4.0
+      },
+      "evidence": [
+        {
+          "path": "evidence/internet-tv-phone-top.png",
+          "sha256": "4b0336ac937917b882fdc1b772baa7222e1832ebaa53fa3f1c57634f4542b4eb"
+        },
+        {
+          "path": "evidence/internet-tv-phone.png",
+          "sha256": "db171f3c7e21b64fdba9c4ff0a214c5d7e51613c3a12f97b5a1be69032c1448c"
+        },
+        {
+          "path": "evidence/internet-tv-desktop.png",
+          "sha256": "36fce355028a6cf6accd67b41bd61cb1be3c5302e7b95deabff06a539d6c8ef2"
+        }
+      ]
+    },
+    {
+      "id": "role-repairs",
+      "role": "repairs",
+      "page": "repairs.html",
+      "ratings": {
+        "purpose_clarity": 4.5,
+        "hierarchy": 4.0,
+        "consistency": 4.0,
+        "legibility": 4.5,
+        "information_gain": 3.5
+      },
+      "evidence": [
+        {
+          "path": "evidence/repairs-phone-top.png",
+          "sha256": "8a52d4e4191e7394e7af4487f910b441ce6ab1f33b0b78d47a9378f78d55f2dc"
+        },
+        {
+          "path": "evidence/repairs-phone.png",
+          "sha256": "536d08791322eac1bd71044f21afba050a201e41b82cf334e1943399c737731d"
+        },
+        {
+          "path": "evidence/repairs-desktop.png",
+          "sha256": "260724c6334dc1d22c9a7e3a74b1eb715cf644c45f29f94530e4ca11095d15f6"
+        }
+      ]
+    },
+    {
+      "id": "role-visit",
+      "role": "visit",
+      "page": "visit.html",
+      "ratings": {
+        "purpose_clarity": 4.5,
+        "hierarchy": 4.0,
+        "consistency": 4.0,
+        "legibility": 4.5,
+        "information_gain": 4.0
+      },
+      "evidence": [
+        {
+          "path": "evidence/visit-phone-top.png",
+          "sha256": "f992f6f286f5617367f10b924d16226a19aa0ae3bad95f806d69855a3d2f0d1e"
+        },
+        {
+          "path": "evidence/visit-phone.png",
+          "sha256": "4307075c209d70f680e8d99099a691777d56277f446d5bd89e98b384a0a661f3"
+        },
+        {
+          "path": "evidence/visit-desktop.png",
+          "sha256": "e4322668b9e2bb247deeabbe5eacf487b3911406713f4138de649325451cc38e"
+        }
+      ]
+    }
+  ],
+  "accuracy_gate": {
+    "content_matches_sources": true,
+    "no_fabricated_offers_or_reviews": false,
+    "unverified_flagged_for_owner": false,
+    "photos_licensed_for_commercial_use": true,
+    "no_photo_implies_store_staff_or_customers": true,
+    "carrier_logos_unaltered_on_clean_plates": true,
+    "no_third_party_brand_marks_in_photos": false,
+    "copy_written_for_this_design": false
+  },
+  "notes": "INDEPENDENT REVIEW, design 2 'In hand', v4-candidate. Scores are from my own inspection, phone first. What I checked: the contract and measured.json (305 checks, 0 failed; Lighthouse 99-100, accessibility 100, best practices 100, SEO 100; LCP at most 2.04 s; CLS about 0; 97-217 KiB per page; minimum text 15 px; home hero ratio 2.47); every page's phone and desktop screenshots (home and brands phone slices at full size, the other pages as reduced contact sheets because the viewer dropped some full-size reads, brands desktop through the v5 full-page screenshot, whose content is identical); the text, titles, descriptions, alt text and markup of all 11 built pages; README 'Before launch'; src/site.json; design 1's built pages for the copy comparison; every served photo crop at native size with zoomed and contrast-enhanced crops, tesseract over all served JPEGs; and the facts and licences on the web.\n\nACCURACY GATES SET TO FALSE (4 of 8)\n1. no_third_party_brand_marks_in_photos = false. I found no consumer-brand name or logo (no Apple, Samsung, carrier or retailer wordmark) legible anywhere, and tesseract (1x-3x, CLAHE and inverted variants) over the served JPEGs found no brand words. But marks remain that read at full size, and an earlier run of this check was wrong in just this way, so I am not passing it: (a) site/assets/img/photos/repair-mat-16x10-1600.jpg, battery label at about x285-385, y310-370: a UL-style certification mark, a Li-ion recycling symbol and 'Li-ion' lettering, with a faint smear where the Apple logo was erased; the same label is in the unused repair-mat-4x5-1000.jpg; tiny white lettering on a small part near x1120-1320, y650-780 and dark printed blocks on the shield near x1320-1370, y490-515 are not readable; (b) concert-4x5-1000.jpg, wristband at lower right, about x840-945, y1130-1200: partial event lettering '...Y GA' (also at the lower right of concert-16x9-960.jpg); not retouched; (c) not logos but product-identifying: unboxing-16x10-1280.jpg shows an iPhone XS retail carton (top right, about x770-1055, y0-240) and MacBook-style key legends 'tab, caps lock, shift, fn, control, opt' (top right corner, x1130-1280, y0-260); the concert phone screen shows the iOS camera interface. Severity is low: nothing here names a brand a visitor would recognise at display size, and the fix is one more retouch pass or a crop. Checked and clean at full size: hand-blue-phone (the hero), two-phones, train (operator logo and ticket-machine sticker gone, red device plain; only a faint smudge remains at about x270-310, y1170-1210 of train-4x5-1000.jpg), cafe-business (seven polo-emblem regions erased, no copies found), family-tv, living-room (TV bezel, media boxes and wall art show no marks), video-call, seniors-phone, cracked-screen.\n2. copy_written_for_this_design = false. The measured checks pass (phrase overlap 0.065, reused sentences 0, shared headings 0, shared nav labels at the limit of 3) and titles, descriptions, H1s, leads and section headings are all new. But the 4-gram test cannot see synonym swaps, and pairing sentences by hand against design 1's built pages shows design-1 sentences lightly reworded: privacy.html 'When you send a visit or repair request, we get your name, your phone number and whatever you write in the form.' (design 1: 'When you send a repair or visit request, we receive your name, phone number and the details you type into the form.'); privacy.html 'To ask about your details or have them deleted, ring 647-707-1093, email twireless965@gmail.com, or come into the store at 965 Bovaird Dr W, Unit 1, Brampton.' (design 1: 'To ask about your information or have it deleted, call us at ..., email ..., or visit the store at ...'); repairs.html 'Rather talk it through? Call 647-707-1093 or email twireless965@gmail.com.' (design 1: 'Prefer to talk? Call 647-707-1093 or email twireless965@gmail.com.', identical second sentence); mobile.html steps 'Pick your plan and phone / We talk through Bell, Virgin Plus and Lucky Mobile with you.' and 'We move the number' (design 1: 'Choose your plan and phone / We go through the options from Bell, Virgin Plus and Lucky Mobile with you.' and 'We move your number'); repairs.html step 'Book, or just come in / Request a time below, or walk in every day from 10 a.m. to 8 p.m.' (design 1: 'Book or walk in / Book below, or come by every day from 10 a.m. to 8 p.m.'); deals.html 'Tell us what you use your phone for and what you pay today.' and 'Nothing in this group right now. Ring us and we'll tell you what's coming.' (design 1: 'Tell us how you use your phone and what you pay now.' and 'No deals in this group right now. Call us and we'll tell you what's on.'); brands.html 'Perks on food, shopping, travel and entertainment, found in the My Benefits app.' and 'We can make the move with you, or line it up against Lucky Mobile prepaid.' (design 1: 'Offers on entertainment, travel, shopping and food in the My Benefits app.' and '... make the switch with you, or compare it with Lucky Mobile prepaid.'); internet-tv.html 'Live TV and on-demand shows in the Fibe TV app.' (design 1: 'Live and on-demand TV in the Fibe TV app.'). Also mobile.html 'We sell iPhone and Android phones' (design 1: 'We carry ...'). Fix: rewrite roughly ten lines. The home hero, lead, headings and most body copy are genuinely new, so this is a small residue, not the 'exactly the same copy' Mark complained about.\n3. unverified_flagged_for_owner = false. The README 'Before launch' list is thorough (postal code, Sunday hours, example offers, base URL, Bell family page items, repair list and quotes, walk-ins and callbacks, Ali named, carrier logo sign-off, privacy page, Google rating refresh, stock photos) and the site itself flags example offers and stock photos. But these claims are stated as fact on the site and are neither sourced nor on the checklist: 'Wheelchair-accessible entrance' (home trust strip, FAQ, visit.html; it comes only from accessible_entrance: true in src/site.json); 'South side of Bovaird, just east of Chinguacousy Rd' and the drawn map sketch (README says about 150 m east of the intersection; no instruction to confirm); 'Trade in. Got an old phone? Ask if it can earn credit toward the new one.' (brands.html, mobile.html); 'Bring government-issued photo ID' (mobile.html step 1, the home page steps and FAQ, visit.html, internet-tv.html); Bell's own number-transfer page asks for an account number, IMEI or PIN, not ID; 'the offers keep changing' (Member Benefits, brands.html). The README also says the hero is 'unedited' while the table row says the maker's name was retouched out.\n4. no_fabricated_offers_or_reviews = false, only because I could not verify, not because I found anything invented. I saw no invented offer: every deal card is badged 'Example offer' with '$XX/mo' placeholders, and the site quotes no customer review. The line '4.1 on Google, from 91 reviews' (home trust strip, visit.html) comes from the store's Google listing, which I cannot open and could not find through search; I will not guess. The owner or the main session needs to confirm it against the listing (and it carries no 'as of' date, so it will go stale).\n\nACCURACY GATES SET TO TRUE (4 of 8)\n- content_matches_sources = true. Checked in this session: Bell SmartPay, 24 monthly payments at 0% APR, $0 down, eligible 2-year plan, Bell credit approval (support.bell.ca 'what is bell smartpay'; bell.ca/business SmartPay page says 'on approved credit'). Device Return Option: choice at the end of the 2-year term, deferred amount credited if the phone is returned in good working condition, charged if kept (support.bell.ca Device_Return_Option). Virgin Plus prepaid ends January 15, 2027 and customers must move to a monthly plan to keep their number (MobileSyrup, 18 Aug 2026). Virgin Plus stopped taking new home internet and TV customers in Ontario on January 14, 2026 and current customers keep plan, pricing and equipment (iPhone in Canada, 14 Jan 2026). Member Benefits: built in, no extra cost, no points, My Benefits app, entertainment/travel/retail/food (WhistleOut guide). Lucky Mobile: Bell's prepaid brand (MobileSyrup 2017), 'no long-term commitments, credit checks or data overages' (bell.ca prepaid page), runs on Bell's network (WhistleOut), slower speeds after the full-speed allotment (MobileSyrup). Fibe TV: Bell Streamer, Apple TV, Android TV, Amazon Fire TV and Chromecast are supported, Bell Internet is required, Crave is included in some bundles, downloads exist (support.bell.ca Fibe TV app; bell.ca Fibe TV app). Porting: do not cancel the old service first and the new provider cancels it (support.bell.ca number-transfer page; CRTC 'do not cancel your service before you switch'). Bell's store locator lists T Wireless at 965 Bovaird Drive West with phone 647 707-1093 and 10 a.m. to 8 p.m. daily. Small nuances only: recordings can be downloaded only with a PVR and on-demand downloads are capped at 10 titles (the site's 'recorded or picked on demand can be downloaded' is a simplification), and the business SmartPay line omits 'on approved credit'. I could not open virginplus.ca or luckymobile.ca (not on this session's fetch allowlist), so the Virgin Plus and Lucky Mobile claims rest on bell.ca and the press sources above.\n- photos_licensed_for_commercial_use = true. I opened all 12 Pexels photo pages (11772521, 7190924, 5398928, 17964711, 7251087, 14798018, 19899066, 4049991, 31862950, 11921157, 10375885, 6975187): each shows 'Free' and the photographer named on credits.html. The Pexels License allows commercial use and edits without attribution and forbids implied endorsement, identifiable people in a bad light, selling unaltered copies, redistribution and use in a trademark or business name; none of that is breached. Pexels pages mention no model release for the four identifiable-person photos (family-tv, video-call, cafe-business, seniors-phone), which the licence does not promise either.\n- no_photo_implies_store_staff_or_customers = true. Every page footer and credits.html say the photos are stock and none show the store, staff or customers; alt text is neutral ('A woman in a cafe checking her phone'); no testimonial, quote or 'our team' copy sits near any people photo; carrier plates are never placed on identifiable-person photos. A visitor could still read the cafe photo beside the Bell for business heading as a Bell customer, but the disclaimer covers it.\n- carrier_logos_unaltered_on_clean_plates = true. The sha256 of bell.svg, virgin-plus.png, virgin-plus.webp, lucky-mobile.svg and the T Wireless logo files match logos.files in the contract; in every screenshot the logos are undistorted, uncropped, uncoloured and on white plates (checked on the home hero bar, deals, mobile, brands, internet-tv). The og-image.jpg card puts the logos straight on a white card rather than on plates; it is not a page image.\n\nDEFECTS, WORST FIRST (applies to v4 and v5 unless marked)\n1. Residual third-party marks in photos (gate false): repair-mat-16x10-1600.jpg battery label x285-385 y310-370; concert-4x5-1000.jpg and concert-16x9-960.jpg wristband lettering; unboxing-16x10-1280.jpg iPhone XS carton and MacBook key legends.\n2. Copy is not fully written for this design (gate false): about ten lines are light rewrites of design 1 (privacy.html, repairs.html, mobile.html, deals.html, brands.html, internet-tv.html; see gate 2). Nav labels Deals, Internet & TV and Repairs are identical to design 1.\n3. Placeholder offers show to customers: '$XX/mo' and 'Replace with this month's ... offer and its conditions.' / 'Replace with your repair offer, or remove this card.' on index.html (3 cards under 'On offer this month') and deals.html (5 cards). They are badged 'Example offer' and the README blocks a release build, but a visitor sees instructions to staff. deals-phone.png, index-phone.png.\n4. Unsourced claims not on the owner checklist: wheelchair-accessible entrance, directions hint and map sketch, trade-in credit, photo-ID requirement (gate 3). The '4.1 on Google, from 91 reviews' line is unverified by me and undated.\n5. The social preview og-image.jpg (site/assets/img/photos/og-image.jpg, set as og:image and twitter:image on every page) is a composed card: hero photo cropped to the right, the wordmark, the headline 'Phones you can pick up. People you can ask.', the address and the three logos. Texting the link to an iPhone shows this composed image, the pattern Mark said he dislikes; use the plain photo instead.\n6. 'Unaltered' is not literally true of the hero. contract client_feedback says 'unaltered photograph' and the README says 'unedited'; the served hero is cropped, colour-graded by the imagery pipeline and retouched where the maker's name was printed on the phone. It looks natural and nothing is composited, so the client's concern is met, but the wording should say 'not composed'.\n7. Phone layout: the hero buttons on index-phone-top.png and the Directions button on visit-phone-top.png sit under the sticky bar on the first screen; the two-row nav pills cost about 110 px on every page; brands-phone-top.png opens with a 4-line H1, a 6-line lead and no photo or logo; home is about 7,240 px long. In v4 the header tagline orphans 'Dr W' (fixed in v5).\n8. Desktop: deals-desktop.png 'Ask about this offer' buttons not aligned and row two leaves an empty slot; index-desktop.png FAQ leaves the right half empty; visit-desktop.png has a blank band under the store card.\n9. Only stock photos, none of the store (flagged in README); the same four phone photos repeat on four pages; identifiable-person stock photos (family-tv from the World Sikh Organization of Canada, video-call, cafe-business, seniors-phone) carry no model release information.\n10. Small: numerals use slashed zeros ('1Ø a.m.', '647-7Ø7-1Ø93') which can read oddly; the Fibe TV download line simplifies a PVR condition; the business SmartPay line omits 'on approved credit'; postal code L6X 0G3 versus Bell's L6X 5K7 and Sunday hours (flagged in README).\n\nNOT VERIFIED\n- The Google rating and review count (4.1, 91) and the Google listing's Sunday hours: I cannot open the listing and search did not surface it.\n- virginplus.ca and luckymobile.ca pages: blocked by the session's fetch allowlist; I used bell.ca, support.bell.ca, the CRTC and press instead.\n- Wheelchair access, trade-in credit, photo-ID requirement, 'offers keep changing', the map's 150 m offset and the 'south side of Bovaird' hint: no source found.\n- Live behaviour: forms were not submitted, the live map load, the open/closed chip logic and real iPhone rendering were judged from screenshots only (390x844 phone, 1440x900 desktop).\n- Model or property releases for the identifiable-person stock photos."
+}
