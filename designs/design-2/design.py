@@ -66,6 +66,21 @@ def extend(p, kit):
             f'</li>')
     providers = '<ul class="providers">\n' + "\n".join(rows) + "\n</ul>"
 
+    # The same three, as a compact list of logo plates with a short line each (no photographs), for pages
+    # that already carry photographs of their own.
+    short_rows = []
+    for c in data["carriers"]:
+        cid = c["id"]
+        short_rows.append(
+            f'<li class="name">\n'
+            f'  {plate(cid, alt="")}\n'
+            f'  <div class="name__body">\n'
+            f'    <h3 class="name__title"><a href="{root}brands.html#{esc(cid)}">{esc(c["name"])}</a></h3>\n'
+            f'    <p>{esc(copy["carrier_short"][cid])}</p>\n'
+            f'  </div>\n'
+            f'</li>')
+    names = '<ul class="names">\n' + "\n".join(short_rows) + "\n</ul>"
+
     def deal(offer, with_photo, first=False):
         text = {k: kit["render"](str(offer.get(k, "")), p, "offer", escape=False)
                 for k in ("brand", "title", "price", "detail", "terms")}
@@ -81,7 +96,8 @@ def extend(p, kit):
         elif with_photo:
             media = f'  <div class="deal__media deal__media--plain">{mark}</div>\n'
         badge = '    <p class="deal__badge">Example offer</p>\n' if example else ""
-        terms = f'    <p class="deal__terms">{esc(text["terms"])}</p>\n' if text["terms"] else ""
+        # An example card's terms are a note to the store ("Replace with this month's offer"), not something to show.
+        terms = f'    <p class="deal__terms">{esc(text["terms"])}</p>\n' if text["terms"] and not example else ""
         head_mark = "" if with_photo else f"    {mark}\n"
         return (f'<article class="offer deal{" deal--example" if example else ""}" data-category="{esc(offer.get("category", "other"))}">\n'
                 f'{media}'
@@ -116,12 +132,20 @@ def extend(p, kit):
             f'<a href="{esc(c["license_url"])}">{esc(c["license"])}</a>.</p></div>\n'
             f'</li>')
 
+    # While any offer is still an example, the Offers page says so in words, so that its headline is not read as a promise.
+    example_note = ""
+    if any(o.get("status") == "example" for o in data["offers"]):
+        example_note = ('<p class="notice notice--example"><strong>These are examples.</strong> The cards show how an offer '
+                        'will look. The store\u2019s own offers will replace them.</p>')
+
     return {
+        "example_note": example_note,
         "sprite": icons_only(p["sprite"]),
         "plate": plates,
         "plate_deco": plates_decorative,
         "plate_photo": plates_on_photo,
         "providers": providers,
+        "names": names,
         "deals_preview": "\n".join(deal(o, False) for o in data["offers"][:3]),
         "deals_all": "\n".join(deal(o, True, first=(i == 0)) for i, o in enumerate(data["offers"])),
         "repair_items": repair_items,
@@ -140,10 +164,11 @@ def extend(p, kit):
             "new_phones_wide": pic("unboxing", "16x10", "half"),
             "video_call_wide": pic("video-call", "16x10", "half"),
             "cafe_wide": pic("cafe-business", "16x10", "half"),
-            "brand_bell": pic("two-phones", "4x5", "half", alt=""),
-            "brand_virgin": pic("concert", "4x5", "half", alt=""),
-            "brand_lucky": pic("train", "4x5", "half", alt=""),
-            "brand_home": pic("living-room", "4x5", "half", alt=""),
-            "brand_business": pic("cafe-business", "4x5", "half", alt=""),
+            "train_half": pic("train", "16x9", "half", alt=""),
+            "card_bell": pic("two-phones", "16x9", "card", alt=""),
+            "card_virgin": pic("concert", "16x9", "card", alt=""),
+            "card_lucky": pic("train", "16x9", "card", alt=""),
+            "half_home": pic("living-room", "16x9", "half", alt=""),
+            "half_team": pic("unboxing", "16x10", "half", alt=""),
         },
     }

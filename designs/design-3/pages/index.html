@@ -34,12 +34,26 @@
   <div class="wrap">
     <ul class="credentials" aria-label="About the store">
       <li><svg class="icon" aria-hidden="true"><use href="#i-shield"></use></svg><span>Bell Authorised Retailer</span></li>
-      <li><svg class="icon" aria-hidden="true"><use href="#i-star"></use></svg><a href="{{ store.reviews_url }}">Averaging {{ store.rating.value }} stars on Google, from {{ store.rating.count }} reviews</a></li>
+      <li><svg class="icon" aria-hidden="true"><use href="#i-star"></use></svg><a href="{{ store.reviews_url }}">Averaging {{ store.rating.value }} stars on Google, from {{ store.rating.count }} reviews ({{ store.rating.as_of_text }})</a></li>
       <li><svg class="icon" aria-hidden="true"><use href="#i-access"></use></svg><span>Wheelchair-accessible entrance</span></li>
     </ul>
   </div>
 
-  <section class="section" aria-labelledby="providers-title">
+  <section class="section" aria-labelledby="handsets-title">
+    <div class="wrap spread">
+      <figure class="frame spread__media">{{{ pic.wood }}}</figure>
+      <div class="spread__text">
+        <h2 id="handsets-title">A handset chosen with someone beside you</h2>
+        <p>Ask for a model by name and we will check, before you set out, that it is in the store. iPhone and Android handsets are both available.</p>
+        <p>Bell SmartPay and the Device Return Option can spread or defer what a handset costs, and a plan can just as well be set up on the handset you already own. The Handsets page sets out how each works and what Bell asks of you.</p>
+        <div class="buttons">
+          <a class="button" href="mobile.html">Handsets and plans</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--raised" aria-labelledby="providers-title">
     <div class="wrap">
       <div class="head">
         <h2 id="providers-title">Three names on one network</h2>
@@ -50,19 +64,42 @@
     </div>
   </section>
 
-  <section class="section section--raised" aria-labelledby="handsets-title">
-    <div class="wrap spread">
-      <figure class="frame spread__media">{{{ pic.wood }}}</figure>
+  <section class="section" aria-labelledby="switch-title">
+    <div class="wrap narrow-split">
+      <div class="narrow-split__title">
+        <h2 id="switch-title">Moving your number</h2>
+        <p>Your number can go with you to a new provider, and the move is handled with you in the store.</p>
+      </div>
+      <div class="duo">
+        <div class="duo__col">
+          <h3>Bring along</h3>
+          <ul class="ticks">
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg><span>A recent bill. The account number printed on it is what the move requires.</span></li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg><span>Photo ID, which may be asked for as well.</span></li>
+          </ul>
+        </div>
+        <div class="duo__col">
+          <h3>What follows</h3>
+          <p>Your existing plan stays active until the number has gone across. The transfer then closes it, so please do not cancel it yourself.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="strip" aria-hidden="true">{{{ pic.garnet }}}</div>
+
+  <section class="section section--raised" aria-labelledby="repairs-title">
+    <div class="wrap spread spread--flip">
+      <figure class="frame spread__media">{{{ pic.repair_half }}}</figure>
       <div class="spread__text">
-        <h2 id="handsets-title">A handset chosen with someone beside you</h2>
-        <p>Ask for a model by name and we will check, before you set out, that it is in the store. iPhone and Android handsets are both available.</p>
-        <ul class="ticks">
-          <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg><span><strong>Paying over time.</strong> Bell SmartPay divides a handset’s price into 24 monthly payments. Nothing is due on the day, and no interest is charged. The plan must be an eligible 2-year one, and Bell checks your credit first.</span></li>
-          <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg><span><strong>Handing it back.</strong> The Device Return Option lets part of an eligible Bell handset’s cost be deferred, with a reckoning at the end of your 2-year term. A handset handed back in good working condition clears that part; one you keep means paying it.</span></li>
-          <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg><span><strong>Staying with yours.</strong> A plan does not require a new handset. It can be set up for the one you already own.</span></li>
+        <h2 id="repairs-title">Repairs, priced before any work begins</h2>
+        <p>Leave a phone or tablet with us and we will diagnose the fault and name a price. No work starts until you have agreed to it.</p>
+        <ul class="ticks ticks--two">
+          {{{ repair_names }}}
         </ul>
         <div class="buttons">
-          <a class="button" href="mobile.html">Handsets and plans</a>
+          <a class="button" href="repairs.html#book">Request a repair</a>
+          <a class="button button--line" href="tel:{{ store.phone_e164 }}">Get a quotation by telephone</a>
         </div>
       </div>
     </div>
@@ -97,48 +134,6 @@
       <div class="offers offers--three">
         {{{ deals_preview }}}
       </div>
-    </div>
-  </section>
-
-  <div class="strip" aria-hidden="true">{{{ pic.garnet }}}</div>
-
-  <section class="section" aria-labelledby="repairs-title">
-    <div class="wrap spread spread--flip">
-      <figure class="frame spread__media">{{{ pic.repair_half }}}</figure>
-      <div class="spread__text">
-        <h2 id="repairs-title">Repairs, priced before any work begins</h2>
-        <p>Leave a phone or tablet with us and we will diagnose the fault and name a price. No work starts until you have agreed to it.</p>
-        <ul class="ticks ticks--two">
-          {{{ repair_names }}}
-        </ul>
-        <div class="buttons">
-          <a class="button" href="repairs.html#book">Request a repair</a>
-          <a class="button button--line" href="tel:{{ store.phone_e164 }}">Get a quotation by telephone</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section section--raised" aria-labelledby="switch-title">
-    <div class="wrap">
-      <div class="head">
-        <h2 id="switch-title">Moving your number</h2>
-        <p>Your number can go with you to a new provider. Moving it takes three steps, each of them handled with you in the store.</p>
-      </div>
-      <ol class="steps">
-        <li>
-          <h3>A recent bill and photo ID</h3>
-          <p>The account number printed on the bill is what the move requires. Photo ID may be asked for as well.</p>
-        </li>
-        <li>
-          <h3>Weigh the options</h3>
-          <p>Plans from each provider are set in front of you, together with any handsets you are weighing up.</p>
-        </li>
-        <li>
-          <h3>The transfer</h3>
-          <p>Your existing plan stays active until the number has gone across. The transfer then closes it, so there is nothing for you to cancel.</p>
-        </li>
-      </ol>
     </div>
   </section>
 

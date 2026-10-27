@@ -9,62 +9,78 @@
   <section class="intro intro--photo" aria-labelledby="page-title">
     <div class="wrap intro__grid">
       <div class="intro__text">
-        <h1 id="page-title">Pick the phone, then the plan that suits it</h1>
-        <p class="lead">iPhone or Android, on any of our three providers. You can settle the handset and the plan in a single visit.</p>
+        <h1 id="page-title">A new phone, a new plan, or both?</h1>
+        <p class="lead">Come with a model in mind, or with only your latest bill. We’ll work out the rest together.</p>
       </div>
       <div class="intro__media">{{{ pic.seniors_wide_top }}}</div>
     </div>
   </section>
 
-  <section class="section section--tight" aria-labelledby="brands-title">
+  <section class="section section--tight" aria-labelledby="start-title">
     <div class="wrap">
-      <div class="head">
-        <h2 id="brands-title">Plans from three providers</h2>
-        <a class="head__link" href="brands.html">Compare them side by side</a>
+      <h2 id="start-title">Two ways to start</h2>
+      <div class="cards cards--two">
+        <article class="card" aria-labelledby="newphone-title">
+          <div class="card__media">{{{ pic.new_phones_wide }}}</div>
+          <div class="card__body">
+            <h3 id="newphone-title">A new phone</h3>
+            <p>iPhone and Android phones are both sold here. Have one model in mind? Ring ahead and we’ll check it’s in.</p>
+            <ul class="ticks">
+              <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg><span><strong>Pay it off over time.</strong> Bell SmartPay splits a phone’s price into 24 monthly payments, with nothing down and no interest. It needs an eligible 2-year plan, and Bell checks your credit.</span></li>
+              <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg><span><strong>Trade in.</strong> Ask whether the phone in your pocket can earn credit.</span></li>
+            </ul>
+            <p><a class="button" href="tel:{{ store.phone_e164 }}">Call {{ store.phone_display }}</a></p>
+          </div>
+        </article>
+
+        <article class="card" aria-labelledby="keepphone-title">
+          <div class="card__media">{{{ pic.train_half }}}</div>
+          <div class="card__body">
+            <h3 id="keepphone-title">The phone you already have</h3>
+            <p>A new plan doesn’t need a new phone. Bring yours in and we’ll set up the plan you choose on it.</p>
+            <p>Not sure which provider suits you? Our comparison starts from how you like to pay.</p>
+            <p><a class="button button--quiet" href="brands.html">Compare the three providers</a></p>
+          </div>
+        </article>
       </div>
-      {{{ providers }}}
-      <p class="note">Every plan here uses Bell's mobile network, whichever name is on it. Current offers are on the <a href="deals.html">deals page</a>.</p>
     </div>
   </section>
 
-  <section class="section section--mist" aria-labelledby="phones-title">
-    <div class="wrap feature">
-      <div class="feature__media">{{{ pic.new_phones_wide }}}</div>
-      <div class="feature__text">
-        <h2 id="phones-title">Choosing a phone</h2>
-        <p>Both iPhone and Android are available. If you have one model in mind, phone ahead and we'll confirm it's in.</p>
-        <ul class="ticks">
-          <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg><span><strong>Pay it off gradually.</strong> With Bell SmartPay the phone is paid in 24 monthly instalments and carries no interest, as long as your 2-year plan is eligible.</span></li>
-          <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg><span><strong>Trade in.</strong> Got an old phone? Ask if it can earn credit toward the new one.</span></li>
-          <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg><span><strong>Keep your phone.</strong> Already own one you like? Put a new plan on it.</span></li>
-        </ul>
-        <div class="buttons">
-          <a class="button" href="tel:{{ store.phone_e164 }}">Ask about a model: {{ store.phone_display }}</a>
+  <section class="section section--mist" id="switch" aria-labelledby="switch-title">
+    <div class="wrap">
+      <div class="head">
+        <h2 id="switch-title">Switching? Your number comes with you</h2>
+        <p>Want to keep your number? In Canada that’s allowed when you change provider, and we do the transfer at the counter.</p>
+      </div>
+      <div class="handover">
+        <div class="handover__col">
+          <h3>You bring</h3>
+          <ul class="ticks">
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg><span>A recent bill that shows your account number</span></li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg><span>Photo ID, in case we need it</span></li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg><span>Your old plan, still active: please don’t cancel it first</span></li>
+          </ul>
+        </div>
+        <div class="handover__col">
+          <h3>We take care of</h3>
+          <ul class="ticks">
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg><span>Setting the three providers and the phones you like side by side</span></li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg><span>Moving your number across to the new plan</span></li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg><span>Closing the old service, which ends by itself once the number has moved</span></li>
+          </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section" id="switch" aria-labelledby="switch-title">
+  <section class="section" aria-labelledby="names-title">
     <div class="wrap">
       <div class="head">
-        <h2 id="switch-title">Moving from another provider?</h2>
-        <p>Switching doesn't mean a new number: you keep your number, and we take care of the transfer. This is what happens when you come in.</p>
+        <h2 id="names-title">Same network, three names</h2>
+        <p>Whichever you pick, the signal comes from Bell’s mobile network. <a href="brands.html">See how they differ</a>.</p>
       </div>
-      <ol class="steps">
-        <li>
-          <h3>Your latest bill</h3>
-          <p>Bring a recent bill that shows your account number, and photo ID in case we need it.</p>
-        </li>
-        <li>
-          <h3>Compare and decide</h3>
-          <p>Over the counter, we compare the three providers and the phones you're considering.</p>
-        </li>
-        <li>
-          <h3>The number moves across</h3>
-          <p>Leave your old plan running. When the number moves over, that service closes by itself.</p>
-        </li>
-      </ol>
+      {{{ names }}}
+      <p class="note">Offers change from month to month. The current ones are on the <a href="deals.html">offers page</a>.</p>
     </div>
   </section>
 
@@ -73,8 +89,8 @@
       <div class="feature__media">{{{ pic.cafe_wide }}}</div>
       <div class="feature__text">
         <div class="brand__mark">{{{ plate_deco.bell }}}</div>
-        <h2 id="business-title">Setting up a business?</h2>
-        <p>Bell phones and mobile plans for you and your staff can be arranged here. Start with a call or a visit.</p>
+        <h2 id="business-title">Buying for a team?</h2>
+        <p>Bell phones and mobile plans for your staff can be arranged right here. Call or come in, and tell us how many phones you need.</p>
         <div class="buttons">
           <a class="button" href="tel:{{ store.phone_e164 }}">Call {{ store.phone_display }}</a>
           <a class="button button--quiet" href="brands.html#business">What Bell offers businesses</a>

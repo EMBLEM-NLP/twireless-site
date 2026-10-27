@@ -23,35 +23,19 @@
     </div>
   </section>
 
-  <section class="section section--mist" aria-labelledby="hours-title">
-    <div class="wrap visit">
-      <div>
-        <h2 id="hours-title">When we're open</h2>
-        <table class="hours">
-          <caption class="visually-hidden">Store hours</caption>
-          <tbody>
-            {{{ hours_rows }}}
-          </tbody>
-        </table>
-      </div>
-      <div>
-        <h2>Have these with you</h2>
+  <section class="section" id="book" aria-labelledby="book-title">
+    <div class="wrap form-split">
+      <div class="form-split__intro">
+        <h2 id="book-title">Pick a time to visit</h2>
+        <p>Tell us what you're coming in for and which day works, and we'll phone you back to settle a time.</p>
+        <p>Easier to talk it over? Ask for {{ store.contact_name }} on <a href="tel:{{ store.phone_e164 }}">{{ store.phone_display }}</a>, or write to <a href="mailto:{{ store.email }}">{{ store.email }}</a>.</p>
+        <h3>Have these with you</h3>
         <ul class="ticks">
           <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg><span>Photo ID, in case we need it to set up a plan or a switch.</span></li>
           <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg><span>A recent bill, if you're switching, because it carries your account number.</span></li>
           <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg><span>The phone or tablet, if it's here for a repair. Copy your data somewhere safe first, if you're able.</span></li>
         </ul>
-        <p>On Google we're rated {{ store.rating.value }} out of 5 across {{ store.rating.count }} reviews. <a href="{{ store.reviews_url }}">Read what they wrote</a>.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="book" aria-labelledby="book-title">
-    <div class="wrap form-split">
-      <div>
-        <h2 id="book-title">Pick a time to visit</h2>
-        <p>Tell us what you're coming in for and which day works, and we'll phone you back to settle a time.</p>
-        <p>Easier to talk it over? Ask for {{ store.contact_name }} on <a href="tel:{{ store.phone_e164 }}">{{ store.phone_display }}</a>, or write to <a href="mailto:{{ store.email }}">{{ store.email }}</a>.</p>
+        <p>On Google we're rated {{ store.rating.value }} out of 5 ({{ store.rating.count }} reviews, {{ store.rating.as_of_text }}). <a href="{{ store.reviews_url }}">Read what they wrote</a>.</p>
       </div>
       <form class="form" name="visit" method="post" {{{ form_attrs }}}>
         <input type="hidden" name="form-name" value="visit">

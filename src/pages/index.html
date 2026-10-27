@@ -31,7 +31,7 @@
   <div class="wrap trust">
     <ul class="trust__list" aria-label="About the store">
       <li><svg class="icon" aria-hidden="true"><use href="#i-shield"></use></svg><span>Bell Authorised Retailer</span></li>
-      <li><svg class="icon icon--star" aria-hidden="true"><use href="#i-star"></use></svg><a href="{{ store.reviews_url }}">{{ store.rating.value }} stars on Google ({{ store.rating.count }} reviews)</a></li>
+      <li><svg class="icon icon--star" aria-hidden="true"><use href="#i-star"></use></svg><a href="{{ store.reviews_url }}">{{ store.rating.value }} stars on Google ({{ store.rating.count }} reviews, {{ store.rating.as_of_text }})</a></li>
       <li><svg class="icon" aria-hidden="true"><use href="#i-clock"></use></svg><span>{{ hours_summary }}</span></li>
       <li><svg class="icon" aria-hidden="true"><use href="#i-access"></use></svg><span>Wheelchair-accessible entrance</span></li>
     </ul>

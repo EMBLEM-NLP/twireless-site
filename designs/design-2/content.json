@@ -1,9 +1,14 @@
 {
   "copy": {
     "carrier_line": {
-      "bell": "The latest iPhone and Android models, paid monthly. Bell SmartPay spreads the phone's price across 24 months.",
+      "bell": "iPhone and Android phones, paid off monthly if you like. Bell SmartPay spreads a phone's price across 24 months.",
       "virgin-plus": "Billed monthly, and most plans include Member Benefits: perks for food, shopping, travel and entertainment at no extra cost.",
-      "lucky-mobile": "Prepaid, so you pay first and use it after. Nobody checks your credit, nothing locks you in, and you're on the same Bell network."
+      "lucky-mobile": "Prepaid: you pay first and use it after. It comes without a credit check or a contract, and runs on the same Bell network."
+    },
+    "carrier_short": {
+      "bell": "Phones you can pay off month by month.",
+      "virgin-plus": "Monthly plans, with Member Benefits on most.",
+      "lucky-mobile": "Prepaid, with no credit check."
     },
     "deal_cta": "Ask us for details",
     "thanks": {
@@ -50,11 +55,11 @@
     },
     {
       "q": "Does my number move with me?",
-      "a": "Yes, your number is yours to take. Bring a recent bill that shows your account number, plus photo ID in case we need it. Keep the old plan going until the number has moved; that service then closes automatically."
+      "a": "Yes. Your number can move with you to the new provider. Bring a recent bill that shows your account number, plus photo ID in case we need it. Leave the old plan running until the number has moved; that service then closes by itself."
     },
     {
       "q": "Which providers can I sign up with here?",
-      "a": "Bell, Virgin Plus and Lucky Mobile. T Wireless is a Bell Authorised Retailer, so plans and phones from all three can be started in the store, along with Bell internet, TV and a home phone line."
+      "a": "Bell, Virgin Plus and Lucky Mobile. T Wireless is a Bell Authorised Retailer: we sell plans and phones from all three, and we arrange Bell internet, TV and a home phone line."
     },
     {
       "q": "Do you repair tablets as well as phones?",

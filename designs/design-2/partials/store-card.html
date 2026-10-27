@@ -9,6 +9,12 @@
     <li><svg class="icon" aria-hidden="true"><use href="#i-mail"></use></svg><a href="mailto:{{ store.email }}">{{ store.email }}</a></li>
     <li><svg class="icon" aria-hidden="true"><use href="#i-access"></use></svg><span>Wheelchair-accessible entrance</span></li>
   </ul>
+  <table class="hours">
+    <caption class="visually-hidden">Store hours</caption>
+    <tbody>
+      {{{ hours_rows }}}
+    </tbody>
+  </table>
   <div class="buttons">
     <a class="button" href="{{ store.directions_url }}">Get directions</a>
     <a class="button button--quiet" href="{{ booking_href }}">Book a visit</a>

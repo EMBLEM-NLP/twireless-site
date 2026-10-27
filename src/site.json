@@ -18,7 +18,7 @@
     "map_query": "T Wireless, 965 Bovaird Dr W, Brampton, ON",
     "intersection": "Bovaird Dr W and Chinguacousy Rd",
     "directions_hint": "South side of Bovaird, just east of Chinguacousy Rd",
-    "rating": { "value": "4.1", "count": 91, "as_of": "2026-10-26", "source": "Google" },
+    "rating": { "value": "4.1", "count": 95, "as_of": "2026-10-27", "as_of_text": "October 2026", "source": "Google" },
     "accessible_entrance": true
   },
 
@@ -161,13 +161,15 @@
   ],
   "unconfirmed": [
     "Postal code: the site shows L6X 0G3 (business card and Google listing); Bell's store locator shows L6X 5K7.",
-    "Sunday hours: the site and Bell's store locator say 10 a.m. to 8 p.m.; the Google listing says 10:30 a.m. to 7 p.m.",
+    "Opening hours: the site says open every day, 10 a.m. to 8 p.m. (the store's details and Bell's store locator). The Google listing, read on October 27, 2026, shows Monday closed, Tuesday to Saturday 10 a.m. to 8 p.m. and Sunday 10:30 a.m. to 7 p.m.",
     "The entrance is wheelchair accessible (taken from the Google listing); it appears on Home, Visit us and in the FAQ.",
     "The map sketch, and the line \"South side of Bovaird, just east of Chinguacousy Rd\", match the real storefront.",
-    "How the store works: repairs are quoted before work starts, a collection time is given, and the phone is tried at the counter; the store handles number transfers and the old plan then closes by itself; trade-ins are taken; the store looks up the address and books the Bell technician for home services; walk-ins need no appointment; form requests get a call back; Ali can be named on the Visit page.",
+    "How the store works: repairs are quoted before work starts, a collection time is given, and the phone is tried at the counter; the store handles number transfers and the old plan then closes by itself; trade-ins are taken; the store looks up the address and books the Bell technician for home services; walk-ins need no appointment; form requests get a call back; Ali can be named on the Visit page; if a customer rings first, the store will say whether a model or colour is in stock, and a booked visit means the store expects them (both are in design 3).",
     "What to bring: a recent bill with the account number, and photo ID in case it is needed.",
-    "Program details, read on Bell and third-party pages on October 26, 2026: Member Benefits perks change over time; some bundles include Crave; Fibe TV recordings and on-demand shows can be kept offline on a phone or tablet; Lucky Mobile has no credit check, no lock-in and no overage charges for data.",
-    "Google rating (4.1 from 91 reviews on October 26, 2026): refresh it, or remove it from the home page.",
+    "What the store can set up: plans and phones from all three of Bell, Virgin Plus and Lucky Mobile, Bell internet, Fibe TV, Satellite TV and Home Phone, and Bell business plans, Bell SmartPay and the Device Return Option. The brief and the business card say so; check it against the dealer agreement.",
+    "Program details, read on Bell and third-party pages on October 26, 2026: Member Benefits perks change over time; Fibe TV recordings and on-demand shows can be kept offline on a phone or tablet; Lucky Mobile has no credit check, no lock-in and no overage charges for data; Virgin Plus says people who already have its home internet or TV keep their plan, pricing and equipment.",
+    "Dated notices on the Providers page: Virgin Plus prepaid plans end on January 15, 2027, so take that notice off after the date; re-check the Virgin Plus home internet and TV change (from January 14, 2026) if Virgin Plus changes it.",
+    "Google rating (4.1 from 95 reviews on October 27, 2026): refresh it, or remove it from the home page.",
     "Carrier logos: get sign-off from the Bell dealer or brand contact before showing the Bell, Virgin Plus and Lucky Mobile logos online."
   ]
 }

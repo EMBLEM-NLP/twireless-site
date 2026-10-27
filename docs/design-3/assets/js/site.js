@@ -163,7 +163,12 @@
       frame.allowFullscreen = true;
       map.appendChild(frame);
       var facade = map.querySelector(".map__facade");
-      if (facade) { facade.remove(); }
+      if (facade) {
+        // The facade goes, but its "Open in Google Maps" link stays, just under the map
+        var note = facade.querySelector(".map__note");
+        if (note) { map.insertAdjacentElement("afterend", note); }
+        facade.remove();
+      }
       frame.focus();
     });
   });

@@ -19,7 +19,7 @@
       </div>
       <div class="hero__text">
         <h1 id="hero-title">Pick up a phone. Ask a real person.</h1>
-        <p class="lead">Bring your old phone and your last bill. We'll lay out Bell, Virgin Plus and Lucky Mobile next to what you pay now, so you can choose with the phone in your hand.</p>
+        <p class="lead">Bring your old phone and your last bill. We'll set Bell, Virgin Plus and Lucky Mobile beside what you pay now.</p>
         <div class="buttons">
           <a class="button" href="tel:{{ store.phone_e164 }}"><svg class="icon" aria-hidden="true"><use href="#i-call"></use></svg>Call {{ store.phone_display }}</a>
           <a class="button button--quiet" href="deals.html">See deals</a>
@@ -31,7 +31,7 @@
   <div class="wrap">
     <ul class="facts" aria-label="About the store">
       <li><svg class="icon" aria-hidden="true"><use href="#i-shield"></use></svg><span>Bell Authorised Retailer</span></li>
-      <li><svg class="icon" aria-hidden="true"><use href="#i-star"></use></svg><a href="{{ store.reviews_url }}">Rated {{ store.rating.value }} out of 5 by {{ store.rating.count }} Google reviewers</a></li>
+      <li><svg class="icon" aria-hidden="true"><use href="#i-star"></use></svg><a href="{{ store.reviews_url }}">Rated {{ store.rating.value }} out of 5 on Google ({{ store.rating.count }} reviews, {{ store.rating.as_of_text }})</a></li>
       <li><svg class="icon" aria-hidden="true"><use href="#i-access"></use></svg><span>Wheelchair-accessible entrance</span></li>
     </ul>
   </div>
@@ -83,7 +83,6 @@
     <div class="wrap feature feature--flip">
       <div class="feature__media">
         {{{ pic.repair_wide }}}
-        {{{ plate_photo.t_wireless }}}
       </div>
       <div class="feature__text">
         <h2 id="repairs-title">Cracked screen? Hand it over.</h2>

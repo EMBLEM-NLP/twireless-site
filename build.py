@@ -312,7 +312,8 @@ def offer_card(offer, ctx, logos, root=""):
     text = {k: render(str(offer.get(k, "")), ctx, "offer", escape=False) for k in ("brand", "title", "price", "detail", "terms")}
     art = OFFER_ART.get(offer.get("category"), "art-mobile")
     badge = '<p class="offer__badge">Example offer</p>\n  ' if example else ""
-    terms = f'\n    <p class="offer__terms">{esc(text["terms"])}</p>' if text["terms"] else ""
+    # An example card's terms are a note to the store ("Replace with this month's offer"), not something to show.
+    terms = f'\n    <p class="offer__terms">{esc(text["terms"])}</p>' if text["terms"] and not example else ""
     return (
         f'<article class="offer{" offer--example" if example else ""}" data-category="{esc(offer.get("category", "other"))}">\n'
         f'  {badge}<div class="offer__art">\n'
@@ -521,6 +522,11 @@ def main():
     })
     ctx["offers_all"] = "\n".join(offer_card(o, ctx, logos) for o in data["offers"])
     ctx["offers_preview"] = "\n".join(offer_card(o, ctx, logos) for o in data["offers"][:3])
+    # While any offer is still an example, the Deals page says so in words, so its headline isn't read as a promise.
+    ctx["offers_note"] = (
+        '<div class="callout callout--examples"><p><strong>Sample offers.</strong> The cards below show the layout. '
+        'The store’s real offers for the month will take their place.</p></div>'
+        if any(o.get("status") == "example" for o in data["offers"]) else "")
     ctx["repairs_short"] = "\n".join(
         f'<li><svg class="icon" aria-hidden="true"><use href="#{esc(r.get("icon", "i-check"))}"></use></svg><span>{esc(r["title"])}</span></li>'
         for r in data["repairs"])

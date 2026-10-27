@@ -71,7 +71,8 @@ def extend(p, kit):
         mark = plate(carrier["id"]) if carrier else t_wireless_mark(root)
         example = offer.get("status") == "example"
         badge = '    <p class="offer__badge">Example offer</p>\n' if example else ""
-        terms = f'    <p class="offer__terms">{esc(text["terms"])}</p>\n' if text["terms"] else ""
+        # An example card's terms are a note to the store ("Replace with this month's offer"), not something to show.
+        terms = f'    <p class="offer__terms">{esc(text["terms"])}</p>\n' if text["terms"] and not example else ""
         return (f'<article class="offer{" offer--example" if example else ""}" data-category="{esc(offer.get("category", "other"))}">\n'
                 f'  <div class="offer__top">{mark}\n{badge}  </div>\n'
                 f'  <h3 class="offer__title">{esc(text["title"])}</h3>\n'
@@ -118,7 +119,15 @@ def extend(p, kit):
         '<textPath href="#seal-ring" textLength="352" lengthAdjust="spacing">Bell Authorised Retailer in Brampton</textPath></text>'
         '</svg>')
 
+    # While any offer is still an example, the Offers page says so in words, not only on each card, so that its
+    # headline is not read as a promise. A build with real offers carries no note.
+    example_note = ""
+    if any(o.get("status") == "example" for o in data["offers"]):
+        example_note = ('<p class="notice notice--example"><strong>Examples only.</strong> Nothing below is a live offer. Each card '
+                        'is a stand-in, to be replaced by whatever the store is promoting that month.</p>')
+
     return {
+        "example_note": example_note,
         "sprite": icons_only(p["sprite"]),
         "plate": plates,
         "plate_deco": plates_decorative,

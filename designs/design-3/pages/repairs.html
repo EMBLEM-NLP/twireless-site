@@ -10,7 +10,7 @@
     <div class="wrap intro__grid">
       <div class="intro__text">
         <h1 id="page-title">Repairs, with the price agreed first</h1>
-        <p class="lead">Cracked glass, a battery that gives out early, a port that will not charge: tablets and phones are both welcome. We examine the device, name a price, and begin only when you agree.</p>
+        <p class="lead">Cracked glass, a battery that gives out early, a port that will not charge: phones and tablets are both welcome, and every repair is priced before it begins.</p>
         <div class="buttons">
           <a class="button" href="#book">Request a repair</a>
           <a class="button button--line" href="tel:{{ store.phone_e164 }}">Get a quotation by telephone</a>
@@ -20,7 +20,25 @@
     </div>
   </section>
 
-  <section class="section" aria-labelledby="fix-title">
+  <section class="section" aria-labelledby="terms-title">
+    <div class="wrap">
+      <div class="head">
+        <h2 id="terms-title">How a repair is agreed</h2>
+      </div>
+      <div class="duo">
+        <div class="duo__col">
+          <h3>Before any work</h3>
+          <p>We examine the device, find the fault and name a price. Until you have agreed to it, nothing is touched.</p>
+        </div>
+        <div class="duo__col">
+          <h3>When it is ready</h3>
+          <p>You are given a time to collect the device, and you are welcome to switch it on and try it at the counter before you take it home.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--raised" aria-labelledby="fix-title">
     <div class="wrap">
       <div class="head">
         <h2 id="fix-title">What can be mended</h2>
@@ -35,38 +53,12 @@
     </div>
   </section>
 
-  <section class="section section--raised" aria-labelledby="how-title">
-    <div class="wrap">
-      <div class="head">
-        <h2 id="how-title">From fault to finished repair</h2>
-        <p>Where possible, back up your photographs and files before the handset leaves your hands.</p>
-      </div>
-      <ol class="steps steps--four">
-        <li>
-          <h3>Make contact</h3>
-          <p>Complete the short form at the foot of this page, or walk in {{ hours_phrase }}.</p>
-        </li>
-        <li>
-          <h3>A diagnosis</h3>
-          <p>The fault is identified and a price is named. Until you have agreed, nothing is touched.</p>
-        </li>
-        <li>
-          <h3>The repair</h3>
-          <p>We give you a time to collect the device.</p>
-        </li>
-        <li>
-          <h3>Tested at the counter</h3>
-          <p>You are welcome to turn the handset on and try it here before you take it home.</p>
-        </li>
-      </ol>
-    </div>
-  </section>
-
   <section class="section" id="book" aria-labelledby="book-title">
     <div class="wrap form-split">
       <div>
         <h2 id="book-title">Tell us about the fault</h2>
-        <p>Tell us what is wrong with the device, and we will ring you to fix a time to bring it in.</p>
+        <p>Tell us what is wrong with the device, and we will ring you to fix a time to bring it in. You can also walk in {{ hours_phrase }}.</p>
+        <p>Where possible, back up your photographs and files before the handset leaves your hands.</p>
         <p>A conversation works too: telephone <a href="tel:{{ store.phone_e164 }}">{{ store.phone_display }}</a>, or send a note to <a href="mailto:{{ store.email }}">{{ store.email }}</a>.</p>
       </div>
       <form class="form" name="repair" method="post" {{{ form_attrs }}}>

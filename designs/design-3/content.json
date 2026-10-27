@@ -45,16 +45,20 @@
   ],
   "faq": [
     {
+      "q": "Whose plans do you sell?",
+      "a": "Those of Bell, Virgin Plus and Lucky Mobile. As a Bell Authorised Retailer we also arrange Bell home internet, TV and a home phone line."
+    },
+    {
+      "q": "Can I bring my own phone?",
+      "a": "Yes. Bring the phone you have and we will set the plan up on it; a new handset is optional."
+    },
+    {
       "q": "Must I book ahead?",
-      "a": "No. You are welcome {{ hours_phrase }}. Booking is optional; it simply lets us hold time for you."
+      "a": "No. You are welcome {{ hours_phrase }}. Booking is optional; it simply lets us expect you."
     },
     {
       "q": "What becomes of my number if I change provider?",
-      "a": "It goes with you. In Canada a phone number can move to a new provider. The account number printed on a recent bill is what the transfer needs, so please bring one, along with photo ID in case it is requested. Leave your existing plan untouched until the transfer is complete; the move itself brings that service to an end."
-    },
-    {
-      "q": "Whose plans do you sell?",
-      "a": "Those of Bell, Virgin Plus and Lucky Mobile. As a Bell Authorised Retailer we also arrange Bell home internet, TV and a home phone line."
+      "a": "It goes with you: in Canada, changing provider does not oblige you to change number. The account number printed on a recent bill is what the transfer needs, so please bring one, along with photo ID in case it is requested. Leave your existing plan untouched until the transfer is complete; the move itself brings that service to an end."
     },
     {
       "q": "Can a tablet be repaired too?",
