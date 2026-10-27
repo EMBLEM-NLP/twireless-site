@@ -207,14 +207,14 @@ _PAGE_PROBE = """() => {
 
 _SCROLL = """async () => {
   for (let y = 0; y < document.documentElement.scrollHeight; y += Math.max(300, innerHeight * 0.6)) {
-    window.scrollTo(0, y); await new Promise(r => setTimeout(r, 120));
+    window.scrollTo({top: y, left: 0, behavior: 'instant'}); await new Promise(r => setTimeout(r, 120));
   }
   const pending = [...document.images].filter(i => !i.complete);
   await Promise.race([
     Promise.all(pending.map(i => new Promise(r => { i.addEventListener('load', r, {once: true}); i.addEventListener('error', r, {once: true}); }))),
     new Promise(r => setTimeout(r, 8000)),
   ]);
-  window.scrollTo(0, 0); await new Promise(r => setTimeout(r, 150));
+  window.scrollTo({top: 0, left: 0, behavior: 'instant'}); await new Promise(r => setTimeout(r, 150));  // instant: a page with smooth scrolling would still be moving when it is probed
 }"""
 
 # Every image with where it sits, how it is served and, for logos, what is behind it.
@@ -258,7 +258,7 @@ def _logo_id(path: str) -> str | None:
     m = re.search(r"/assets/img/brands/([a-z0-9-]+)\.(?:svg|png|webp)$", path)
     if m:
         return m.group(1)
-    return "t-wireless" if re.search(r"/assets/img/t-wireless-logo-\d+\.(?:png|webp)$", path) else None
+    return "t-wireless" if re.search(r"/assets/img/t-wireless-logo-(?:light-)?\d+\.(?:png|webp)$", path) else None
 
 
 def _manifest_index(manifest: dict) -> dict:

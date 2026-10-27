@@ -1,0 +1,45 @@
+<div class="map" data-map-query="{{ store.map_query }}">
+  <svg class="map__drawing" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+    <rect width="400" height="300" fill="#1b1217"/>
+    <g transform="translate(150 150) rotate(-52)">
+      <path d="M14 -14H270V-300H55Z" fill="#22301f"/>
+      <path d="M34 -42C80 -64 118 -34 166 -72S236 -126 262 -112M62 -160C104 -128 146 -170 204 -146" fill="none" stroke="#3b5238" stroke-opacity=".9" stroke-width="2.5" stroke-linecap="round"/>
+      <rect x="62" y="13" width="150" height="58" rx="3" fill="#271a21"/>
+      <rect x="70" y="15" width="40" height="15" rx="2" fill="#33242c"/>
+      <rect x="74" y="44" width="30" height="14" rx="2" fill="#33242c"/>
+      <rect x="126" y="28" width="80" height="30" rx="2" fill="#33242c"/>
+    </g>
+    <path d="M44 128C48 118 64 116 74 122L86 130C92 134 90 142 82 144L66 146C58 152 46 150 42 142C40 136 41 132 44 128Z" fill="#1d3544"/>
+    <g fill="none" stroke-linecap="butt">
+      <path d="M-269.6 -278.8L569.6 578.8" stroke="#0e070a" stroke-width="16"/>
+      <path d="M-219.4 622.8L519.4 -322.8" stroke="#0e070a" stroke-width="20"/>
+      <path d="M-269.6 -278.8L569.6 578.8" stroke="#3d2d35" stroke-width="14"/>
+      <path d="M-219.4 622.8L519.4 -322.8" stroke="#3d2d35" stroke-width="18"/>
+      <path d="M-269.6 -278.8L569.6 578.8" stroke="#dcbd88" stroke-opacity=".75" stroke-width="1.4" stroke-dasharray="10 8"/>
+      <path d="M-219.4 622.8L519.4 -322.8" stroke="#dcbd88" stroke-opacity=".75" stroke-width="1.6" stroke-dasharray="12 9"/>
+    </g>
+    <g transform="translate(150 150) rotate(-52)">
+      <text class="map__road map__road--bovaird" x="146" y="3.8" text-anchor="middle">Bovaird Dr W</text>
+    </g>
+    <text class="map__road map__road--chin" x="101" y="103.8" text-anchor="middle" transform="rotate(45.6 101 100)">Chinguacousy Rd</text>
+    <text class="map__area" x="345" y="152" text-anchor="end">Fletcher&#8217;s Creek Village</text>
+    <g class="map__scale">
+      <rect x="58" y="12" width="96" height="26" rx="4" fill="#f7f6f5" fill-opacity=".94"/>
+      <path d="M71 33V18M66.5 22.5 71 17l4.5 5.5" fill="none" stroke="#150a0e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      <text class="map__small" x="78" y="31">N</text>
+      <path d="M90 29h58.8M90 25.5v7M148.8 25.5v7" fill="none" stroke="#150a0e" stroke-width="1.5"/>
+      <text class="map__small" x="119.4" y="23" text-anchor="middle">100 m</text>
+    </g>
+    <g class="map__pin">
+      <rect x="223.2" y="87.7" width="66" height="19" rx="3" fill="#f7f6f5" stroke="#dcbd88"/>
+      <text class="map__tag" x="256.2" y="101.2" text-anchor="middle">T Wireless</text>
+      <circle cx="212.2" cy="88.7" r="7.5" fill="#b3213f" stroke="#f7f6f5" stroke-width="2.5"/>
+    </g>
+  </svg>
+  <div class="map__facade">
+    <p class="map__address">{{ store.street }}, {{ store.city }}</p>
+    <p class="map__cross">{{ store.directions_hint }}</p>
+    <button class="button button--line button--small map__load is-pending" type="button" data-map-load>Show the map</button>
+    <p class="map__note"><a href="{{ store.maps_url }}">Open in Google Maps</a></p>
+  </div>
+</div>

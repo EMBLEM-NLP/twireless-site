@@ -275,8 +275,10 @@ def _erase_marks(out, fix, cv2, np):
     to threshold, "whole": true erases the whole polygon, and "method": "laplace" fills it by
     smoothly continuing the tone of the pixels around it (`scale` sets the working grid), which
     follows a gradient the way a flat fill cannot. A fill is smoother than the photo, so it is
-    given the photo's grain back: noise like it by default, or with "texture": "copy" the real
-    fine detail of a clean patch of the same surface beside the mark (for a woven fabric).
+    given the photo's grain back: noise like it by default (scaled by "grain", 1.0 unless the
+    ring around the mark is busier than the surface itself, which a soft, out-of-focus surface
+    beside a hard edge can make it), or with "texture": "copy" the real fine detail of a clean
+    patch of the same surface beside the mark (for a woven fabric).
     """
     h, w = out.shape[:2]
     if "poly" in fix:
@@ -372,7 +374,7 @@ def _erase_marks(out, fix, cv2, np):
     if tex is not None:
         filled = filled + tex
     else:
-        sd = _grain_spread(f, ring, cv2, np) if ring.any() else 1.0
+        sd = (_grain_spread(f, ring, cv2, np) if ring.any() else 1.0) * float(fix.get("grain", 1.0))
         filled = filled + _grain(filled.shape, sd, rng, cv2, np)
     soft = cv2.GaussianBlur(mask.astype(np.float32) / 255.0, (0, 0), float(fix.get("feather", 1.5)))[..., None]
     soft = np.maximum(soft, (mask > 0)[..., None].astype(np.float32))

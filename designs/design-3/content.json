@@ -1,0 +1,68 @@
+{
+  "copy": {
+    "carrier_line": {
+      "bell": "Plans billed monthly, with iPhone and Android handsets to choose from. Bell SmartPay can spread a handset’s cost across 24 monthly payments.",
+      "virgin-plus": "Most plans come with Member Benefits, a set of perks that costs nothing extra. Everything is billed monthly.",
+      "lucky-mobile": "Paid a month ahead, so no bill ever follows. No credit check is made, and nothing commits you beyond the month you have paid for."
+    },
+    "deal_cta": "Ask about this offer",
+    "thanks": {
+      "live": "Your message is with the store. Someone will ring the number you entered; for anything pressing, the line is {phone}.",
+      "demo": "This is a preview of the new website, so nothing was sent. To reach the store, please telephone {phone}."
+    }
+  },
+  "repairs": [
+    {
+      "title": "Cracked screens and glass",
+      "icon": "i-crack",
+      "text": "New glass or a new screen for a phone or tablet that has taken a fall."
+    },
+    {
+      "title": "Tired batteries",
+      "icon": "i-battery",
+      "text": "For a phone that is flat by lunchtime, shuts down with charge left, or has a battery that is visibly bulging."
+    },
+    {
+      "title": "Charging faults",
+      "icon": "i-plug",
+      "text": "A charger that no longer seems to work, or a cable that must be held at a certain angle before the phone will charge."
+    },
+    {
+      "title": "Camera and rear panel",
+      "icon": "i-camera",
+      "text": "A scratched or split camera lens, pictures that come out soft, or a rear panel that has shattered."
+    },
+    {
+      "title": "Speaker and microphone",
+      "icon": "i-speaker",
+      "text": "A caller you can barely hear, a speaker that has gone thin, or a microphone that no longer picks you up."
+    },
+    {
+      "title": "After a soaking",
+      "icon": "i-drop",
+      "text": "A handset that has been soaked should be powered down at once and brought to us promptly."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Must I book ahead?",
+      "a": "No. You are welcome {{ hours_phrase }}. Booking is optional; it simply lets us hold time for you."
+    },
+    {
+      "q": "What becomes of my number if I change provider?",
+      "a": "It goes with you. In Canada a phone number can move to a new provider. The account number printed on a recent bill is what the transfer needs, so please bring one, along with photo ID in case it is requested. Leave your existing plan untouched until the transfer is complete; the move itself brings that service to an end."
+    },
+    {
+      "q": "Whose plans do you sell?",
+      "a": "Those of Bell, Virgin Plus and Lucky Mobile. As a Bell Authorised Retailer we also arrange Bell home internet, TV and a home phone line."
+    },
+    {
+      "q": "Can a tablet be repaired too?",
+      "a": "Yes, a tablet is as welcome as a phone. Once we know the model and the fault, we will quote you a price; work begins only if you agree."
+    },
+    {
+      "q": "Is the entrance suitable for a wheelchair?",
+      "a": "Wheelchair users can come in by the store’s accessible entrance. For another access question, ring us before you visit."
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+<footer class="foot">
+  <div class="foot__weave" aria-hidden="true"></div>
+  <div class="wrap foot__grid">
+    <div class="foot__store">
+      <a class="foot__logo" href="{{ root }}index.html">
+        <picture>
+          <source type="image/webp" srcset="{{ root }}assets/img/t-wireless-logo-light-480.webp">
+          <img src="{{ root }}assets/img/t-wireless-logo-light-480.png" width="480" height="55" alt="T Wireless home" loading="lazy">
+        </picture>
+      </a>
+      <p class="foot__lead">Bell Authorised Retailer</p>
+      <p>{{ store.street }}<br>{{ store.city }}, {{ store.province }} {{ store.postal }}</p>
+      <p>{{ hours_summary }}</p>
+    </div>
+    <div>
+      <h2 class="foot__title">Reach the store</h2>
+      <ul class="foot__links">
+        <li><a href="tel:{{ store.phone_e164 }}">{{ store.phone_display }}</a></li>
+        <li><a href="mailto:{{ store.email }}">{{ store.email }}</a></li>
+        <li><a href="{{ store.directions_url }}">Directions in Google Maps</a></li>
+      </ul>
+    </div>
+    <nav aria-label="Footer">
+      <h2 class="foot__title">This website</h2>
+      <ul class="foot__links foot__links--two">
+        {{{ footer_nav }}}
+      </ul>
+    </nav>
+  </div>
+  <div class="wrap foot__small">
+    <p>Bell, Virgin Plus and Lucky Mobile are trademarks of their respective owners. The photographs on this website are stock photographs: none of them shows the store, its staff or its customers.</p>
+    <p>&copy; {{ year }} T Wireless. <a href="{{ root }}privacy.html">Privacy</a> <a href="{{ root }}credits.html">Photo credits</a></p>
+  </div>
+</footer>

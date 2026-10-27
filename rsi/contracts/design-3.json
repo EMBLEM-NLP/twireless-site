@@ -1,0 +1,318 @@
+{
+  "schema": "web.design.contract.v2",
+  "measurement_series": "WEB-DESIGN-RSI-2.0",
+  "target_id": "T-WIRELESS-SITE-D3",
+  "design_id": "design-3",
+  "producer_id": "emblem-nlp-producer",
+  "approved_for_production": false,
+  "weights": {
+    "first_impression": 10,
+    "imagery_quality": 10,
+    "logo_integration": 8,
+    "service_clarity": 10,
+    "navigation_wayfinding": 9,
+    "conversion_paths": 9,
+    "distinctiveness": 8,
+    "brand_identity": 7,
+    "trust_signals": 7,
+    "information_economy": 6,
+    "typography_hierarchy": 7,
+    "grid_whitespace_rhythm": 5,
+    "mobile_ergonomics": 4
+  },
+  "critical_dimensions": [
+    "first_impression",
+    "imagery_quality",
+    "logo_integration",
+    "service_clarity",
+    "navigation_wayfinding",
+    "conversion_paths",
+    "distinctiveness"
+  ],
+  "accuracy_gates": [
+    "content_matches_sources",
+    "no_fabricated_offers_or_reviews",
+    "unverified_flagged_for_owner",
+    "photos_licensed_for_commercial_use",
+    "no_photo_implies_store_staff_or_customers",
+    "carrier_logos_unaltered_on_clean_plates",
+    "no_third_party_brand_marks_in_photos",
+    "copy_written_for_this_design"
+  ],
+  "min_overall_score": 85,
+  "min_dimension_score": 70,
+  "min_page_role_score": 70,
+  "min_promotion_gain": 1,
+  "max_dimension_regression": 3,
+  "pages": {
+    "index.html": "home",
+    "brands.html": "brand_family",
+    "deals.html": "deals",
+    "mobile.html": "mobile",
+    "internet-tv.html": "home_services",
+    "repairs.html": "repairs",
+    "visit.html": "visit"
+  },
+  "required_page_roles": [
+    "home",
+    "brand_family",
+    "deals",
+    "repairs",
+    "visit"
+  ],
+  "measure": {
+    "lighthouse_min": {
+      "performance": 90,
+      "accessibility": 100,
+      "best-practices": 95,
+      "seo": 100
+    },
+    "max_cls": 0.1,
+    "max_lcp_ms": 2500,
+    "max_transfer_kib": 1500,
+    "max_outside_domains": 5,
+    "h1_exactly": 1,
+    "max_type_sizes": 10,
+    "min_text_px": 12,
+    "min_hero_hierarchy_ratio": 2.0,
+    "viewports": {
+      "phone": [
+        390,
+        844
+      ],
+      "small_phone": [
+        360,
+        740
+      ],
+      "desktop": [
+        1440,
+        900
+      ]
+    },
+    "required_text": {
+      "home": [
+        "Bell Authorised Retailer",
+        "647-707-1093",
+        "Virgin Plus",
+        "Lucky Mobile"
+      ],
+      "brand_family": [
+        "Bell",
+        "Virgin Plus",
+        "Lucky Mobile",
+        "[Ii]nternet",
+        "TV",
+        "[Hh]ome phone"
+      ],
+      "deals": [
+        "deals",
+        "taxes"
+      ],
+      "mobile": [
+        "Bell",
+        "Virgin Plus",
+        "Lucky Mobile",
+        "keep your (phone )?number"
+      ],
+      "home_services": [
+        "[Ii]nternet",
+        "TV",
+        "[Hh]ome phone"
+      ],
+      "repairs": [
+        "[Ss]creen",
+        "[Bb]atter",
+        "quote"
+      ],
+      "visit": [
+        "965 Bovaird",
+        "647-707-1093",
+        "10 a\\.m\\. to 8 p\\.m\\."
+      ]
+    },
+    "hide_in_screenshots": [
+      ".actionbar"
+    ]
+  },
+  "imagery": {
+    "manifest": "assets/img/photos/photos.json",
+    "sources": "designs/design-3/imagery/sources.json",
+    "allowed_licenses": [
+      "Pexels License",
+      "Unsplash License"
+    ],
+    "logo_safe_people": [
+      "none",
+      "no faces"
+    ],
+    "min_photos": {
+      "home": 6,
+      "brand_family": 3,
+      "deals": 2,
+      "mobile": 3,
+      "home_services": 3,
+      "repairs": 2,
+      "visit": 1
+    },
+    "formats": [
+      "avif",
+      "webp"
+    ],
+    "fallback": "jpg",
+    "min_srcset": 2,
+    "min_sharpness": 0.85,
+    "max_oversize": 2.2,
+    "max_photo_kib": 200,
+    "max_page_image_kib": 900,
+    "max_composites_per_page": 0,
+    "hero_not_composite": true
+  },
+  "logos": {
+    "files": {
+      "assets/img/brands/bell.svg": "539b9b71138950e3d7ca1271f271a2065a6ffe3c269e0e9e6b3988cc21eb498d",
+      "assets/img/brands/lucky-mobile.svg": "4001a26378442d45b7971557a35ff6856f0bf2de3b7c7f77721194bdecc82258",
+      "assets/img/brands/virgin-plus.png": "3cb74c5ee6df31d5e4786d5c725697265d73fac639a897434c17401c64b7c8e9",
+      "assets/img/brands/virgin-plus.webp": "07dad97a32e75c3e0aeb494da69bae931cc06c6c072f7fb782b88fcb936b965c",
+      "assets/img/t-wireless-logo-480.png": "ef2d07f6396f5bd9742761a7e8f9ba565a5d42625f37e569b0b1422ad198e7d4",
+      "assets/img/t-wireless-logo-480.webp": "0f9168611553ad454c063da71a61d8f501d24f73c98c9ef4db89253369ab36b2",
+      "assets/img/t-wireless-logo-960.png": "d64890c9776a40ef7ee8bc58ab155a7506c52f7a9fa4a098f67c2ba1ca76d5d7",
+      "assets/img/t-wireless-logo-960.webp": "703c83d31db03dde9ac2e753f68b36b98876e90dc8d4297cc69abcd24bdda668",
+      "assets/img/t-wireless-logo-light-480.png": "04aa732922a14dd0bd607b7c172041f81da75634b7ffc7870831571835795f9b",
+      "assets/img/t-wireless-logo-light-480.webp": "98f8677c75ba517904c5c2770db7607c36f3a0c8a68239bfb412373c891dba3e",
+      "assets/img/t-wireless-logo-light-960.png": "1d4083e241dae7a3145da3788f35d24090d149661b0e2d2fcb00a35b4cc8d9fe",
+      "assets/img/t-wireless-logo-light-960.webp": "8e3acba737fb49a7516be46db46422ef70ae79ad652623a408d3a5bcb1d6b776"
+    },
+    "required": {
+      "home": [
+        "t-wireless",
+        "bell",
+        "virgin-plus",
+        "lucky-mobile"
+      ],
+      "brand_family": [
+        "bell",
+        "virgin-plus",
+        "lucky-mobile"
+      ],
+      "mobile": [
+        "bell",
+        "virgin-plus",
+        "lucky-mobile"
+      ],
+      "deals": [
+        "bell",
+        "virgin-plus",
+        "lucky-mobile"
+      ]
+    },
+    "min_px": 16,
+    "plate_min_rgb": 245
+  },
+  "distinctness": {
+    "siblings": [
+      {
+        "design_id": "design-1",
+        "run": "rsi/runs/design-1/v7-candidate"
+      },
+      {
+        "design_id": "design-2",
+        "run": "rsi/runs/design-2/v7-candidate"
+      }
+    ],
+    "max_visual_similarity": 0.45,
+    "min_palette_distance": 12,
+    "require_different_headline_font": true,
+    "copy": {
+      "ngram": 4,
+      "max_phrase_overlap": 0.15,
+      "max_reused_sentences": 0.05,
+      "sentence_similarity": 0.6,
+      "max_shared_headings": 0.15,
+      "max_shared_nav_labels": 3,
+      "field_similarity_max": 0.7,
+      "fields": [
+        "title",
+        "description",
+        "h1",
+        "lead"
+      ],
+      "facts_from": "src/site.json",
+      "fact_keys": [
+        "store",
+        "hours",
+        "site",
+        "carriers",
+        "offers"
+      ],
+      "shared_phrases": [
+        "Bell Authorised Retailer",
+        "Bell SmartPay",
+        "Device Return Option",
+        "Fibe TV",
+        "Bell Streamer",
+        "Apple TV",
+        "Android TV",
+        "Amazon Fire TV",
+        "Google Chromecast",
+        "Crave",
+        "Member Benefits",
+        "My Benefits",
+        "Bell Internet",
+        "Satellite TV",
+        "Home Phone",
+        "Bell home services",
+        "Bell for business",
+        "Bell's mobile network",
+        "Wi-Fi",
+        "Bovaird",
+        "Chinguacousy",
+        "Brampton",
+        "Ontario",
+        "Canada",
+        "Google",
+        "iPhone",
+        "Android",
+        "government-issued photo ID",
+        "photo ID",
+        "January 14, 2026",
+        "January 15, 2027",
+        "Open every day",
+        "every day from 10 a.m. to 8 p.m.",
+        "10 a.m. to 8 p.m."
+      ],
+      "allow_headings": [],
+      "note": "Facts that every design must state are taken out before comparing: store, hours, site, carriers and offers in src/site.json, plus the product, place and rule names listed here. What is left is wording."
+    }
+  },
+  "client_feedback": [
+    {
+      "date": "2026-10-26",
+      "from": "Mark (EMBLEM-NLP), looking at design 2 on an iPhone",
+      "said": "Not a fan of this composed hero image and the copy remains exactly the same as our first version which is an issue",
+      "changes": [
+        "The home hero is now a real photograph, not a composed image (a hand holding a phone; cropped, colour-matched and with a small printed maker's name retouched out) with the carrier logos on a white bar over its lower edge. The link preview image is a plain crop of the same photograph. No page may carry a composed image: imagery.max_composites_per_page is 0 and imagery.hero_not_composite is on.",
+        "Design 2 has its own wording (designs/design-2/content.json and its own pages). distinctness.copy compares it with design 1 and fails a build that reuses design 1's page titles, descriptions, headings, sentences or phrases. Since the independent read of v4 and v5 found light rewrites that a strict match cannot see, a sentence counts as reused when it is 60% similar to one of design 1's (sentence_similarity 0.6, down from 0.85). The old build (v3) fails every one of those checks; the new one passes.",
+        "New accuracy question: copy_written_for_this_design."
+      ]
+    },
+    {
+      "date": "2026-10-26",
+      "from": "Mark (EMBLEM-NLP), looking at designs 1 and 2 on an iPhone",
+      "said": "We don't like the mobile header menus on both versions",
+      "changes": [
+        "On phones design 3 keeps a slim header that stays in view: the engraved nameplate and one Menu button. The page links open in a sheet under the header, with a backdrop, a call button and a way out by Escape, by tapping outside or by choosing a link. Wide screens show the links as a row under a centred masthead. With scripts off, the links are listed under the nameplate (nojs.css)."
+      ]
+    },
+    {
+      "date": "2026-10-26",
+      "from": "Mark (EMBLEM-NLP), asking for a third option",
+      "said": "Give a 3rd complete redesign with royalty free images and imagery this 3rd option need to be luxurious",
+      "changes": [
+        "Design 3 (\"Lamplight\") is a complete third site: all 11 pages, its own layout, its own wording (designs/design-3/content.json and pages) and its own photography. A showroom after dark: garnet-black pages, champagne rules and type, Noto Serif Display with Jost, and carrier logos on pearl mount cards.",
+        "Eleven royalty-free Pexels photographs (Pexels License, which allows commercial use without attribution; credits are on the Photo credits page anyway). None is a composite. People appear only as hands, with no faces. Printed maker names and labels were retouched out of four of them, and each retouch is listed on the credits page.",
+        "Original imagery: the engine-turned patterns (a tile, a dial and a hallmark seal) are generated from a formula by designs/design-3/imagery/ornaments.py, so there is no licence to carry. The site's own favicon and touch icon are drawn the same way.",
+        "distinctness.siblings lists designs 1 and 2: the wording, layout, palette and headline typeface must all differ from both."
+      ]
+    }
+  ]
+}

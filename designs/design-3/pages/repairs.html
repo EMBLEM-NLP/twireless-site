@@ -1,0 +1,105 @@
+<!--page
+{
+  "title": "Screen, battery and charging repairs for phones and tablets | T Wireless, Brampton",
+  "description": "A cracked screen, a failing battery, a charging fault, a damaged camera or speaker, a soaked handset: repairs at T Wireless, 965 Bovaird Dr W, Brampton, quoted before work begins.",
+  "nav": "repairs"
+}
+-->
+<main id="main">
+  <section class="intro intro--split" aria-labelledby="page-title">
+    <div class="wrap intro__grid">
+      <div class="intro__text">
+        <h1 id="page-title">Repairs, with the price agreed first</h1>
+        <p class="lead">Cracked glass, a battery that gives out early, a port that will not charge: tablets and phones are both welcome. We examine the device, name a price, and begin only when you agree.</p>
+        <div class="buttons">
+          <a class="button" href="#book">Request a repair</a>
+          <a class="button button--line" href="tel:{{ store.phone_e164 }}">Get a quotation by telephone</a>
+        </div>
+      </div>
+      <figure class="frame intro__media">{{{ pic.repair_top }}}</figure>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="fix-title">
+    <div class="wrap">
+      <div class="head">
+        <h2 id="fix-title">What can be mended</h2>
+        <p>Each model and each part costs differently, so we quote every repair before work begins.</p>
+      </div>
+      <div class="fixes">
+        <figure class="frame fixes__photo">{{{ pic.bench }}}</figure>
+        <ul class="fixes__list">
+          {{{ repair_items }}}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--raised" aria-labelledby="how-title">
+    <div class="wrap">
+      <div class="head">
+        <h2 id="how-title">From fault to finished repair</h2>
+        <p>Where possible, back up your photographs and files before the handset leaves your hands.</p>
+      </div>
+      <ol class="steps steps--four">
+        <li>
+          <h3>Make contact</h3>
+          <p>Complete the short form at the foot of this page, or walk in {{ hours_phrase }}.</p>
+        </li>
+        <li>
+          <h3>A diagnosis</h3>
+          <p>The fault is identified and a price is named. Until you have agreed, nothing is touched.</p>
+        </li>
+        <li>
+          <h3>The repair</h3>
+          <p>We give you a time to collect the device.</p>
+        </li>
+        <li>
+          <h3>Tested at the counter</h3>
+          <p>You are welcome to turn the handset on and try it here before you take it home.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section" id="book" aria-labelledby="book-title">
+    <div class="wrap form-split">
+      <div>
+        <h2 id="book-title">Tell us about the fault</h2>
+        <p>Tell us what is wrong with the device, and we will ring you to fix a time to bring it in.</p>
+        <p>A conversation works too: telephone <a href="tel:{{ store.phone_e164 }}">{{ store.phone_display }}</a>, or send a note to <a href="mailto:{{ store.email }}">{{ store.email }}</a>.</p>
+      </div>
+      <form class="form" name="repair" method="post" {{{ form_attrs }}}>
+        <input type="hidden" name="form-name" value="repair">
+        <p class="visually-hidden"><label>Leave this field empty <input type="text" name="company" tabindex="-1" autocomplete="off"></label></p>
+        <div class="field">
+          <label for="r-name">Your name</label>
+          <input id="r-name" name="name" type="text" autocomplete="name" required>
+        </div>
+        <div class="field">
+          <label for="r-phone">Telephone number</label>
+          <input id="r-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required>
+        </div>
+        <div class="field">
+          <label for="r-device">Which device is it?</label>
+          <input id="r-device" name="device" type="text" required aria-describedby="r-device-hint">
+          <p class="hint" id="r-device-hint">Name the make and model, for instance a Galaxy S23 or an iPad Air.</p>
+        </div>
+        <div class="field">
+          <label for="r-problem">What is wrong with it?</label>
+          <textarea id="r-problem" name="problem" rows="4" required></textarea>
+        </div>
+        <div class="field">
+          <label for="r-when">When suits you best?</label>
+          <select id="r-when" name="when">
+            <option>Any day</option>
+            <option>Weekdays</option>
+            <option>Weekends</option>
+          </select>
+        </div>
+        <button class="button" type="submit">Request this repair</button>
+        <p class="hint">Details entered here are kept for one purpose: replying to you. <a href="privacy.html">Privacy</a></p>
+      </form>
+    </div>
+  </section>
+</main>

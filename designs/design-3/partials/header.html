@@ -1,0 +1,22 @@
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="top" data-menu>
+  <div class="wrap top__bar">
+    <p class="top__tag">Bell Authorised Retailer in Brampton</p>
+    <a class="top__brand" href="{{ root }}index.html">
+      <picture>
+        <source type="image/webp" srcset="{{ root }}assets/img/t-wireless-logo-light-480.webp 480w, {{ root }}assets/img/t-wireless-logo-light-960.webp 960w" sizes="(min-width: 900px) 240px, 172px">
+        <img src="{{ root }}assets/img/t-wireless-logo-light-480.png" srcset="{{ root }}assets/img/t-wireless-logo-light-480.png 480w, {{ root }}assets/img/t-wireless-logo-light-960.png 960w" sizes="(min-width: 900px) 240px, 172px" width="480" height="55" alt="T Wireless">
+      </picture>
+    </a>
+    <a class="top__call" href="tel:{{ store.phone_e164 }}"><svg class="icon" aria-hidden="true"><use href="#i-call"></use></svg>{{ store.phone_display }}</a>
+    <button class="top__menu" type="button" aria-expanded="false" aria-controls="site-menu" data-menu-toggle><span class="menu-icon" aria-hidden="true"></span>Menu</button>
+  </div>
+  <div class="menu" id="site-menu">
+    <nav class="wrap tabs" aria-label="Main">
+      {{{ nav }}}
+    </nav>
+    <div class="menu__foot">
+      <a class="button" href="tel:{{ store.phone_e164 }}"><svg class="icon" aria-hidden="true"><use href="#i-call"></use></svg>Call {{ store.phone_display }}</a>
+    </div>
+  </div>
+</header>

@@ -1,0 +1,93 @@
+<!--page
+{
+  "title": "Store address, opening hours and a map | T Wireless, Brampton",
+  "description": "Where to find T Wireless on Bovaird Drive West, with the hours, a map and the number to ring. 965 Bovaird Dr W, Unit 1, Brampton; open daily from 10 a.m. to 8 p.m.",
+  "nav": "visit"
+}
+-->
+<main id="main">
+  <section class="intro" aria-labelledby="page-title">
+    <div class="wrap">
+      <h1 id="page-title">Visit us on Bovaird Drive West</h1>
+      <p class="lead">You will find the store on Bovaird’s south side, a little east of Chinguacousy Road. No appointment is needed; come in {{ hours_phrase }}.</p>
+    </div>
+  </section>
+
+  <div class="strip strip--letterbox" aria-hidden="true">{{{ pic.amber_top }}}</div>
+
+  <section class="section section--tight" aria-labelledby="where-title">
+    <div class="wrap visit">
+      <div>
+        <h2 id="where-title" class="visually-hidden">Address and map</h2>
+        {{{ store_card }}}
+      </div>
+      {{{ map }}}
+    </div>
+  </section>
+
+  <section class="section section--raised" aria-labelledby="hours-title">
+    <div class="wrap visit">
+      <div>
+        <h2 id="hours-title">Opening hours</h2>
+        <table class="hours">
+          <caption class="visually-hidden">Store hours</caption>
+          <tbody>
+            {{{ hours_rows }}}
+          </tbody>
+        </table>
+      </div>
+      <div>
+        <h2>Please bring</h2>
+        <ul class="ticks">
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg><span>Photo identification, which may be asked for when a plan is opened or a number is moved.</span></li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg><span>A recent bill, when you are changing provider; the account number is printed on it.</span></li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg><span>The device itself, if it is being repaired, with its data backed up beforehand where possible.</span></li>
+        </ul>
+        <p class="note">The store averages {{ store.rating.value }} stars on Google, across {{ store.rating.count }} reviews. <a href="{{ store.reviews_url }}">Read the comments</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="book" aria-labelledby="book-title">
+    <div class="wrap form-split">
+      <div>
+        <h2 id="book-title">Choose a time to visit</h2>
+        <p>Say what brings you in and when you would like to come, and we will ring to confirm the time.</p>
+        <p>To speak with someone first, ask for {{ store.contact_name }} on the store line, <a href="tel:{{ store.phone_e164 }}">{{ store.phone_display }}</a>, or send a message to <a href="mailto:{{ store.email }}">{{ store.email }}</a>.</p>
+      </div>
+      <form class="form" name="visit" method="post" {{{ form_attrs }}}>
+        <input type="hidden" name="form-name" value="visit">
+        <p class="visually-hidden"><label>Leave this field empty <input type="text" name="company" tabindex="-1" autocomplete="off"></label></p>
+        <div class="field">
+          <label for="v-name">Your name</label>
+          <input id="v-name" name="name" type="text" autocomplete="name" required>
+        </div>
+        <div class="field">
+          <label for="v-phone">Telephone number</label>
+          <input id="v-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required>
+        </div>
+        <div class="field">
+          <label for="v-reason">What brings you in?</label>
+          <select id="v-reason" name="reason">
+            <option>Selecting a handset or plan</option>
+            <option>Moving my number to a new provider</option>
+            <option>Home internet, TV or a landline</option>
+            <option>A repair</option>
+            <option>Another matter</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="v-when">Which day would suit you?</label>
+          <input id="v-when" name="when" type="text" aria-describedby="v-when-hint">
+          <p class="hint" id="v-when-hint">Saturday late morning, perhaps.</p>
+        </div>
+        <div class="field">
+          <label for="v-notes">Is there anything you would like us to have ready? <span class="optional">(optional)</span></label>
+          <textarea id="v-notes" name="notes" rows="3"></textarea>
+        </div>
+        <button class="button" type="submit">Request this visit</button>
+        <p class="hint">Details entered here are kept for one purpose: replying to you. <a href="privacy.html">Privacy</a></p>
+      </form>
+    </div>
+  </section>
+</main>

@@ -1,0 +1,87 @@
+<!--page
+{
+  "title": "Handsets, plans and number transfers in Brampton | T Wireless",
+  "description": "iPhone and Android handsets on Bell, Virgin Plus or Lucky Mobile, with your number kept when you switch. Come to 965 Bovaird Dr W, Brampton, to choose in person.",
+  "nav": "mobile"
+}
+-->
+<main id="main">
+  <section class="intro intro--split" aria-labelledby="page-title">
+    <div class="wrap intro__grid">
+      <div class="intro__text">
+        <h1 id="page-title">Your handset, your plan and your number, discussed together</h1>
+        <p class="lead">Choose the handset you like and the provider you prefer, and we will put the two together for you, with your number moving across if you wish.</p>
+        <div class="buttons">
+          <a class="button" href="tel:{{ store.phone_e164 }}"><svg class="icon" aria-hidden="true"><use href="#i-call"></use></svg>Ask if a model is in</a>
+          <a class="button button--line" href="deals.html">See current offers</a>
+        </div>
+      </div>
+      <figure class="frame intro__media">{{{ pic.handset_top }}}</figure>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="brands-title">
+    <div class="wrap">
+      <div class="head head--split">
+        <h2 id="brands-title">Three providers to choose from</h2>
+        <a class="textlink" href="brands.html">The three, compared in full</a>
+      </div>
+      {{{ providers }}}
+      <p class="note">Plans from every provider run on Bell’s mobile network. For pricing as it stands today, see <a href="deals.html">the offers page</a>.</p>
+    </div>
+  </section>
+
+  <div class="strip strip--letterbox" aria-hidden="true">{{{ pic.marble }}}</div>
+
+  <section class="section" aria-labelledby="phones-title">
+    <div class="wrap narrow-split">
+      <div class="narrow-split__title">
+        <h2 id="phones-title">Finding the right handset</h2>
+        <p>Thinking of a particular model? Telephone first and we will tell you whether it is in the store; both iPhone and Android handsets are available.</p>
+      </div>
+      <ul class="ticks">
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg><span><strong>Instalments.</strong> Bell SmartPay carries a handset’s price as 24 monthly payments with no interest, provided your 2-year plan is an eligible one.</span></li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg><span><strong>Your current handset.</strong> It may be worth something against the next one; ask us how a trade-in works.</span></li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg><span><strong>No new handset required.</strong> A plan can be fitted to the phone already in your pocket.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section section--raised" id="switch" aria-labelledby="switch-title">
+    <div class="wrap">
+      <div class="head">
+        <h2 id="switch-title">Joining us from another provider</h2>
+        <p>Changing provider need not mean a new number, since you can keep your number. We handle the transfer with you in the store, in three steps.</p>
+      </div>
+      <ol class="steps">
+        <li>
+          <h3>A bill and photo ID</h3>
+          <p>The account number on the bill is needed for the transfer. We may also ask for photo ID, so please bring it.</p>
+        </li>
+        <li>
+          <h3>Weigh the choices</h3>
+          <p>Each provider’s plans are laid beside the handsets you like, and you choose at your own pace.</p>
+        </li>
+        <li>
+          <h3>Completing the move</h3>
+          <p>Do not cancel the old plan beforehand. The transfer brings that service to an end once the number has gone across.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="business-title">
+    <div class="wrap spread">
+      <figure class="frame spread__media">{{{ pic.wood }}}</figure>
+      <div class="spread__text">
+        {{{ plate_deco.bell }}}
+        <h2 id="business-title">Equipping a business?</h2>
+        <p>Handsets and mobile plans from Bell can be put together here for a small team. A telephone call or a visit is all it takes to begin.</p>
+        <div class="buttons">
+          <a class="button" href="tel:{{ store.phone_e164 }}">Call {{ store.phone_display }}</a>
+          <a class="button button--line" href="brands.html#business">Bell for business</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

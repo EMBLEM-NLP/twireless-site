@@ -208,7 +208,7 @@
   "siblings": [
    {
     "design_id": "design-1",
-    "run": "rsi/runs/design-1/v6-candidate"
+    "run": "rsi/runs/design-1/v7-candidate"
    }
   ],
   "max_visual_similarity": 0.45,
