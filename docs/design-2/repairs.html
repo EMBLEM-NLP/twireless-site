@@ -18,8 +18,9 @@
 <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 <link rel="preload" href="assets/fonts/atkinson-hyperlegible-next-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/css/site.css?v=5272e50c">
-<script src="assets/js/site.js?v=5272e50c" defer></script>
+<link rel="stylesheet" href="assets/css/site.css?v=87154d1e">
+<noscript><link rel="stylesheet" href="assets/css/nojs.css?v=87154d1e"></noscript>
+<script src="assets/js/site.js?v=87154d1e" defer></script>
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -55,7 +56,7 @@
  "hasMap": "https://www.google.com/maps/search/?api=1&query=T%20Wireless%20965%20Bovaird%20Dr%20W%20Brampton%20ON"
 }
 </script>
-<link rel="stylesheet" href="assets/css/demo.css?v=5272e50c">
+<link rel="stylesheet" href="assets/css/demo.css?v=87154d1e">
 
 </head>
 <body class="">
@@ -90,19 +91,21 @@
 
 <div class="demo-banner"><p>Preview of the new T Wireless website. It isn't live yet, so forms here don't send.</p><p class="demo-banner__designs">Compare designs: <a href="/twireless-site/repairs.html">Design 1</a> <a href="/twireless-site/design-2/repairs.html" aria-current="page">Design 2</a></p></div>
 <a class="skip-link" href="#main">Skip to content</a>
-<header class="top">
+<header class="top" data-menu>
   <div class="wrap top__bar">
-    <a class="top__logo" href="index.html">
+    <a class="top__brand" href="index.html">
       <picture>
         <source type="image/webp" srcset="assets/img/t-wireless-logo-480.webp 480w, assets/img/t-wireless-logo-960.webp 960w" sizes="(min-width: 900px) 250px, 190px">
-        <img src="assets/img/t-wireless-logo-480.png" srcset="assets/img/t-wireless-logo-480.png 480w, assets/img/t-wireless-logo-960.png 960w" sizes="(min-width: 900px) 250px, 190px" width="480" height="55" alt="T Wireless home">
+        <img src="assets/img/t-wireless-logo-480.png" srcset="assets/img/t-wireless-logo-480.png 480w, assets/img/t-wireless-logo-960.png 960w" sizes="(min-width: 900px) 250px, 190px" width="480" height="55" alt="T Wireless">
       </picture>
+      <span class="top__tag">Bell Authorised Retailer<span class="top__tag-more"> in Brampton</span></span>
     </a>
-    <p class="top__tag">Bell Authorised Retailer in Brampton</p>
-    <a class="pill pill--call" href="tel:+16477071093"><svg class="icon" aria-hidden="true"><use href="#i-call"></use></svg><span class="pill__long">647-707-1093</span><span class="pill__short">Call</span></a>
+    <a class="pill pill--call" href="tel:+16477071093"><svg class="icon" aria-hidden="true"><use href="#i-call"></use></svg>647-707-1093</a>
+    <button class="pill pill--menu" type="button" aria-expanded="false" aria-controls="site-menu" data-menu-toggle><span class="menu-icon" aria-hidden="true"></span>Menu</button>
   </div>
-  <nav class="wrap tabs" aria-label="Main">
-    <ul>
+  <div class="menu" id="site-menu">
+    <nav class="wrap tabs" aria-label="Main">
+      <ul>
 <li><a href="deals.html">Deals</a></li>
 <li><a href="brands.html">Compare plans</a></li>
 <li><a href="mobile.html">Phones</a></li>
@@ -110,7 +113,11 @@
 <li><a href="repairs.html" aria-current="page">Repairs</a></li>
 <li><a href="visit.html">Find us</a></li>
 </ul>
-  </nav>
+    </nav>
+    <div class="menu__foot">
+      <a class="button" href="tel:+16477071093"><svg class="icon" aria-hidden="true"><use href="#i-call"></use></svg>Call 647-707-1093</a>
+    </div>
+  </div>
 </header>
 
 <main id="main">
@@ -118,7 +125,7 @@
     <div class="wrap intro__grid">
       <div class="intro__text">
         <h1 id="page-title">Hand us the broken phone. We'll tell you the price first.</h1>
-        <p class="lead">Phones and tablets, from cracked screens to tired batteries. Show us the problem and you'll hear the price before we pick up a tool.</p>
+        <p class="lead">Cracked screens, tired batteries and phones that won't charge, on phones and tablets alike. The price comes first, then the repair.</p>
         <div class="buttons">
           <a class="button" href="#book">Arrange a repair</a>
           <a class="button button--quiet" href="tel:+16477071093">Phone for a price</a>
@@ -138,9 +145,9 @@
         <div class="fixes__photo"><picture><source type="image/avif" srcset="assets/img/photos/cracked-screen-1x1-400.avif 400w, assets/img/photos/cracked-screen-1x1-600.avif 600w, assets/img/photos/cracked-screen-1x1-800.avif 800w" sizes="(min-width: 900px) 360px, calc(100vw - 32px)"><source type="image/webp" srcset="assets/img/photos/cracked-screen-1x1-400.webp 400w, assets/img/photos/cracked-screen-1x1-600.webp 600w, assets/img/photos/cracked-screen-1x1-800.webp 800w" sizes="(min-width: 900px) 360px, calc(100vw - 32px)"><img src="assets/img/photos/cracked-screen-1x1-800.jpg" srcset="assets/img/photos/cracked-screen-1x1-400.jpg 400w, assets/img/photos/cracked-screen-1x1-600.jpg 600w, assets/img/photos/cracked-screen-1x1-800.jpg 800w" sizes="(min-width: 900px) 360px, calc(100vw - 32px)" width="800" height="800" alt="Two phones with cracked screens." decoding="async" loading="lazy"></picture></div>
         <ul class="fixes__list">
           <li><svg class="icon" aria-hidden="true"><use href="#i-crack"></use></svg><div><h3>Screens and glass</h3><p>We fit a new screen or glass when yours is cracked or shattered, on phones and tablets.</p></div></li>
-<li><svg class="icon" aria-hidden="true"><use href="#i-battery"></use></svg><div><h3>Weak batteries</h3><p>Your phone drains quickly, shuts down early or has a swollen battery.</p></div></li>
+<li><svg class="icon" aria-hidden="true"><use href="#i-battery"></use></svg><div><h3>Weak batteries</h3><p>The charge disappears fast, the phone cuts out before it reaches zero, or the battery has started to swell.</p></div></li>
 <li><svg class="icon" aria-hidden="true"><use href="#i-plug"></use></svg><div><h3>Won&#x27;t charge</h3><p>Nothing happens when you plug it in, or it charges only when the cable is wedged at an angle.</p></div></li>
-<li><svg class="icon" aria-hidden="true"><use href="#i-camera"></use></svg><div><h3>Cameras and cracked backs</h3><p>Photos coming out blurry, a lens with a crack in it, or a back panel that&#x27;s smashed.</p></div></li>
+<li><svg class="icon" aria-hidden="true"><use href="#i-camera"></use></svg><div><h3>Lens and back damage</h3><p>Photos coming out blurry, a lens with a crack in it, or a back panel that&#x27;s smashed.</p></div></li>
 <li><svg class="icon" aria-hidden="true"><use href="#i-speaker"></use></svg><div><h3>Sound problems</h3><p>Calls sound muffled, or the speaker or microphone has gone quiet.</p></div></li>
 <li><svg class="icon" aria-hidden="true"><use href="#i-drop"></use></svg><div><h3>A wet phone</h3><p>Power it off straight away and get it to us quickly.</p></div></li>
         </ul>
@@ -152,12 +159,12 @@
     <div class="wrap">
       <div class="head">
         <h2 id="how-title">From the counter to pick-up</h2>
-        <p>Save a copy of your photos and files first, if you can.</p>
+        <p>Before you come in, copy your photos and files somewhere safe if you're able.</p>
       </div>
       <ol class="steps steps--four">
         <li>
           <h3>Arrange it, or drop by</h3>
-          <p>Fill in the form below, or just walk in every day from 10 a.m. to 8 p.m.</p>
+          <p>Send the form below, or call in every day from 10 a.m. to 8 p.m.</p>
         </li>
         <li>
           <h3>We look it over</h3>
@@ -165,7 +172,7 @@
         </li>
         <li>
           <h3>We repair it</h3>
-          <p>We give you a time to come and collect it.</p>
+          <p>You'll hear when to come back and collect it.</p>
         </li>
         <li>
           <h3>Check it with us</h3>
@@ -179,8 +186,8 @@
     <div class="wrap form-split">
       <div>
         <h2 id="book-title">Arrange a repair</h2>
-        <p>Describe the fault and we'll ring you back to agree a time.</p>
-        <p>Would you sooner speak to someone? Ring the store on <a href="tel:+16477071093">647-707-1093</a>, or write to <a href="mailto:twireless965@gmail.com">twireless965@gmail.com</a>.</p>
+        <p>Describe the fault and we'll phone you to agree a time.</p>
+        <p>If you'd rather speak to someone, phone the store on <a href="tel:+16477071093">647-707-1093</a>, or email <a href="mailto:twireless965@gmail.com">twireless965@gmail.com</a>.</p>
       </div>
       <form class="form" name="repair" method="get" action="thanks.html">
         <input type="hidden" name="form-name" value="repair">
@@ -196,7 +203,7 @@
         <div class="field">
           <label for="r-device">Which device?</label>
           <input id="r-device" name="device" type="text" required aria-describedby="r-device-hint">
-          <p class="hint" id="r-device-hint">For example, a Pixel 8 or an iPad Air.</p>
+          <p class="hint" id="r-device-hint">Such as a Pixel 8 or an iPad Air.</p>
         </div>
         <div class="field">
           <label for="r-problem">What's the problem?</label>
@@ -210,7 +217,7 @@
             <option>A weekend</option>
           </select>
         </div>
-        <button class="button" type="submit">Send my repair request</button>
+        <button class="button" type="submit">Ask for this repair</button>
         <p class="hint">We'll only use these details to get back to you. <a href="privacy.html">Privacy</a></p>
       </form>
     </div>

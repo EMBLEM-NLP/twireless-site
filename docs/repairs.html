@@ -19,8 +19,9 @@
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 <link rel="preload" href="assets/fonts/source-serif-4-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/figtree-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/css/site.css?v=b1c0e9d5">
-<script src="assets/js/site.js?v=b1c0e9d5" defer></script>
+<link rel="stylesheet" href="assets/css/site.css?v=764f1ffe">
+<noscript><link rel="stylesheet" href="assets/css/nojs.css?v=764f1ffe"></noscript>
+<script src="assets/js/site.js?v=764f1ffe" defer></script>
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -56,7 +57,7 @@
  "hasMap": "https://www.google.com/maps/search/?api=1&query=T%20Wireless%20965%20Bovaird%20Dr%20W%20Brampton%20ON"
 }
 </script>
-<link rel="stylesheet" href="assets/css/demo.css?v=b1c0e9d5">
+<link rel="stylesheet" href="assets/css/demo.css?v=764f1ffe">
 
 </head>
 <body class="">
@@ -186,23 +187,25 @@
 
 <div class="demo-banner"><p>Preview of the new T Wireless website. It isn't live yet, so forms here don't send.</p><p class="demo-banner__designs">Compare designs: <a href="/twireless-site/repairs.html" aria-current="page">Design 1</a> <a href="/twireless-site/design-2/repairs.html">Design 2</a></p></div>
 <a class="skip-link" href="#main">Skip to content</a>
-<header class="site-header ">
+<header class="site-header " data-menu>
   <div class="sign">
     <div class="sign__inner">
-      <a class="sign__logo" href="index.html">
+      <a class="sign__brand" href="index.html">
         <picture>
           <source type="image/webp" srcset="assets/img/t-wireless-logo-480.webp 480w, assets/img/t-wireless-logo-960.webp 960w" sizes="(min-width: 900px) 260px, 200px">
-          <img src="assets/img/t-wireless-logo-480.png" srcset="assets/img/t-wireless-logo-480.png 480w, assets/img/t-wireless-logo-960.png 960w" sizes="(min-width: 900px) 260px, 200px" width="480" height="55" alt="T Wireless home">
+          <img src="assets/img/t-wireless-logo-480.png" srcset="assets/img/t-wireless-logo-480.png 480w, assets/img/t-wireless-logo-960.png 960w" sizes="(min-width: 900px) 260px, 200px" width="480" height="55" alt="T Wireless">
         </picture>
+        <span class="sign__tag"><strong>Bell Authorised Retailer</strong><span class="sign__tag-more"> in Brampton</span></span>
       </a>
-      <p class="sign__tag"><strong>Bell Authorised Retailer</strong> in Brampton</p>
+      <button class="btn btn--ghost btn--small menu-btn" type="button" aria-expanded="false" aria-controls="site-menu" data-menu-toggle><span class="menu-icon" aria-hidden="true"></span>Menu</button>
       <a class="btn btn--primary btn--small sign__call" href="tel:+16477071093">
         <svg class="icon" aria-hidden="true"><use href="#i-call"></use></svg>
         Call 647-707-1093
       </a>
     </div>
-    <nav class="site-nav" aria-label="Main">
-      <ul>
+    <div class="menu" id="site-menu">
+      <nav class="site-nav" aria-label="Main">
+        <ul>
 <li><a href="deals.html">Deals</a></li>
 <li><a href="brands.html">Bell family</a></li>
 <li><a href="mobile.html">Mobile</a></li>
@@ -210,10 +213,17 @@
 <li><a href="repairs.html" aria-current="page">Repairs</a></li>
 <li><a href="visit.html">Visit us</a></li>
 </ul>
-    </nav>
+      </nav>
+      <div class="menu__foot">
+        <a class="btn btn--light" href="tel:+16477071093">
+          <svg class="icon" aria-hidden="true"><use href="#i-call"></use></svg>
+          Call 647-707-1093
+        </a>
+      </div>
+    </div>
   </div>
-  <div class="awning" aria-hidden="true"></div>
 </header>
+<div class="awning" aria-hidden="true"></div>
 
 <main id="main">
   <section class="page-hero">

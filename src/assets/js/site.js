@@ -1,5 +1,6 @@
-/* T Wireless: live open/closed signs, today's hours, deal filters, map loader.
-   No dependencies. Everything here is an enhancement; pages work without it. */
+/* T Wireless: the phone menu, live open/closed signs, today's hours, deal filters, map loader.
+   No dependencies. Everything here is an enhancement; the stylesheet for people with scripts
+   switched off (nojs.css) puts the page links back in the header. */
 (function () {
   "use strict";
 
@@ -106,6 +107,46 @@
       });
       if (empty) { empty.hidden = shown > 0; }
     });
+  }
+
+  // Menu: below 900px the page links sit behind a Menu button. The header carries data-menu, the
+  // button data-menu-toggle and aria-controls pointing at the panel; the stylesheet does the rest.
+  var header = document.querySelector("[data-menu]");
+  var toggle = header && header.querySelector("[data-menu-toggle]");
+  var panel = toggle && document.getElementById(toggle.getAttribute("aria-controls"));
+  if (header && toggle && panel) {
+    var page = document.documentElement;
+    var wide = window.matchMedia("(min-width: 900px)");
+    var backdrop = document.createElement("div");
+    backdrop.className = "menu-backdrop";
+    header.parentNode.insertBefore(backdrop, header.nextSibling);
+
+    var isOpen = function () { return toggle.getAttribute("aria-expanded") === "true"; };
+    var setMenu = function (open) {
+      toggle.setAttribute("aria-expanded", String(open));
+      header.classList.toggle("is-menu-open", open);
+      page.classList.toggle("has-menu-open", open);
+    };
+
+    toggle.addEventListener("click", function () { setMenu(!isOpen()); });
+    backdrop.addEventListener("click", function () { setMenu(false); });
+    panel.addEventListener("click", function (event) {
+      if (event.target.closest("a")) { setMenu(false); }
+    });
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape" && isOpen()) {
+        setMenu(false);
+        toggle.focus();
+      }
+    });
+    // Tabbing out of the header closes the menu rather than leaving it open behind the page
+    header.addEventListener("focusout", function (event) {
+      if (isOpen() && event.relatedTarget && !header.contains(event.relatedTarget)) { setMenu(false); }
+    });
+    // Back and forward can restore the page from the browser's cache with the menu still open
+    window.addEventListener("pageshow", function () { setMenu(false); });
+    var widened = function () { setMenu(false); };
+    if (wide.addEventListener) { wide.addEventListener("change", widened); } else { wide.addListener(widened); }
   }
 
   // Map: load Google Maps only when someone asks for it

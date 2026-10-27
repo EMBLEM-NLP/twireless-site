@@ -10,7 +10,7 @@
     <div class="wrap intro__grid">
       <div class="intro__text">
         <h1 id="page-title">Hand us the broken phone. We'll tell you the price first.</h1>
-        <p class="lead">Phones and tablets, from cracked screens to tired batteries. Show us the problem and you'll hear the price before we pick up a tool.</p>
+        <p class="lead">Cracked screens, tired batteries and phones that won't charge, on phones and tablets alike. The price comes first, then the repair.</p>
         <div class="buttons">
           <a class="button" href="#book">Arrange a repair</a>
           <a class="button button--quiet" href="tel:{{ store.phone_e164 }}">Phone for a price</a>
@@ -39,12 +39,12 @@
     <div class="wrap">
       <div class="head">
         <h2 id="how-title">From the counter to pick-up</h2>
-        <p>Save a copy of your photos and files first, if you can.</p>
+        <p>Before you come in, copy your photos and files somewhere safe if you're able.</p>
       </div>
       <ol class="steps steps--four">
         <li>
           <h3>Arrange it, or drop by</h3>
-          <p>Fill in the form below, or just walk in {{ hours_phrase }}.</p>
+          <p>Send the form below, or call in {{ hours_phrase }}.</p>
         </li>
         <li>
           <h3>We look it over</h3>
@@ -52,7 +52,7 @@
         </li>
         <li>
           <h3>We repair it</h3>
-          <p>We give you a time to come and collect it.</p>
+          <p>You'll hear when to come back and collect it.</p>
         </li>
         <li>
           <h3>Check it with us</h3>
@@ -66,8 +66,8 @@
     <div class="wrap form-split">
       <div>
         <h2 id="book-title">Arrange a repair</h2>
-        <p>Describe the fault and we'll ring you back to agree a time.</p>
-        <p>Would you sooner speak to someone? Ring the store on <a href="tel:{{ store.phone_e164 }}">{{ store.phone_display }}</a>, or write to <a href="mailto:{{ store.email }}">{{ store.email }}</a>.</p>
+        <p>Describe the fault and we'll phone you to agree a time.</p>
+        <p>If you'd rather speak to someone, phone the store on <a href="tel:{{ store.phone_e164 }}">{{ store.phone_display }}</a>, or email <a href="mailto:{{ store.email }}">{{ store.email }}</a>.</p>
       </div>
       <form class="form" name="repair" method="post" {{{ form_attrs }}}>
         <input type="hidden" name="form-name" value="repair">
@@ -83,7 +83,7 @@
         <div class="field">
           <label for="r-device">Which device?</label>
           <input id="r-device" name="device" type="text" required aria-describedby="r-device-hint">
-          <p class="hint" id="r-device-hint">For example, a Pixel 8 or an iPad Air.</p>
+          <p class="hint" id="r-device-hint">Such as a Pixel 8 or an iPad Air.</p>
         </div>
         <div class="field">
           <label for="r-problem">What's the problem?</label>
@@ -97,7 +97,7 @@
             <option>A weekend</option>
           </select>
         </div>
-        <button class="button" type="submit">Send my repair request</button>
+        <button class="button" type="submit">Ask for this repair</button>
         <p class="hint">We'll only use these details to get back to you. <a href="privacy.html">Privacy</a></p>
       </form>
     </div>

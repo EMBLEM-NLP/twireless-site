@@ -1,0 +1,17 @@
+/* Loaded only when scripts are switched off (see the <noscript> in the head).
+   Without a script the Menu button can't open anything, so on phones the page links
+   go back to being a row of pills under the logo, as they are on a wide screen. */
+@media (max-width: 899px) {
+  html { scroll-padding-top: auto; }
+  .top { position: static; }
+  .pill--menu, .menu__foot { display: none; }
+  .pill--call { display: inline-flex; }
+  .menu { position: static; width: auto; max-height: none; overflow: visible; border: 0; border-radius: 0; background: none; box-shadow: none; visibility: visible; opacity: 1; transform: none; }
+  .menu .tabs { max-width: 1200px; padding: 0 var(--gutter) 12px; }
+  .menu .tabs ul { display: flex; }
+  .menu .tabs li + li { border-top: 0; }
+  .menu .tabs a { justify-content: flex-start; min-height: 40px; padding: 0 13px; border-radius: 999px; background: var(--mist); font-size: var(--fs-sm); white-space: nowrap; }
+  .menu .tabs a::after { content: none; }
+  .menu .tabs a:hover { background: #dfe7f0; }
+  .menu .tabs a[aria-current="page"] { background: var(--ink); color: #fff; box-shadow: none; }
+}

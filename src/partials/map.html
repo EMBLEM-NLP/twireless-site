@@ -19,20 +19,22 @@
       <path d="M-219.4 622.8L519.4 -322.8" stroke="#f0c24a" stroke-width="1.6" stroke-dasharray="12 9"/>
     </g>
     <g transform="translate(150 150) rotate(-52)">
-      <text class="map__road" x="146" y="3.8" text-anchor="middle">Bovaird Dr W</text>
+      <text class="map__road map__road--bovaird" x="146" y="3.8" text-anchor="middle">Bovaird Dr W</text>
     </g>
-    <text class="map__road" x="101" y="103.8" text-anchor="middle" transform="rotate(45.6 101 100)">Chinguacousy Rd</text>
+    <text class="map__road map__road--chin" x="101" y="103.8" text-anchor="middle" transform="rotate(45.6 101 100)">Chinguacousy Rd</text>
     <text class="map__area" x="345" y="152" text-anchor="end">Fletcher&#8217;s Creek Village</text>
-    <g>
+    <g class="map__scale">
       <rect x="58" y="12" width="96" height="26" rx="6" fill="#ffffff" fill-opacity=".92"/>
       <path d="M71 33V18M66.5 22.5 71 17l4.5 5.5" fill="none" stroke="#2f3033" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
       <text class="map__small" x="78" y="31">N</text>
       <path d="M90 29h58.8M90 25.5v7M148.8 25.5v7" fill="none" stroke="#2f3033" stroke-width="1.5"/>
       <text class="map__small" x="119.4" y="23" text-anchor="middle">100 m</text>
     </g>
-    <rect x="223.2" y="87.7" width="66" height="19" rx="5" fill="#ffffff" stroke="#c4cfdb"/>
-    <text class="map__tag" x="256.2" y="101.2" text-anchor="middle">T Wireless</text>
-    <circle cx="212.2" cy="88.7" r="7.5" fill="#e53245" stroke="#ffffff" stroke-width="2.5"/>
+    <g class="map__pin">
+      <rect x="223.2" y="87.7" width="66" height="19" rx="5" fill="#ffffff" stroke="#c4cfdb"/>
+      <text class="map__tag" x="256.2" y="101.2" text-anchor="middle">T Wireless</text>
+      <circle cx="212.2" cy="88.7" r="7.5" fill="#e53245" stroke="#ffffff" stroke-width="2.5"/>
+    </g>
   </svg>
   <div class="map__facade">
     <p class="map__address">{{ store.street }}, {{ store.city }}</p>

@@ -1,13 +1,13 @@
 {
   "copy": {
     "carrier_line": {
-      "bell": "The newest iPhone and Android phones on a monthly plan. Bell SmartPay spreads the phone's price across 24 months.",
-      "virgin-plus": "Monthly plans, most with Member Benefits built in: perks across food, shopping, travel and entertainment that cost nothing extra.",
+      "bell": "The latest iPhone and Android models, paid monthly. Bell SmartPay spreads the phone's price across 24 months.",
+      "virgin-plus": "Billed monthly, and most plans include Member Benefits: perks for food, shopping, travel and entertainment at no extra cost.",
       "lucky-mobile": "Prepaid, so you pay first and use it after. Nobody checks your credit, nothing locks you in, and you're on the same Bell network."
     },
-    "deal_cta": "Ask about this offer",
+    "deal_cta": "Ask us for details",
     "thanks": {
-      "live": "A member of the team will ring the number you left. If you can't wait, call the store on {phone}.",
+      "live": "Someone from the store will phone the number you left. In a hurry? Call {phone}.",
       "demo": "This is a preview of the new website, so nothing was sent. To reach the store, call {phone}."
     }
   },
@@ -20,7 +20,7 @@
     {
       "title": "Weak batteries",
       "icon": "i-battery",
-      "text": "Your phone drains quickly, shuts down early or has a swollen battery."
+      "text": "The charge disappears fast, the phone cuts out before it reaches zero, or the battery has started to swell."
     },
     {
       "title": "Won't charge",
@@ -28,7 +28,7 @@
       "text": "Nothing happens when you plug it in, or it charges only when the cable is wedged at an angle."
     },
     {
-      "title": "Cameras and cracked backs",
+      "title": "Lens and back damage",
       "icon": "i-camera",
       "text": "Photos coming out blurry, a lens with a crack in it, or a back panel that's smashed."
     },
@@ -46,23 +46,23 @@
   "faq": [
     {
       "q": "Can I just walk in?",
-      "a": "Yes. Come in {{ hours_phrase }}. Book a visit only if you'd like a time agreed in advance."
+      "a": "Yes, drop in {{ hours_phrase }}. Booking is only for when you'd like us to set a time aside."
     },
     {
       "q": "Does my number move with me?",
       "a": "Yes, your number is yours to take. Bring a recent bill that shows your account number, plus photo ID in case we need it. Keep the old plan going until the number has moved; that service then closes automatically."
     },
     {
-      "q": "Is this a Bell store?",
-      "a": "It's a Bell Authorised Retailer. You can sign up here for Bell, Virgin Plus or Lucky Mobile plans and phones, and for Bell internet, TV or a home phone line."
+      "q": "Which providers can I sign up with here?",
+      "a": "Bell, Virgin Plus and Lucky Mobile. T Wireless is a Bell Authorised Retailer, so plans and phones from all three can be started in the store, along with Bell internet, TV and a home phone line."
     },
     {
       "q": "Do you repair tablets as well as phones?",
-      "a": "Yes, both. Tell us the model and what's gone wrong, and you'll have a price before we touch anything."
+      "a": "Yes, tablets and phones alike. Name the model and describe the fault, and the price comes before any work."
     },
     {
       "q": "Can I get in with a wheelchair?",
-      "a": "Yes. There's a wheelchair-accessible entrance."
+      "a": "Yes, the entrance is wheelchair accessible. If you'd like to check anything else before you come, give us a call."
     }
   ]
 }

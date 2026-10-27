@@ -19,8 +19,9 @@
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 <link rel="preload" href="assets/fonts/source-serif-4-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/figtree-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/css/site.css?v=b1c0e9d5">
-<script src="assets/js/site.js?v=b1c0e9d5" defer></script>
+<link rel="stylesheet" href="assets/css/site.css?v=764f1ffe">
+<noscript><link rel="stylesheet" href="assets/css/nojs.css?v=764f1ffe"></noscript>
+<script src="assets/js/site.js?v=764f1ffe" defer></script>
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -56,7 +57,7 @@
  "hasMap": "https://www.google.com/maps/search/?api=1&query=T%20Wireless%20965%20Bovaird%20Dr%20W%20Brampton%20ON"
 }
 </script>
-<link rel="stylesheet" href="assets/css/demo.css?v=b1c0e9d5">
+<link rel="stylesheet" href="assets/css/demo.css?v=764f1ffe">
 
 </head>
 <body class="page-home">
@@ -186,23 +187,25 @@
 
 <div class="demo-banner"><p>Preview of the new T Wireless website. It isn't live yet, so forms here don't send.</p><p class="demo-banner__designs">Compare designs: <a href="/twireless-site/index.html" aria-current="page">Design 1</a> <a href="/twireless-site/design-2/index.html">Design 2</a></p></div>
 <a class="skip-link" href="#main">Skip to content</a>
-<header class="site-header ">
+<header class="site-header " data-menu>
   <div class="sign">
     <div class="sign__inner">
-      <a class="sign__logo" href="index.html">
+      <a class="sign__brand" href="index.html">
         <picture>
           <source type="image/webp" srcset="assets/img/t-wireless-logo-480.webp 480w, assets/img/t-wireless-logo-960.webp 960w" sizes="(min-width: 900px) 260px, 200px">
-          <img src="assets/img/t-wireless-logo-480.png" srcset="assets/img/t-wireless-logo-480.png 480w, assets/img/t-wireless-logo-960.png 960w" sizes="(min-width: 900px) 260px, 200px" width="480" height="55" alt="T Wireless home">
+          <img src="assets/img/t-wireless-logo-480.png" srcset="assets/img/t-wireless-logo-480.png 480w, assets/img/t-wireless-logo-960.png 960w" sizes="(min-width: 900px) 260px, 200px" width="480" height="55" alt="T Wireless">
         </picture>
+        <span class="sign__tag"><strong>Bell Authorised Retailer</strong><span class="sign__tag-more"> in Brampton</span></span>
       </a>
-      <p class="sign__tag"><strong>Bell Authorised Retailer</strong> in Brampton</p>
+      <button class="btn btn--ghost btn--small menu-btn" type="button" aria-expanded="false" aria-controls="site-menu" data-menu-toggle><span class="menu-icon" aria-hidden="true"></span>Menu</button>
       <a class="btn btn--primary btn--small sign__call" href="tel:+16477071093">
         <svg class="icon" aria-hidden="true"><use href="#i-call"></use></svg>
         Call 647-707-1093
       </a>
     </div>
-    <nav class="site-nav" aria-label="Main">
-      <ul>
+    <div class="menu" id="site-menu">
+      <nav class="site-nav" aria-label="Main">
+        <ul>
 <li><a href="deals.html">Deals</a></li>
 <li><a href="brands.html">Bell family</a></li>
 <li><a href="mobile.html">Mobile</a></li>
@@ -210,10 +213,17 @@
 <li><a href="repairs.html">Repairs</a></li>
 <li><a href="visit.html">Visit us</a></li>
 </ul>
-    </nav>
+      </nav>
+      <div class="menu__foot">
+        <a class="btn btn--light" href="tel:+16477071093">
+          <svg class="icon" aria-hidden="true"><use href="#i-call"></use></svg>
+          Call 647-707-1093
+        </a>
+      </div>
+    </div>
   </div>
-  <div class="awning" aria-hidden="true"></div>
 </header>
+<div class="awning" aria-hidden="true"></div>
 
 <main id="main">
   <section class="hero" aria-labelledby="hero-title">
@@ -513,20 +523,22 @@
       <path d="M-219.4 622.8L519.4 -322.8" stroke="#f0c24a" stroke-width="1.6" stroke-dasharray="12 9"/>
     </g>
     <g transform="translate(150 150) rotate(-52)">
-      <text class="map__road" x="146" y="3.8" text-anchor="middle">Bovaird Dr W</text>
+      <text class="map__road map__road--bovaird" x="146" y="3.8" text-anchor="middle">Bovaird Dr W</text>
     </g>
-    <text class="map__road" x="101" y="103.8" text-anchor="middle" transform="rotate(45.6 101 100)">Chinguacousy Rd</text>
+    <text class="map__road map__road--chin" x="101" y="103.8" text-anchor="middle" transform="rotate(45.6 101 100)">Chinguacousy Rd</text>
     <text class="map__area" x="345" y="152" text-anchor="end">Fletcher&#8217;s Creek Village</text>
-    <g>
+    <g class="map__scale">
       <rect x="58" y="12" width="96" height="26" rx="6" fill="#ffffff" fill-opacity=".92"/>
       <path d="M71 33V18M66.5 22.5 71 17l4.5 5.5" fill="none" stroke="#2f3033" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
       <text class="map__small" x="78" y="31">N</text>
       <path d="M90 29h58.8M90 25.5v7M148.8 25.5v7" fill="none" stroke="#2f3033" stroke-width="1.5"/>
       <text class="map__small" x="119.4" y="23" text-anchor="middle">100 m</text>
     </g>
-    <rect x="223.2" y="87.7" width="66" height="19" rx="5" fill="#ffffff" stroke="#c4cfdb"/>
-    <text class="map__tag" x="256.2" y="101.2" text-anchor="middle">T Wireless</text>
-    <circle cx="212.2" cy="88.7" r="7.5" fill="#e53245" stroke="#ffffff" stroke-width="2.5"/>
+    <g class="map__pin">
+      <rect x="223.2" y="87.7" width="66" height="19" rx="5" fill="#ffffff" stroke="#c4cfdb"/>
+      <text class="map__tag" x="256.2" y="101.2" text-anchor="middle">T Wireless</text>
+      <circle cx="212.2" cy="88.7" r="7.5" fill="#e53245" stroke="#ffffff" stroke-width="2.5"/>
+    </g>
   </svg>
   <div class="map__facade">
     <p class="map__address">965 Bovaird Dr W, Unit 1, Brampton</p>

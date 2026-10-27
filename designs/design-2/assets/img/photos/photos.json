@@ -1511,7 +1511,9 @@
         "Apple logo on the logic board chip",
         "maker's mark printed on the mat",
         "maker's name printed on the mat",
-        "maker's name and logo printed on a part"
+        "maker's name and logo printed on a part",
+        "small serial and 2D-code label on the phone's housing",
+        "stamped code on the display assembly's metal shield"
       ],
       "logos": [],
       "kind": "photo",
@@ -1530,29 +1532,29 @@
                 "file": "repair-mat-16x10-640.avif",
                 "w": 640,
                 "h": 400,
-                "bytes": 14680,
-                "sha256": "bf98309feeb905ed4223696f06b6f08674de74679084c18619b0746b1fc0ad78"
+                "bytes": 14655,
+                "sha256": "38b50a7647df12c98d6c8f6cc8f85e0389b51e63de7de829786776e6194063cb"
               },
               {
                 "file": "repair-mat-16x10-960.avif",
                 "w": 960,
                 "h": 600,
-                "bytes": 25598,
-                "sha256": "afb7571fcbc0648c2624a3addef665906706c5a6c77ae359d819e60f529a048b"
+                "bytes": 25522,
+                "sha256": "3aca1e3809271b8ad441fa6e40fb9c771420306931d48514db8103c8e18983aa"
               },
               {
                 "file": "repair-mat-16x10-1280.avif",
                 "w": 1280,
                 "h": 800,
-                "bytes": 38589,
-                "sha256": "48b122e2105caa7b8bec9049fd49be3ab6b93bd785502cc597cafa33a9e5c6a4"
+                "bytes": 38506,
+                "sha256": "cbaa758aab87acab4b315318c01b8a93fc06711c48333c52f0b156180a976a8e"
               },
               {
                 "file": "repair-mat-16x10-1600.avif",
                 "w": 1600,
                 "h": 1000,
-                "bytes": 54498,
-                "sha256": "ddb9f8f3e5ed2c14ac8b797bfaeeada61a612ccef677f1487a0ebc15c2cb73cf"
+                "bytes": 54274,
+                "sha256": "ec0c50605720605cee2f39adb16f19be9886eb5da0d51fb8ffe3ca528b39cbba"
               }
             ],
             "webp": [
@@ -1560,29 +1562,29 @@
                 "file": "repair-mat-16x10-640.webp",
                 "w": 640,
                 "h": 400,
-                "bytes": 24618,
-                "sha256": "b76503aca110a1301b0a71acc21fc3de03496e042b0f5e3210487bf5c9feae98"
+                "bytes": 24578,
+                "sha256": "350f4081810bc3c35e80efca6134dda90ae5dcac1fdb14286deb28645ab15938"
               },
               {
                 "file": "repair-mat-16x10-960.webp",
                 "w": 960,
                 "h": 600,
-                "bytes": 41580,
-                "sha256": "c5225ce74057ee48ee36a8ae2588380e99491a0602b25e9cc661b0b3f8b8be53"
+                "bytes": 41044,
+                "sha256": "2dd4694d264bcc91cfbfa85c85916b22f4cd5a3c6d733a40437705c377cd3703"
               },
               {
                 "file": "repair-mat-16x10-1280.webp",
                 "w": 1280,
                 "h": 800,
-                "bytes": 59922,
-                "sha256": "455636ce38b6ff1d183bb90c396fe1bc076cc39419693b8bcbf86f6a8e1d3b58"
+                "bytes": 59762,
+                "sha256": "31f450baaf1537aa45bb076fb1a5fae5f21c3032980ed215c51e969fdda214ad"
               },
               {
                 "file": "repair-mat-16x10-1600.webp",
                 "w": 1600,
                 "h": 1000,
-                "bytes": 81190,
-                "sha256": "d43be922f97fdb351da23ad0cd29a829c8853f2d88d09355b4d75f95ba368e97"
+                "bytes": 80894,
+                "sha256": "8b2739ebceac47eaca10836f9fb3602195b2d56510e9232be43d198297a8565a"
               }
             ],
             "jpg": [
@@ -1590,29 +1592,29 @@
                 "file": "repair-mat-16x10-640.jpg",
                 "w": 640,
                 "h": 400,
-                "bytes": 42266,
-                "sha256": "81c9c3eeee26c2b280e71ae7fa2ef35bf180584995f8c849f5acd25c85d1b19c"
+                "bytes": 42243,
+                "sha256": "8b618cb197b6a973d7453670b838e194942ae64b35f54a096368c72ae6cc5458"
               },
               {
                 "file": "repair-mat-16x10-960.jpg",
                 "w": 960,
                 "h": 600,
-                "bytes": 77144,
-                "sha256": "88ace1b6b784ca1139eb4ff19808954c4ae6e73a8a645f5f217405abcf7578b5"
+                "bytes": 77006,
+                "sha256": "6fab8a6db283ce0e8e21a52f09ed217cb2b282148704b4341d66464249fab0bc"
               },
               {
                 "file": "repair-mat-16x10-1280.jpg",
                 "w": 1280,
                 "h": 800,
-                "bytes": 121635,
-                "sha256": "576e8a4a455eed683fa27564739b61a9c1aec4efe734c977fa262a29c0843d8a"
+                "bytes": 121431,
+                "sha256": "3290b37aa666ceb0dff9ade2d314809ad038326c072f49d920a1fcd83d65a2dd"
               },
               {
                 "file": "repair-mat-16x10-1600.jpg",
                 "w": 1600,
                 "h": 1000,
-                "bytes": 178230,
-                "sha256": "0d5f2626c58ae7e95711864e1d9229d21919d643d93e53d8ba2f150f82951dc6"
+                "bytes": 177927,
+                "sha256": "e2fcfc06d328007e09bfe5dcace43a639049ed8739f8277109f236e4a0a9e539"
               }
             ]
           }
@@ -1631,29 +1633,29 @@
                 "file": "repair-mat-4x5-400.avif",
                 "w": 400,
                 "h": 500,
-                "bytes": 11412,
-                "sha256": "eb77c6e32e741352df6c8041cd8f6b8e84e34db4ff944ba64cd371332036a877"
+                "bytes": 11400,
+                "sha256": "f8cc54dcaec82a9118c8d0c7c6f9493c94ba6ebd91a0a26db94f99bcef10626d"
               },
               {
                 "file": "repair-mat-4x5-600.avif",
                 "w": 600,
                 "h": 750,
-                "bytes": 20531,
-                "sha256": "097cb35f413656eef9d113c048775ba22678b32746eebd1ce2fa83eef4aa56f1"
+                "bytes": 20478,
+                "sha256": "4505a87a09fa8309fa2cfa95856d6b28da27c091731575f227801ba9058378b7"
               },
               {
                 "file": "repair-mat-4x5-800.avif",
                 "w": 800,
                 "h": 1000,
-                "bytes": 32196,
-                "sha256": "0607b93e596f7bde4087c2fde35cf3c21a0bb7b87090f45921969e28e7053b1a"
+                "bytes": 32044,
+                "sha256": "5bf10ac63e58ecf633a3a740f659ede6e24577aea976d7a8ba16ca25b7c68d16"
               },
               {
                 "file": "repair-mat-4x5-1000.avif",
                 "w": 1000,
                 "h": 1249,
-                "bytes": 47371,
-                "sha256": "4b6523393d2559300d44e22d54427daa9e75e3284cfc29ed200d2e5393ddb0de"
+                "bytes": 47147,
+                "sha256": "9b7575e60939034ffe1458eb658890fb3f99e9047e7f5ffa003358db40528fc7"
               }
             ],
             "webp": [
@@ -1661,29 +1663,29 @@
                 "file": "repair-mat-4x5-400.webp",
                 "w": 400,
                 "h": 500,
-                "bytes": 19848,
-                "sha256": "690782730be41b1d0b108a632382bd2795b946dac306bd9f49a12e70aa2d08a9"
+                "bytes": 19790,
+                "sha256": "0187e80dbb8bac3c64a1f3fb74bf23986bb602daed445858fc2a8a48d6337688"
               },
               {
                 "file": "repair-mat-4x5-600.webp",
                 "w": 600,
                 "h": 750,
-                "bytes": 33164,
-                "sha256": "1924eb2cf791f99f0f8f6eff01087dee7545fea26863cbad065fbddee30b7db8"
+                "bytes": 33046,
+                "sha256": "72612f7d99f4806b9b92a2239859189f32e885fa1adffd153764cae86a3119f4"
               },
               {
                 "file": "repair-mat-4x5-800.webp",
                 "w": 800,
                 "h": 1000,
-                "bytes": 48932,
-                "sha256": "9a3f7ded27a31883e8da201e1f0a041680e709813c090192fa58f684258c959d"
+                "bytes": 48236,
+                "sha256": "1966baaa81a56f4cf40c1a84f4f0babecb6051e713dacbb458af2cc4ccad8fed"
               },
               {
                 "file": "repair-mat-4x5-1000.webp",
                 "w": 1000,
                 "h": 1249,
-                "bytes": 68390,
-                "sha256": "e9b1d4e482218ae4a607025f92d3f1695bdbb3e8d6b332912ee6e0b8736a4060"
+                "bytes": 67970,
+                "sha256": "e927676652c5e689263cd302555469c324688bfc64f4f68c346a8c045f5d21f5"
               }
             ],
             "jpg": [
@@ -1691,29 +1693,29 @@
                 "file": "repair-mat-4x5-400.jpg",
                 "w": 400,
                 "h": 500,
-                "bytes": 33715,
-                "sha256": "69803c0382b110d18b1ef43e6d5f9d611cf121b5eb5a52590773f1142d552e3d"
+                "bytes": 33623,
+                "sha256": "0f4401345bdee56bd95132c1b864ac7b6190dcfc649a0eac935657994fef363b"
               },
               {
                 "file": "repair-mat-4x5-600.jpg",
                 "w": 600,
                 "h": 750,
-                "bytes": 62693,
-                "sha256": "07fd4e15da9c6e237d0d7131aac2832b64809667493f1dfb5b03c1b99ba66bfe"
+                "bytes": 62506,
+                "sha256": "a8996b0f59b50786cc7a606597a72c1180caee8231f24fd913bf6685cbbec047"
               },
               {
                 "file": "repair-mat-4x5-800.jpg",
                 "w": 800,
                 "h": 1000,
-                "bytes": 101065,
-                "sha256": "a0727247e408681dcd03d349552884fa521043806047db8215d4196df4899ec1"
+                "bytes": 100737,
+                "sha256": "f5ed3634e712c139c3ad640c7dec2e488db3782e8a76a29064e56759a50c0fb3"
               },
               {
                 "file": "repair-mat-4x5-1000.jpg",
                 "w": 1000,
                 "h": 1249,
-                "bytes": 150523,
-                "sha256": "f36039bfa0a9818140f646b35fafe894ac94cb169920e549c96d01849ea4c3b4"
+                "bytes": 150044,
+                "sha256": "45d79bf056035c6764ca5a92c8008e43f36568cdb88ead9a81cf73c9cb0d69e7"
               }
             ]
           }
@@ -2346,7 +2348,9 @@
       "description": "Hands lifting a new smartphone out of its box on a white desk",
       "retouched": [
         "printed words on the card",
-        "picture of a phone printed on the retail carton"
+        "picture of a phone printed on the retail carton",
+        "faint dashed printing along the carton's side edge",
+        "grey smudge on the card's hang tab"
       ],
       "logos": [],
       "kind": "photo",
@@ -2365,22 +2369,22 @@
                 "file": "unboxing-16x10-640.avif",
                 "w": 640,
                 "h": 400,
-                "bytes": 7231,
-                "sha256": "be1900747c323ad2e8f5d4f9f18946841e0364f7466eb979d0ca99a6be3a46ad"
+                "bytes": 7189,
+                "sha256": "9a59a812e82618a302f61659d7d85c8581f759c1104322a073931e6d27d8c898"
               },
               {
                 "file": "unboxing-16x10-960.avif",
                 "w": 960,
                 "h": 600,
-                "bytes": 12515,
-                "sha256": "496c3076f0a78f5bf6fddc79919c37f4a289208df749ea88695870517817a235"
+                "bytes": 12541,
+                "sha256": "1c1e92bf70289ffea664ca30480c06f56449eaa3766710588ec5291c15af1055"
               },
               {
                 "file": "unboxing-16x10-1280.avif",
                 "w": 1280,
                 "h": 800,
-                "bytes": 19668,
-                "sha256": "4418b45dba5acbe59ff7db7a7c33c09dfb9c9253f26ceccdfc6e869be67347e7"
+                "bytes": 19603,
+                "sha256": "090c416b25bd49461415e84b764dfd34fa6a8407eb2aaf5c94e4910b983edf46"
               }
             ],
             "webp": [
@@ -2388,22 +2392,22 @@
                 "file": "unboxing-16x10-640.webp",
                 "w": 640,
                 "h": 400,
-                "bytes": 8748,
-                "sha256": "f132fc05b74ae71bf35f02a78dae3325d21dcbfbb5f1bfea6e0dc6e51bccd4c9"
+                "bytes": 8742,
+                "sha256": "2c7c3e4be7e3a107753eb215bbe34505b619b39018e9aaa6d384c1a154270fef"
               },
               {
                 "file": "unboxing-16x10-960.webp",
                 "w": 960,
                 "h": 600,
-                "bytes": 14772,
-                "sha256": "72c21c47a73e10343fa9d0534938b70dca189d2dbf8a0b96c829e356c307d59c"
+                "bytes": 14760,
+                "sha256": "144371e293ebcd6909d3aa1b23fedc335c6ca3691edceede6a2f3e8c5890b3a5"
               },
               {
                 "file": "unboxing-16x10-1280.webp",
                 "w": 1280,
                 "h": 800,
-                "bytes": 22286,
-                "sha256": "14f3ab334affbfbee07abe75dd56dc8c8a0292c6d49ac92193f38e47788e020d"
+                "bytes": 22230,
+                "sha256": "6605dca8c3c4fe0f8b464753412880a068e316b8d8707a0b5d69188c855a857f"
               }
             ],
             "jpg": [
@@ -2411,22 +2415,22 @@
                 "file": "unboxing-16x10-640.jpg",
                 "w": 640,
                 "h": 400,
-                "bytes": 21661,
-                "sha256": "43e5e10f68c6f9bc76e8d655d0b08b81ea60ddd3564e2d692d36683dc37757da"
+                "bytes": 21634,
+                "sha256": "62d6a5eb29c6b0c73cb3bb3ff63fb6733526ff01cef496e386ea6a85ff3d640d"
               },
               {
                 "file": "unboxing-16x10-960.jpg",
                 "w": 960,
                 "h": 600,
-                "bytes": 41636,
-                "sha256": "c04e6252d5991bb9776b821d41f1429caf616ca36ef80e71e17c93f0b5b56209"
+                "bytes": 41608,
+                "sha256": "8a82c6790f3c22804d715864621550b5b1ab9ac418897cf16e4f426d1eedd9b6"
               },
               {
                 "file": "unboxing-16x10-1280.jpg",
                 "w": 1280,
                 "h": 800,
-                "bytes": 70594,
-                "sha256": "d1fd81fa82248a340260a7a087669dffadab48022f7ca845453ee58c7c9cca0d"
+                "bytes": 70550,
+                "sha256": "71f097db7945dffae7bbda3d4ed414b83aff97085a1f6aa66df6c82b06a0e429"
               }
             ]
           }

@@ -767,6 +767,122 @@
           "grow": 8,
           "feather": 2,
           "why": "maker's name and logo printed on a part"
+        },
+        {
+          "poly": [
+            [
+              4142,
+              2110
+            ],
+            [
+              4258,
+              2134
+            ],
+            [
+              4262,
+              2162
+            ],
+            [
+              4236,
+              2184
+            ],
+            [
+              4222,
+              2206
+            ],
+            [
+              4150,
+              2214
+            ],
+            [
+              4084,
+              2194
+            ],
+            [
+              4072,
+              2172
+            ],
+            [
+              4110,
+              2140
+            ]
+          ],
+          "fill": "marks",
+          "whole": true,
+          "method": "laplace",
+          "scale": 4,
+          "feather": 6,
+          "why": "small serial and 2D-code label on the phone's housing"
+        },
+        {
+          "poly": [
+            [
+              4972,
+              2098
+            ],
+            [
+              5030,
+              2096
+            ],
+            [
+              5075,
+              2112
+            ],
+            [
+              5110,
+              2122
+            ],
+            [
+              5140,
+              2126
+            ],
+            [
+              5140,
+              2152
+            ],
+            [
+              5112,
+              2160
+            ],
+            [
+              5108,
+              2178
+            ],
+            [
+              5090,
+              2190
+            ],
+            [
+              5050,
+              2188
+            ],
+            [
+              5030,
+              2172
+            ],
+            [
+              4990,
+              2165
+            ],
+            [
+              4958,
+              2162
+            ],
+            [
+              4950,
+              2135
+            ],
+            [
+              4962,
+              2110
+            ]
+          ],
+          "fill": "marks",
+          "whole": true,
+          "method": "laplace",
+          "scale": 4,
+          "feather": 6,
+          "why": "stamped code on the display assembly's metal shield"
         }
       ]
     },
@@ -1102,7 +1218,7 @@
       "retrieved": "2026-10-26",
       "original": "originals/pexels-7190924.jpg",
       "people": "no faces",
-      "people_note": "two hands; the words printed on the card were removed",
+      "people_note": "two hands; the words printed on the card, the printing along the carton edge and the smudge on the card's tab were removed",
       "description": "Hands lifting a new smartphone out of its box on a white desk",
       "alt": "Two hands lifting a new phone out of its box on a white desk.",
       "crops": {
@@ -1243,6 +1359,146 @@
           "scale": 6,
           "feather": 6,
           "why": "picture of a phone printed on the retail carton"
+        },
+        {
+          "poly": [
+            [
+              2550,
+              188
+            ],
+            [
+              2560,
+              212
+            ],
+            [
+              2569,
+              236
+            ],
+            [
+              2579,
+              260
+            ],
+            [
+              2588,
+              284
+            ],
+            [
+              2598,
+              308
+            ],
+            [
+              2607,
+              332
+            ],
+            [
+              2617,
+              356
+            ],
+            [
+              2626,
+              380
+            ],
+            [
+              2636,
+              404
+            ],
+            [
+              2656,
+              404
+            ],
+            [
+              2646,
+              380
+            ],
+            [
+              2637,
+              356
+            ],
+            [
+              2627,
+              332
+            ],
+            [
+              2618,
+              308
+            ],
+            [
+              2608,
+              284
+            ],
+            [
+              2599,
+              260
+            ],
+            [
+              2589,
+              236
+            ],
+            [
+              2580,
+              212
+            ],
+            [
+              2570,
+              188
+            ]
+          ],
+          "fill": "marks",
+          "whole": true,
+          "method": "laplace",
+          "scale": 3,
+          "feather": 4,
+          "why": "faint dashed printing along the carton's side edge"
+        },
+        {
+          "poly": [
+            [
+              1442,
+              514
+            ],
+            [
+              1500,
+              511
+            ],
+            [
+              1560,
+              513
+            ],
+            [
+              1614,
+              519
+            ],
+            [
+              1620,
+              545
+            ],
+            [
+              1614,
+              568
+            ],
+            [
+              1560,
+              565
+            ],
+            [
+              1500,
+              562
+            ],
+            [
+              1448,
+              568
+            ],
+            [
+              1438,
+              542
+            ]
+          ],
+          "fill": "marks",
+          "whole": true,
+          "method": "laplace",
+          "scale": 4,
+          "feather": 6,
+          "why": "grey smudge on the card's hang tab"
         }
       ]
     }

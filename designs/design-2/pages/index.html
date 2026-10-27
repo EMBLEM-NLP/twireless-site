@@ -31,7 +31,7 @@
   <div class="wrap">
     <ul class="facts" aria-label="About the store">
       <li><svg class="icon" aria-hidden="true"><use href="#i-shield"></use></svg><span>Bell Authorised Retailer</span></li>
-      <li><svg class="icon" aria-hidden="true"><use href="#i-star"></use></svg><a href="{{ store.reviews_url }}">{{ store.rating.value }} on Google, from {{ store.rating.count }} reviews</a></li>
+      <li><svg class="icon" aria-hidden="true"><use href="#i-star"></use></svg><a href="{{ store.reviews_url }}">Rated {{ store.rating.value }} out of 5 by {{ store.rating.count }} Google reviewers</a></li>
       <li><svg class="icon" aria-hidden="true"><use href="#i-access"></use></svg><span>Wheelchair-accessible entrance</span></li>
     </ul>
   </div>
@@ -55,14 +55,14 @@
       </div>
       <div class="feature__text">
         <h2 id="home-title">Home internet and TV start with your address</h2>
-        <p>Tell us your address, unit number included, and we'll look up which Bell services you can get at home.</p>
+        <p>Which services reach a home depends on the address, so we start there. Give us the street and unit number and we'll see what Bell can connect.</p>
         <ul class="minis">
           <li><svg class="icon" aria-hidden="true"><use href="#i-wifi"></use></svg><span>Bell Internet</span></li>
           <li><svg class="icon" aria-hidden="true"><use href="#i-tv"></use></svg><span>Fibe TV</span></li>
           <li><svg class="icon" aria-hidden="true"><use href="#i-dish"></use></svg><span>Satellite TV</span></li>
           <li><svg class="icon" aria-hidden="true"><use href="#i-call"></use></svg><span>Home Phone</span></li>
         </ul>
-        <a class="button button--quiet" href="internet-tv.html">See how home setup works</a>
+        <a class="button button--quiet" href="internet-tv.html">See the setup steps</a>
       </div>
     </div>
   </section>
@@ -103,7 +103,7 @@
     <div class="wrap">
       <div class="head">
         <h2 id="switch-title">Changing providers? Your number can come too</h2>
-        <p>Canadians can take their phone number to a new provider. Here's how that goes if you're moving to Bell, Virgin Plus or Lucky Mobile.</p>
+        <p>Your number doesn't have to change when your provider does. This is how it moves to Bell, Virgin Plus or Lucky Mobile.</p>
       </div>
       <ol class="steps">
         <li>
@@ -115,7 +115,7 @@
           <p>We set the three providers next to each other, along with the phones you like, and you decide.</p>
         </li>
         <li>
-          <h3>We transfer it</h3>
+          <h3>The number moves across</h3>
           <p>Leave your old plan running. When the number moves over, that service closes by itself.</p>
         </li>
       </ol>
@@ -125,7 +125,7 @@
   <section class="section section--mist" aria-labelledby="visit-title">
     <div class="wrap visit">
       <div>
-        <h2 id="visit-title">Come by the store</h2>
+        <h2 id="visit-title">Find us on Bovaird</h2>
         <p class="address">{{ store.street }}<br>{{ store.city }}, {{ store.province }} {{ store.postal }}</p>
         <table class="hours">
           <caption class="visually-hidden">Store hours</caption>
@@ -146,7 +146,7 @@
     <div class="wrap faq-split">
       <div class="faq-split__intro">
         <h2 id="faq-title">Questions people ask us</h2>
-        <p>Not on the list? Ring <a href="tel:{{ store.phone_e164 }}">{{ store.phone_display }}</a> and ask us directly.</p>
+        <p>Something else on your mind? Phone <a href="tel:{{ store.phone_e164 }}">{{ store.phone_display }}</a> and we'll answer it.</p>
       </div>
       <div class="faq">
         {{{ faq_items }}}

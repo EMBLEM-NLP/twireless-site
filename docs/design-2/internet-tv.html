@@ -18,8 +18,9 @@
 <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 <link rel="preload" href="assets/fonts/atkinson-hyperlegible-next-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/css/site.css?v=5272e50c">
-<script src="assets/js/site.js?v=5272e50c" defer></script>
+<link rel="stylesheet" href="assets/css/site.css?v=87154d1e">
+<noscript><link rel="stylesheet" href="assets/css/nojs.css?v=87154d1e"></noscript>
+<script src="assets/js/site.js?v=87154d1e" defer></script>
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -55,7 +56,7 @@
  "hasMap": "https://www.google.com/maps/search/?api=1&query=T%20Wireless%20965%20Bovaird%20Dr%20W%20Brampton%20ON"
 }
 </script>
-<link rel="stylesheet" href="assets/css/demo.css?v=5272e50c">
+<link rel="stylesheet" href="assets/css/demo.css?v=87154d1e">
 
 </head>
 <body class="">
@@ -90,19 +91,21 @@
 
 <div class="demo-banner"><p>Preview of the new T Wireless website. It isn't live yet, so forms here don't send.</p><p class="demo-banner__designs">Compare designs: <a href="/twireless-site/internet-tv.html">Design 1</a> <a href="/twireless-site/design-2/internet-tv.html" aria-current="page">Design 2</a></p></div>
 <a class="skip-link" href="#main">Skip to content</a>
-<header class="top">
+<header class="top" data-menu>
   <div class="wrap top__bar">
-    <a class="top__logo" href="index.html">
+    <a class="top__brand" href="index.html">
       <picture>
         <source type="image/webp" srcset="assets/img/t-wireless-logo-480.webp 480w, assets/img/t-wireless-logo-960.webp 960w" sizes="(min-width: 900px) 250px, 190px">
-        <img src="assets/img/t-wireless-logo-480.png" srcset="assets/img/t-wireless-logo-480.png 480w, assets/img/t-wireless-logo-960.png 960w" sizes="(min-width: 900px) 250px, 190px" width="480" height="55" alt="T Wireless home">
+        <img src="assets/img/t-wireless-logo-480.png" srcset="assets/img/t-wireless-logo-480.png 480w, assets/img/t-wireless-logo-960.png 960w" sizes="(min-width: 900px) 250px, 190px" width="480" height="55" alt="T Wireless">
       </picture>
+      <span class="top__tag">Bell Authorised Retailer<span class="top__tag-more"> in Brampton</span></span>
     </a>
-    <p class="top__tag">Bell Authorised Retailer in Brampton</p>
-    <a class="pill pill--call" href="tel:+16477071093"><svg class="icon" aria-hidden="true"><use href="#i-call"></use></svg><span class="pill__long">647-707-1093</span><span class="pill__short">Call</span></a>
+    <a class="pill pill--call" href="tel:+16477071093"><svg class="icon" aria-hidden="true"><use href="#i-call"></use></svg>647-707-1093</a>
+    <button class="pill pill--menu" type="button" aria-expanded="false" aria-controls="site-menu" data-menu-toggle><span class="menu-icon" aria-hidden="true"></span>Menu</button>
   </div>
-  <nav class="wrap tabs" aria-label="Main">
-    <ul>
+  <div class="menu" id="site-menu">
+    <nav class="wrap tabs" aria-label="Main">
+      <ul>
 <li><a href="deals.html">Deals</a></li>
 <li><a href="brands.html">Compare plans</a></li>
 <li><a href="mobile.html">Phones</a></li>
@@ -110,7 +113,11 @@
 <li><a href="repairs.html">Repairs</a></li>
 <li><a href="visit.html">Find us</a></li>
 </ul>
-  </nav>
+    </nav>
+    <div class="menu__foot">
+      <a class="button" href="tel:+16477071093"><svg class="icon" aria-hidden="true"><use href="#i-call"></use></svg>Call 647-707-1093</a>
+    </div>
+  </div>
 </header>
 
 <main id="main">
@@ -118,7 +125,7 @@
     <div class="wrap intro__grid">
       <div class="intro__text">
         <h1 id="page-title">Internet, TV and home phone: start with your address</h1>
-        <p class="lead">What you can get depends on where you live. Give us your address, unit number included, and we'll look up the Bell services that reach it.</p>
+        <p class="lead">Availability depends on the address. Read it out to us, unit number included, and we'll see which Bell services can be connected there.</p>
         <div class="buttons">
           <a class="button" href="visit.html#book">Book a visit</a>
           <a class="button button--quiet" href="tel:+16477071093">Call 647-707-1093</a>
@@ -132,7 +139,7 @@
     <div class="wrap">
       <div class="head head--mark">
         <span class="plate logo-plate--bell"><img src="assets/img/brands/bell.svg" alt="" decoding="async"></span>
-        <h2 id="services-title">What Bell can set up at home</h2>
+        <h2 id="services-title">Services Bell can connect</h2>
       </div>
       <ul class="tiles">
         <li class="tile">
@@ -163,11 +170,11 @@
     <div class="wrap feature">
       <div class="feature__media"><picture><source type="image/avif" srcset="assets/img/photos/living-room-16x10-640.avif 640w, assets/img/photos/living-room-16x10-960.avif 960w, assets/img/photos/living-room-16x10-1280.avif 1280w, assets/img/photos/living-room-16x10-1600.avif 1600w" sizes="(min-width: 900px) 660px, calc(100vw - 32px)"><source type="image/webp" srcset="assets/img/photos/living-room-16x10-640.webp 640w, assets/img/photos/living-room-16x10-960.webp 960w, assets/img/photos/living-room-16x10-1280.webp 1280w, assets/img/photos/living-room-16x10-1600.webp 1600w" sizes="(min-width: 900px) 660px, calc(100vw - 32px)"><img src="assets/img/photos/living-room-16x10-640.jpg" srcset="assets/img/photos/living-room-16x10-640.jpg 640w, assets/img/photos/living-room-16x10-960.jpg 960w, assets/img/photos/living-room-16x10-1280.jpg 1280w, assets/img/photos/living-room-16x10-1600.jpg 1600w" sizes="(min-width: 900px) 660px, calc(100vw - 32px)" width="1600" height="1000" alt="A bright living room with a grey sofa and a TV." decoding="async" loading="lazy"></picture><span class="plate plate--on-photo logo-plate--bell"><img src="assets/img/brands/bell.svg" alt="" decoding="async"></span></div>
       <div class="feature__text">
-        <h2 id="app-title">Fibe TV, on the screens around your home</h2>
-        <p>The Fibe TV app works with the Bell Streamer, Apple TV, Android TV, Amazon Fire TV and Google Chromecast.</p>
+        <h2 id="app-title">Fibe TV through the app</h2>
+        <p>These players work with the Fibe TV app: the Bell Streamer, Apple TV, Android TV, Amazon Fire TV and Google Chromecast.</p>
         <ul class="ticks">
           <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg><span>A phone or tablet can hold some of your recordings and on-demand picks for watching offline.</span></li>
-          <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg><span>Bundle internet, TV and a home phone line on a single bill. Some bundles come with Crave.</span></li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg><span>Internet, TV and a home phone line can share one bill.</span></li>
         </ul>
       </div>
     </div>
@@ -180,15 +187,15 @@
       </div>
       <ol class="steps">
         <li>
-          <h3>We look up your address</h3>
+          <h3>Your address</h3>
           <p>We find out what Bell can offer there.</p>
         </li>
         <li>
           <h3>You choose</h3>
-          <p>Choose any mix of internet, TV and a landline, and we'll show how it fits with your mobile plan.</p>
+          <p>You decide which of internet, TV and a landline you want, and we show how that sits alongside your mobile plan.</p>
         </li>
         <li>
-          <h3>We book the install</h3>
+          <h3>Installation</h3>
           <p>Sometimes a technician has to come to the house. If so, we set the appointment and explain what the visit involves.</p>
         </li>
       </ol>
@@ -201,12 +208,12 @@
       <div class="feature__text">
         <h2 id="bring-title">Bring these with you</h2>
         <ul class="ticks">
-          <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg><span>Your home address, with the unit number</span></li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg><span>The address to set up, with its unit number</span></li>
           <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg><span>Photo ID, in case we need it to set up the account</span></li>
           <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg><span>Switching? The last bill from the company you're leaving</span></li>
         </ul>
         <div class="notice">
-          <p><strong>Already have Virgin Plus internet or TV?</strong> Since January 14, 2026, new customers in Ontario can't sign up for Virgin Plus home internet or TV. If you're already a customer, nothing changes: the plan, the price and the equipment stay yours. Starting from scratch? We'll see what Bell offers at your address.</p>
+          <p><strong>Virgin Plus and home services.</strong> Since January 14, 2026, new customers in Ontario can't sign up for Virgin Plus home internet or TV. If you already have it, nothing changes: the plan, the price and the equipment stay yours. Starting from scratch? Give us your address and we'll see which Bell services you can have.</p>
         </div>
         <div class="buttons">
           <a class="button" href="visit.html#book">Book a visit</a>

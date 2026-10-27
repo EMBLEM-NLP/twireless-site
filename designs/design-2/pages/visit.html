@@ -1,7 +1,7 @@
 <!--page
 {
   "title": "Find T Wireless at 965 Bovaird Dr W, Brampton: hours, map and directions",
-  "description": "Hours, map and directions for T Wireless, 965 Bovaird Dr W, Unit 1, Brampton. Walk in any day from 10 a.m. to 8 p.m., ring 647-707-1093 or email twireless965@gmail.com.",
+  "description": "Hours, map and directions for T Wireless, 965 Bovaird Dr W, Unit 1, Brampton. Drop in any day from 10 a.m. to 8 p.m., phone 647-707-1093 or write to twireless965@gmail.com.",
   "nav": "visit"
 }
 -->
@@ -9,7 +9,7 @@
   <section class="intro" aria-labelledby="page-title">
     <div class="wrap">
       <h1 id="page-title">Come and see us</h1>
-      <p class="lead">Just east of Chinguacousy Road, on the south side of Bovaird. Walk in {{ hours_phrase }}, or book a time to have us ready.</p>
+      <p class="lead">Just east of Chinguacousy Road, on the south side of Bovaird. Drop in whenever you like, {{ hours_phrase }}; book a time only if you want us ready for you.</p>
     </div>
   </section>
 
@@ -39,7 +39,7 @@
         <ul class="ticks">
           <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg><span>Photo ID, in case we need it to set up a plan or a switch.</span></li>
           <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg><span>A recent bill, if you're switching, because it carries your account number.</span></li>
-          <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg><span>The phone or tablet, if it's coming in for a repair. If you can, save a copy of your data first.</span></li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg><span>The phone or tablet, if it's here for a repair. Copy your data somewhere safe first, if you're able.</span></li>
         </ul>
         <p>On Google we're rated {{ store.rating.value }} out of 5 across {{ store.rating.count }} reviews. <a href="{{ store.reviews_url }}">Read what they wrote</a>.</p>
       </div>
@@ -50,8 +50,8 @@
     <div class="wrap form-split">
       <div>
         <h2 id="book-title">Pick a time to visit</h2>
-        <p>Say what you're coming in for and which day suits you, and we'll ring back to lock in a time.</p>
-        <p>Rather talk first? Ring {{ store.contact_name }} on <a href="tel:{{ store.phone_e164 }}">{{ store.phone_display }}</a>, or email <a href="mailto:{{ store.email }}">{{ store.email }}</a>.</p>
+        <p>Tell us what you're coming in for and which day works, and we'll phone you back to settle a time.</p>
+        <p>Easier to talk it over? Ask for {{ store.contact_name }} on <a href="tel:{{ store.phone_e164 }}">{{ store.phone_display }}</a>, or write to <a href="mailto:{{ store.email }}">{{ store.email }}</a>.</p>
       </div>
       <form class="form" name="visit" method="post" {{{ form_attrs }}}>
         <input type="hidden" name="form-name" value="visit">
@@ -67,9 +67,9 @@
         <div class="field">
           <label for="v-reason">What are you coming in for?</label>
           <select id="v-reason" name="reason">
-            <option>Buying a phone or plan</option>
-            <option>Moving my number from another provider</option>
-            <option>Home internet or TV</option>
+            <option>Choosing a phone or plan</option>
+            <option>Transferring my number</option>
+            <option>Internet, TV or a home phone line</option>
             <option>A repair</option>
             <option>Something else</option>
           </select>
@@ -77,10 +77,10 @@
         <div class="field">
           <label for="v-when">Which day and time suit you?</label>
           <input id="v-when" name="when" type="text" aria-describedby="v-when-hint">
-          <p class="hint" id="v-when-hint">For example, Saturday around 2.</p>
+          <p class="hint" id="v-when-hint">Say, Saturday around 2.</p>
         </div>
         <div class="field">
-          <label for="v-notes">Anything we should know before you arrive? <span class="optional">(optional)</span></label>
+          <label for="v-notes">Is there anything we should prepare? <span class="optional">(optional)</span></label>
           <textarea id="v-notes" name="notes" rows="3"></textarea>
         </div>
         <button class="button" type="submit">Send my request</button>

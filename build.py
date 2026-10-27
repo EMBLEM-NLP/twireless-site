@@ -450,6 +450,11 @@ def main():
     if examples:
         (problems if release else notes).append(
             f"{len(examples)} example offer(s) still in src/site.json: replace them with real offers or delete them.")
+    unconfirmed = data.get("unconfirmed") or []
+    if unconfirmed:
+        (problems if release else notes).append(
+            f"{len(unconfirmed)} thing(s) the store still has to confirm (the \"unconfirmed\" list in src/site.json, "
+            "each with a matching item in README.md under Before launch). Delete an entry once the store has confirmed it.")
     if not base and not demo:
         (problems if release else notes).append(
             'site.base_url is empty: set it to the live address (for example "https://www.yourdomain.ca") for canonical links and the sitemap.')

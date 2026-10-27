@@ -18,8 +18,9 @@
 <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 <link rel="preload" href="assets/fonts/atkinson-hyperlegible-next-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/css/site.css?v=5272e50c">
-<script src="assets/js/site.js?v=5272e50c" defer></script>
+<link rel="stylesheet" href="assets/css/site.css?v=87154d1e">
+<noscript><link rel="stylesheet" href="assets/css/nojs.css?v=87154d1e"></noscript>
+<script src="assets/js/site.js?v=87154d1e" defer></script>
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -55,7 +56,7 @@
  "hasMap": "https://www.google.com/maps/search/?api=1&query=T%20Wireless%20965%20Bovaird%20Dr%20W%20Brampton%20ON"
 }
 </script>
-<link rel="stylesheet" href="assets/css/demo.css?v=5272e50c">
+<link rel="stylesheet" href="assets/css/demo.css?v=87154d1e">
 
 </head>
 <body class="">
@@ -90,19 +91,21 @@
 
 <div class="demo-banner"><p>Preview of the new T Wireless website. It isn't live yet, so forms here don't send.</p><p class="demo-banner__designs">Compare designs: <a href="/twireless-site/mobile.html">Design 1</a> <a href="/twireless-site/design-2/mobile.html" aria-current="page">Design 2</a></p></div>
 <a class="skip-link" href="#main">Skip to content</a>
-<header class="top">
+<header class="top" data-menu>
   <div class="wrap top__bar">
-    <a class="top__logo" href="index.html">
+    <a class="top__brand" href="index.html">
       <picture>
         <source type="image/webp" srcset="assets/img/t-wireless-logo-480.webp 480w, assets/img/t-wireless-logo-960.webp 960w" sizes="(min-width: 900px) 250px, 190px">
-        <img src="assets/img/t-wireless-logo-480.png" srcset="assets/img/t-wireless-logo-480.png 480w, assets/img/t-wireless-logo-960.png 960w" sizes="(min-width: 900px) 250px, 190px" width="480" height="55" alt="T Wireless home">
+        <img src="assets/img/t-wireless-logo-480.png" srcset="assets/img/t-wireless-logo-480.png 480w, assets/img/t-wireless-logo-960.png 960w" sizes="(min-width: 900px) 250px, 190px" width="480" height="55" alt="T Wireless">
       </picture>
+      <span class="top__tag">Bell Authorised Retailer<span class="top__tag-more"> in Brampton</span></span>
     </a>
-    <p class="top__tag">Bell Authorised Retailer in Brampton</p>
-    <a class="pill pill--call" href="tel:+16477071093"><svg class="icon" aria-hidden="true"><use href="#i-call"></use></svg><span class="pill__long">647-707-1093</span><span class="pill__short">Call</span></a>
+    <a class="pill pill--call" href="tel:+16477071093"><svg class="icon" aria-hidden="true"><use href="#i-call"></use></svg>647-707-1093</a>
+    <button class="pill pill--menu" type="button" aria-expanded="false" aria-controls="site-menu" data-menu-toggle><span class="menu-icon" aria-hidden="true"></span>Menu</button>
   </div>
-  <nav class="wrap tabs" aria-label="Main">
-    <ul>
+  <div class="menu" id="site-menu">
+    <nav class="wrap tabs" aria-label="Main">
+      <ul>
 <li><a href="deals.html">Deals</a></li>
 <li><a href="brands.html">Compare plans</a></li>
 <li><a href="mobile.html" aria-current="page">Phones</a></li>
@@ -110,7 +113,11 @@
 <li><a href="repairs.html">Repairs</a></li>
 <li><a href="visit.html">Find us</a></li>
 </ul>
-  </nav>
+    </nav>
+    <div class="menu__foot">
+      <a class="button" href="tel:+16477071093"><svg class="icon" aria-hidden="true"><use href="#i-call"></use></svg>Call 647-707-1093</a>
+    </div>
+  </div>
 </header>
 
 <main id="main">
@@ -135,14 +142,14 @@
   <div class="provider__media"><picture><source type="image/avif" srcset="assets/img/photos/two-phones-4x5-400.avif 400w, assets/img/photos/two-phones-4x5-600.avif 600w, assets/img/photos/two-phones-4x5-800.avif 800w, assets/img/photos/two-phones-4x5-1000.avif 1000w" sizes="(min-width: 900px) 360px, 40vw"><source type="image/webp" srcset="assets/img/photos/two-phones-4x5-400.webp 400w, assets/img/photos/two-phones-4x5-600.webp 600w, assets/img/photos/two-phones-4x5-800.webp 800w, assets/img/photos/two-phones-4x5-1000.webp 1000w" sizes="(min-width: 900px) 360px, 40vw"><img src="assets/img/photos/two-phones-4x5-800.jpg" srcset="assets/img/photos/two-phones-4x5-400.jpg 400w, assets/img/photos/two-phones-4x5-600.jpg 600w, assets/img/photos/two-phones-4x5-800.jpg 800w, assets/img/photos/two-phones-4x5-1000.jpg 1000w" sizes="(min-width: 900px) 360px, 40vw" width="1000" height="1250" alt="" decoding="async" loading="lazy"></picture><span class="plate plate--on-photo logo-plate--bell"><img src="assets/img/brands/bell.svg" alt="" decoding="async"></span></div>
   <div class="provider__body">
     <h3 class="provider__name"><a href="brands.html#bell">Bell</a></h3>
-    <p>The newest iPhone and Android phones on a monthly plan. Bell SmartPay spreads the phone&#x27;s price across 24 months.</p>
+    <p>The latest iPhone and Android models, paid monthly. Bell SmartPay spreads the phone&#x27;s price across 24 months.</p>
   </div>
 </li>
 <li class="provider">
   <div class="provider__media"><picture><source type="image/avif" srcset="assets/img/photos/concert-4x5-400.avif 400w, assets/img/photos/concert-4x5-600.avif 600w, assets/img/photos/concert-4x5-800.avif 800w, assets/img/photos/concert-4x5-1000.avif 1000w" sizes="(min-width: 900px) 360px, 40vw"><source type="image/webp" srcset="assets/img/photos/concert-4x5-400.webp 400w, assets/img/photos/concert-4x5-600.webp 600w, assets/img/photos/concert-4x5-800.webp 800w, assets/img/photos/concert-4x5-1000.webp 1000w" sizes="(min-width: 900px) 360px, 40vw"><img src="assets/img/photos/concert-4x5-800.jpg" srcset="assets/img/photos/concert-4x5-400.jpg 400w, assets/img/photos/concert-4x5-600.jpg 600w, assets/img/photos/concert-4x5-800.jpg 800w, assets/img/photos/concert-4x5-1000.jpg 1000w" sizes="(min-width: 900px) 360px, 40vw" width="1000" height="1250" alt="" decoding="async" loading="lazy"></picture><span class="plate plate--on-photo logo-plate--virgin-plus"><picture><source type="image/webp" srcset="assets/img/brands/virgin-plus.webp"><img src="assets/img/brands/virgin-plus.png" alt="" decoding="async"></picture></span></div>
   <div class="provider__body">
     <h3 class="provider__name"><a href="brands.html#virgin-plus">Virgin Plus</a></h3>
-    <p>Monthly plans, most with Member Benefits built in: perks across food, shopping, travel and entertainment that cost nothing extra.</p>
+    <p>Billed monthly, and most plans include Member Benefits: perks for food, shopping, travel and entertainment at no extra cost.</p>
   </div>
 </li>
 <li class="provider">
@@ -153,7 +160,7 @@
   </div>
 </li>
 </ul>
-      <p class="note">Each of the three runs on Bell's mobile network. You'll find the current offers on the <a href="deals.html">deals page</a>.</p>
+      <p class="note">Every plan here uses Bell's mobile network, whichever name is on it. Current offers are on the <a href="deals.html">deals page</a>.</p>
     </div>
   </section>
 
@@ -162,7 +169,7 @@
       <div class="feature__media"><picture><source type="image/avif" srcset="assets/img/photos/unboxing-16x10-640.avif 640w, assets/img/photos/unboxing-16x10-960.avif 960w, assets/img/photos/unboxing-16x10-1280.avif 1280w" sizes="(min-width: 900px) 560px, calc(100vw - 32px)"><source type="image/webp" srcset="assets/img/photos/unboxing-16x10-640.webp 640w, assets/img/photos/unboxing-16x10-960.webp 960w, assets/img/photos/unboxing-16x10-1280.webp 1280w" sizes="(min-width: 900px) 560px, calc(100vw - 32px)"><img src="assets/img/photos/unboxing-16x10-640.jpg" srcset="assets/img/photos/unboxing-16x10-640.jpg 640w, assets/img/photos/unboxing-16x10-960.jpg 960w, assets/img/photos/unboxing-16x10-1280.jpg 1280w" sizes="(min-width: 900px) 560px, calc(100vw - 32px)" width="1280" height="800" alt="Two hands lifting a new phone out of its box on a white desk." decoding="async" loading="lazy"></picture></div>
       <div class="feature__text">
         <h2 id="phones-title">Choosing a phone</h2>
-        <p>You'll find iPhone and Android phones here. If you've set your heart on one model, ring ahead to check we have it.</p>
+        <p>Both iPhone and Android are available. If you have one model in mind, phone ahead and we'll confirm it's in.</p>
         <ul class="ticks">
           <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg><span><strong>Pay it off gradually.</strong> With Bell SmartPay the phone is paid in 24 monthly instalments and carries no interest, as long as your 2-year plan is eligible.</span></li>
           <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg><span><strong>Trade in.</strong> Got an old phone? Ask if it can earn credit toward the new one.</span></li>
@@ -179,7 +186,7 @@
     <div class="wrap">
       <div class="head">
         <h2 id="switch-title">Moving from another provider?</h2>
-        <p>Moving to us? You keep your phone number, and we handle the transfer. Here's what happens when you come in.</p>
+        <p>Your phone number can move with you, and we take care of the transfer. This is what happens when you come in.</p>
       </div>
       <ol class="steps">
         <li>
@@ -187,11 +194,11 @@
           <p>Bring a recent bill that shows your account number, and photo ID in case we need it.</p>
         </li>
         <li>
-          <h3>Choose what you'd like</h3>
+          <h3>Compare and decide</h3>
           <p>Over the counter, we compare the three providers and the phones you're considering.</p>
         </li>
         <li>
-          <h3>We transfer your number</h3>
+          <h3>The number moves across</h3>
           <p>Leave your old plan running. When the number moves over, that service closes by itself.</p>
         </li>
       </ol>
@@ -203,11 +210,11 @@
       <div class="feature__media"><picture><source type="image/avif" srcset="assets/img/photos/cafe-business-16x10-640.avif 640w, assets/img/photos/cafe-business-16x10-960.avif 960w, assets/img/photos/cafe-business-16x10-1280.avif 1280w" sizes="(min-width: 900px) 560px, calc(100vw - 32px)"><source type="image/webp" srcset="assets/img/photos/cafe-business-16x10-640.webp 640w, assets/img/photos/cafe-business-16x10-960.webp 960w, assets/img/photos/cafe-business-16x10-1280.webp 1280w" sizes="(min-width: 900px) 560px, calc(100vw - 32px)"><img src="assets/img/photos/cafe-business-16x10-640.jpg" srcset="assets/img/photos/cafe-business-16x10-640.jpg 640w, assets/img/photos/cafe-business-16x10-960.jpg 960w, assets/img/photos/cafe-business-16x10-1280.jpg 1280w" sizes="(min-width: 900px) 560px, calc(100vw - 32px)" width="1280" height="800" alt="A woman in a café checking her phone, with her laptop open." decoding="async" loading="lazy"></picture></div>
       <div class="feature__text">
         <div class="brand__mark"><span class="plate logo-plate--bell"><img src="assets/img/brands/bell.svg" alt="" decoding="async"></span></div>
-        <h2 id="business-title">Phones for your business, too</h2>
-        <p>Got a small business? We can kit out you and your team with Bell phones and mobile plans.</p>
+        <h2 id="business-title">Setting up a business?</h2>
+        <p>Bell phones and mobile plans for you and your staff can be arranged here. Start with a call or a visit.</p>
         <div class="buttons">
           <a class="button" href="tel:+16477071093">Call 647-707-1093</a>
-          <a class="button button--quiet" href="brands.html#business">About Bell for business</a>
+          <a class="button button--quiet" href="brands.html#business">What Bell offers businesses</a>
         </div>
       </div>
     </div>
