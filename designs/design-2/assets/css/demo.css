@@ -3,3 +3,5 @@
 .demo-banner p { margin: 0; }
 .demo-banner a { color: #4a3b00; margin-left: 6px; white-space: nowrap; }
 .demo-banner a[aria-current="page"] { padding: 1px 9px; border-radius: 999px; background: #4a3b00; color: #fff3b0; text-decoration: none; }
+/* Atkinson Hyperlegible Next is wide: keep the design links on one row on a current iPhone (390 to 430 px). */
+@media (max-width: 430px) { .demo-banner { font-size: 0.8125rem; } .demo-banner a { margin-left: 4px; } .demo-banner a[aria-current="page"] { padding: 1px 8px; } }
