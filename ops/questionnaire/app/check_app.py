@@ -40,6 +40,13 @@ from playwright.sync_api import sync_playwright  # noqa: E402
 
 OTHER = "__other__"
 
+# Questions with choices that have no Other box on purpose: each is a plain yes, no or not sure to a single fact, or a
+# scale that already says "It varies", so a list can't miss anything. Every other question with choices must have an
+# Other box, so the store can write its own answer, unless its answer decides what is asked next (Google Forms can't
+# combine Other with a jump).
+CLOSED = ("repair_quote", "tbooth", "google_profile", "rating", "facebook", "logos", "maker_logos", "bell_approval",
+          "reply", "photos", "staff_photos", "recycle")
+
 
 class Report:
     def __init__(self) -> None:
@@ -560,6 +567,71 @@ def scenario_other_and_limits(browser, base: str, k: Known, axe: Path | None) ->
                 f"{s.page.locator(sel).count()} checked")
         s.option(q["id"], plain[0]).click()
         R.check(f"{q['id']}: ticking something else clears '{exclusive}'", s.saved()["answers"][q["id"]] == [plain[0]])
+    s.close()
+
+
+def scenario_custom_answers(browser, base: str, k: Known, axe: Path | None) -> None:
+    R.section("A custom answer: an Other box wherever the choices might miss what the store does")
+    choosy = [q for q in k.questions if q["type"] in ("choice", "checkbox") and not q.get("goto")]
+    ids = {q["id"] for q in choosy}
+    missing = [q["id"] for q in choosy if not q.get("other") and q["id"] not in CLOSED]
+    stale = [i for i in CLOSED if i not in ids or find_question(k.spec, lambda q, i=i: q["id"] == i).get("other")]
+    R.check("every question with choices has an Other box, unless it is on the closed list", not missing, str(missing))
+    R.check("and nothing on the closed list has one, or has gone from the questionnaire", not stale, str(stale))
+    R.check("the questions that decide what comes next have none, because Google Forms can't combine Other with a jump",
+            not [q["id"] for q in k.questions if q.get("goto") and q.get("other")])
+
+    withother = [q for q in choosy if q.get("other")]
+    s = Session(browser, base, state=dict(k.complete))
+    typed: dict = {}
+    problems: list[str] = []
+    for q in withother:
+        qid = q["id"]
+        sel = f'[data-q="{qid}"]'
+        box = f"{sel} .opt-other input.input"
+        s.go(k.screen_for(qid))
+        if s.page.locator(box).is_visible():
+            problems.append(f"{qid}: the box is open before Other is chosen")
+        s.page.locator(f"{sel} .opt-other label.opt").click()
+        if not s.page.locator(box).is_visible():
+            problems.append(f"{qid}: no box after choosing Other")
+            continue
+        if s.page.evaluate("document.activeElement.getAttribute('aria-label')") != "Other: type your answer":
+            problems.append(f"{qid}: the box doesn't take the focus")
+        typed[qid] = f"Custom answer for {qid}"
+        s.page.fill(box, typed[qid])
+        saved = s.saved()
+        a = saved["answers"].get(qid)
+        picked = a == OTHER if q["type"] == "choice" else (isinstance(a, list) and OTHER in a)
+        if not picked or saved["others"].get(qid) != typed[qid]:
+            problems.append(f"{qid}: saved {a!r} and {saved['others'].get(qid)!r}")
+    R.check(f"on all {len(withother)} of them, choosing Other opens a box, takes the focus and saves what is typed", not problems, "; ".join(problems[:3]))
+    axe_run(s, axe, "a screen with an Other box open")
+    s.go("send")
+    export = s.raw_text()
+    lost = [qid for qid, text in typed.items() if f"Other: {text}" not in export]
+    R.check("every custom answer is in the text that gets sent", not lost and len(typed) == len(withother), str(lost[:3]))
+    s.close()
+
+    # with an option that excludes the rest ("None of these"), Other never stays ticked beside it, and what was typed is kept
+    s = Session(browser, base, state=dict(k.complete))
+    bad: list[str] = []
+    for q in [q for q in withother if (q.get("app") or {}).get("exclusive")]:
+        qid, ex = q["id"], q["app"]["exclusive"][0]
+        sel = f'[data-q="{qid}"]'
+        box = f"{sel} .opt-other input.input"
+        s.go(k.screen_for(qid))
+        s.page.locator(f"{sel} .opt-other label.opt").click()
+        s.page.fill(box, "Something else")
+        s.option(qid, ex).click()
+        a = s.saved()["answers"][qid]
+        if a != [ex] or s.page.locator(box).is_visible():
+            bad.append(f"{qid}: '{ex}' left Other behind ({a})")
+        s.page.locator(f"{sel} .opt-other label.opt").click()
+        a = s.saved()["answers"][qid]
+        if a != [OTHER] or s.page.input_value(box) != "Something else" or s.saved()["others"].get(qid) != "Something else":
+            bad.append(f"{qid}: Other didn't clear '{ex}' or lost its text ({a})")
+    R.check("Other and an option that excludes the rest never stay ticked together, and the text typed is kept", not bad, "; ".join(bad[:3]))
     s.close()
 
 
@@ -1330,6 +1402,7 @@ def main() -> int:
                 attempt(scenario_welcome_and_errors, browser, sbase, ks, ns.axe)
             if wanted("other"):
                 attempt(scenario_other_and_limits, browser, base, k, ns.axe)
+                attempt(scenario_custom_answers, browser, base, k, ns.axe)
             if wanted("gates"):
                 attempt(scenario_required_stop, browser, sbase, ks)
                 attempt(scenario_gates, browser, base, k)
