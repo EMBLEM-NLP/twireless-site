@@ -50,6 +50,8 @@ LINE = "#d3dde8"
 TINT = "#e6eef7"
 
 TYPES = {"text", "paragraph", "choice", "checkbox", "grid"}
+# Words only the web app, the banner and the share picture read. All optional; each has a default.
+FORM_APP_KEYS = ("done", "partial", "summary", "answers_title", "banner_title", "share_title", "preview")
 
 
 # ---------------------------------------------------------------------------------------------
@@ -64,9 +66,20 @@ def validate(spec: dict) -> list[str]:
     """Return a list of problems; an empty list means the data is sound."""
     bad: list[str] = []
     parts = {p["id"] for p in spec["parts"]}
-    for key in spec["form"].get("app", {}):
-        if key not in ("done", "partial"):
+    words = spec["form"].get("app", {})
+    for key in words:
+        if key not in FORM_APP_KEYS:
             bad.append(f"form: unknown app setting {key}")
+    for key in ("done", "partial", "summary", "answers_title", "banner_title", "share_title"):
+        if key in words and not str(words[key]).strip():
+            bad.append(f"form.app.{key} is empty")
+    if "preview" in words:
+        link = words["preview"]
+        host = urlparse(link.get("url", "")) if isinstance(link, dict) else None
+        if host is None or set(link) - {"label", "url"} or not link.get("label", "").strip():
+            bad.append("form.app.preview is { label, url }")
+        elif host.scheme != "https" or not host.netloc:
+            bad.append("form.app.preview.url must be an https address")
     sections = spec["sections"]
     sec_ids = [s["id"] for s in sections]
     if len(sec_ids) != len(set(sec_ids)):
@@ -164,6 +177,31 @@ def data_uri(path: Path, mime: str) -> str:
     return f"data:{mime};base64," + base64.b64encode(path.read_bytes()).decode("ascii")
 
 
+def first_minutes(spec: dict) -> str:
+    return spec["parts"][0]["minutes"].split(",")[0].strip()
+
+
+def form_words(spec: dict) -> dict:
+    """The optional words that only the web app, the banner and the share picture use, with a default for each.
+
+    summary          one or two sentences for a link preview and the share picture; {minutes} becomes Part 1's time
+    answers_title    the first line of the text a person sends back (it is theirs, so it is not the form's title)
+    banner_title     the line under the logo on the banner
+    share_title      the large line on the share picture
+    """
+    form = spec["form"]
+    given = form.get("app") or {}
+    paras = [p for p in form["description"].split("\n\n") if p.strip() and not p.startswith("Prepared by")]
+    summary = given.get("summary") or (paras[1] if len(paras) > 1 else form["title"])
+    banner = given.get("banner_title", "Website questions")
+    return {
+        "summary": summary.replace("{minutes}", first_minutes(spec)),
+        "answers_title": given.get("answers_title", form["title"]),
+        "banner_title": banner,
+        "share_title": given.get("share_title", banner),
+    }
+
+
 # ---------------------------------------------------------------------------------------------
 # banner
 
@@ -189,7 +227,7 @@ html, body {{ margin: 0; background: #fff; }}
 </style>
 <div class="banner">
   <img class="logo" src="{logo}" alt="">
-  <div class="what">Website questions</div>
+  <div class="what">{esc(form_words(spec)['banner_title'])}</div>
   <div class="where">{esc(c['address'].replace(', Unit 1', ''))}</div>
   <div class="rule"></div>
   <div class="by">Prepared by</div>
@@ -499,7 +537,7 @@ def question_html(q: dict, spec: dict) -> str:
 
 def foot_text(spec: dict) -> str:
     c = spec["client"]
-    return f"{c['name']} website questions. Preview of the Google Form. Prepared by {c['agency']}."
+    return f"Preview of the Google Form for {c['name']}. Prepared by {c['agency']}."
 
 
 def preview_html(spec: dict, banner: Path) -> str:
@@ -546,7 +584,7 @@ def render_pdf(html_path: Path, pdf_path: Path, spec: dict) -> None:
 
 def share_html(spec: dict) -> str:
     c = spec["client"]
-    first = spec["parts"][0]["minutes"].split(",")[0]
+    words = form_words(spec)
     font = data_uri(FONT, "font/woff2")
     logo = data_uri(LOGO, "image/png")
     return f"""<!doctype html><meta charset="utf-8">
@@ -555,18 +593,21 @@ def share_html(spec: dict) -> str:
 html, body {{ margin: 0; background: #fff; }}
 .share {{ position: relative; width: 1200px; height: 630px; overflow: hidden; background: #fff;
   font-family: "Atkinson", system-ui, sans-serif; color: {BLUE_DEEP}; }}
-.logo {{ position: absolute; left: 88px; top: 92px; width: 780px; height: auto; display: block; }}
-.title {{ position: absolute; left: 92px; top: 240px; font-size: 84px; font-weight: 800; letter-spacing: -0.004em; line-height: 1.05; }}
-.sub {{ position: absolute; left: 94px; top: 356px; width: 960px; font-size: 38px; line-height: 1.3; color: {MUTED}; }}
-.by {{ position: absolute; left: 94px; top: 512px; font-size: 32px; color: {MUTED}; }}
+.inner {{ position: absolute; left: 92px; right: 92px; top: 62px; }}
+.logo {{ width: 600px; height: auto; display: block; margin-left: -4px; }}
+.title {{ margin-top: 40px; font-size: 72px; font-weight: 800; letter-spacing: -0.004em; line-height: 1.06; text-wrap: balance; }}
+.sub {{ margin-top: 22px; max-width: 990px; font-size: 36px; line-height: 1.32; color: {MUTED}; text-wrap: balance; }}
+.by {{ position: absolute; left: 94px; bottom: 62px; font-size: 30px; color: {MUTED}; }}
 .by b {{ color: {BLUE_DEEP}; font-weight: 800; letter-spacing: 0.01em; }}
 .strip {{ position: absolute; left: 0; right: 0; bottom: 0; height: 30px; background: {BLUE}; }}
 .strip i {{ position: absolute; left: 0; top: 0; bottom: 0; width: 300px; background: {RED}; }}
 </style>
 <div class="share">
-  <img class="logo" src="{logo}" alt="">
-  <div class="title">Website questions</div>
-  <div class="sub">A few quick facts for the new {esc(c['name'])} website. Part 1 takes {esc(first)}.</div>
+  <div class="inner">
+    <img class="logo" src="{logo}" alt="">
+    <div class="title">{esc(words['share_title']).replace(c['name'], c['name'].replace(' ', '&nbsp;'))}</div>
+    <div class="sub">{esc(words['summary']).replace(c['name'], c['name'].replace(' ', '&nbsp;'))}</div>
+  </div>
   <div class="by">Prepared by <b>{esc(c['agency'])}</b></div>
   <div class="strip"><i></i></div>
 </div>"""
@@ -606,6 +647,13 @@ PART_PREFIX = re.compile(r"^Part \d+ of \d+:\s*")
 TEAM_ONLY = ("unlocks", "why", "app")  # notes for us; they never go to the client's device
 
 
+def app_description(section: dict) -> str:
+    """What the web app says under a page's title: the page's description unless the data gives the app its own
+    (an empty one shows nothing, for a page the app only shows once its question applies)."""
+    own = section.get("app") or {}
+    return own["description"] if "description" in own else section.get("description", "")
+
+
 def app_screens(spec: dict) -> list[dict]:
     """Group the form's pages into the screens of the web app.
 
@@ -625,7 +673,7 @@ def app_screens(spec: dict) -> list[dict]:
                 if target not in ("@submit", "@next") and ids.index(target) != i + 1:
                     raise ValueError(f"{q['id']}: from a gate, '{label}' must end the form or go to the next page")
             out.append({"id": s["id"], "kind": "stop", "part": s["part"], "title": s["title"],
-                        "description": (s.get("app") or {}).get("description") or s.get("description", ""),
+                        "description": app_description(s) or s.get("description", ""),
                         "pages": [s["id"]]})
             i += 1
             continue
@@ -642,7 +690,7 @@ def app_screens(spec: dict) -> list[dict]:
             if later.get("gate") or later["part"] != s["part"] or any(q.get("goto") for q in later["questions"]):
                 raise ValueError(f"{later['id']}: a page that a jump can skip must be plain and in the same part")
         out.append({"id": s["id"], "kind": "section", "part": s["part"], "title": PART_PREFIX.sub("", s["title"]),
-                    "description": s.get("description", ""), "pages": [g["id"] for g in group]})
+                    "description": app_description(s), "pages": [g["id"] for g in group]})
         i = end + 1
     return out
 
@@ -666,11 +714,13 @@ def app_model(spec: dict, endpoint: str = "") -> dict:
             lean = {k: v for k, v in q.items() if k not in TEAM_ONLY}
             lean.update(q.get("app") or {})
             qs.append(lean)
-        pages.append({"id": s["id"], "title": s["title"], "description": s.get("description", ""), "questions": qs})
+        pages.append({"id": s["id"], "title": s["title"], "description": app_description(s), "questions": qs})
     return {
         "version": APP_VERSION,
-        "client": {k: spec["client"][k] for k in ("slug", "name", "contact", "agency")},
+        "client": {k: spec["client"][k] for k in ("slug", "name", "agency")},  # the contact's name stays in the data file
         "title": form["title"],
+        "answersTitle": form_words(spec)["answers_title"],
+        "preview": words.get("preview"),
         "intro": paras,
         "byline": byline,
         "done": words.get("done") or form["confirmation"].split("\n\n")[0],
@@ -697,7 +747,7 @@ def content_security_policy(endpoint: str) -> str:
 
 def build_app(spec: dict, out: Path, url: str = APP_URL, endpoint: str = "") -> None:
     model = app_model(spec, endpoint)
-    description = model["intro"][1] if len(model["intro"]) > 1 else model["title"]
+    description = form_words(spec)["summary"]
     share = ""
     if SHARE.exists():
         image = url.rstrip("/") + "/share.png"
@@ -705,14 +755,17 @@ def build_app(spec: dict, out: Path, url: str = APP_URL, endpoint: str = "") -> 
                  f'<meta name="twitter:image" content="{esc(image)}">')
         out.parent.mkdir(parents=True, exist_ok=True)
         (out.parent / "share.png").write_bytes(SHARE.read_bytes())
-    # JSON inside a script element: "</" would end it, and U+2028/9 are line breaks to a script.
+    # JSON inside a script element. "</script" would end it, and "<!--" followed by "<script" would stop the browser from
+    # ever finding its end, so no "<" is written as itself ("\u003c" is the same character to JSON.parse). The same goes
+    # for ">" and "&", and U+2028/9 are line breaks to a script.
     blob = json.dumps(model, ensure_ascii=False, separators=(",", ":"))
-    blob = blob.replace("</", "<\\/").replace("\u2028", "\\u2028").replace("\u2029", "\\u2029")
+    blob = (blob.replace("<", "\\u003c").replace(">", "\\u003e").replace("&", "\\u0026")
+            .replace("\u2028", "\\u2028").replace("\u2029", "\\u2029"))
     css = (APP_DIR / "app.css").read_text(encoding="utf-8")
     css = css.replace("%%FONT%%", data_uri(FONT, "font/woff2")).replace("%%DIGITS%%", data_uri(DIGITS, "font/woff2"))
     values = {
         "TITLE": esc(model["title"]), "DESCRIPTION": esc(description), "CSP": esc(content_security_policy(endpoint)),
-        "CLIENT": esc(spec["client"]["name"]), "AGENCY": esc(spec["client"]["agency"]), "URL": esc(url),
+        "AGENCY": esc(spec["client"]["agency"]), "URL": esc(url),
         "SHARE": share, "FAVICON": data_uri(FAVICON, "image/png"), "CSS": css, "SPEC": blob,
         "JS": (APP_DIR / "app.js").read_text(encoding="utf-8"),
     }

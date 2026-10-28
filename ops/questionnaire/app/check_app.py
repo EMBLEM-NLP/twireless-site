@@ -5,8 +5,13 @@
     python3 ops/questionnaire/app/check_app.py --axe axe.min.js  # also run axe-core (see below)
 
 It builds the app from the data file, serves it on localhost and then does what a person does: taps through
-every screen, leaves required answers empty, picks "No" at the gates, closes the page and comes back, presses
-Copy, Save and Share, and rotates through phone, tablet and desktop widths. It fails (exit 1) if any check fails.
+every screen, skips them all, leaves answers empty, picks "No" where a question skips others, finishes a part
+and stops, closes the page and comes back, presses Copy, Save and Share, and rotates through phone, tablet and
+desktop widths. It fails (exit 1) if any check fails.
+
+It builds the page twice. The first is the data file as written, where (apart from the choices at the stops)
+nothing is required, because the questionnaire is a first approach to a business that never asked for it. The
+second is the same questions with every one of them required, which is how the checks on required answers run.
 
 It checks the page's behaviour in Chromium only. It can't tell how Safari on an iPhone draws the page, how a
 screen reader reads it, or what Google's share sheet offers; those need a real phone.
@@ -20,9 +25,11 @@ import argparse
 import functools
 import http.server
 import json
+import re
 import sys
 import tempfile
 import threading
+import time
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
@@ -99,6 +106,7 @@ class Collector(http.server.BaseHTTPRequestHandler):
 
     bodies: list[tuple[str, str]] = []
     status = 200
+    delay = 0.0
 
     def log_message(self, *args) -> None:
         pass
@@ -115,6 +123,7 @@ class Collector(http.server.BaseHTTPRequestHandler):
     def do_POST(self) -> None:  # noqa: N802
         n = int(self.headers.get("content-length", 0))
         Collector.bodies.append((self.headers.get("content-type", ""), self.rfile.read(n).decode("utf-8")))
+        time.sleep(Collector.delay)
         self.send_response(Collector.status)
         self._cors()
         self.end_headers()
@@ -126,9 +135,9 @@ class Collector(http.server.BaseHTTPRequestHandler):
 
 
 def untimed(text: str) -> str:
-    """The text with its 'Answers sent: <date and time>' line removed. The time is taken when a button is pressed,
+    """The text with its 'Answers as of: <date and time>' line removed. The time is taken when a button is pressed,
     so two copies made a minute apart differ in that line only."""
-    return "\n".join(l for l in text.splitlines() if not l.startswith("Answers sent: "))
+    return "\n".join(l for l in text.splitlines() if not l.startswith("Answers as of: "))
 
 
 def sample_answers(spec: dict) -> tuple[dict, dict]:
@@ -275,86 +284,252 @@ def axe_run(s: Session, axe: Path | None, label: str) -> None:
 
 
 # ---------------------------------------------------------------------------------------------
+# what the checks need to know about the questionnaire, worked out from the data file
+
+
+def strict_variant(spec: dict) -> dict:
+    """The same questions with every one of them required, as a stricter client might want. The questionnaire itself makes
+    nothing required (it is a first approach to a business that never asked for it), so this is how the checks on
+    required answers are exercised."""
+    out = json.loads(json.dumps(spec))
+    for s in out["sections"]:
+        for q in s["questions"]:
+            q["required"] = True
+    return out
+
+
+def find_question(spec: dict, test) -> dict:
+    for s in spec["sections"]:
+        for q in s["questions"]:
+            if test(q):
+                return q
+    raise LookupError("no question matches")
+
+
+class Known:
+    """What the scenarios and fixes need to know about the questionnaire, worked out from the data file."""
+
+    def __init__(self, spec: dict) -> None:
+        self.spec = spec
+        self.answers, self.others = sample_answers(spec)
+        self.model = bq.app_model(spec)
+        screens = self.model["screens"]
+        self.ids = [sc["id"] for sc in screens]
+        self.kinds = {sc["id"]: sc["kind"] for sc in screens}
+        self.titles = {sc["id"]: sc["title"] for sc in screens}
+        self.first = self.ids[0]
+        self.second = self.ids[1]
+        self.sections = [sc for sc in screens if sc["kind"] == "section"]
+        self.stops = [sc["id"] for sc in screens if sc["kind"] == "stop"]
+        self.part_sections = {p["id"]: [sc for sc in self.sections if sc["part"] == p["id"]] for p in self.model["parts"]}
+        page_of = {q["id"]: pg["id"] for pg in self.model["pages"] for q in pg["questions"]}
+        screen_of = {pid: sc["id"] for sc in screens for pid in sc["pages"]}
+        self.screen_for = lambda qid: screen_of[page_of[qid]]
+        self.part_of = lambda sid: next(p for p in self.model["parts"] if p["id"] == next(sc["part"] for sc in screens if sc["id"] == sid))
+        self.complete = {"answers": self.answers, "others": self.others, "furthest": len(self.ids)}
+        self.questions = [q for s in spec["sections"] for q in s["questions"]]
+
+    def screen_ids_before(self, sid: str) -> set:
+        """The ids of the questions on every screen before this one."""
+        end = self.ids.index(sid)
+        return {q["id"] for sc in self.model["screens"][:end] for pg in self.model["pages"] if pg["id"] in sc["pages"] for q in pg["questions"]}
+
+
+def start(s: "Session") -> None:
+    s.page.get_by_role("button", name="Start", exact=True).click()
+
+
+# ---------------------------------------------------------------------------------------------
 # scenarios
 
 
-def scenario_build(spec: dict) -> None:
+def scenario_build(k: Known) -> None:
     R.section("The build")
-    model = bq.app_model(spec)
+    spec, model = k.spec, k.model
     kinds = [s["kind"] for s in model["screens"]]
-    R.check("18 sections and 2 stops", kinds.count("section") == 18 and kinds.count("stop") == 2, str(kinds))
+    R.check("19 sections and 3 stops", kinds.count("section") == 19 and kinds.count("stop") == 3, str(kinds))
     R.check("every question is on exactly one screen", sorted(q["id"] for p in model["pages"] for q in p["questions"])
             == sorted(q["id"] for s in spec["sections"] for q in s["questions"]))
-    R.check("no team notes reach the page", not any(k in json.dumps(model) for k in ('"unlocks"', '"why"', 'check:')))
+    R.check("no team notes reach the page", not any(key in json.dumps(model) for key in ('"unlocks"', '"why"', 'check:')))
+    contact = spec["client"]["contact"]
+    chrome = json.dumps({key: model[key] for key in ("title", "answersTitle", "intro", "byline", "done", "partial", "client")})
+    R.check("the contact's name is not in the page's own words or in its data", contact not in chrome)
+    R.check("the data check accepts the data file", not bq.validate(spec), str(bq.validate(spec)))
+
+    def refused(change) -> list:
+        copy = json.loads(json.dumps(spec))
+        change(copy)
+        return bq.validate(copy)
+
+    R.check("the data check refuses a drafts link that isn't https",
+            refused(lambda c: c["form"]["app"].update(preview={"label": "See the drafts", "url": "http://example.com/"})))
+    R.check("and one with no label", refused(lambda c: c["form"]["app"].update(preview={"label": " ", "url": "https://example.com/"})))
+    R.check("and an unknown word under form.app", refused(lambda c: c["form"]["app"].update(surprise="x")))
     for bad, why in (
         ({"sections": [{"id": "a", "part": "p", "title": "A", "questions": [{"id": "q", "type": "choice", "options": ["x", "y"], "goto": {"x": "@submit"}}]}]},
          "a question outside a gate ending the form"),
     ):
         try:
-            bq.app_screens({"sections": [dict(bad["sections"][0])] })
+            bq.app_screens({"sections": [dict(bad["sections"][0])]})
             R.check(f"build refuses {why}", False)
         except ValueError:
             R.check(f"build refuses {why}", True)
 
 
-def scenario_welcome_and_errors(browser, base: str, axe: Path | None) -> None:
-    R.section("Welcome, and leaving required answers empty")
+def scenario_cold_call(browser, base: str, k: Known, axe: Path | None) -> None:
+    R.section("A first approach: nothing is required, and nobody is asked who they are")
+    spec = k.spec
+    gates = {s["questions"][0]["id"] for s in spec["sections"] if s.get("gate")}
+    required = {q["id"] for q in k.questions if q["required"]}
+    R.check("the only required questions are the choices at the stops", required == gates, str(sorted(required - gates)))
+    names = [q["id"] for q in k.questions if q["id"] == "name"
+             or re.search(r"\byour (full |first |last )?name\b", q["title"], re.I)
+             or (q["type"] == "text" and re.search(r"\bname\b", q["title"], re.I))]
+    R.check("no question asks for the person's own name", not names, str(names))
+    contact = spec["client"]["contact"]
+    quoting = sorted(q["id"] for q in k.questions
+                     if re.search(rf"\b{contact}\b", " ".join([q["title"], q.get("help", "")] + q.get("options", [])), re.I))
+    R.check(f"{contact}'s name is only in the question that quotes the drafts' Visit page", quoting == ["visit_contact"], str(quoting))
+
+    s = Session(browser, base)
+    welcome = s.page.inner_text("main")
+    R.check("the welcome screen says who we are", spec["client"]["agency"] in welcome)
+    R.check("it says nobody asked for this", re.search(r"nobody asked|didn.t ask", welcome, re.I) is not None, welcome[:160])
+    R.check("it says every question is optional", "optional" in welcome.lower())
+    R.check("it offers to take the drafts down", re.search(r"taken down|take (them|the drafts) down", welcome, re.I) is not None)
+    declining = [q for q in k.questions if any(re.search(r"take the drafts down", o, re.I) for o in q.get("options", []))]
+    R.check("and one of the questions is a way to say so", len(declining) == 1 and not declining[0]["required"], str([q["id"] for q in declining]))
+    R.check("it doesn't greet anyone by name", contact not in welcome)
+    preview = spec["form"]["app"]["preview"]
+    link = s.page.get_by_role("link", name=preview["label"])
+    R.check("it links to the drafts", link.count() == 1 and link.get_attribute("href") == preview["url"], str(link.count()))
+    R.check("the link opens in a new tab and doesn't hand over the page",
+            link.get_attribute("target") == "_blank" and "noopener" in (link.get_attribute("rel") or "") and "noreferrer" in (link.get_attribute("rel") or ""))
+    R.check("and tells a screen reader that it does", "opens in a new tab" in (link.inner_text() or ""))
+    meta = s.page.evaluate("""() => ({ site: document.querySelector('meta[property="og:site_name"]').content,
+        title: document.querySelector('meta[property="og:title"]').content,
+        desc: document.querySelector('meta[name="description"]').content,
+        ogdesc: document.querySelector('meta[property="og:description"]').content })""")
+    summary = bq.form_words(spec)["summary"]
+    R.check("a link preview names the agency, not the store", meta["site"] == spec["client"]["agency"], meta["site"])
+    R.check("and gives the data file's title and summary", meta["title"] == spec["form"]["title"] and meta["desc"] == summary == meta["ogdesc"]
+            and "{minutes}" not in summary and spec["parts"][0]["minutes"].split(",")[0] in summary, str(meta))
+    axe_run(s, axe, "welcome")
+    start(s)
+    s.wait_screen(k.first)
+    R.check("nothing is marked as required, and no screen says it needs an answer",
+            s.page.locator(".req").count() == 0 and "needs an answer" not in s.page.inner_text(".card"))
+    nxt = s.page.locator("#foot .btn--primary")
+    R.check("with nothing answered, the button says Skip", nxt.inner_text().strip() == "Skip")
+    s.page.locator('[data-q="postal"] label.opt').first.click()
+    R.check("once something is answered it says Next", nxt.inner_text().strip() == "Next")
+    s.page.locator('[data-q="postal"] .q__clear').click()
+    R.check("and Skip again when the choice is cleared", nxt.inner_text().strip() == "Skip")
+    s.option("postal", "Other").click()
+    s.next()
+    s.page.wait_for_timeout(150)
+    error = s.page.inner_text('[data-q="postal"] .q__error') if s.page.locator('[data-q="postal"] .q__error').count() else ""
+    R.check("an optional question left on Other with nothing typed says how to get out of it",
+            s.screen == k.first and "Other box" in error and "clear your choice" in error, error)
+    s.page.locator('[data-q="postal"] .q__clear').click()
+    s.next()
+    s.wait_screen(k.second)
+    R.check("clearing the choice lets the section be skipped", s.screen == k.second)
+
+    guard = 0
+    while s.screen != "send" and guard < 60:
+        guard += 1
+        sid = s.screen
+        if k.kinds[sid] == "stop":
+            s.page.locator(".stop__go .btn").first.click()
+        else:
+            s.next()
+        until(s.page, "id => document.body.dataset.screen !== id", sid, what=f"leaving {sid}")
+    R.check("every screen can be skipped, all the way to the end", s.screen == "send", s.screen)
+    R.check("with nothing answered the send screen says so",
+            "You haven’t answered anything yet." in s.page.inner_text("h1") and "Nothing has been sent" in s.page.inner_text(".send"))
+    R.check("and has nothing to send, copy or save",
+            all(s.page.get_by_role("button", name=name).count() == 0 for name in ("Send my answers", "Copy my answers", "Save as a file")))
+    R.check("the header says so too", "Nothing answered yet" in s.page.inner_text("#top"), s.page.inner_text("#top"))
+    axe_run(s, axe, "the send screen with nothing answered")
+    s.page.get_by_role("button", name="Go to the first question").click()
+    s.wait_screen(k.first)
+    R.check("Go to the first question goes back to the start", s.screen == k.first)
+    R.check("no console errors, no warnings", not s.problems, str(s.problems))
+    s.close()
+
+    s = Session(browser, base, state=dict(k.complete))
+    s.go(k.stops[0])
+    stop_text = s.page.inner_text("main")
+    s.go("send")
+    send_text = s.page.inner_text(".send")
+    R.check("a stop and the send screen don't name anyone", contact not in stop_text and contact not in send_text)
+    s.close()
+
+
+def scenario_welcome_and_errors(browser, base: str, k: Known, axe: Path | None) -> None:
+    R.section("Welcome, and leaving required answers empty (every question made required)")
     s = Session(browser, base)
     R.check("starts on the welcome screen", s.screen == "welcome")
     R.check("no header or bottom bar on the welcome screen", s.page.is_hidden("#top") and s.page.is_hidden("#foot"))
-    R.check("the intro text from the data file shows", "We’re building the new T Wireless website" in s.page.inner_text("main"))
-    axe_run(s, axe, "welcome")
-    s.page.click("text=Start")
-    s.wait_screen("about")
-    R.check("Start goes to the first section", s.screen == "about")
-    R.check("header says Part 1 of 3 · Section 1 of 7", "Part 1 of 3 · Section 1 of 7" in s.page.inner_text("#top"), s.page.inner_text("#top"))
+    R.check("the intro text from the data file shows", k.model["intro"][0] in s.page.inner_text("main"))
+    start(s)
+    s.wait_screen(k.first)
+    R.check("Start goes to the first section", s.screen == k.first)
+    part = k.model["parts"][0]
+    where = f"Part 1 of {len(k.model['parts'])} · Section 1 of {len(k.part_sections[part['id']])}"
+    R.check(f"header says {where}", where in s.page.inner_text("#top"), s.page.inner_text("#top"))
     R.check("the progress bar starts at 0", s.page.get_attribute(".meter", "aria-valuenow") == "0")
+    here = [q["id"] for sc in k.model["screens"][:1] for pg in k.model["pages"] if pg["id"] in sc["pages"] for q in pg["questions"]]
     s.next()
     s.page.wait_for_timeout(150)
     invalid = [q["id"] for q in s.questions() if q["invalid"]]
-    R.check("Next with required questions empty stays put and flags them", s.screen == "about" and invalid == ["name", "role"], str(invalid))
-    R.check("each flagged question has a message", s.page.locator(".q__error").count() == 2)
-    R.check("focus moves to the first problem", s.page.evaluate("document.activeElement && document.activeElement.id") == "f-name")
-    R.check("the problem is announced", poll(s.page, "() => document.getElementById('live').textContent.includes('2 questions need an answer')"),
+    R.check("Next with required questions empty stays put and flags them", s.screen == k.first and invalid == here, str(invalid))
+    R.check("each flagged question has a message", s.page.locator(".q__error").count() == len(here))
+    R.check("focus moves to the first problem",
+            s.page.evaluate("(q) => !!document.activeElement.closest('[data-q=\"' + q + '\"]')", here[0]))
+    R.check("the problem is announced",
+            poll(s.page, "(n) => document.getElementById('live').textContent.includes(n + ' questions need an answer')", len(here)),
             s.page.inner_text("#live"))
     axe_run(s, axe, "section with errors")
-    s.page.fill("#f-name", "Ali")
-    R.check("typing clears that question's message", not [q for q in s.questions() if q["id"] == "name" and q["invalid"]])
-    s.option("role", "I work at the store").click()
-    R.check("choosing clears the other message", s.page.locator(".q__error").count() == 0)
+    first_label = s.page.locator(f'[data-q="{here[0]}"] label.opt').first
+    chosen = first_label.locator(".opt__text").inner_text()
+    first_label.click()
+    R.check("choosing an answer clears that question's message", not [q for q in s.questions() if q["id"] == here[0] and q["invalid"]])
+    for qid in here[1:]:
+        s.page.locator(f'[data-q="{qid}"] label.opt').first.click()
+    R.check("answering the rest clears the other messages", s.page.locator(".q__error").count() == 0)
     s.next()
-    s.wait_screen("details")
-    R.check("Next moves on when the required answers are there", s.screen == "details")
-    R.check("the answers are saved on the device", s.saved().get("answers", {}).get("name") == "Ali")
+    s.wait_screen(k.second)
+    R.check("Next moves on when the required answers are there", s.screen == k.second)
+    R.check("the answers are saved on the device", s.saved().get("answers", {}).get(here[0]) == chosen)
     s.close()
 
 
-def scenario_other_and_limits(browser, base: str, spec: dict, axe: Path | None) -> None:
+def scenario_other_and_limits(browser, base: str, k: Known, axe: Path | None) -> None:
     R.section("Other boxes, 'choose up to', and options that exclude the rest")
+    box = '[data-q="postal"] .opt-other input.input'
     s = Session(browser, base, state={"answers": {}, "others": {}, "furthest": 3})
-    s.go("details")
-    R.check("the Other box is hidden until Other is chosen", s.page.locator('[data-q="postal"] .opt-other input.input').is_hidden())
+    s.go(k.first)
+    R.check("the Other box is hidden until Other is chosen", s.page.locator(box).is_hidden())
     s.option("postal", "Other").click()
-    R.check("choosing Other shows the box and focuses it", s.page.locator('[data-q="postal"] .opt-other input.input').is_visible()
+    R.check("choosing Other shows the box and focuses it", s.page.locator(box).is_visible()
             and s.page.evaluate("document.activeElement.getAttribute('aria-label')") == "Other: type your answer")
-    # fill the rest of the required questions on this screen except the Other text
-    for qid in ("phone", "email", "hours", "holidays"):
-        s.page.locator(f'[data-q="{qid}"] label.opt').first.click()
     s.next()
     s.page.wait_for_timeout(150)
-    R.check("Other with nothing typed is refused", s.screen == "details" and "Please type your answer in the Other box" in s.page.inner_text('[data-q="postal"] .q__error'))
-    s.page.fill('[data-q="postal"] .opt-other input.input', "L6X 1A1")
+    R.check("Other with nothing typed is refused", s.screen == k.first and "Please type your answer in the Other box" in s.page.inner_text('[data-q="postal"] .q__error'))
+    s.page.fill(box, "L6X 1A1")
     R.check("typing in the box clears the message", s.page.locator('[data-q="postal"] .q__error').count() == 0)
     R.check("the typed text is what gets saved", s.saved()["others"]["postal"] == "L6X 1A1" and s.saved()["answers"]["postal"] == OTHER)
     s.next()
-    s.wait_screen("finding")
+    s.wait_screen(k.second)
     s.back()
-    s.wait_screen("details")
-    R.check("going back keeps the Other text", s.page.input_value('[data-q="postal"] .opt-other input.input') == "L6X 1A1")
+    s.wait_screen(k.first)
+    R.check("going back keeps the Other text", s.page.input_value(box) == "L6X 1A1")
     s.close()
 
-    s = Session(browser, base, state={"answers": {}, "others": {}, "furthest": 20})
-    s.go("social")
+    s = Session(browser, base, state=dict(k.complete, answers={key: v for key, v in k.answers.items() if key != "goals"}))
+    s.go(k.screen_for("goals"))
     s.option("goals", "More calls and walk-ins").click()
     s.option("goals", "More repair customers").click()
     third = s.page.locator('[data-q="goals"] label.opt').filter(has=s.page.get_by_text("More business customers", exact=True)).locator("input")
@@ -366,29 +541,52 @@ def scenario_other_and_limits(browser, base: str, spec: dict, axe: Path | None) 
     s.page.fill('[data-q="goals"] .opt-other input.input', "Be easy to find")
     R.check("Other counts toward the limit", s.page.locator('[data-q="goals"] label.opt').first.locator("input").is_disabled() is False
             and third.is_disabled())
-    s.go("accessibility")
-    s.option("access", "A step-free entrance").click()
-    s.option("access", "Seating for customers").click()
-    s.option("access", "None of these").click()
-    checked = s.page.locator('[data-q="access"] input:checked').count()
-    R.check("'None of these' clears the other ticks", checked == 1, f"{checked} checked")
-    s.option("access", "Seating for customers").click()
-    R.check("ticking something else clears 'None of these'", s.page.locator('[data-q="access"] input:checked').count() == 1
-            and s.saved()["answers"]["access"] == ["Seating for customers"])
+    s.close()
+
+    # every question with an option that should clear the rest ("None of these", "Nothing special", ...)
+    excl_qs = [q for q in k.questions if (q.get("app") or {}).get("exclusive")]
+    R.check("there are questions with an option that excludes the rest", len(excl_qs) >= 4, str([q["id"] for q in excl_qs]))
+    blank = {q["id"] for q in excl_qs}
+    s = Session(browser, base, state=dict(k.complete, answers={key: v for key, v in k.answers.items() if key not in blank}))
+    for q in excl_qs:
+        exclusive = q["app"]["exclusive"][0]
+        plain = [o for o in q["options"] if o not in q["app"]["exclusive"]]
+        s.go(k.screen_for(q["id"]))
+        s.option(q["id"], plain[0]).click()
+        s.option(q["id"], plain[1]).click()
+        s.option(q["id"], exclusive).click()
+        sel = f'[data-q="{q["id"]}"] input:checked'
+        R.check(f"{q['id']}: '{exclusive}' clears the other ticks", s.page.locator(sel).count() == 1 and s.saved()["answers"][q["id"]] == [exclusive],
+                f"{s.page.locator(sel).count()} checked")
+        s.option(q["id"], plain[0]).click()
+        R.check(f"{q['id']}: ticking something else clears '{exclusive}'", s.saved()["answers"][q["id"]] == [plain[0]])
     s.close()
 
 
-def scenario_gates(browser, base: str, spec: dict) -> None:
-    R.section("Skipping questions that don't apply")
-    s = Session(browser, base, state={"answers": {}, "others": {}, "furthest": 5})
+def scenario_required_stop(browser, base: str, k: Known) -> None:
+    R.section("A question that decides what is asked next, made required")
+    s = Session(browser, base, state={"answers": {key: v for key, v in k.answers.items() if key in k.screen_ids_before("repairs_q")},
+                                      "others": {}, "furthest": k.ids.index("repairs_q")})
     s.go("repairs_q")
-    R.check("the repair details are hidden until the gate is answered", s.page.locator('[data-page="repairs_detail"]').count() == 0)
     s.next()
     s.page.wait_for_timeout(100)
-    R.check("the gate question itself is required", s.screen == "repairs_q" and s.page.locator('.q.is-invalid').count() == 1)
+    R.check("the question itself is required", s.screen == "repairs_q" and s.page.locator(".q.is-invalid").count() == 1)
+    s.close()
+
+
+def scenario_gates(browser, base: str, k: Known) -> None:
+    R.section("Skipping questions that don't apply, and the stops between the parts")
+    # Part 2: the person has answered everything before Repairs, so the only blanks are the ones this scenario leaves
+    s = Session(browser, base, state={"answers": {key: v for key, v in k.answers.items() if key in k.screen_ids_before("repairs_q")},
+                                      "others": {}, "furthest": k.ids.index("repairs_q")})
+    s.go("repairs_q")
+    R.check("the repair details are hidden until the question is answered", s.page.locator('[data-page="repairs_detail"]').count() == 0)
+    R.check("with nothing answered the section can be skipped", s.page.locator("#foot .btn--primary").inner_text().strip() == "Skip")
     s.option("repairs", "Yes, in the store").click()
     R.check("answering Yes shows what you repair", s.page.locator('[data-page="repairs_detail"]').count() == 1
             and "What you repair" in s.page.inner_text('[data-page="repairs_detail"] h2'))
+    R.check("and the app doesn't repeat the data file's 'skip this section' line, which is for the Google Form",
+            "Skip this section" not in s.page.inner_text('[data-page="repairs_detail"]'))
     s.page.locator('[data-q="repair_brands"] label.opt').first.click()
     s.page.locator('[data-q="repair_types"] label.opt').first.click()
     s.page.locator('[data-q="repair_quote"] label.opt').first.click()
@@ -404,8 +602,16 @@ def scenario_gates(browser, base: str, spec: dict) -> None:
     s.option("biz", "No, we focus on individuals and families").click()
     R.check("No to business hides the business details", s.page.locator('[data-page="biz_detail"]').count() == 0)
     s.next()
-    s.wait_screen("gate1")
-    R.check("then the stop between Part 1 and Part 2", s.screen == "gate1")
+    s.wait_screen("works")
+    R.check("and then on to how the store works", s.screen == "works")
+    s.close()
+
+    # the stop between Part 1 and Part 2
+    gate = k.stops[0]
+    after = k.ids[k.ids.index(gate) + 1]
+    s = Session(browser, base, state={"answers": {key: v for key, v in k.answers.items() if key in k.screen_ids_before(gate)},
+                                      "others": {}, "furthest": k.ids.index(gate)})
+    s.go(gate)
     R.check("a stop shows two choices, Back and no Next", s.page.locator(".stop__go .btn").count() == 2 and s.page.locator("#foot .btn--primary").count() == 0)
     text = s.page.inner_text(".stop")
     R.check("the stop explains how to come back in app words, not the Google Form's", "Edit your response" not in text and "saved on this device" in text, text)
@@ -414,67 +620,68 @@ def scenario_gates(browser, base: str, spec: dict) -> None:
     R.check("'finish later' goes to the send screen", s.screen == "send")
     export = s.raw_text()
     R.check("the send screen says it is partial", "Here’s what you have so far" in s.page.inner_text("h1"))
-    R.check("the text says Part 2 and Part 3 were not started", "Part 1 finished. Part 2 not started. Part 3 not started." in export, export[:300])
+    status = ". ".join(["Part 1 finished"] + [f"Part {p['n']} not started" for p in k.model["parts"][1:]]) + "."
+    R.check("the text says the later parts were not started", status in export, export[:300])
     R.check("a hidden question is not in the text", "Which brands do you repair?" not in export)
-    R.check("the Carry on button is offered", s.page.get_by_role("button", name="Carry on with Part 2").count() == 1)
-    s.page.get_by_role("button", name="Carry on with Part 2").click()
-    s.wait_screen("works")
-    R.check("Carry on goes to Part 2", s.screen == "works")
+    part2 = k.part_of(after)
+    R.check("the Carry on button is offered", s.page.get_by_role("button", name=f"Carry on with Part {part2['n']}").count() == 1)
+    s.page.get_by_role("button", name=f"Carry on with Part {part2['n']}").click()
+    s.wait_screen(after)
+    R.check("Carry on goes to Part 2", s.screen == after)
     s.back()
-    s.wait_screen("gate1")
+    s.wait_screen(gate)
     s.close()
 
 
-def scenario_everything(browser, base: str, spec: dict, axe: Path | None) -> dict:
-    R.section("All three parts, start to finish")
+def scenario_everything(browser, base: str, k: Known, axe: Path | None, label: str, optional: bool) -> dict:
+    R.section(f"All four parts, start to finish ({label})")
+    spec, model = k.spec, k.model
     s = Session(browser, base, clipboard=True)
     record: dict = {}
     titles: dict = {}
     visited: list[str] = []
-    model = bq.app_model(spec)
-    kinds = {sc["id"]: sc["kind"] for sc in model["screens"]}
-    s.page.click("text=Start")
-    s.wait_screen("about")
+    grid_screen = k.screen_for(find_question(spec, lambda q: q["type"] == "grid")["id"])
+    start(s)
+    s.wait_screen(k.first)
     progress: list[int] = []
     guard = 0
-    while s.screen != "send" and guard < 40:
+    while s.screen != "send" and guard < 60:
         guard += 1
         sid = s.screen
         visited.append(sid)
-        if kinds[sid] == "stop":
-            if sid == "gate1":
+        if k.kinds[sid] == "stop":
+            if sid == k.stops[0]:
                 axe_run(s, axe, "a stop screen")
             s.page.locator(".stop__go .btn").first.click()
             until(s.page, "id => document.body.dataset.screen !== id", sid, what=f"leaving {sid}")
             continue
-        if sid == "services" or sid == "works":
-            pass
-        fill_screen(s, record, titles, prefer={"repairs": "Yes, in the store", "biz": "Yes, we help businesses and teams"} if False else None)
+        fill_screen(s, record, titles, optional=optional)
         progress.append(int(s.page.get_attribute(".meter", "aria-valuenow")))
-        if sid == "sells":
+        if sid == grid_screen:
             axe_run(s, axe, "a section with a grid")
         s.next()
         until(s.page, "id => document.body.dataset.screen !== id", sid, what=f"leaving {sid}")
-    R.check("walked every screen in order", visited == [sc["id"] for sc in model["screens"]], str(visited))
+    R.check("walked every screen in order", visited == k.ids, str(visited))
     R.check("ended on the send screen", s.screen == "send")
     R.check("the progress bar only ever goes up while you go forward", progress == sorted(progress), str(progress))
     R.check("the progress bar is nearly full by the end", progress[-1] >= 90, str(progress))
     R.check("the header says all done", "All done" in s.page.inner_text("#top"))
-    R.check("the send screen says everything is done", "That’s everything, Ali. Thank you." in s.page.inner_text("h1"))
+    R.check("the send screen says everything is done", "That’s everything. Thank you." in s.page.inner_text("h1"))
     R.check("no console errors, no warnings", not s.problems, str(s.problems))
     R.check("the page asked for nothing but itself", all(u.startswith(base) for u in s.requests) and len(s.requests) == 1, str(s.requests))
     axe_run(s, axe, "send screen")
 
     export = s.raw_text()
     lines = export.splitlines()
-    R.check("the text starts with the form's title and a date", lines[0] == spec["form"]["title"] and lines[1].startswith("Answers sent: "), "\n".join(lines[:3]))
-    R.check("it says all three parts are finished", "Part 1 finished. Part 2 finished. Part 3 finished." in export)
+    R.check("the text starts with its own title, not the invitation's, and a date",
+            lines[0] == model["answersTitle"] != spec["form"]["title"] and lines[1].startswith("Answers as of: "), "\n".join(lines[:3]))
+    R.check("it says every part is finished", " ".join(f"Part {p['n']} finished." for p in model["parts"]) in export)
     missing = [titles[q] for q in titles if titles[q] not in export]
     R.check("every question that was answered is in the text", not missing, str(missing[:3]))
     wrong = []
     for qid, value in record.items():
         values = [value] if isinstance(value, str) else (value if isinstance(value, list)
-                                                       else [k + (" — " if k[-1] in ".?!" else ": ") + v for k, v in value.items()])
+                                                       else [key + (" — " if key[-1] in ".?!" else ": ") + v for key, v in value.items()])
         for v in values:
             if v not in export:
                 wrong.append(f"{qid}: {v}")
@@ -484,12 +691,14 @@ def scenario_everything(browser, base: str, spec: dict, axe: Path | None) -> dic
     R.check("nothing says 'Needs an answer' on the review list", s.page.locator(".rq__flag").count() == 0)
     answered = int(export.split("Questions answered: ")[1].split(" of ")[0])
     R.check("the count of answered questions matches", answered == len(titles), f"{answered} vs {len(titles)}")
+    if optional:
+        R.check("every question in the form was answered", len(titles) == len(k.questions) - len(k.stops), f"{len(titles)} vs {len(k.questions) - len(k.stops)}")
 
     # the three send buttons
     s.page.get_by_role("button", name="Copy my answers").click()
     s.page.wait_for_timeout(200)
     clip = s.page.evaluate("navigator.clipboard.readText()")
-    R.check("Copy puts exactly that text on the clipboard", untimed(clip) == untimed(export) and clip.startswith(spec["form"]["title"]))
+    R.check("Copy puts exactly that text on the clipboard", untimed(clip) == untimed(export) and clip.startswith(model["answersTitle"]))
     R.check("and says so", "Copied" in s.page.inner_text(".send__status"))
     with s.page.expect_download() as dl:
         s.page.get_by_role("button", name="Save as a file").click()
@@ -500,21 +709,24 @@ def scenario_everything(browser, base: str, spec: dict, axe: Path | None) -> dic
     return {"record": record, "titles": titles, "export": export}
 
 
-def scenario_share_and_endpoint(browser, base: str, spec: dict) -> None:
+def scenario_share_and_endpoint(browser, base: str, k: Known) -> None:
     R.section("Share sheet and the optional send address")
-    answers, others = sample_answers(spec)
-    s = Session(browser, base, share=True, state={"answers": answers, "others": others, "furthest": 20})
+    spec, model = k.spec, k.model
+    first_title = spec["sections"][0]["questions"][0]["title"]
+    text_q = find_question(spec, lambda q: q["type"] in ("text", "paragraph"))["id"]
+    s = Session(browser, base, share=True, state=dict(k.complete))
     s.go("send")
     R.check("with a share sheet available, Send my answers is the main button",
             s.page.locator(".send__actions .btn--primary").inner_text().strip() == "Send my answers")
     s.page.get_by_role("button", name="Send my answers").click()
     s.page.wait_for_timeout(200)
     shared = s.page.evaluate("window.__shared")
-    R.check("it hands the title and the text to the share sheet", shared and shared["title"] == spec["form"]["title"] and "Which best describes you?" in shared["text"])
+    R.check("it hands the answers' title and the text to the share sheet", shared and shared["title"] == model["answersTitle"] and first_title in shared["text"])
+    R.check("and that title is not the invitation's headline", shared["title"] != spec["form"]["title"] and not shared["text"].startswith(spec["form"]["title"]))
     R.check("and thanks, without saying it was delivered", "If you sent the message" in s.page.inner_text(".send__status"))
     s.close()
 
-    s = Session(browser, base, share=True, state={"answers": answers, "others": others, "furthest": 20})
+    s = Session(browser, base, share=True, state=dict(k.complete))
     s.page.evaluate("() => { navigator.share = function () { return Promise.reject(new DOMException('cancelled', 'AbortError')); }; }")
     s.go("send")
     s.page.get_by_role("button", name="Send my answers").click()
@@ -525,13 +737,14 @@ def scenario_share_and_endpoint(browser, base: str, spec: dict) -> None:
     # a build with a send address
     Collector.bodies.clear()
     Collector.status = 200
+    Collector.delay = 0.0
     srv = http.server.ThreadingHTTPServer(("127.0.0.1", 0), Collector)
     threading.Thread(target=srv.serve_forever, daemon=True).start()
     endpoint = f"http://127.0.0.1:{srv.server_address[1]}/collect"
     with tempfile.TemporaryDirectory() as tmp:
         bq.build_app(spec, Path(tmp) / "index.html", endpoint=endpoint)
         web, ebase = serve(Path(tmp))
-        s = Session(browser, ebase, state={"answers": answers, "others": others, "furthest": 20})
+        s = Session(browser, ebase, state=dict(k.complete))
         s.page.on("console", lambda m: None)
         s.go("send")
         R.check("with an endpoint, Send my answers posts to it", s.page.locator(".send__actions .btn--primary").inner_text().strip() == "Send my answers")
@@ -542,10 +755,20 @@ def scenario_share_and_endpoint(browser, base: str, spec: dict) -> None:
             ctype, body = Collector.bodies[0]
             data = json.loads(body)
             R.check("as JSON with the answers by id and the readable text",
-                    data["form"] == "twireless" and data["complete"] is True and data["answers"]["name"] == "Answer for name" and "Which best describes you?" in data["text"])
+                    data["form"] == "twireless" and data["complete"] is True and data["answers"][text_q] == f"Answer for {text_q}" and first_title in data["text"])
             R.check("sent as text/plain, so no pre-flight request is needed", ctype.startswith("text/plain"), ctype)
-        R.check("success is shown", "Sent. Thank you, Ali." in s.page.inner_text(".send__status"), s.page.inner_text(".send__status"))
+        R.check("success is shown", "Sent. Thank you." in s.page.inner_text(".send__status"), s.page.inner_text(".send__status"))
         R.check("the saved state records it", s.saved().get("sent"))
+
+        # two quick taps are one message
+        Collector.bodies.clear()
+        Collector.delay = 0.6
+        s.page.get_by_role("button", name="Send my answers").dblclick()
+        until(s.page, "() => /Sent/.test(document.querySelector('.send__status').textContent)", timeout=8.0, what="the second send result")
+        s.page.wait_for_timeout(900)
+        R.check("a double tap sends one message, not two", len(Collector.bodies) == 1, str(len(Collector.bodies)))
+        Collector.delay = 0.0
+
         Collector.status = 500
         s.page.get_by_role("button", name="Send my answers").click()
         until(s.page, "() => /didn’t go through/.test(document.querySelector('.send__status').textContent)", what="the failure message")
@@ -553,50 +776,65 @@ def scenario_share_and_endpoint(browser, base: str, spec: dict) -> None:
         csp = s.page.get_attribute('meta[http-equiv="Content-Security-Policy"]', "content")
         R.check("the page's policy allows only that address", f"connect-src {endpoint.rsplit('/', 1)[0]}" in csp, csp)
         s.close()
+
+        # a question left on Other with nothing typed is not a finished answer: say so, don't claim "complete"
+        Collector.status = 200
+        Collector.bodies.clear()
+        s = Session(browser, ebase, state=dict(k.complete, answers=dict(k.answers, postal=OTHER)))
+        s.go("send")
+        R.check("with a half-answered question the send screen says so", "so far" in s.page.inner_text("h1") and s.page.locator(".send__needs").count() == 1)
+        s.page.get_by_role("button", name="Send my answers").click()
+        until(s.page, "() => { const t = document.querySelector('.send__status').textContent; return t.length > 0 && !/Sending/.test(t); }", what="the send result")
+        R.check("and what is posted says it is not complete", len(Collector.bodies) == 1 and json.loads(Collector.bodies[0][1])["complete"] is False)
+        s.close()
         web.shutdown()
     srv.shutdown()
 
 
-def scenario_resume_and_history(browser, base: str, spec: dict) -> None:
+def scenario_resume_and_history(browser, base: str, k: Known) -> None:
     R.section("Closing the page and coming back; the Back gesture; the Sections menu")
+    first, second = k.first, k.second
     s = Session(browser, base)
-    s.page.click("text=Start")
-    s.wait_screen("about")
-    s.page.fill("#f-name", "Ali")
-    s.option("role", "I work at the store").click()
+    start(s)
+    s.wait_screen(first)
+    s.option("postal", "L6X 0G3").click()
     s.next()
-    s.wait_screen("details")
+    s.wait_screen(second)
     s.page.reload()
     until(s.page, "() => document.body.dataset.screen", what="a screen")
-    R.check("reloading keeps you on the same screen", s.screen == "details")
+    R.check("reloading keeps you on the same screen", s.screen == second)
     s.go("welcome")
     R.check("the welcome screen offers to carry on", s.page.get_by_role("button", name="Carry on where you left off").count() == 1)
     s.page.get_by_role("button", name="Carry on where you left off").click()
-    s.wait_screen("details")
+    s.wait_screen(second)
     s.back()
-    s.wait_screen("about")
-    R.check("Back brings back what you typed", s.page.input_value("#f-name") == "Ali" and s.page.locator('[data-q="role"] input:checked').count() == 1)
+    s.wait_screen(first)
+    R.check("Back brings back what you chose", s.page.locator('[data-q="postal"] input:checked').count() == 1
+            and s.page.locator('[data-q="postal"] input:checked').get_attribute("value") == "L6X 0G3")
     s.page.go_back()
     s.page.wait_for_timeout(200)
-    R.check("the phone's own Back goes to the screen before", s.screen in ("details", "welcome"), s.screen)
+    R.check("the phone's own Back goes to the screen before", s.screen in (second, "welcome"), s.screen)
     # a new tab on the same device
     page2 = s.ctx.new_page()
     page2.goto(base + "/index.html")
     until(page2, "() => document.body.dataset.screen", what="a screen")
     R.check("a fresh visit on the same device finds the saved answers", page2.get_by_role("button", name="Carry on where you left off").count() == 1)
-    page2.goto(base + "/index.html#/gate1")
+    page2.goto(base + "/index.html#/" + k.stops[0])
     until(page2, "() => document.body.dataset.screen", what="a screen")
-    R.check("typing a later screen's address is not a way to skip ahead", page2.evaluate("document.body.dataset.screen") in ("details", "about"), page2.evaluate("document.body.dataset.screen"))
+    R.check("typing a later screen's address is not a way to skip ahead", page2.evaluate("document.body.dataset.screen") in (first, second), page2.evaluate("document.body.dataset.screen"))
     page2.goto(base + "/index.html#/nonsense")
     until(page2, "() => document.body.dataset.screen", what="a screen")
     R.check("an address that means nothing goes to the welcome screen", page2.evaluate("document.body.dataset.screen") == "welcome")
     page2.close()
 
-    s.go("details")
+    s.go(second)
     s.page.click(".top__menu")
-    R.check("the menu opens as a dialog with every section", s.page.locator('.menu__panel[role="dialog"]').count() == 1 and s.page.locator(".toc__item").count() == 19)
-    R.check("the section you are on is marked", s.page.locator('.toc__item[aria-current="step"]').inner_text().strip() == "Your store’s details")
-    R.check("sections you haven't reached are disabled", s.page.locator(".toc__item:disabled").count() == 17 and s.page.locator(".toc__item.is-done").count() == 1)
+    n = len(k.sections)
+    R.check("the menu opens as a dialog with every section", s.page.locator('.menu__panel[role="dialog"]').count() == 1 and s.page.locator(".toc__item").count() == n + 1,
+            str(s.page.locator(".toc__item").count()))
+    R.check("the section you are on is marked", s.page.locator('.toc__item[aria-current="step"] .toc__name').inner_text().strip() == k.titles[second])
+    R.check("sections you haven't reached are disabled", s.page.locator(".toc__item:disabled").count() == n - 2 + 1 and s.page.locator(".toc__item.is-done").count() == 1,
+            f"{s.page.locator('.toc__item:disabled').count()} disabled, {s.page.locator('.toc__item.is-done').count()} done")
     R.check("focus is inside the menu", s.page.evaluate("!!document.activeElement.closest('.menu')"))
     for _ in range(25):
         s.page.keyboard.press("Tab")
@@ -604,65 +842,71 @@ def scenario_resume_and_history(browser, base: str, spec: dict) -> None:
     s.page.keyboard.press("Escape")
     R.check("Escape closes it and puts focus back on the button", s.page.locator(".menu").is_hidden() and s.page.evaluate("document.activeElement.className") == "top__menu")
     s.page.click(".top__menu")
-    s.page.locator(".toc__item", has_text="About you").click()
-    s.wait_screen("about")
-    R.check("choosing a section goes there", s.screen == "about" and s.page.locator(".menu").is_hidden())
+    s.page.locator(".toc__item", has_text=k.titles[first]).click()
+    s.wait_screen(first)
+    R.check("choosing a section goes there", s.screen == first and s.page.locator(".menu").is_hidden())
 
     s.go("welcome")
     R.check("going back to the welcome screen hides the header and bottom bar again", s.page.is_hidden("#top") and s.page.is_hidden("#foot"))
     erase = s.page.locator(".welcome__go .btn--quiet")  # its words change on the first tap, so find it by place, not by name
     erase.click()
-    R.check("the first tap on Erase only asks", "Tap again" in erase.inner_text() and s.saved().get("answers", {}).get("name") == "Ali")
+    R.check("the first tap on Erase only asks", "Tap again" in erase.inner_text() and s.saved().get("answers", {}).get("postal") == "L6X 0G3")
     erase.click()
     s.page.wait_for_timeout(200)
     R.check("a second tap erases everything", s.page.evaluate("localStorage.getItem('questionnaire:twireless:v1')") is None)
-    R.check("and the screen shows a fresh Start straight away", s.page.get_by_role("button", name="Start").count() == 1
+    R.check("and the screen shows a fresh Start straight away", s.page.get_by_role("button", name="Start", exact=True).count() == 1
             and s.page.get_by_role("button", name="Carry on where you left off").count() == 0)
-    s.page.click("text=Start")
-    s.wait_screen("about")
-    R.check("a fresh start has the old answers gone", s.page.input_value("#f-name") == "" and s.page.locator('[data-q="role"] input:checked').count() == 0)
+    start(s)
+    s.wait_screen(first)
+    R.check("a fresh start has the old answers gone", s.page.locator('[data-q="postal"] input:checked').count() == 0)
     s.close()
 
 
-def scenario_editing(browser, base: str, spec: dict) -> None:
+def scenario_editing(browser, base: str, k: Known, ks: Known, sbase: str) -> None:
     R.section("Editing from the review list, and carrying on after 'finish later'")
-    answers, others = sample_answers(spec)
-    model = bq.app_model(spec)
-    ids = [sc["id"] for sc in model["screens"]]
-    s = Session(browser, base, state={"answers": answers, "others": others, "furthest": len(ids)})
+    ids, first = k.ids, k.first
+    s = Session(browser, base, state=dict(k.complete))
     s.go("send")
-    s.page.locator(".rsec", has_text="About you").locator(".rsec__edit").click()
-    s.wait_screen("about")
-    R.check("Edit goes to that section", s.screen == "about")
+    s.page.locator(".rsec", has_text=k.titles[first]).locator(".rsec__edit").click()
+    s.wait_screen(first)
+    R.check("Edit goes to that section", s.screen == first)
     R.check("and the bottom button then takes you back to the review",
             s.page.locator("#foot .btn--primary").inner_text().strip() == "Back to my answers")
-    s.page.fill("#f-name", "Ali Khan")
+    s.option("phone", "Yes, for calls only").click()
     s.page.click("#foot .btn--primary")
     s.wait_screen("send")
     R.check("pressing it returns to the review, not to the next section", s.screen == "send")
-    R.check("the review shows the change", "Ali Khan" in s.page.inner_text(".review"))
+    R.check("the review shows the change", "Yes, for calls only" in s.page.inner_text(".review"))
     R.check("and everything is still marked finished", "That’s everything" in s.page.inner_text("h1") and s.saved()["furthest"] == len(ids))
-    s.go("details")
+    s.go(first)
     R.check("once back on the review, sections go back to Next", s.page.locator("#foot .btn--primary").inner_text().strip() == "Next")
+    s.close()
+
+    # with every question required, an answer emptied while editing still stops you
+    text_q = find_question(ks.spec, lambda q: q["type"] in ("text", "paragraph"))["id"]
+    screen = ks.screen_for(text_q)
+    s = Session(browser, sbase, state=dict(ks.complete))
     s.go("send")
-    s.page.locator(".rsec", has_text="About you").locator(".rsec__edit").click()
-    s.wait_screen("about")
-    s.page.fill("#f-name", "")
+    s.page.locator(".rsec", has_text=ks.titles[screen]).locator(".rsec__edit").click()
+    s.wait_screen(screen)
+    s.page.fill(f"#f-{text_q}", "")
     s.page.click("#foot .btn--primary")
     s.page.wait_for_timeout(150)
-    R.check("while editing, a required answer left empty still stops you", s.screen == "about" and s.page.locator(".q.is-invalid").count() == 1)
+    R.check("while editing, a required answer left empty still stops you", s.screen == screen and s.page.locator(".q.is-invalid").count() == 1)
     s.close()
 
     # finish later, change your mind, carry on: the menu must not offer to send half of Part 2
-    s = Session(browser, base, state={"answers": {"name": "Ali", "role": "I work at the store"}, "others": {}, "furthest": ids.index("gate1")})
-    s.go("gate1")
+    gate = k.stops[0]
+    some = {"postal": "L6X 0G3"}
+    s = Session(browser, base, state={"answers": some, "others": {}, "furthest": ids.index(gate)})
+    s.go(gate)
     s.page.locator(".stop__go .btn").nth(1).click()
     s.wait_screen("send")
     R.check("'finish later' opens the send screen", s.screen == "send")
     s.back()
-    s.wait_screen("gate1")
+    s.wait_screen(gate)
     s.page.locator(".stop__go .btn").first.click()
-    s.wait_screen(ids[ids.index("gate1") + 1])
+    s.wait_screen(ids[ids.index(gate) + 1])
     s.page.click(".top__menu")
     R.check("after 'keep going' the menu no longer offers to send", s.page.locator('.toc__item[data-go="send"]').is_disabled())
     s.page.keyboard.press("Escape")
@@ -672,16 +916,17 @@ def scenario_editing(browser, base: str, spec: dict) -> None:
     s.close()
 
     # the send screen's Carry on, from a stop and from the middle of a part
-    s = Session(browser, base, state={"answers": {"name": "Ali", "role": "I work at the store"}, "others": {}, "furthest": ids.index("gate1"), "ended": True})
+    nextpart = k.part_of(ids[ids.index(gate) + 1])["n"]
+    s = Session(browser, base, state={"answers": some, "others": {}, "furthest": ids.index(gate), "ended": True})
     s.go("send")
     R.check("from a stop, Carry on says which part comes next",
-            s.page.get_by_role("button", name="Carry on with Part 2").count() == 1)
-    s.page.get_by_role("button", name="Carry on with Part 2").click()
-    s.wait_screen(ids[ids.index("gate1") + 1])
-    R.check("and goes to its first section", s.screen == ids[ids.index("gate1") + 1])
+            s.page.get_by_role("button", name=f"Carry on with Part {nextpart}").count() == 1)
+    s.page.get_by_role("button", name=f"Carry on with Part {nextpart}").click()
+    s.wait_screen(ids[ids.index(gate) + 1])
+    R.check("and goes to its first section", s.screen == ids[ids.index(gate) + 1])
     s.close()
     mid = ids.index("offers")
-    s = Session(browser, base, state={"answers": {"name": "Ali", "role": "I work at the store"}, "others": {}, "furthest": mid, "ended": True})
+    s = Session(browser, base, state={"answers": some, "others": {}, "furthest": mid, "ended": True})
     s.go("send")
     R.check("from the middle of a part, Carry on resumes that section instead of skipping it",
             s.page.get_by_role("button", name="Carry on where you left off").count() == 1)
@@ -722,7 +967,7 @@ def scenario_script_cannot_run(browser, base: str) -> None:
         ctx.close()
 
 
-def scenario_storage_blocked(browser, base: str) -> None:
+def scenario_storage_blocked(browser, base: str, k: Known) -> None:
     R.section("A browser that can't save")
     ctx = browser.new_context(viewport={"width": 390, "height": 844})
     ctx.add_init_script("Object.defineProperty(window, 'localStorage', { get() { throw new Error('blocked'); } });")
@@ -731,20 +976,21 @@ def scenario_storage_blocked(browser, base: str) -> None:
     page.on("pageerror", lambda e: errors.append(str(e)))
     page.goto(base + "/index.html")
     until(page, "() => document.body.dataset.screen", what="a screen")
-    R.check("the page still works", page.get_by_role("button", name="Start").count() == 1 and not errors, str(errors))
+    R.check("the page still works", page.get_by_role("button", name="Start", exact=True).count() == 1 and not errors, str(errors))
     R.check("and says it can't save", "can’t save your answers" in page.inner_text("main"))
-    page.click("text=Start")
-    until(page, "() => document.body.dataset.screen === 'about'", what="about")
-    page.fill("#f-name", "Ali")
-    R.check("typing still works with no storage", not errors and page.input_value("#f-name") == "Ali", str(errors))
+    page.get_by_role("button", name="Start", exact=True).click()
+    until(page, f"() => document.body.dataset.screen === '{k.first}'", what="the first section")
+    box = '[data-q="postal"] .opt-other input.input'
+    page.locator('[data-q="postal"] label.opt').filter(has=page.get_by_text("Other", exact=True)).click()
+    page.fill(box, "L6X 1A1")
+    R.check("typing still works with no storage", not errors and page.input_value(box) == "L6X 1A1", str(errors))
     ctx.close()
 
 
-def scenario_layout(browser, base: str, spec: dict, axe: Path | None) -> None:
+def scenario_layout(browser, base: str, k: Known, axe: Path | None) -> None:
     R.section("Widths from 320 to 1280, and tap sizes")
-    answers, others = sample_answers(spec)
-    model = bq.app_model(spec)
-    ids = ["welcome"] + [sc["id"] for sc in model["screens"]] + ["send"]
+    ids = ["welcome"] + k.ids + ["send"]
+    grid_screen = k.screen_for(find_question(k.spec, lambda q: q["type"] == "grid")["id"])
     # A phone's browser widens its layout to fit anything that sticks out, so the page's own idea of its width can't
     # be trusted: compare with the width the screen really has (W), and fail if the page has grown past it.
     js = """(W) => {
@@ -755,7 +1001,7 @@ def scenario_layout(browser, base: str, spec: dict, axe: Path | None) -> None:
         if (r.width && (r.right > w + 1 || r.left < -1)) bad.push(e.tagName + '.' + e.className);
       });
       const small = [];
-      document.querySelectorAll('button, .opt, .pill, input[type=text], textarea, summary').forEach(e => {
+      document.querySelectorAll('button, a.btn, .opt, .pill, input[type=text], textarea, summary').forEach(e => {
         if (e.closest('[hidden]') || !e.offsetParent && getComputedStyle(e).position !== 'fixed') return;
         const r = e.getBoundingClientRect();
         if (r.height && (r.height < 43.5 || (e.tagName === 'BUTTON' && r.width < 43.5))) small.push(e.tagName + '.' + e.className + ' ' + Math.round(r.width) + 'x' + Math.round(r.height));
@@ -765,8 +1011,7 @@ def scenario_layout(browser, base: str, spec: dict, axe: Path | None) -> None:
                line: document.querySelector('#top').hidden ? 0 : Math.round(document.querySelector('.top__where b').getBoundingClientRect().height) };
     }"""
     for width in (320, 360, 390, 430, 600, 768, 980, 1280):
-        s = Session(browser, base, width=width, height=900 if width >= 700 else 844, reduced=True,
-                    state={"answers": answers, "others": others, "furthest": 20})
+        s = Session(browser, base, width=width, height=900 if width >= 700 else 844, reduced=True, state=dict(k.complete))
         wide, small, tall = [], [], []
         for sid in ids:
             s.go(sid)
@@ -778,49 +1023,268 @@ def scenario_layout(browser, base: str, spec: dict, axe: Path | None) -> None:
             if res["top"] > 84:
                 tall.append(f"{sid}: header {res['top']}px")
             if res["line"] > 24:
-                tall.append(f"{sid}: the 'Part 1 of 3 · Section 1 of 7' line wraps ({res['line']}px tall)")
+                tall.append(f"{sid}: the 'Part N of M · Section n of m' line wraps ({res['line']}px tall)")
         R.check(f"{width}px: nothing sticks out sideways on any of the {len(ids)} screens", not wide, "; ".join(wide[:3]))
         R.check(f"{width}px: every button, answer and box is at least 44 px tall", not small, "; ".join(small[:3]))
         R.check(f"{width}px: the sticky header stays slim", not tall, "; ".join(tall[:3]))
         R.check(f"{width}px: no console problems", not s.problems, str(s.problems[:2]))
         if width in (390, 980):
-            s.go("sells")
+            s.go(grid_screen)
             axe_run(s, axe, f"{width}px, a section with a grid")
             s.go("send")
             axe_run(s, axe, f"{width}px, the send screen")
-            s.go("about")
+            s.go(k.first)
             s.page.click(".top__menu")
             axe_run(s, axe, f"{width}px, the Sections menu")
         s.close()
 
 
-def scenario_motion_and_names(browser, base: str, spec: dict) -> None:
+def scenario_motion_and_names(browser, base: str, k: Known) -> None:
     R.section("Motion, headings and names")
+    title = k.titles[k.first]
+    where = f"Part 1, section 1 of {len(k.part_sections[k.part_of(k.first)['id']])}: {title}"
     s = Session(browser, base, reduced=True)
-    s.page.click("text=Start")
-    s.wait_screen("about")
+    start(s)
+    s.wait_screen(k.first)
     R.check("with 'reduce motion' on, no screen slides in", "go-forward" not in (s.page.get_attribute(".card", "class") or ""))
     R.check("each screen has one h1 and it takes focus", s.page.locator("h1").count() == 1 and s.page.evaluate("document.activeElement.tagName") == "H1")
-    R.check("the browser tab title names the section", s.page.title().startswith("About you"), s.page.title())
+    R.check("the browser tab title names the section", s.page.title().startswith(title), s.page.title())
     R.check("the live region announces the new section",
-            poll(s.page, "() => document.getElementById('live').textContent === 'Part 1, section 1 of 7: About you'"),
-            s.page.inner_text("#live"))
+            poll(s.page, "(t) => document.getElementById('live').textContent === t", where), s.page.inner_text("#live"))
     s.close()
     s = Session(browser, base, reduced=False)
-    s.page.click("text=Start")
-    s.wait_screen("about")
+    start(s)
+    s.wait_screen(k.first)
     R.check("by default the next screen slides in", "go-forward" in (s.page.get_attribute(".card", "class") or ""))
     s.close()
     # the first frame of the slide is the widest the page ever gets; hold it there with the safeguard against overflow removed
     s = Session(browser, base, width=320, reduced=False)
     s.page.add_style_tag(content=".main { overflow-x: visible !important; }")
-    s.page.click("text=Start")
-    s.wait_screen("about")
+    start(s)
+    s.wait_screen(k.first)
     worst = s.page.evaluate("() => { document.getAnimations().forEach(a => { a.pause(); a.currentTime = 0; }); "
                             "return [document.documentElement.scrollWidth, window.innerWidth, document.getAnimations().length]; }")
     R.check("a screen sliding in never makes the page wider than the phone, even without the clip safeguard",
             worst[2] >= 1 and max(worst[0], worst[1]) <= 320, str(worst))
     s.close()
+
+
+# ---------------------------------------------------------------------------------------------
+# problems an independent review found
+
+
+def fix_blank_required(browser, base: str, k: Known, axe: Path | None) -> None:
+    """With every question required: an edit that opens new questions, then a jump through the Sections menu, must not end in "that's everything"."""
+    blank = ("repair_brands", "repair_types", "repair_quote")
+    part = k.part_of("repairs_q")["n"]
+    gap = {key: v for key, v in k.answers.items() if key not in blank}
+    s = Session(browser, base, state={**k.complete, "answers": gap})
+    s.go("send")
+    heading = s.page.inner_text("h1")
+    notice = s.page.inner_text(".send__needs") if s.page.locator(".send__needs").count() else "(no notice)"
+    R.check("required answers blank: the send screen does not say everything is done", "That’s everything" not in heading and "so far" in heading, heading)
+    R.check("it says how many questions still need an answer", "3 questions still need an answer" in notice, notice)
+    R.check("the header does not say All done", "All done" not in s.page.inner_text("#top"), s.page.inner_text("#top"))
+    export = s.raw_text()
+    R.check("the text says that part is started, and how many are blank",
+            f"Part {part} started (3 questions still need an answer)" in export, export[:300])
+    R.check("the review flags each blank question", s.page.locator(".rq__flag").count() == 3, str(s.page.locator(".rq__flag").count()))
+    R.check("it doesn't offer to 'carry on' from a place the person has already passed", s.page.locator(".send__more").count() == 0)
+    axe_run(s, axe, "the send screen with questions still needing an answer")
+    s.page.click(".top__menu")
+    flagged = s.page.locator(".toc__item", has=s.page.locator(".toc__need"))
+    R.check("the Sections menu marks the one section that needs an answer", flagged.count() == 1 and k.titles["repairs_q"] in flagged.inner_text(), str(flagged.all_inner_texts()))
+    s.page.keyboard.press("Escape")
+    s.page.get_by_role("button", name="Go to the first one").click(timeout=3000)
+    s.wait_screen("repairs_q")
+    R.check("Go to the first one opens that section, with the way back to the review",
+            s.screen == "repairs_q" and s.page.locator("#foot .btn--primary").inner_text().strip() == "Back to my answers")
+    s.next()
+    s.page.wait_for_timeout(150)
+    R.check("and it can't be left with those still blank", s.screen == "repairs_q" and s.page.locator(".q.is-invalid").count() == 3)
+    axe_run(s, axe, "required choices and ticks left empty")
+    for qid in blank:
+        s.page.locator(f'[data-q="{qid}"] label.opt').first.click()
+    s.next()
+    s.wait_screen("send")
+    R.check("once they are answered, the review says everything is done",
+            "That’s everything" in s.page.inner_text("h1") and "All done" in s.page.inner_text("#top") and s.page.locator(".send__needs").count() == 0)
+    s.close()
+
+
+def fix_start_without_place(browser, base: str, k: Known, axe: Path | None) -> None:
+    """Answers saved with no place in the questions: Start has to work."""
+    text_q = find_question(k.spec, lambda q: q["type"] in ("text", "paragraph"))
+    s = Session(browser, base, state={"answers": {text_q["id"]: "something typed"}, "others": {}})
+    R.check("answers saved with no place in the questions offer Start", s.page.get_by_role("button", name="Start", exact=True).count() == 1)
+    s.page.get_by_role("button", name="Start", exact=True).click(timeout=3000)
+    s.wait_screen(k.first)
+    R.check("and Start takes you to the first section", s.screen == k.first and s.page.locator("#top").is_visible())
+    s.close()
+
+
+def fix_object_names_in_address(browser, base: str, k: Known, axe: Path | None) -> None:
+    """Names the page's own objects have must not be taken for screens."""
+    s = Session(browser, base, state={"answers": {}, "others": {}, "furthest": 3})
+    bad = []
+    for name in ("constructor", "__proto__", "toString", "hasOwnProperty", "valueOf"):
+        page = s.ctx.new_page()
+        errors: list[str] = []
+        page.on("pageerror", lambda e, errors=errors: errors.append(str(e)))
+        page.goto(f"{base}/index.html#/{name}")
+        until(page, "() => document.body.dataset.screen", what="a screen")
+        shown = page.evaluate("document.body.dataset.screen")
+        if "Something went wrong" in page.inner_text("main") or errors or shown not in k.ids + ["welcome", "send"]:
+            bad.append(f"{name}: {shown} {errors[:1]}")
+        page.close()
+    R.check("an address such as #/constructor shows a real screen, not an error", not bad, "; ".join(bad))
+    s.close()
+
+
+def fix_unreadable_saved_value(browser, base: str, k: Known, axe: Path | None) -> None:
+    ctx = browser.new_context(viewport={"width": 390, "height": 844})
+    ctx.add_init_script("localStorage.setItem('questionnaire:twireless:v1', '{this is not json');")
+    page = ctx.new_page()
+    page.goto(base + "/index.html")
+    until(page, "() => document.body.dataset.screen", what="a screen")
+    R.check("a saved value that can't be read is ignored, and the page doesn't claim the browser can't save",
+            "can’t save" not in page.inner_text("main") and page.get_by_role("button", name="Start", exact=True).count() == 1, page.inner_text("main")[-200:])
+    page.get_by_role("button", name="Start", exact=True).click()
+    until(page, f"() => document.body.dataset.screen === '{k.first}'", what="the first section")
+    readable = page.evaluate("() => { try { JSON.parse(localStorage.getItem('questionnaire:twireless:v1')); return true; } catch (e) { return false; } }")
+    R.check("and starting writes a readable value over it", readable)
+    ctx.close()
+
+
+def fix_saved_answers_screen_would_refuse(browser, base: str, k: Known, axe: Path | None) -> None:
+    excl = find_question(k.spec, lambda q: q["type"] == "checkbox" and (q.get("app") or {}).get("exclusive"))
+    upto = find_question(k.spec, lambda q: q["type"] == "checkbox" and q.get("max_choices"))
+    exclusive = excl["app"]["exclusive"]
+    plain = [o for o in excl["options"] if o not in exclusive][0]
+    odd = dict(k.answers)
+    odd[excl["id"]] = [plain, exclusive[0]]
+    odd[upto["id"]] = upto["options"][: upto["max_choices"] + 1]
+    s = Session(browser, base, state={**k.complete, "answers": odd})
+    s.go(k.screen_for(excl["id"]))
+    values = s.page.eval_on_selector_all(f'[data-q="{excl["id"]}"] input:checked', "els => els.map(e => e.value)")
+    R.check("saved ticks that contradict each other: the option that excludes the rest is dropped", values == [plain], str(values))
+    s.go(k.screen_for(upto["id"]))
+    values = s.page.eval_on_selector_all(f'[data-q="{upto["id"]}"] input:checked', "els => els.map(e => e.value)")
+    n = upto["max_choices"]
+    R.check("saved ticks past 'choose up to N' are cut to N", len(values) == n and f"{n} of {n} chosen" in s.page.inner_text(f'[data-q="{upto["id"]}"] .q__count'), str(values))
+    s.close()
+
+
+def fix_arrow_keys_onto_other(browser, base: str, k: Known, axe: Path | None) -> None:
+    """Arrowing onto Other must not pull focus out of the list."""
+    oq = find_question(k.spec, lambda q: q["type"] == "choice" and q.get("other") and len(q["options"]) >= 2)
+    s = Session(browser, base, state=dict(k.complete))
+    s.go(k.screen_for(oq["id"]))
+    sel = f'[data-q="{oq["id"]}"]'
+    s.page.focus(f"{sel} input[type=radio]")
+    for _ in range(len(oq["options"])):
+        s.page.keyboard.press("ArrowDown")
+    R.check("arrowing onto Other selects it and leaves focus on the choice",
+            s.page.evaluate("document.activeElement.value") == OTHER and s.page.locator(f"{sel} .opt-other input.input").is_visible())
+    s.page.keyboard.press("ArrowUp")
+    R.check("so the arrow keys still work: Up goes back to the option above", s.page.evaluate("document.activeElement.value") == oq["options"][-1])
+    s.page.keyboard.press("ArrowDown")
+    s.page.keyboard.press("Tab")
+    R.check("and Tab then reaches the Other box", s.page.evaluate("document.activeElement.getAttribute('aria-label')") == "Other: type your answer")
+    s.close()
+
+
+def fix_clear_my_choice_focus(browser, base: str, k: Known, axe: Path | None) -> None:
+    cq = find_question(k.spec, lambda q: q["type"] == "choice" and not q["required"])
+    s = Session(browser, base, state=dict(k.complete))
+    s.go(k.screen_for(cq["id"]))
+    s.page.locator(f'[data-q="{cq["id"]}"] .q__clear').click()
+    R.check("after Clear my choice, focus stays with that question's choices",
+            s.page.evaluate("(q) => { const a = document.activeElement; return !!a && a.type === 'radio' && !!a.closest('[data-q=\"' + q + '\"]'); }", cq["id"]))
+    s.close()
+
+
+def fix_grid_is_a_group(browser, base: str, k: Known, axe: Path | None) -> None:
+    gq = find_question(k.spec, lambda q: q["type"] == "grid" and q.get("help"))
+    s = Session(browser, base, state=dict(k.complete))
+    s.go(k.screen_for(gq["id"]))
+    info = s.page.evaluate("""(q) => {
+      const g = document.querySelector('[data-q="' + q + '"] .grid');
+      const l = document.getElementById(g.getAttribute('aria-labelledby'));
+      const d = g.getAttribute('aria-describedby') ? document.getElementById(g.getAttribute('aria-describedby')) : null;
+      return { role: g.getAttribute('role'), label: l ? l.textContent : '', help: !!d };
+    }""", gq["id"])
+    R.check("a grid is a group named by its question, with the help tied to it", info["role"] == "group" and gq["title"] in info["label"] and info["help"], str(info))
+    s.close()
+
+
+def fix_focus_not_under_bars(browser, base: str, k: Known, axe: Path | None) -> None:
+    """Focus must never land under the header or the bottom bar."""
+    busiest = max((sc for sc in k.model["screens"] if sc["kind"] == "section"),
+                  key=lambda sc: sum(len(pg["questions"]) for pg in k.model["pages"] if pg["id"] in sc["pages"]))["id"]
+    s = Session(browser, base, width=390, height=700, state=dict(k.complete))
+    s.go(busiest)
+    probe = """() => {
+      const a = document.activeElement;
+      if (!a || a === document.body || a.closest('#top, #foot')) return null;
+      const r = (a.closest('.opt, .pill') || a).getBoundingClientRect();
+      const foot = document.querySelector('#foot');
+      return { top: r.top, bottom: r.bottom, header: document.querySelector('#top').getBoundingClientRect().bottom,
+               foot: foot.hidden ? window.innerHeight : foot.getBoundingClientRect().top, name: (a.name || a.id || a.tagName) + ' ' + (a.value || '') };
+    }"""
+    hidden: list[str] = []
+    for key in ("Tab", "Shift+Tab"):
+        s.page.evaluate("window.scrollTo(0, 0)")
+        for _ in range(60):
+            s.page.keyboard.press(key)
+            r = s.page.evaluate(probe)
+            if r and (r["top"] < r["header"] - 1 or r["bottom"] > r["foot"] + 1):
+                hidden.append(f"{key} {r['name']} at {r['top']:.0f}-{r['bottom']:.0f} (bars: {r['header']:.0f}, {r['foot']:.0f})")
+    R.check(f"on '{busiest}', the focused control is never hidden behind the header or the bottom bar", not hidden, "; ".join(hidden[:2]))
+    s.close()
+
+
+def fix_finished_part_wording(browser, base: str, k: Known, axe: Path | None) -> None:
+    s = Session(browser, base, state=dict(k.complete))
+    s.go(k.first)
+    top = s.page.inner_text("#top")
+    R.check("visiting a finished part says it is done, not 'nearly done'", "this part is done" in top and "nearly done" not in top, top)
+    s.close()
+
+
+def fix_markup_in_data(browser, base: str, k: Known, axe: Path | None) -> None:
+    """Data with markup in it must not break the page."""
+    evil = json.loads(json.dumps(k.spec))
+    # no closing "-->" or "</script>": that is the form that leaves a browser reading to the end of the page
+    evil["sections"][0]["questions"][0]["help"] = "<!-- <script>window.__evil = 1; a & b <b>not bold</b>"
+    with tempfile.TemporaryDirectory() as tmp:
+        bq.build_app(evil, Path(tmp) / "index.html")
+        html = (Path(tmp) / "index.html").read_text(encoding="utf-8")
+        blob = re.search(r'<script type="application/json" id="spec">(.*?)</script>', html, re.S).group(1)
+        R.check("the data inside the page contains no '<', '>' or '&' of its own", not any(c in blob for c in "<>&"))
+        web, ebase = serve(Path(tmp))
+        s = Session(browser, ebase)
+        R.check("a '<!--' followed by '<script' in the data doesn't stop the page from starting", s.page.get_by_role("button", name="Start", exact=True).count() == 1)
+        start(s)
+        s.wait_screen(k.first)
+        shown = s.page.inner_text(".q__help")
+        R.check("it shows as plain text and runs nothing", "<!-- <script>window.__evil = 1; a & b <b>not bold</b>" in shown
+                and s.page.evaluate("typeof window.__evil") == "undefined" and s.page.locator(".q__help b").count() == 0, shown)
+        s.close()
+        web.shutdown()
+
+
+def scenario_review_fixes(browser, base: str, sbase: str, k: Known, ks: Known, axe: Path | None) -> None:
+    R.section("Problems an independent review found")
+    runs = [(fix_blank_required, sbase, ks)] + [
+        (fix, base, k) for fix in (fix_start_without_place, fix_object_names_in_address, fix_unreadable_saved_value,
+                                   fix_saved_answers_screen_would_refuse, fix_arrow_keys_onto_other, fix_clear_my_choice_focus,
+                                   fix_grid_is_a_group, fix_focus_not_under_bars, fix_finished_part_wording, fix_markup_in_data)]
+    for fix, where, known in runs:
+        try:
+            fix(browser, where, known, axe)
+        except Exception as e:  # a check that can't finish counts as a failure, and the rest still run
+            R.check(f"{fix.__name__}: the check could not finish", False, f"{type(e).__name__}: {str(e).splitlines()[0][:140]}")
 
 
 # ---------------------------------------------------------------------------------------------
@@ -840,38 +1304,57 @@ def main() -> int:
     if problems:
         print("The data file has problems:", *problems, sep="\n  - ")
         return 3
-    with tempfile.TemporaryDirectory() as tmp:
+    strict = strict_variant(spec)
+    k, ks = Known(spec), Known(strict)
+    with tempfile.TemporaryDirectory() as tmp, tempfile.TemporaryDirectory() as tmp_strict:
         bq.build_app(spec, Path(tmp) / "index.html")
+        bq.build_app(strict, Path(tmp_strict) / "index.html")
         srv, base = serve(Path(tmp))
+        ssrv, sbase = serve(Path(tmp_strict))
         with sync_playwright() as p:
             browser = p.chromium.launch()
             wanted = lambda name: not ns.only or ns.only in name  # noqa: E731
+
+            def attempt(scenario, *args, **kwargs) -> None:
+                """A scenario that can't finish counts as a failure, and the others still run."""
+                try:
+                    scenario(*args, **kwargs)
+                except Exception as e:
+                    R.check(f"{scenario.__name__}: the scenario could not finish", False, f"{type(e).__name__}: {str(e).splitlines()[0][:160]}")
+
             if wanted("build"):
-                scenario_build(spec)
+                attempt(scenario_build, k)
+            if wanted("cold"):
+                attempt(scenario_cold_call, browser, base, k, ns.axe)
             if wanted("welcome"):
-                scenario_welcome_and_errors(browser, base, ns.axe)
+                attempt(scenario_welcome_and_errors, browser, sbase, ks, ns.axe)
             if wanted("other"):
-                scenario_other_and_limits(browser, base, spec, ns.axe)
+                attempt(scenario_other_and_limits, browser, base, k, ns.axe)
             if wanted("gates"):
-                scenario_gates(browser, base, spec)
+                attempt(scenario_required_stop, browser, sbase, ks)
+                attempt(scenario_gates, browser, base, k)
             if wanted("everything"):
-                scenario_everything(browser, base, spec, ns.axe)
+                attempt(scenario_everything, browser, base, k, ns.axe, "every question answered", optional=True)
+                attempt(scenario_everything, browser, sbase, ks, ns.axe, "every question required", optional=False)
             if wanted("share"):
-                scenario_share_and_endpoint(browser, base, spec)
+                attempt(scenario_share_and_endpoint, browser, base, k)
             if wanted("resume"):
-                scenario_resume_and_history(browser, base, spec)
+                attempt(scenario_resume_and_history, browser, base, k)
             if wanted("edit"):
-                scenario_editing(browser, base, spec)
+                attempt(scenario_editing, browser, base, k, ks, sbase)
             if wanted("script"):
-                scenario_script_cannot_run(browser, base)
+                attempt(scenario_script_cannot_run, browser, base)
             if wanted("storage"):
-                scenario_storage_blocked(browser, base)
+                attempt(scenario_storage_blocked, browser, base, k)
             if wanted("layout"):
-                scenario_layout(browser, base, spec, ns.axe)
+                attempt(scenario_layout, browser, base, k, ns.axe)
             if wanted("motion"):
-                scenario_motion_and_names(browser, base, spec)
+                attempt(scenario_motion_and_names, browser, base, k)
+            if wanted("fixes"):
+                attempt(scenario_review_fixes, browser, base, sbase, k, ks, ns.axe)
             browser.close()
         srv.shutdown()
+        ssrv.shutdown()
     print(f"\n{R.total - R.failed} of {R.total} checks passed" + ("" if not R.failed else f", {R.failed} FAILED"))
     return 1 if R.failed else 0
 

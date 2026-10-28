@@ -2,12 +2,14 @@
    It is written in plain ES2015 (no ?. or ??) so it runs on phones a few years old.
 
    The questions arrive as JSON in the page (#spec), made by build_questionnaire.py from the data file:
-   SPEC.screens is the order of the screens, SPEC.pages holds the questions, SPEC.parts the three parts.
+   SPEC.screens is the order of the screens, SPEC.pages holds the questions, SPEC.parts the parts.
 
    How it behaves, in short:
-   - One section per screen. The address bar hash (#/about) says which, so the phone's Back gesture works.
+   - One section per screen. The address bar hash (#/details) says which, so the phone's Back gesture works.
    - Answers are saved on the device as you go (localStorage) and nothing leaves the device until a send button is pressed.
    - A "gate" question (Repairs: No) hides the questions after it; a "stop" screen ends a part.
+   - The questionnaire is a first approach to a business that never asked for it, so almost nothing is required: the
+     bottom button says Skip until something on the screen is answered, and only the choice at a stop must be made.
    - The progress bar has one segment per section, grouped by part and sized by how long each takes. */
 (function () {
   'use strict';
@@ -81,7 +83,8 @@
     alert: '<circle cx="12" cy="12" r="10" fill="#b3182b"/><path d="M12 7v6.2" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/><circle cx="12" cy="16.9" r="1.4" fill="#fff"/>',
     share: '<path d="M12 15V3.5M7.6 7.6L12 3.2l4.4 4.4M5 11.5v7.2c0 1 .8 1.8 1.8 1.8h10.4c1 0 1.8-.8 1.8-1.8v-7.2" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>',
     copy: '<rect x="8.5" y="8.5" width="11" height="12" rx="2.2" fill="none" stroke="currentColor" stroke-width="2.1"/><path d="M15.5 5.2V5a1.8 1.8 0 00-1.8-1.8H6.3A1.8 1.8 0 004.5 5v9.4a1.8 1.8 0 001.8 1.8h.4" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round"/>',
-    save: '<path d="M12 3.5V15M7.6 11.4L12 15.8l4.4-4.4M5 19.5h14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>'
+    save: '<path d="M12 3.5V15M7.6 11.4L12 15.8l4.4-4.4M5 19.5h14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>',
+    out: '<path d="M14 4h6v6M20 4l-9 9M18 14v4.5a1.5 1.5 0 01-1.5 1.5h-11A1.5 1.5 0 014 18.5v-11A1.5 1.5 0 015.5 6H10" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>'
   };
   function icon(name) {
     var box = document.createElement('span');
@@ -96,17 +99,18 @@
 
   /* ================================================================ the questions */
 
-  var PAGES = {};
-  var Q = {};
+  /* These maps are looked up with text from the address bar (#/constructor), so they have no prototype to answer with. */
+  var PAGES = Object.create(null);
+  var Q = Object.create(null);
   SPEC.pages.forEach(function (p) {
     PAGES[p.id] = p;
     p.questions.forEach(function (q) { Q[q.id] = q; });
   });
   var SCREENS = SPEC.screens;
-  var BYID = {};
+  var BYID = Object.create(null);
   SCREENS.forEach(function (s, i) { s.index = i; BYID[s.id] = s; });
   var PARTS = SPEC.parts;
-  var PART = {};
+  var PART = Object.create(null);
   PARTS.forEach(function (p) { PART[p.id] = p; });
 
   /* How long a question takes, roughly. Only the ratios matter: each part is scaled to the minutes the data file gives it. */
@@ -173,6 +177,13 @@
           a.forEach(function (x) {
             if ((q.options.indexOf(x) >= 0 || (x === OTHER && q.other)) && keep.indexOf(x) < 0) keep.push(x);
           });
+          /* The screen never lets these happen, so saved answers shouldn't hold them either: an option that excludes
+             the rest never sits beside another choice, and "choose up to N" holds. */
+          var exclusive = q.exclusive || [];
+          var plain = keep.filter(function (x) { return exclusive.indexOf(x) < 0; });
+          if (plain.length && plain.length < keep.length) keep = plain;
+          else if (!plain.length && keep.length > 1) keep = [keep[0]];
+          if (q.max_choices && keep.length > q.max_choices) keep = keep.slice(0, q.max_choices);
           if (keep.length) s.answers[id] = keep;
         }
       } else if (q.type === 'grid') {
@@ -192,14 +203,18 @@
   }
 
   function restore() {
+    var raw = null;
     try {
-      var raw = window.localStorage.getItem(STORE_KEY);
+      raw = window.localStorage.getItem(STORE_KEY);
       storageOk = true;
-      return clean(raw ? JSON.parse(raw) : null);
     } catch (e) {
       storageOk = false;
       return blank();
     }
+    /* What was saved may not be readable (another version, a damaged value). That is not a reason to say the browser can't save. */
+    var data = null;
+    try { data = raw ? JSON.parse(raw) : null; } catch (e2) { data = null; }
+    return clean(data);
   }
 
   var state = restore();
@@ -217,6 +232,18 @@
   function hasAnswers() { return Object.keys(state.answers).length > 0; }
   function isComplete() { return state.furthest >= SCREENS.length; }
   function sendAllowed() { return started() && (state.ended || isComplete()); }
+
+  /* Questions that still need an answer on the sections the person has been through. Only Next checks as you go, so
+     an edit that opens new questions, followed by a jump through the Sections menu, can leave some behind. The review,
+     the header and the text we send must not say "done" while any are. */
+  function openProblems() {
+    var out = [];
+    reachedSections().forEach(function (s) {
+      visibleQuestions(s).forEach(function (q) { if (problem(q)) out.push({ s: s, q: q }); });
+    });
+    return out;
+  }
+  function allDone() { return isComplete() && !openProblems().length; }
 
   /* ================================================================ answers */
 
@@ -312,7 +339,10 @@
       return '';
     }
     var usesOther = q.type === 'choice' ? a === OTHER : (q.type === 'checkbox' && a && a.indexOf(OTHER) >= 0);
-    if (usesOther && !otherText(q)) return 'Please type your answer in the Other box.';
+    if (usesOther && !otherText(q)) {
+      // an optional question can always be left unanswered, so say how
+      return 'Please type your answer in the Other box' + (q.required ? '.' : (q.type === 'choice' ? ', or clear your choice.' : ', or untick Other.'));
+    }
     if (!q.required) return '';
     if (isAnswered(q)) return '';
     if (q.type === 'text' || q.type === 'paragraph') return 'Please type your answer.';
@@ -322,20 +352,32 @@
 
   /* ================================================================ progress */
 
+  /* 0 to 1. A section the person has passed counts as full unless a question in it still needs an answer. */
   function sectionFill(s) {
-    if (isComplete() || state.furthest > s.index) return 1;
-    if (state.furthest < s.index) return 0;
+    var passed = isComplete() || state.furthest > s.index;
+    if (!passed && state.furthest < s.index) return 0;
     var total = 0;
     var done = 0;
+    var gaps = 0;
     pageStates(s).forEach(function (ps) {
       ps.page.questions.forEach(function (q) {
         var w = weight(q);
         total += w;
-        if (ps.state === 'skipped') done += w;
-        else if (ps.state === 'visible') done += w * fraction(q);
+        if (ps.state === 'skipped') {
+          done += w;
+        } else if (ps.state === 'visible') {
+          done += w * fraction(q);
+          if (passed && problem(q)) gaps++;
+        }
       });
     });
+    if (passed && !gaps) return 1;
     return total ? done / total : 0;
+  }
+
+  function partPassed(part) {
+    var last = part.screens[part.screens.length - 1];
+    return !!last && (isComplete() || last.index < state.furthest);
   }
 
   function minutesLeft(part) {
@@ -355,7 +397,7 @@
 
   function minutesText(part) {
     var m = minutesLeft(part);
-    if (m <= 0.05) return 'nearly done';
+    if (m <= 0.05) return partPassed(part) ? 'this part is done' : 'nearly done';
     if (m < 1) return 'under a minute left in this part';
     return 'about ' + Math.ceil(m - 0.05) + ' min left in this part';
   }
@@ -470,7 +512,7 @@
     var line = '';
     var left = '';
     if (current === 'send') {
-      line = isComplete() ? 'All done' : 'Check and send';
+      line = !countAnswers().answered ? 'Nothing answered yet' : (allDone() ? 'All done' : 'Check and send');
     } else if (s && s.kind === 'section') {
       line = 'Part ' + part.n + ' of ' + part.of + ' · Section ' + s.no + ' of ' + s.of;
       left = (part.optional ? 'Optional · ' : '') + minutesText(part);
@@ -492,16 +534,19 @@
     menuReturn = document.activeElement;
     el.menu.textContent = '';
     var list = h('ol', { class: 'toc' });
+    var needs = Object.create(null); // only for sections the person has passed: the one they are working on isn't "missing" anything yet
+    openProblems().forEach(function (o) { if (isComplete() || o.s.index < state.furthest) needs[o.s.id] = true; });
     PARTS.forEach(function (part) {
       var items = h('ol');
       part.screens.forEach(function (s) {
         var reached = started() && s.index <= state.furthest;
-        var done = started() && (isComplete() || s.index < state.furthest);
+        var done = started() && (isComplete() || s.index < state.furthest) && !needs[s.id];
         var btn = h('button', {
           type: 'button', class: 'toc__item' + (done ? ' is-done' : ''), 'data-go': s.id,
           'aria-current': current === s.id ? 'step' : null, disabled: !reached,
           onclick: function () { closeMenu(true); go(s.id); }
-        }, h('span', { class: 'toc__mark', 'aria-hidden': 'true' }), h('span', { text: s.title }),
+        }, h('span', { class: 'toc__mark', 'aria-hidden': 'true' }), h('span', { class: 'toc__name', text: s.title }),
+        needs[s.id] ? h('span', { class: 'toc__need', text: 'Needs an answer' }) : null,
         done ? h('span', { class: 'sr-only', text: ' (done)' }) : null,
         !reached ? h('span', { class: 'sr-only', text: ' (not reached yet)' }) : null);
         items.appendChild(h('li', null, btn));
@@ -578,6 +623,16 @@
     if (e.key === 'Enter') { e.preventDefault(); e.target.blur(); }
   }
 
+  /* Tapping "Other" takes you to its box, which saves a tap. Choosing it with the arrow keys or the space bar must not:
+     a person on a keyboard would be pulled out of the list and could not arrow back. The function this returns says
+     whether the change that is being handled came from the keyboard. */
+  function watchKeys(list) {
+    var keyed = false;
+    list.addEventListener('keydown', function (e) { if (e.key !== 'Tab') keyed = true; }, true);
+    list.addEventListener('pointerdown', function () { keyed = false; }, true);
+    return function () { var was = keyed; keyed = false; return was; };
+  }
+
   function groupWrap(q, kind, body) {
     var wrap = h('div', { class: 'q q--' + q.type, 'data-q': q.id });
     wrap.appendChild(h('div', { class: 'q__title', id: 't-' + q.id }, q.title, reqMark(q)));
@@ -617,12 +672,15 @@
     }
     var wrap = groupWrap(q, 'radiogroup', list);
     var clear = null;
+    var viaKeyboard = watchKeys(list);
     if (!q.required) {
       clear = h('button', { type: 'button', class: 'q__clear', text: 'Clear my choice', onclick: function () {
         delete state.answers[q.id];
-        each(list.querySelectorAll('input[type=radio]'), function (i) { i.checked = false; });
+        var radios = list.querySelectorAll('input[type=radio]');
+        each(radios, function (i) { i.checked = false; });
         if (field) field.hidden = true;
-        clear.hidden = true;
+        clear.hidden = true; // the button the person pressed is going away, so put focus on the choices instead of losing it
+        if (radios.length) radios[0].focus();
         changed(q);
       } });
       clear.hidden = !cur;
@@ -630,10 +688,11 @@
     }
     list.addEventListener('change', function (e) {
       if (e.target.type !== 'radio') return;
+      var byKey = viaKeyboard();
       state.answers[q.id] = e.target.value;
       if (field) {
         field.hidden = e.target.value !== OTHER;
-        if (e.target.value === OTHER) field.focus();
+        if (e.target.value === OTHER && !byKey) field.focus();
       }
       if (clear) clear.hidden = false;
       changed(q);
@@ -667,9 +726,11 @@
       each(inputs(), function (i) { i.disabled = !i.checked && n >= q.max_choices; });
       count.textContent = n + ' of ' + q.max_choices + ' chosen';
     }
+    var viaKeyboard = watchKeys(list);
     list.addEventListener('change', function (e) {
       var t = e.target;
       if (t.type !== 'checkbox') return;
+      var byKey = viaKeyboard();
       if (t.checked) {
         each(inputs(), function (i) {
           if (i === t) return;
@@ -682,7 +743,7 @@
       if (chosen.length) state.answers[q.id] = chosen; else delete state.answers[q.id];
       if (field) {
         field.hidden = chosen.indexOf(OTHER) < 0;
-        if (t.value === OTHER && t.checked) field.focus();
+        if (t.value === OTHER && t.checked && !byKey) field.focus();
       }
       limit();
       changed(q);
@@ -693,7 +754,8 @@
 
   function renderGrid(q) {
     var map = state.answers[q.id] || {};
-    var grid = h('div', { class: 'grid' });
+    /* The group ties the question's words to its rows, so a screen reader says them when it enters the rows. */
+    var grid = h('div', { class: 'grid', role: 'group', 'aria-labelledby': 't-' + q.id, 'aria-describedby': q.help ? 'h-' + q.id : null });
     var count = h('p', { class: 'q__count' });
     q.rows.forEach(function (row, ri) {
       var rid = 'r-' + q.id + '-' + ri;
@@ -873,6 +935,12 @@
       buttons);
   }
 
+  /* Start, or carry on from the furthest screen. Answers saved with no position (damaged or older) begin at the top. */
+  function begin() {
+    if (!started()) { state.furthest = 0; save(); }
+    go(furthestId());
+  }
+
   function renderWelcome() {
     var card = h('section', { class: 'card welcome', 'aria-labelledby': 'h1' });
     card.appendChild(h('img', { class: 'logo', src: SPEC.logo, alt: SPEC.client.name, width: '230', height: '26' }));
@@ -880,6 +948,12 @@
     var text = h('div', { class: 'welcome__text' });
     SPEC.intro.forEach(function (p) { text.appendChild(h('p', { text: p })); });
     card.appendChild(text);
+    if (SPEC.preview && /^https:\/\//.test(SPEC.preview.url)) {
+      // What we made, so the questions have something to be about. It opens beside this page, and the answers stay saved here.
+      card.appendChild(h('p', { class: 'welcome__drafts' },
+        h('a', { class: 'btn btn--quiet btn--block', href: SPEC.preview.url, target: '_blank', rel: 'noopener noreferrer' },
+          icon('out'), SPEC.preview.label, h('span', { class: 'sr-only', text: ' (opens in a new tab)' }))));
+    }
     var road = h('ol', { class: 'roadmap' });
     PARTS.forEach(function (part) {
       road.appendChild(h('li', null, h('span', { class: 'roadmap__n', 'aria-hidden': 'true', text: String(part.n) }),
@@ -890,22 +964,18 @@
     var saved = started() || hasAnswers();
     if (saved) {
       var box = h('div', { class: 'resume' }, h('p', { text: 'Welcome back. Your answers are saved on this device.' }));
-      box.appendChild(h('button', { type: 'button', class: 'btn btn--primary btn--block', onclick: function () { go(started() ? furthestId() : SCREENS[0].id); } },
+      box.appendChild(h('button', { type: 'button', class: 'btn btn--primary btn--block', onclick: begin },
         started() ? 'Carry on where you left off' : 'Start'));
       var again = h('button', { type: 'button', class: 'btn btn--quiet btn--block', onclick: function () { eraseConfirm(again); } }, 'Erase my answers and start over');
       box.appendChild(again);
       go1.appendChild(box);
     } else {
-      go1.appendChild(h('button', { type: 'button', class: 'btn btn--primary btn--block', onclick: function () {
-        state.furthest = 0;
-        save();
-        go(SCREENS[0].id);
-      } }, 'Start'));
+      go1.appendChild(h('button', { type: 'button', class: 'btn btn--primary btn--block', onclick: begin }, 'Start'));
     }
     card.appendChild(go1);
     var ticks = h('ul', { class: 'ticks' },
-      h('li', { text: 'One section at a time. Tap an answer, then Next. You can go back to change anything.' }),
-      h('li', { text: 'Your answers are saved on this device as you go, so you can close this page and come back to it.' }),
+      h('li', { text: 'One section at a time. Tap an answer, then Next. You can skip any question and go back to change anything.' }),
+      h('li', { text: 'Your answers are saved on this device as you go, so you can close this page and come back to it. If you wait more than a week, your browser may clear them.' }),
       h('li', { text: SPEC.endpoint ? 'Your answers go to ' + SPEC.client.agency + ' only when you press Send at the end.' : 'Nothing is sent until you choose to send it at the end.' }));
     card.appendChild(ticks);
     if (!storageOk) {
@@ -943,12 +1013,24 @@
     return SCREENS.filter(function (s) { return s.kind === 'section' && started() && s.index <= state.furthest; });
   }
 
+  /* How many of the questions the person has been through they answered. Everything is optional, so it can be none. */
+  function countAnswers() {
+    var n = { shown: 0, answered: 0 };
+    reachedSections().forEach(function (s) {
+      visibleQuestions(s).forEach(function (q) {
+        n.shown++;
+        if (answerOf(q)) n.answered++;
+      });
+    });
+    return n;
+  }
+
   function exportText() {
     var out = [];
-    var shown = 0;
-    var answered = 0;
     var body = [];
     var lastPart = null;
+    var open = openProblems();
+    var tally = countAnswers();
     reachedSections().forEach(function (s) {
       var part = PART[s.part];
       if (part !== lastPart) {
@@ -958,8 +1040,6 @@
       body.push('-- ' + s.title + ' --', '');
       visibleQuestions(s).forEach(function (q) {
         var a = answerOf(q);
-        shown++;
-        if (a) answered++;
         body.push(q.title);
         if (!a) body.push('  (no answer)');
         else if (a.text) body.push('  ' + a.text.replace(/\n/g, '\n  '));
@@ -970,10 +1050,13 @@
     });
     var status = PARTS.map(function (part) {
       var any = part.screens.some(function (s) { return started() && s.index <= state.furthest; });
-      var done = part.screens.length && (isComplete() || part.screens[part.screens.length - 1].index < state.furthest);
-      return 'Part ' + part.n + (done ? ' finished' : (any ? ' started' : ' not started'));
+      var gaps = open.filter(function (o) { return o.s.part === part.id; }).length;
+      if (partPassed(part) && !gaps) return 'Part ' + part.n + ' finished';
+      if (!any) return 'Part ' + part.n + ' not started';
+      return 'Part ' + part.n + ' started' + (gaps ? ' (' + plural(gaps, 'question still needs', 'questions still need') + ' an answer)' : '');
     }).join('. ') + '.';
-    out.push(SPEC.title, 'Answers sent: ' + fmtDate(new Date()), status, 'Questions answered: ' + answered + ' of ' + shown + '.', '');
+    /* "as of", not "sent": the same text is also copied or saved as a file. */
+    out.push(SPEC.answersTitle, 'Answers as of: ' + fmtDate(new Date()), status, 'Questions answered: ' + tally.answered + ' of ' + tally.shown + '.', '');
     return out.concat(body).join('\n').replace(/\n+$/, '') + '\n';
   }
 
@@ -1006,7 +1089,7 @@
   }
 
   function doShare() {
-    navigator.share({ title: SPEC.title, text: exportText() }).then(function () {
+    navigator.share({ title: SPEC.answersTitle, text: exportText() }).then(function () {
       state.shared = Date.now();
       save();
       setStatus('Thank you. If you sent the message, we’ll have your answers. You can send them again whenever you like.');
@@ -1055,24 +1138,30 @@
     }
   }
 
+  var sending = false; // a second tap while the first is on its way must not send the answers twice
+
   function doEndpoint() {
+    if (sending) return;
+    sending = true;
     setStatus('Sending…');
     var ctl = typeof AbortController === 'function' ? new AbortController() : null;
     var timer = window.setTimeout(function () { if (ctl) ctl.abort(); }, 25000);
     var body = JSON.stringify({
       form: SPEC.client.slug, version: SPEC.version, sent_at: new Date().toISOString(),
-      complete: isComplete(), answers: answersById(), text: exportText()
+      complete: allDone(), answers: answersById(), text: exportText()
     });
     fetch(SPEC.endpoint, { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: body, signal: ctl ? ctl.signal : undefined })
       .then(function (r) {
         window.clearTimeout(timer);
+        sending = false;
         if (!r.ok) throw new Error('status ' + r.status);
         state.sent = Date.now();
         save();
-        setStatus('Sent. Thank you, ' + SPEC.client.contact + '. We’ll be in touch.');
+        setStatus('Sent. Thank you.');
       })
       .catch(function () {
         window.clearTimeout(timer);
+        sending = false;
         setStatus('That didn’t go through. Check your connection and try again, or use “Copy my answers”.', true);
         showRaw();
       });
@@ -1080,20 +1169,38 @@
 
   function answerNode(q) {
     var a = answerOf(q);
-    if (!a) return h('div', { class: 'rq__a rq__none' }, q.required ? h('span', { class: 'rq__flag', text: 'Needs an answer' }) : 'No answer');
+    var flag = problem(q) ? h('span', { class: 'rq__flag', text: 'Needs an answer' }) : null;
+    if (!a) return h('div', { class: 'rq__a rq__none' }, flag || 'No answer');
     var box = h('div', { class: 'rq__a' });
     if (a.text) box.appendChild(document.createTextNode(a.text));
     else if (a.items) box.appendChild(h('ul', null, a.items.map(function (i) { return h('li', { text: i }); })));
     else a.rows.forEach(function (r) { box.appendChild(h('span', { class: 'row' }, h('b', { text: r[1] }), ' · ' + r[0])); });
+    if (flag) box.appendChild(flag);
     return box;
   }
 
   function renderSend() {
-    var complete = isComplete();
-    var contact = SPEC.client.contact;
+    if (!countAnswers().answered) {
+      // Every question is optional, so a person can get here having answered none. There is nothing to send.
+      return h('section', { class: 'card send', 'aria-labelledby': 'h1' },
+        h('h1', { id: 'h1', tabindex: '-1', text: 'You haven’t answered anything yet.' }),
+        rich('That’s fine. Nothing has been sent. You can go back and answer any question, or just close this page.'),
+        h('div', { class: 'send__actions' },
+          h('button', { type: 'button', class: 'btn btn--primary btn--block', onclick: function () { state.ended = false; editing = false; save(); go(SCREENS[0].id); } },
+            'Go to the first question')));
+    }
+    var open = openProblems();
+    var complete = isComplete() && !open.length;
     var card = h('section', { class: 'card send', 'aria-labelledby': 'h1' });
-    card.appendChild(h('h1', { id: 'h1', tabindex: '-1', text: complete ? 'That’s everything, ' + contact + '. Thank you.' : 'Thank you, ' + contact + '. Here’s what you have so far.' }));
+    card.appendChild(h('h1', { id: 'h1', tabindex: '-1', text: complete ? 'That’s everything. Thank you.' : 'Thank you. Here’s what you have so far.' }));
     card.appendChild(rich(complete ? SPEC.done : SPEC.partial));
+    if (open.length) {
+      // Reached by an edit that opened new questions and a jump through the Sections menu: say so instead of "that's everything".
+      card.appendChild(h('div', { class: 'send__needs' },
+        h('h2', { text: plural(open.length, 'question still needs', 'questions still need') + ' an answer' }),
+        h('p', { text: 'They are marked in your answers below. You can send what you have now, or answer them first.' }),
+        h('button', { type: 'button', class: 'btn btn--quiet btn--block', onclick: function () { editing = true; go(open[0].s.id); } }, 'Go to the first one')));
+    }
     var actions = h('div', { class: 'send__actions' });
     function button(label, fn, primary, ic) {
       return h('button', { type: 'button', class: 'btn btn--block ' + (primary ? 'btn--primary' : 'btn--quiet'), onclick: fn }, icon(ic), label);
@@ -1116,7 +1223,7 @@
     raw.appendChild(ta);
     card.appendChild(raw);
 
-    if (!complete) {
+    if (!isComplete()) {
       var at = SCREENS[Math.max(0, Math.min(state.furthest, SCREENS.length - 1))];
       var target = at.kind === 'stop' ? SCREENS[at.index + 1] : at; // a stop is passed; anywhere else, resume there
       if (target) {

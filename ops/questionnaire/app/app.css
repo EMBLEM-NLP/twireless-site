@@ -40,7 +40,12 @@
 
 *, *::before, *::after { box-sizing: border-box; }
 [hidden] { display: none !important; }
-html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; color-scheme: light; }
+html {
+  -webkit-text-size-adjust: 100%; text-size-adjust: 100%; color-scheme: light;
+  /* The header and the bottom bar stay on screen, so anything scrolled into view (Tab, an error, a hash) must stop short of them.
+     Set here, for the whole page: a margin on each question doesn't help when the control that gets focus is inside one. */
+  scroll-padding-top: 92px; scroll-padding-bottom: calc(100px + env(safe-area-inset-bottom));
+}
 body {
   margin: 0;
   background: var(--tint);
@@ -147,7 +152,7 @@ button { cursor: pointer; }
 .page__desc { margin-top: 6px; font-size: 16px; color: var(--ink-2); }
 .page--enter { animation: rise .26s ease both; }
 
-.q { padding: 20px 0 22px; border-top: 1px solid var(--line); scroll-margin-top: 84px; scroll-margin-bottom: 96px; }
+.q { padding: 20px 0 22px; border-top: 1px solid var(--line); }
 .page > .q:first-child, .body > .q:first-child, .page__title + .q, .page__desc + .q { border-top: 0; }
 .page > .q:first-child { padding-top: 14px; }
 .body > .q:first-child, .note + .q { padding-top: 14px; }
@@ -240,6 +245,7 @@ textarea.input { min-height: 136px; resize: vertical; line-height: 1.45; }
 .btn--quiet:hover { background: var(--wash); }
 .btn--block { display: flex; width: 100%; }
 .btn svg { width: 22px; height: 22px; flex: none; }
+a.btn { text-decoration: none; }
 .btn small { display: block; font-size: 14px; font-weight: 450; opacity: .92; }
 .foot {
   position: sticky; bottom: 0; z-index: 20; background: #fff;
@@ -261,6 +267,7 @@ textarea.input { min-height: 136px; resize: vertical; line-height: 1.45; }
 .welcome h1 { font-size: 29px; line-height: 1.15; font-weight: 780; color: var(--blue-deep); letter-spacing: -0.006em; }
 .welcome__text { margin-top: 14px; }
 .welcome__text p { margin: 0 0 10px; }
+.welcome__drafts { margin: 16px 0 0; }
 .roadmap { list-style: none; margin: 18px 0 0; padding: 0; border-top: 1px solid var(--line); }
 .roadmap li { display: flex; gap: 14px; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--line); }
 .roadmap__n {
@@ -303,12 +310,14 @@ textarea.input { min-height: 136px; resize: vertical; line-height: 1.45; }
 .send__status { margin-top: 12px; font-weight: 600; color: var(--blue-deep); }
 .send__status:empty { margin: 0; }
 .send__status.is-bad { color: var(--red-text); }
-.send__more { margin-top: 18px; padding-top: 18px; border-top: 1px solid var(--line); }
-.send__more h2 { font-size: 18px; font-weight: 700; margin-bottom: 4px; }
-.send__more p { margin-bottom: 10px; color: var(--ink-2); font-size: 15.5px; }
+.send__more, .send__needs { margin-top: 18px; padding-top: 18px; border-top: 1px solid var(--line); }
+.send__more h2, .send__needs h2 { font-size: 18px; font-weight: 700; margin-bottom: 4px; }
+.send__more p, .send__needs p { margin-bottom: 10px; color: var(--ink-2); font-size: 15.5px; }
+.send__needs h2 { color: var(--red-text); }
 details.raw { margin-top: 16px; font-size: 15px; }
 details.raw summary { cursor: pointer; display: flex; align-items: center; min-height: 44px; padding: 4px 0; color: var(--blue-deep); font-weight: 600; }
-details.raw textarea { width: 100%; min-height: 220px; margin-top: 6px; padding: 10px; font: 13.5px/1.45 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; border: 1.5px solid var(--edge); border-radius: 10px; }
+/* 16px, not smaller: Safari on an iPhone zooms the page in when a box with smaller text is tapped. */
+details.raw textarea { width: 100%; min-height: 220px; margin-top: 6px; padding: 10px; font: 16px/1.45 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; border: 1.5px solid var(--edge); border-radius: 10px; }
 .review { padding: 4px var(--gut) 14px; }
 .review h2 { padding: 18px 0 4px; font-size: 22px; line-height: 1.2; font-weight: 740; color: var(--blue-deep); }
 .review__lead { font-size: 15.5px; color: var(--ink-2); }
@@ -328,6 +337,7 @@ details.raw textarea { width: 100%; min-height: 220px; margin-top: 6px; padding:
 .rq__a .row b { font-weight: 600; }
 .rq__none { color: var(--ink-3); font-weight: 400; font-style: italic; }
 .rq__flag { color: var(--red-text); font-weight: 600; font-style: normal; }
+.rq__a .rq__flag { display: block; margin-top: 4px; }
 .rpart { margin: 22px 0 0; padding: 12px 14px; border-radius: 10px; background: var(--wash); border: 1px solid var(--line); color: var(--ink-2); font-size: 15.5px; }
 .rpart b { color: var(--ink); }
 .erase { margin-top: 22px; padding-top: 18px; border-top: 1px solid var(--line); }
@@ -343,7 +353,7 @@ details.raw textarea { width: 100%; min-height: 220px; margin-top: 6px; padding:
 .menu__panel {
   width: 100%; max-width: 560px; max-height: 90vh; max-height: 90dvh; overflow: auto;
   background: #fff; border-radius: 18px 18px 0 0; padding-bottom: env(safe-area-inset-bottom);
-  -webkit-overflow-scrolling: touch;
+  -webkit-overflow-scrolling: touch; overscroll-behavior: contain; /* scrolling to the end of the list must not move the page behind it */
 }
 .menu__head {
   position: sticky; top: 0; z-index: 2; display: flex; justify-content: space-between; align-items: center;
@@ -360,6 +370,8 @@ details.raw textarea { width: 100%; min-height: 220px; margin-top: 6px; padding:
   display: flex; align-items: center; gap: 12px; width: 100%; min-height: 48px; padding: 8px 8px;
   background: none; border: 0; border-radius: 10px; text-align: left; font-size: 16.5px; line-height: 1.3;
 }
+.toc__name { flex: 1 1 auto; min-width: 0; }
+.toc__need { flex: none; font-size: 13.5px; font-weight: 650; color: var(--red-text); }
 .toc__item:hover:not(:disabled) { background: var(--wash); }
 .toc__item[aria-current="step"] { background: var(--tint); font-weight: 650; }
 .toc__item:disabled { color: var(--ink-3); cursor: default; }
