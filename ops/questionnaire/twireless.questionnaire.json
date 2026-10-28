@@ -1,0 +1,835 @@
+{
+  "schema": 1,
+  "client": {
+    "slug": "twireless",
+    "name": "T Wireless",
+    "contact": "Ali",
+    "agency": "EMBLEM-NLP",
+    "address": "965 Bovaird Dr W, Unit 1, Brampton, ON",
+    "researched_on": "October 28, 2026"
+  },
+  "form": {
+    "title": "T Wireless website: quick questions",
+    "description": "Hi Ali,\n\nWe’re building the new T Wireless website. We want it to say only what’s true about your store, so we need your help with a few facts.\n\nMost questions are one tap. If you’re not sure, choose “Not sure” and we’ll work it out together. Nothing goes on the website until you’ve seen it and said yes.\n\nThere are three parts. Part 1 (about 10 minutes) is what we need first. Parts 2 and 3 are shorter, and you can stop at the end of any part.\n\nPrepared by EMBLEM-NLP.",
+    "confirmation": "Thank you, Ali. We’ll update the draft with your answers and send it back for you to check. Nothing goes on the website until you say yes.\n\nIf you stopped early, use “Edit your response” below to carry on whenever you like.",
+    "theme": { "color": "#00549A", "background": "#E6EEF7", "font": "Basic" },
+    "settings": { "progress_bar": true, "allow_edits": true, "show_respond_again": false }
+  },
+  "parts": [
+    { "id": "p1", "title": "Part 1 of 3: What we need first", "minutes": "about 10 minutes", "required_for": "the first new pages (phones, repairs, business) and the web address" },
+    { "id": "p2", "title": "Part 2 of 3: Before the site goes live", "minutes": "about 6 minutes", "required_for": "the statements the site makes about how the store works" },
+    { "id": "p3", "title": "Part 3 of 3: For the next pages", "minutes": "about 8 minutes, optional", "required_for": "trade-ins, accessories, about the store, repair terms, accessibility and social links" }
+  ],
+  "sections": [
+    {
+      "id": "about",
+      "part": "p1",
+      "title": "Part 1 of 3: About you",
+      "description": "This part is what we need first. It takes about 10 minutes.",
+      "questions": [
+        { "id": "name", "type": "text", "required": true, "title": "Your name" },
+        {
+          "id": "role", "type": "choice", "required": true,
+          "title": "Which best describes you?",
+          "options": [
+            "I own the store and decide about the website",
+            "I own the store with a partner or family member, and we decide together",
+            "I manage the store and need the owner’s OK",
+            "I work at the store"
+          ],
+          "unlocks": ["confirm:ownership"],
+          "why": "Tells us who can approve what the site claims."
+        },
+        {
+          "id": "reach", "type": "choice", "required": false,
+          "title": "What’s the best way to reach you with a quick question?",
+          "options": ["Phone call", "Text message", "WhatsApp", "Email"]
+        }
+      ]
+    },
+    {
+      "id": "details",
+      "part": "p1",
+      "title": "Your store’s details",
+      "description": "We have these from your business card, Google and Bell’s store finder. Please tell us which ones are right.",
+      "questions": [
+        {
+          "id": "postal", "type": "choice", "required": true, "other": true,
+          "title": "Which postal code is right for 965 Bovaird Dr W, Unit 1?",
+          "help": "Your business card and Google show L6X 0G3 (the card reads “I6X OG3”). Bell’s store finder, and MapQuest, show L6X 5K7. If neither is right, choose Other and type it.",
+          "options": ["L6X 0G3", "L6X 5K7", "Not sure"],
+          "unlocks": ["check:1", "research:listings"],
+          "why": "Two postal codes are in use online. A wrong one breaks the map pin, the Google listing match and the privacy page."
+        },
+        {
+          "id": "phone", "type": "choice", "required": true, "other": true,
+          "title": "Is 647-707-1093 the number customers should call?",
+          "help": "Not right? Choose Other and type the right number.",
+          "options": ["Yes, for calls and texts", "Yes, for calls only"]
+        },
+        {
+          "id": "email", "type": "choice", "required": true, "other": true,
+          "title": "Which email should customers see on the website?",
+          "help": "Want a different one? Choose Other and type it.",
+          "options": ["twireless965@gmail.com", "None. Customers should use the contact form"],
+          "unlocks": ["check:15"]
+        },
+        {
+          "id": "hours", "type": "choice", "required": true, "other": true,
+          "title": "What are your regular opening hours?",
+          "help": "We found four different versions, so we want yours.\nBell: every day, 10 a.m. to 8 p.m.\nGoogle: Sunday 10:30 a.m. to 7 p.m., other days 10 to 8.\nYellow Pages: Monday to Friday 10 to 8, Saturday 11 to 6, Sunday 11 to 5.\nMapQuest: Monday to Saturday 11 to 8, closed Sunday.\nIf none is right, choose Other and write your hours day by day.",
+          "options": [
+            "Every day, 10 a.m. to 8 p.m. (Bell)",
+            "Monday to Saturday 10 to 8, Sunday 10:30 to 7 (Google)",
+            "Monday to Friday 10 to 8, Saturday 11 to 6, Sunday 11 to 5 (Yellow Pages)",
+            "Monday to Saturday 11 to 8, closed Sunday (MapQuest)"
+          ],
+          "unlocks": ["check:2", "research:listings"],
+          "why": "Four public sources disagree. The site’s open and closed signs follow whatever we put in the weekly hours."
+        },
+        {
+          "id": "holidays", "type": "choice", "required": true, "other": true,
+          "title": "What should the website say about public holidays?",
+          "help": "Our draft tells visitors to phone first on a public holiday.",
+          "options": [
+            "Keep that: phone first on public holidays",
+            "We’re closed on public holidays",
+            "We’re open our usual hours on public holidays"
+          ],
+          "unlocks": ["check:2"]
+        }
+      ]
+    },
+    {
+      "id": "finding",
+      "part": "p1",
+      "title": "Finding the store",
+      "questions": [
+        {
+          "id": "entrance", "type": "choice", "required": true,
+          "title": "Google says your entrance is wheelchair accessible. Is that right?",
+          "options": [
+            "Yes, the entrance is step-free",
+            "Partly. A customer may need help or a door button",
+            "No, there is a step",
+            "Not sure"
+          ],
+          "unlocks": ["check:7", "phase3:accessibility"]
+        },
+        {
+          "id": "directions", "type": "choice", "required": true, "other": true,
+          "title": "Our map says: “South side of Bovaird, just east of Chinguacousy Rd.” Is that right?",
+          "help": "If not, choose Other and tell us how you’d describe where the store is.",
+          "options": ["Yes, that’s right"],
+          "unlocks": ["check:8"]
+        }
+      ]
+    },
+    {
+      "id": "online",
+      "part": "p1",
+      "title": "Your web address and online accounts",
+      "description": "We looked up what exists online for T Wireless on October 28, 2026.\n\n• twireless.ca and t-wireless.ca are not registered, so they’re free to claim.\n• t-wireless.com is registered (since July 2024) and shows a “coming soon” page. We can’t see who owns it.\n• twireless.com is registered and for sale through a broker.\n\nWe can’t see inside your Google or Facebook accounts, so these questions are about what you have.",
+      "questions": [
+        {
+          "id": "has_site", "type": "choice", "required": true, "other": true,
+          "title": "Does the store have a website today?",
+          "help": "If yes, choose Other and type the address.",
+          "options": ["No, not yet", "Not sure"],
+          "unlocks": ["research:domain"]
+        },
+        {
+          "id": "twcom", "type": "choice", "required": true,
+          "title": "Who owns t-wireless.com, the “coming soon” page?",
+          "options": [
+            "I do",
+            "A family member, partner or friend does",
+            "A web designer or company set it up for us",
+            "Nobody I know of",
+            "Not sure"
+          ],
+          "unlocks": ["research:domain", "research:dns", "check:4"],
+          "why": "Registered July 29, 2024 through Squarespace Domains, served by Squarespace, with Mailgun mail records. The registrant is hidden, so only Ali can tell us whose it is."
+        },
+        {
+          "id": "tbooth", "type": "choice", "required": false,
+          "title": "MapQuest lists tboothwireless.ca for your address. That’s tbooth wireless, a Canadian phone retailer. Is it connected to your store?",
+          "options": ["No, it’s a different company", "Yes, we are or were connected to them", "Not sure"],
+          "unlocks": ["research:listings", "confirm:tradein-recycling"],
+          "why": "MapQuest’s description of this address (Apple, Samsung and Motorola phones; Rogers, Bell and Fido plans; trade-ins and recycling) says it was generated from the tbooth site."
+        },
+        {
+          "id": "domain_pref", "type": "choice", "required": true, "other": true,
+          "title": "Which web address would you like for the new site?",
+          "help": "We suggest a .ca address. It tells customers you’re a Canadian business, and it costs a small yearly fee.",
+          "options": [
+            "twireless.ca (free right now)",
+            "t-wireless.ca (free right now)",
+            "t-wireless.com, if it turns out to be ours",
+            "You suggest one"
+          ],
+          "unlocks": ["check:4", "research:domain"]
+        },
+        {
+          "id": "google_profile", "type": "choice", "required": true,
+          "title": "Who manages your Google listing (Google Business Profile)?",
+          "help": "Search “T Wireless Brampton” on Google while signed in. If you see “Edit your profile”, you manage it.",
+          "options": ["I do, and I can sign in", "Someone else does", "Nobody. We never claimed it", "Not sure"],
+          "unlocks": ["research:gbp", "check:2", "check:17"],
+          "why": "Ownership of a Google Business Profile isn’t visible from outside. Hours, the postal code and the rating all live there."
+        },
+        {
+          "id": "rating", "type": "choice", "required": false,
+          "title": "Google shows 4.1 stars from 95 reviews. Can the website show your rating?",
+          "help": "It would link to your Google reviews.",
+          "options": ["Yes, show it", "No, leave it off"],
+          "unlocks": ["check:17"]
+        },
+        {
+          "id": "facebook", "type": "choice", "required": false,
+          "title": "Is facebook.com/Ifix4uu the store’s Facebook page?",
+          "help": "Yellow Pages lists it as the store’s website.",
+          "options": [
+            "Yes, it’s ours",
+            "It’s linked to the store but someone else runs it",
+            "No, it isn’t ours",
+            "Not sure"
+          ],
+          "unlocks": ["research:facebook", "phase3:social", "confirm:social"]
+        },
+        {
+          "id": "helpers", "type": "paragraph", "required": false,
+          "title": "If someone else set up a website, Google listing, Facebook page or email for the store, who was it?",
+          "help": "Names or companies, and what they did. We’d also like to know where your web address and email were bought, for example Squarespace, Google or GoDaddy.",
+          "unlocks": ["research:domain", "research:dns"]
+        }
+      ]
+    },
+    {
+      "id": "sells",
+      "part": "p1",
+      "title": "What you sell and set up",
+      "description": "This is for the new “In store now” phones section and the services pages.",
+      "questions": [
+        {
+          "id": "brands", "type": "checkbox", "required": true, "other": true,
+          "title": "Which phone brands do you usually have in the store?",
+          "help": "Yellow Pages lists iPhone, Android and HTC.",
+          "options": ["iPhone (Apple)", "Samsung Galaxy", "Google Pixel", "Motorola"],
+          "unlocks": ["phase1:phones", "confirm:availability"]
+        },
+        {
+          "id": "kinds", "type": "checkbox", "required": false,
+          "title": "Which of these do you sell?",
+          "help": "Yellow Pages says you sell new phones for all carriers and unlock phones.",
+          "options": [
+            "New phones",
+            "Used or refurbished phones",
+            "Unlocked phones that work with any carrier",
+            "Prepaid SIM cards"
+          ],
+          "unlocks": ["phase1:phones"]
+        },
+        {
+          "id": "stock_talk", "type": "choice", "required": true,
+          "title": "How should the website talk about the phones you have?",
+          "help": "Stock changes every day, so we won’t call a model “in stock” unless you tell us to.",
+          "options": [
+            "Show the brands we carry and ask people to call or text to check stock",
+            "Show a short list of current models. I’ll tell you when it changes",
+            "Don’t mention specific phones"
+          ],
+          "unlocks": ["phase1:phones", "confirm:availability", "check:9"]
+        },
+        {
+          "id": "services", "type": "grid", "required": false,
+          "title": "Which of these can the store set up for a customer?",
+          "help": "Bell lists your store for mobile devices for business and consumers, and for home internet, TV and phone.",
+          "rows": [
+            "Bell phones and plans",
+            "Virgin Plus phones and plans",
+            "Lucky Mobile phones and plans",
+            "Prepaid plans",
+            "Bell home internet",
+            "Fibe TV",
+            "Satellite TV",
+            "Bell Home Phone",
+            "Business mobile plans",
+            "Bell SmartPay (paying for a phone over time)",
+            "Device Return Option (also called Flex Option)",
+            "Phone unlocking"
+          ],
+          "cols": ["Yes", "Sometimes or by appointment", "No", "Not sure"],
+          "unlocks": ["check:5", "check:11"]
+        }
+      ]
+    },
+    {
+      "id": "repairs_q",
+      "part": "p1",
+      "title": "Repairs",
+      "questions": [
+        {
+          "id": "repairs", "type": "choice", "required": true,
+          "title": "Does the store repair devices?",
+          "options": ["Yes, in the store", "Yes, but we send some repairs away", "Only small repairs", "No"],
+          "goto": { "No": "biz_q" },
+          "unlocks": ["phase1:repairs", "check:6"]
+        }
+      ]
+    },
+    {
+      "id": "repairs_detail",
+      "part": "p1",
+      "title": "What you repair",
+      "questions": [
+        {
+          "id": "repair_brands", "type": "checkbox", "required": true, "other": true,
+          "title": "Which brands do you repair?",
+          "help": "We’ll list these in plain text on the website.",
+          "options": ["iPhone", "Samsung", "Google Pixel", "iPad", "Other tablets", "Laptops", "Game consoles"],
+          "unlocks": ["phase1:repairs"]
+        },
+        {
+          "id": "repair_types", "type": "checkbox", "required": true, "other": true,
+          "title": "Which repairs do you do?",
+          "help": "Our draft lists screens, batteries, charging faults, cameras, speakers and microphones, and water damage.",
+          "options": [
+            "Cracked or broken screens",
+            "Batteries",
+            "Charging port faults",
+            "Cameras",
+            "Speakers and microphones",
+            "Water damage",
+            "Back glass",
+            "Buttons",
+            "Software problems"
+          ],
+          "unlocks": ["check:6", "phase1:repairs"]
+        },
+        {
+          "id": "repair_quote", "type": "choice", "required": true,
+          "title": "Do you quote the price before you start a repair?",
+          "options": ["Yes, always", "Usually", "No"],
+          "unlocks": ["check:6"]
+        }
+      ]
+    },
+    {
+      "id": "biz_q",
+      "part": "p1",
+      "title": "Business customers",
+      "description": "Bell lists your store for mobile devices for business customers. We’d like to add a Business page with a “Buying for a team?” button.",
+      "questions": [
+        {
+          "id": "biz", "type": "choice", "required": true,
+          "title": "Does the store help businesses and teams?",
+          "options": ["Yes, regularly", "Sometimes", "No, we focus on individuals and families"],
+          "goto": { "No, we focus on individuals and families": "gate1" },
+          "unlocks": ["phase1:business"]
+        }
+      ]
+    },
+    {
+      "id": "biz_detail",
+      "part": "p1",
+      "title": "How you help businesses",
+      "questions": [
+        {
+          "id": "biz_services", "type": "checkbox", "required": true, "other": true,
+          "title": "How can you help a business?",
+          "options": [
+            "Mobile plans for several employees",
+            "Phones for the whole team",
+            "Moving a team’s numbers from another provider",
+            "Business internet",
+            "Business TV and phone",
+            "One person to call about the account",
+            "Repairs for staff phones"
+          ],
+          "unlocks": ["phase1:business"]
+        },
+        {
+          "id": "biz_contact", "type": "choice", "required": true,
+          "title": "How should a business get in touch?",
+          "help": "This sets what the “Buying for a team?” button does.",
+          "options": ["Call the store", "Email", "Fill in a form on the website", "Any of these"],
+          "unlocks": ["phase1:business"]
+        }
+      ]
+    },
+    {
+      "id": "gate1",
+      "part": "p1",
+      "title": "Part 1 is done. Thank you.",
+      "description": "Parts 2 and 3 are shorter. You can carry on now or come back later. If you stop here, use “Edit your response” on the next page to come back.",
+      "gate": true,
+      "questions": [
+        {
+          "id": "go2", "type": "choice", "required": true,
+          "title": "What would you like to do?",
+          "options": ["Keep going to Part 2", "I’ll finish later. Send what I’ve done so far"],
+          "goto": { "Keep going to Part 2": "works", "I’ll finish later. Send what I’ve done so far": "@submit" }
+        }
+      ]
+    },
+    {
+      "id": "works",
+      "part": "p2",
+      "title": "Part 2 of 3: How the store works",
+      "description": "This part is what must be true before the site goes live. It takes about 6 minutes. Our draft pages describe how a visit goes. Tell us what’s true for your store.",
+      "questions": [
+        {
+          "id": "works", "type": "grid", "required": false,
+          "title": "Which of these are true for your store?",
+          "help": "These are lines from our draft pages.",
+          "rows": [
+            "For a repair, we give the customer a time to collect the phone.",
+            "When someone moves their number to us, we handle it and their old plan closes by itself.",
+            "We take trade-ins and tell the customer if their old phone can earn credit toward a new one.",
+            "We look up the customer’s address and book the Bell technician for home internet and TV.",
+            "We carry both iPhone and Android phones.",
+            "We can set up a plan on a phone the customer already owns.",
+            "If a customer rings first, we tell them whether a model or colour is in the store.",
+            "If a customer brings a recent bill, we go through offers, plans and home services with them.",
+            "Walk-ins are welcome and need no appointment.",
+            "If someone books a visit, we expect them.",
+            "Our staff call customers back after a form request."
+          ],
+          "cols": ["True", "Sometimes", "Not true", "Not sure"],
+          "unlocks": ["check:9", "confirm:availability", "confirm:tradein-recycling"]
+        },
+        {
+          "id": "ali_name", "type": "choice", "required": false, "other": true,
+          "title": "May we name you on the Visit page as the person to ask for?",
+          "help": "To use a different name, choose Other and type it.",
+          "options": ["Yes, name me (Ali)", "No, just say “our team”"],
+          "unlocks": ["check:9"]
+        },
+        {
+          "id": "bring", "type": "checkbox", "required": false, "other": true,
+          "title": "What do customers need to bring?",
+          "help": "Our draft says: photo ID in case it’s needed; a recent bill showing the account number when moving a number; the address with its unit number for home internet and TV; the phone for a repair. Tick what you really ask for.",
+          "options": [
+            "Photo ID",
+            "A recent bill with the account number (to move a number)",
+            "The address with its unit number (home internet and TV)",
+            "The phone to be repaired",
+            "Nothing special"
+          ],
+          "unlocks": ["check:10"]
+        }
+      ]
+    },
+    {
+      "id": "offers",
+      "part": "p2",
+      "title": "Offers and notices",
+      "questions": [
+        {
+          "id": "offers", "type": "choice", "required": true,
+          "title": "What should the website say about offers?",
+          "help": "Offers change often, so an old one on the website can cause problems at the counter.",
+          "options": [
+            "Link to Bell’s offers page and keep the store’s own offers off the website",
+            "The store has its own offers. We’ll send you the details and end dates",
+            "No offers on the website for now"
+          ],
+          "unlocks": ["check:3"]
+        },
+        {
+          "id": "notices", "type": "grid", "required": false,
+          "title": "Are these two lines on our draft pages still right?",
+          "rows": [
+            "Virgin Plus prepaid plans end on January 15, 2027.",
+            "Virgin Plus hasn’t taken new home internet or TV customers in Ontario since January 14, 2026."
+          ],
+          "cols": ["Right", "Not right", "Not sure"],
+          "unlocks": ["check:12", "check:11"]
+        }
+      ]
+    },
+    {
+      "id": "bell",
+      "part": "p2",
+      "title": "Bell’s name and logos",
+      "description": "We want to follow Bell’s rules for dealers.",
+      "questions": [
+        {
+          "id": "spelling", "type": "choice", "required": true, "other": true,
+          "title": "How does Bell write your title on your dealer agreement or shop sign?",
+          "help": "Your card says “Authorised”. The decals in your window say “Authorized”.",
+          "options": ["Bell Authorized Retailer", "Bell Authorised Retailer", "Bell Authorized Dealer", "Not sure"],
+          "unlocks": ["check:16"]
+        },
+        {
+          "id": "logos", "type": "choice", "required": true,
+          "title": "Has Bell said you can show the Bell, Virgin Plus and Lucky Mobile logos on your website?",
+          "options": ["Yes, in writing or in a dealer kit", "We haven’t asked yet", "Bell said no", "Not sure"],
+          "unlocks": ["check:13"]
+        },
+        {
+          "id": "bell_approval", "type": "choice", "required": false,
+          "title": "Does Bell need to see or approve the website before it goes live?",
+          "options": ["Yes", "No", "Not sure"],
+          "unlocks": ["check:13"]
+        },
+        {
+          "id": "bell_contact", "type": "text", "required": false,
+          "title": "Who is your Bell contact for dealer questions?",
+          "help": "A name, and a phone number or email. We’d like to check the program details (SmartPay, Device Return Option, and the Virgin Plus and Lucky Mobile terms) with them.",
+          "unlocks": ["check:11", "check:13"]
+        }
+      ]
+    },
+    {
+      "id": "messages",
+      "part": "p2",
+      "title": "Messages, privacy and photos",
+      "questions": [
+        {
+          "id": "forms_to", "type": "choice", "required": true, "other": true,
+          "title": "When someone sends a repair or visit request from the website, where should it go?",
+          "help": "To use a different email, choose Other and type it.",
+          "options": ["Email to twireless965@gmail.com"],
+          "unlocks": ["check:15"]
+        },
+        {
+          "id": "reply", "type": "choice", "required": false,
+          "title": "What can the website promise about replies?",
+          "options": [
+            "Nothing specific. Just say we’ll get back to them",
+            "We reply the same day",
+            "We reply by the next business day",
+            "We reply within an hour while we’re open"
+          ],
+          "unlocks": ["check:15", "check:9"]
+        },
+        {
+          "id": "privacy_contact", "type": "text", "required": true,
+          "title": "Who should customers contact about their personal information?",
+          "help": "A name and an email. Canadian privacy rules expect a named person.",
+          "unlocks": ["check:14"]
+        },
+        {
+          "id": "privacy_practice", "type": "choice", "required": false,
+          "title": "Our draft privacy page says you delete a request once you’re done with it, and show or erase what you hold if someone asks. Is that how you work?",
+          "options": ["Yes, that’s what we do", "Not exactly. I’ll explain at the end", "Not sure"],
+          "unlocks": ["check:14"]
+        },
+        {
+          "id": "photos", "type": "choice", "required": true,
+          "title": "What should we do about photos?",
+          "help": "Real photos of the shop front, the counter and the repair bench look best.",
+          "options": [
+            "I’ll send photos of the inside, the outside and the counter",
+            "I’d like help getting good photos",
+            "Use stock photos for now"
+          ],
+          "unlocks": ["check:18", "check:19", "check:21"]
+        },
+        {
+          "id": "staff_photos", "type": "choice", "required": false,
+          "title": "May staff appear in photos?",
+          "options": ["Yes", "Only the people who agree", "No"],
+          "unlocks": ["check:19"]
+        }
+      ]
+    },
+    {
+      "id": "gate2",
+      "part": "p2",
+      "title": "Part 2 is done. Thank you.",
+      "description": "Part 3 is optional. It covers trade-ins, accessories, your story and your social accounts. If you stop here, use “Edit your response” on the next page to come back.",
+      "gate": true,
+      "questions": [
+        {
+          "id": "go3", "type": "choice", "required": true,
+          "title": "What would you like to do?",
+          "options": ["Keep going to Part 3", "That’s enough for now. Send my answers"],
+          "goto": { "Keep going to Part 3": "tradein_q", "That’s enough for now. Send my answers": "@submit" }
+        }
+      ]
+    },
+    {
+      "id": "tradein_q",
+      "part": "p3",
+      "title": "Part 3 of 3: Trade-ins",
+      "description": "This part is optional. It helps with the next pages and takes about 8 minutes. One listing mentions trade-ins and recycling for your address, but its text came from a different company’s website, so we don’t want to guess.",
+      "questions": [
+        {
+          "id": "tradein", "type": "choice", "required": true,
+          "title": "Do you take trade-ins?",
+          "options": [
+            "Yes, through Bell’s trade-in program",
+            "Yes, the store pays its own cash or credit",
+            "Both",
+            "No"
+          ],
+          "goto": { "No": "recycling" },
+          "unlocks": ["phase2:tradein", "confirm:tradein-recycling"]
+        }
+      ]
+    },
+    {
+      "id": "tradein_detail",
+      "part": "p3",
+      "title": "Trade-in details",
+      "questions": [
+        {
+          "id": "tradein_devices", "type": "checkbox", "required": false, "other": true,
+          "title": "Which devices can people trade in?",
+          "options": ["Phones", "Tablets", "Smartwatches", "Laptops"],
+          "unlocks": ["phase2:tradein"]
+        },
+        {
+          "id": "tradein_value", "type": "choice", "required": false, "other": true,
+          "title": "How does the customer get the value of the old device?",
+          "options": ["Credit on a new phone or on the bill", "Cash", "Either", "It depends on the program"],
+          "unlocks": ["phase2:tradein", "confirm:tradein-recycling"]
+        }
+      ]
+    },
+    {
+      "id": "recycling",
+      "part": "p3",
+      "title": "Recycling",
+      "questions": [
+        {
+          "id": "recycle", "type": "choice", "required": false,
+          "title": "Does the store collect old devices for recycling?",
+          "options": ["Yes, for anyone", "Yes, for customers only", "No", "Not sure"],
+          "unlocks": ["phase2:recycling", "confirm:tradein-recycling"]
+        },
+        {
+          "id": "recycle_where", "type": "text", "required": false,
+          "title": "Where do the collected devices go?",
+          "help": "For example a recycling program, Bell or a company. Leave blank if you’re not sure.",
+          "unlocks": ["phase2:recycling"]
+        }
+      ]
+    },
+    {
+      "id": "accessories",
+      "part": "p3",
+      "title": "Accessories and payments",
+      "questions": [
+        {
+          "id": "accessories", "type": "checkbox", "required": false, "other": true,
+          "title": "Which accessories do you sell?",
+          "options": [
+            "Phone cases",
+            "Screen protectors",
+            "Chargers and cables",
+            "Wireless chargers and power banks",
+            "Earbuds and headphones",
+            "Bluetooth speakers",
+            "Smartwatches and bands",
+            "Memory cards"
+          ],
+          "unlocks": ["phase2:accessories"]
+        },
+        {
+          "id": "fit", "type": "choice", "required": false,
+          "title": "Do you fit screen protectors in the store?",
+          "options": ["Yes, free with the purchase", "Yes, for a fee", "No"],
+          "unlocks": ["phase2:accessories"]
+        },
+        {
+          "id": "payments", "type": "checkbox", "required": false, "other": true,
+          "title": "Which payment methods do you accept?",
+          "options": ["Debit", "Visa", "Mastercard", "American Express", "Cash", "Tap to pay", "Interac e-Transfer"],
+          "unlocks": ["phase2:accessories"]
+        }
+      ]
+    },
+    {
+      "id": "about_store",
+      "part": "p3",
+      "title": "About the store",
+      "questions": [
+        {
+          "id": "ownership", "type": "checkbox", "required": false,
+          "title": "Which of these can we say about the store?",
+          "help": "We’ll only say what you tick.",
+          "options": [
+            "It’s an independent store, not owned by Bell",
+            "It’s locally owned",
+            "It’s family-owned",
+            "The owner is usually in the store",
+            "Leave ownership out"
+          ],
+          "unlocks": ["phase2:about", "confirm:ownership"]
+        },
+        {
+          "id": "opened", "type": "text", "required": false,
+          "title": "In what year did the store open?",
+          "help": "Leave blank if you’d rather not say.",
+          "unlocks": ["phase2:about"]
+        },
+        {
+          "id": "languages", "type": "checkbox", "required": false, "other": true,
+          "title": "Which languages can your team help customers in?",
+          "options": [
+            "English", "French", "Punjabi", "Hindi", "Urdu", "Gujarati",
+            "Tamil", "Arabic", "Spanish", "Tagalog", "Mandarin", "Cantonese"
+          ],
+          "unlocks": ["phase2:about", "confirm:languages"]
+        },
+        {
+          "id": "lang_when", "type": "choice", "required": false,
+          "title": "When can customers get help in those languages?",
+          "options": ["Any time we’re open", "On some days or hours", "Only when certain staff are in"],
+          "unlocks": ["confirm:languages"]
+        },
+        {
+          "id": "story", "type": "paragraph", "required": false,
+          "title": "What would you like customers to know about the store?",
+          "help": "For example why you opened, how long you’ve been in Brampton, or what you’re proud of.",
+          "unlocks": ["phase2:about"]
+        },
+        {
+          "id": "team", "type": "paragraph", "required": false,
+          "title": "Would you like to introduce your team?",
+          "help": "Names and roles, one per line. Leave blank to skip.",
+          "unlocks": ["phase2:about"]
+        }
+      ]
+    },
+    {
+      "id": "repair_terms",
+      "part": "p3",
+      "title": "Repair terms",
+      "questions": [
+        {
+          "id": "warranty", "type": "choice", "required": false, "other": true,
+          "title": "Do you give a warranty on repairs?",
+          "options": [
+            "We don’t do repairs",
+            "No warranty",
+            "30 days",
+            "90 days",
+            "6 months",
+            "1 year",
+            "It depends on the part"
+          ],
+          "unlocks": ["phase3:repair-terms", "confirm:warranty"]
+        },
+        {
+          "id": "not_covered", "type": "text", "required": false,
+          "title": "What isn’t covered by the warranty?",
+          "help": "For example new drops or water damage.",
+          "unlocks": ["phase3:repair-terms", "confirm:warranty"]
+        },
+        {
+          "id": "parts", "type": "choice", "required": false,
+          "title": "What kind of parts do you use?",
+          "options": [
+            "Original parts when we can get them",
+            "Good-quality replacement parts",
+            "Both, and the customer chooses",
+            "It depends on the model"
+          ],
+          "unlocks": ["phase3:repair-terms"]
+        },
+        {
+          "id": "diagnosis", "type": "choice", "required": false, "other": true,
+          "title": "If a customer doesn’t go ahead after you look at the phone, is there a charge?",
+          "options": ["No, looking is free", "It depends"],
+          "unlocks": ["phase3:repair-terms"]
+        },
+        {
+          "id": "turnaround", "type": "choice", "required": false,
+          "title": "How long does a typical screen repair take?",
+          "options": [
+            "While you wait (under an hour)",
+            "Same day",
+            "1 to 2 days",
+            "It depends. We quote when we see the phone"
+          ],
+          "unlocks": ["phase3:repair-terms"]
+        }
+      ]
+    },
+    {
+      "id": "accessibility",
+      "part": "p3",
+      "title": "Accessibility",
+      "questions": [
+        {
+          "id": "access", "type": "checkbox", "required": false,
+          "title": "Which of these does the store have?",
+          "help": "We’ll only list what you tick.",
+          "options": [
+            "A step-free entrance",
+            "An automatic door or door button",
+            "Aisles wide enough for a wheelchair or scooter",
+            "A counter at a comfortable height for someone seated",
+            "Seating for customers",
+            "Accessible parking nearby",
+            "Staff who will come to the door to help",
+            "Service animals welcome",
+            "None of these",
+            "Not sure"
+          ],
+          "unlocks": ["phase3:accessibility"]
+        },
+        {
+          "id": "access_contact", "type": "choice", "required": false, "other": true,
+          "title": "Who should customers contact if they need help using the store or the website?",
+          "options": ["The store’s usual phone and email"],
+          "unlocks": ["phase3:accessibility"]
+        }
+      ]
+    },
+    {
+      "id": "social",
+      "part": "p3",
+      "title": "Social accounts and goals",
+      "questions": [
+        {
+          "id": "social", "type": "checkbox", "required": false,
+          "title": "Which social accounts does the store use?",
+          "options": ["Facebook", "Instagram", "TikTok", "YouTube", "X", "WhatsApp", "LinkedIn", "None"],
+          "unlocks": ["phase3:social", "confirm:social"]
+        },
+        {
+          "id": "social_links", "type": "paragraph", "required": false,
+          "title": "Paste the links or names for each one.",
+          "unlocks": ["phase3:social", "confirm:social"]
+        },
+        {
+          "id": "social_who", "type": "choice", "required": false,
+          "title": "Who posts on them?",
+          "options": ["I do", "Someone on the team", "An agency or freelancer", "Nobody. They aren’t active"],
+          "unlocks": ["phase3:social"]
+        },
+        {
+          "id": "contact_ways", "type": "checkbox", "required": false,
+          "title": "How do customers get in touch today?",
+          "options": [
+            "Phone call", "Text message", "WhatsApp", "Facebook Messenger",
+            "Instagram messages", "Email", "They walk in"
+          ],
+          "unlocks": ["phase3:social"]
+        },
+        {
+          "id": "goals", "type": "checkbox", "required": false, "other": true, "max_choices": 2,
+          "title": "What would make the new website a success for you?",
+          "help": "Choose up to two.",
+          "options": [
+            "More calls and walk-ins",
+            "More repair customers",
+            "More business customers",
+            "More plan and internet sign-ups",
+            "People finding the store on Google"
+          ]
+        },
+        {
+          "id": "anything", "type": "paragraph", "required": false,
+          "title": "Anything else we should know, or anything you definitely want or don’t want on the website?"
+        }
+      ]
+    }
+  ]
+}

@@ -7,3 +7,5 @@ __pycache__/
 # Design-test screenshots are large; they ship in t-wireless-rsi-evidence.zip
 rsi/runs/*/*/evidence/
 designs/*/imagery/originals/
+# Built next to the questionnaire preview PDF; the PDF is what's kept
+ops/questionnaire/*.html
