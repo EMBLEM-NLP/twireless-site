@@ -3,9 +3,11 @@
 Photos come from assets/img/photos/photos.json (rsi/imagery.py render). Carrier logos always sit on
 white plates with clear space around them, whether on a photo or beside text. The wording of the
 snippets built here (carrier lines, the deal button) comes from content.json, so it stays this
-design's own.
+design's own. The phone makers' logos (Apple, Samsung, Google) sit on the white tiles of the brand
+shelves; see "Phone maker logos" in the README.
 """
 import re
+from pathlib import Path
 
 # Which photo goes with which carrier, home service or offer.
 CARRIER_PHOTO = {"bell": "two-phones", "virgin-plus": "concert", "lucky-mobile": "train"}
@@ -26,6 +28,12 @@ SIZES = {
 }
 ICON = '<svg class="icon" aria-hidden="true"><use href="#{0}"></use></svg>'
 
+# The phone makers whose logos go on the brand shelves, by the name a shelf tile carries. The files are
+# assets/img/brands/<maker>.svg; if one is removed (for example while the store waits for approval to show it) its
+# tiles show the name alone.
+BRAND_DIR = Path(__file__).parent / "assets" / "img" / "brands"
+MAKER_OF = {"iPhone": "apple", "iPad": "apple", "Samsung": "samsung", "Samsung Galaxy": "samsung", "Google Pixel": "google"}
+
 
 def icons_only(sprite):
     """Design 2 draws no illustrations, so the inline sprite keeps only the icons."""
@@ -36,6 +44,32 @@ def t_wireless_plate(root, cls):
     return (f'<span class="{cls} plate--t-wireless"><picture>'
             f'<source type="image/webp" srcset="{root}assets/img/t-wireless-logo-480.webp">'
             f'<img src="{root}assets/img/t-wireless-logo-480.png" width="480" height="55" alt="T Wireless" decoding="async"></picture></span>')
+
+
+def whole_box(w, h):
+    """Whole-number width and height in the same ratio as w by h (HTML takes whole numbers here, and a file's viewBox
+    can be fractional). Takes the smallest multiple that keeps the ratio within a tenth of a percent."""
+    ratio = w / h
+    for k in range(1, 17):
+        whole_w, whole_h = round(w * k), round(h * k)
+        if whole_h and abs(whole_w / whole_h - ratio) <= ratio * 0.001:
+            return whole_w, whole_h
+    return round(w), round(h)
+
+
+def maker_logo(name, root):
+    """The maker's logo for a shelf tile (empty when the tile has none or its file has been removed). Decorative: the tile's
+    own heading names the brand. The width and height come from the file's viewBox, so the page doesn't shift as it loads."""
+    maker = MAKER_OF.get(name)
+    path = BRAND_DIR / f"{maker}.svg" if maker else None
+    if not path or not path.is_file():
+        return ""
+    box = re.search(r'viewBox="[\d.\s-]*?([\d.]+)\s+([\d.]+)"', path.read_text(encoding="utf-8")[:2000])
+    size = ""
+    if box and float(box.group(1)) > 0 and float(box.group(2)) > 0:
+        size = ' width="%d" height="%d"' % whole_box(float(box.group(1)), float(box.group(2)))
+    return (f'<span class="shelf__logo shelf__logo--{maker}">'
+            f'<img src="{root}assets/img/brands/{maker}.svg"{size} alt="" decoding="async"></span>')
 
 
 def extend(p, kit):
@@ -130,13 +164,31 @@ def extend(p, kit):
         f'<td data-label="You notice">{esc(kit["render"](r["notice"], p, "repairs", escape=False))}</td>'
         f'<td data-label="We do">{esc(kit["render"](r["fix"], p, "repairs", escape=False))}</td></tr>' for r in data["repairs"])
 
-    # The phone brands on the shelf, and the brands the store repairs, as plain text: no logos and no photographs. A stock
-    # photo of "an iPhone" would claim that a particular model is here, and the phone makers' logos are not ours to show.
-    shelf = ('<ul class="shelf">\n' + "\n".join(
-        f'  <li class="shelf__item">\n    <h3 class="shelf__name">{esc(b["name"])}</h3>\n    <p>{esc(b["line"])}</p>\n  </li>'
-        for b in data["phone_brands"]) + "\n</ul>")
-    repair_brands = ('<ul class="shelf shelf--names">\n' + "\n".join(
-        f'  <li class="shelf__item"><span class="shelf__name">{esc(name)}</span></li>' for name in data["repair_brands"]) + "\n</ul>")
+    # The phone brands on the shelf, and the brands the store repairs. Each tile names the brand in words and carries the
+    # maker's logo above it; there are no photographs, because a stock photo of "an iPhone" would claim that a particular
+    # model is here. The wording says nothing about models, prices or stock.
+    def tile(name, body, tag, logo_for=None):
+        """A shelf tile: the maker's logo (when it has one) above the brand name. A tile with a logo lines its content up
+        from the top, so the logos in a row sit level whatever the tile below them says."""
+        logo = maker_logo(logo_for or name, root)
+        head = f'<{tag} class="shelf__name">{esc(name)}</{tag}>'
+        return (f'  <li class="shelf__item{" shelf__item--logo" if logo else ""}">'
+                + (f'\n    {logo}' if logo else "") + f'\n    {head}' + (f'\n    {body}' if body else "") + "\n  </li>")
+
+    shelf = ('<ul class="shelf">\n' + "\n".join(tile(b["name"], f'<p>{esc(b["line"])}</p>', "h3") for b in data["phone_brands"]) + "\n</ul>")
+    def by_maker(names):
+        """Brands from one maker share a tile, so its logo appears once: iPhone and iPad become "iPhone and iPad"."""
+        groups = []
+        for n in names:
+            same = [g for g in groups if MAKER_OF.get(n) and MAKER_OF.get(g[0]) == MAKER_OF.get(n)]
+            if same:
+                same[0].append(n)
+            else:
+                groups.append([n])
+        return [(g[0] if len(g) == 1 else ", ".join(g[:-1]) + " and " + g[-1], g[0]) for g in groups]
+
+    repair_brands = ('<ul class="shelf shelf--names">\n'
+                     + "\n".join(tile(label, "", "span", first) for label, first in by_maker(data["repair_brands"])) + "\n</ul>")
 
     # The home page photo: a phone in a hand, cut three ways. A phone gets a 5:4 crop with the phone right of
     # centre (the open/closed chip sits in the sky to its left), a tablet the full banner (2:1), a desktop a square
@@ -178,11 +230,18 @@ def extend(p, kit):
     else:
         credits_lead = ("Every photo on this website is a stock photo, so none of them show our store, our staff or our customers. "
                         "Thank you to the photographers who share their work.")
+    # The phone makers' logos are part of the page, not of a photo, but the credits say what they are and whose they are.
+    maker_note = ""
+    if any((BRAND_DIR / f"{m}.svg").is_file() for m in sorted(set(MAKER_OF.values()))):
+        maker_note = (" The Apple, Samsung and Google logos on the phone shelves are shown as those companies publish them, to name the "
+                      "phones we sell. They are trademarks of Apple Inc., Samsung Electronics Co., Ltd. and Google LLC, and showing them "
+                      "does not mean those companies sponsor or endorse T Wireless.")
     credits_note = ("We cropped and resized the photos, and lightly colour-matched most of them. In some of them we also removed small "
                     "printed brand names, logos and emblems, and a phone picture printed on a retail carton: on phones and a phone case, "
                     "a card, a repair mat and its parts, a shirt, a wristband, a ticket machine and a carton. We set the Bell, Virgin Plus "
                     "and Lucky Mobile logos on white plates over some of the photos. Bell, Virgin Plus and Lucky Mobile are trademarks of "
                     "their respective owners."
+                    + maker_note
                     + (f" The app icons and widgets on the screen of the phone in the home page {'image' if generated else 'photo'} "
                        "belong to their respective owners." if supplied else ""))
     # The footer's one-line disclosure about the photos stays true while a supplied or generated picture is on the home page.

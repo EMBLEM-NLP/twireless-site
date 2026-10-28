@@ -27,7 +27,7 @@ Each run makes a new form; delete extra copies from Google Drive. The script tur
 Three parts, each ending with a way out, so a busy shop owner can stop and still have given us something useful:
 
 - **Part 1, what we need first (31 questions).** Store details that listings disagree on, the web address and online accounts, what the store sells and sets up, repairs, and business customers. Phase 1 of the recommendations (phones in store, repair brands, Business Solutions) needs only this part.
-- **Part 2, before the site goes live (16).** How the store works, offers and dated notices, Bell's name and logos, where messages go, privacy, photos.
+- **Part 2, before the site goes live (17).** How the store works, offers and dated notices, Bell's name and logos and the phone makers' logos, where messages go, privacy, photos.
 - **Part 3, for the next pages (27, optional).** Trade-ins and recycling, accessories and payments, about the store (ownership, languages, team), repair terms, accessibility, social accounts and goals.
 
 Two answers send the client past questions that don't apply: "No" to "Does the store repair devices?" skips the repair details, and "No" to "Does the store help businesses?" skips the business details. A page can also end the form (the two "finish later" choices).
@@ -54,7 +54,7 @@ Copy the data file, change `client` and the questions, and run `build_questionna
 
 ## What the dry run checks, and what it doesn't
 
-`check_form_script.js` runs the script against a stand-in for Google Forms that has only the methods Forms is supposed to have, so a typo fails here and not halfway through a real run. It then compares what was built with the data file, item by item: titles, help text, required flags, options, grids, "Other", and where each choice jumps. It currently builds 98 items (a banner, 23 pages, 74 questions) and 7 jumps.
+`check_form_script.js` runs the script against a stand-in for Google Forms that has only the methods Forms is supposed to have, so a typo fails here and not halfway through a real run. It then compares what was built with the data file, item by item: titles, help text, required flags, options, grids, "Other", and where each choice jumps. It currently builds 99 items (a banner, 23 pages, 75 questions) and 7 jumps.
 
 It can't check how Google draws the form, whether Google accepts every call, or the colours. The script was written from Google's Apps Script reference for `FormApp` and has not yet been run on real Google Forms, so send yourself a test response first (step 6 above).
 

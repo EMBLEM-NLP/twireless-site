@@ -286,7 +286,7 @@
         {
           "id": "repair_brands", "type": "checkbox", "required": true, "other": true,
           "title": "Which brands do you repair?",
-          "help": "We’ll list these in plain text on the website.",
+          "help": "We’ll list these on the website.",
           "options": ["iPhone", "Samsung", "Google Pixel", "iPad", "Other tablets", "Laptops", "Game consoles"],
           "unlocks": ["phase1:repairs", "check:6"]
         },
@@ -481,6 +481,13 @@
           "title": "Has Bell said you can show the Bell, Virgin Plus and Lucky Mobile logos on your website?",
           "options": ["Yes, in writing or in a dealer kit", "We haven’t asked yet", "Bell said no", "Not sure"],
           "unlocks": ["check:13"]
+        },
+        {
+          "id": "maker_logos", "type": "choice", "required": true,
+          "title": "Can the store show the Apple, Samsung and Google logos on its website?",
+          "help": "The draft puts each phone maker’s logo above its name on the Home, Phones and Repairs pages. The rules we found from Apple, Samsung and Google don’t mention Bell dealers. Tell us if Bell’s dealer kit or the maker says you can.",
+          "options": ["Yes, in writing or in a dealer kit", "We haven’t asked yet", "No, we were told not to", "Not sure"],
+          "unlocks": ["check:25"]
         },
         {
           "id": "bell_approval", "type": "choice", "required": false,

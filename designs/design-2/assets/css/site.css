@@ -336,15 +336,23 @@ h2 + .cards, h2 + .handover { margin-top: 20px; }
 .name:hover .name__title a { text-decoration: underline; text-decoration-thickness: 2px; }
 .name__body p { color: var(--ink-2); }
 
-/* The phone brands (Home, Phones) and the brands the store repairs (Repairs): plain-text tiles with no logos and no
-   photographs, so nothing on the page suggests that a particular model is on the shelf. */
+/* The phone brands (Home, Phones) and the brands the store repairs (Repairs): tiles that name the brand in words, with the
+   maker's logo above the name and no photographs, so nothing on the page suggests that a particular model is on the shelf.
+   The tiles are white wherever the logos sit, so every logo has a clean white plate. */
 .shelf { display: grid; gap: 12px; }
 .shelf__item { display: grid; gap: 4px; align-content: center; min-height: 76px; padding: 16px 20px; border-radius: 18px; background: var(--mist); }
 .section--mist .shelf__item { background: var(--paper); box-shadow: inset 0 0 0 1px var(--line); }
 .shelf__name { font-size: var(--fs-lg); font-weight: 800; line-height: 1.15; letter-spacing: -0.01em; }
 .shelf__item p { color: var(--ink-2); }
+.shelf__item--logo { align-content: start; }
+.shelf__logo { display: flex; align-items: center; height: 38px; }
+.shelf__logo img { width: auto; height: var(--logo-h); max-width: 100%; object-fit: contain; object-position: left center; }
+.shelf__logo--apple { --logo-h: 32px; }
+.shelf__logo--samsung { --logo-h: 17px; }
+.shelf__logo--google { --logo-h: 26px; }
 .shelf--names { grid-template-columns: 1fr 1fr; }
-.shelf--names .shelf__item { min-height: 64px; }
+.shelf--names .shelf__item { min-height: 64px; padding-inline: 16px; }
+.shelf--names .shelf__item:last-child:nth-child(odd) { grid-column: 1 / -1; }
 .shelf--names .shelf__name { font-size: var(--fs-md); }
 .shelf + .buttons { margin-top: 22px; }
 
@@ -529,14 +537,18 @@ h2 + .cards, h2 + .handover { margin-top: 20px; }
   .cards--two .card__body > p:has(> .button):last-child { margin-top: auto; padding-top: 4px; }
   .cards--two .card__body > .buttons:last-child { margin-top: auto; padding-top: 4px; }
   .shelf { grid-template-columns: repeat(3, 1fr); gap: 18px; }
-  .shelf--names { grid-template-columns: 1fr 1fr; }
-  .shelf__item { padding: 24px 26px; }
+  .shelf--names { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+  .shelf--names .shelf__item:last-child:nth-child(odd) { grid-column: auto; }
+  .shelf__item, .shelf--names .shelf__item { padding: 24px 26px; }
   .shelf__name { font-size: var(--fs-md); }
+  .shelf__logo { height: 44px; }
+  .shelf__logo--apple { --logo-h: 36px; }
+  .shelf__logo--samsung { --logo-h: 19px; }
+  .shelf__logo--google { --logo-h: 30px; }
   .cards--lead { grid-template-columns: repeat(2, 1fr); align-items: stretch; }
   .cards--lead .card--wide { grid-column: 1 / -1; }
 }
 @media (min-width: 900px) {
-  .shelf--names { grid-template-columns: repeat(4, 1fr); }
   .hero__grid { grid-template-columns: 7fr 5fr; gap: 56px; align-items: center; padding-top: 40px; }
   .hero__media { order: 2; margin-inline: 0; }
   .hero__photo img { aspect-ratio: 1 / 1; }
