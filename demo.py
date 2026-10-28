@@ -6,7 +6,8 @@
 Design 1 goes to docs/ (https://emblem-nlp.github.io/twireless-site/) and each design in
 designs/ to docs/<id>/ (for example .../twireless-site/design-2/). Every page gets the preview
 banner with links to the same page in the other designs, and shared links get a preview image.
-Needs only Python 3.8+.
+The client's questionnaire web app goes to docs/questionnaire/ (.../twireless-site/questionnaire/).
+Needs only the Python standard library: 3.8+ for the designs, 3.10+ for the questionnaire.
 """
 import json
 import subprocess
@@ -37,8 +38,13 @@ def main():
         if i != "design-1":
             cmd += ["--design", i]
         subprocess.run(cmd, check=True)
+    # The questions for the client, as a page the client can open on a phone. Last, because building design 1 replaces docs/.
+    quest = f"{BASE}questionnaire/"
+    subprocess.run([sys.executable, str(ROOT / "ops" / "questionnaire" / "build_questionnaire.py"), "app",
+                    "--app-out", str(ROOT / "docs" / "questionnaire" / "index.html"), "--url", SITE + quest], check=True)
     for i, _ in ds:
         print(f"{i}: {SITE}{paths[i]}")
+    print(f"questionnaire: {SITE}{quest}")
 
 
 if __name__ == "__main__":

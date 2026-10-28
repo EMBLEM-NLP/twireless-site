@@ -9,11 +9,15 @@ From it this script makes:
   create_<slug>_form.gs              a Google Apps Script that builds the whole Google Form
   <slug>-questionnaire-preview.pdf   what the client will see, for a quick read on a phone
   (the .html it is printed from is kept next to it)
+  assets/share.png                   the 1200 x 630 picture that shows when the web app's link is shared
+  docs/questionnaire/index.html      the same questions as a web app: one self-contained page with a progress
+                                     bar, one section per screen, saved answers and a send screen
 
   python3 ops/questionnaire/build_questionnaire.py check      validate the data file
-  python3 ops/questionnaire/build_questionnaire.py banner
+  python3 ops/questionnaire/build_questionnaire.py banner     also makes assets/share.png
   python3 ops/questionnaire/build_questionnaire.py script     also dry-runs the script in Node
   python3 ops/questionnaire/build_questionnaire.py preview
+  python3 ops/questionnaire/build_questionnaire.py app        needs only the Python standard library
   python3 ops/questionnaire/build_questionnaire.py all
 
 For another client: copy the data file, change "client" and the questions, run `all`.
@@ -25,13 +29,16 @@ import argparse
 import base64
 import html
 import json
+import re
 import subprocess
 import sys
 from pathlib import Path
+from urllib.parse import urlparse
 
 HERE = Path(__file__).resolve().parent
 REPO = HERE.parents[1]
 FONT = REPO / "designs/design-2/assets/fonts/atkinson-hyperlegible-next-latin-wght-normal.woff2"
+DIGITS = REPO / "designs/design-2/assets/fonts/public-sans-digits-wght-normal.woff2"
 LOGO = REPO / "src/assets/img/t-wireless-logo-960.png"
 
 BLUE = "#00549a"
@@ -57,6 +64,9 @@ def validate(spec: dict) -> list[str]:
     """Return a list of problems; an empty list means the data is sound."""
     bad: list[str] = []
     parts = {p["id"] for p in spec["parts"]}
+    for key in spec["form"].get("app", {}):
+        if key not in ("done", "partial"):
+            bad.append(f"form: unknown app setting {key}")
     sections = spec["sections"]
     sec_ids = [s["id"] for s in sections]
     if len(sec_ids) != len(set(sec_ids)):
@@ -67,6 +77,9 @@ def validate(spec: dict) -> list[str]:
             bad.append(f"section {s['id']}: unknown part {s['part']}")
         if not s.get("title"):
             bad.append(f"section {s['id']}: no title")
+        for key in s.get("app", {}):
+            if key != "description":
+                bad.append(f"section {s['id']}: unknown app setting {key}")
         if s.get("gate") and (i == 0 or len(s["questions"]) != 1):
             bad.append(f"section {s['id']}: a gate is one question and never the first section")
         for q in s["questions"]:
@@ -97,6 +110,15 @@ def validate(spec: dict) -> list[str]:
                     bad.append(f"{qid}: a grid needs rows and cols")
                 if len(q["rows"]) != len(set(q["rows"])) or len(q["cols"]) != len(set(q["cols"])):
                     bad.append(f"{qid}: duplicate grid rows or columns")
+            app = q.get("app") or {}
+            for key in app:
+                if key not in ("exclusive", "autocomplete", "inputmode"):
+                    bad.append(f"{qid}: unknown app setting {key}")
+            for label in app.get("exclusive", []):
+                if q["type"] != "checkbox" or label not in q.get("options", []):
+                    bad.append(f"{qid}: exclusive option that does not exist: {label}")
+            if ("autocomplete" in app or "inputmode" in app) and q["type"] != "text":
+                bad.append(f"{qid}: autocomplete and inputmode are for text questions")
             for label, target in (q.get("goto") or {}).items():
                 if q["type"] != "choice":
                     bad.append(f"{qid}: only a choice question can jump")
@@ -338,11 +360,11 @@ def script_spec(spec: dict) -> str:
     for s in spec["sections"]:
         qs = []
         for q in s["questions"]:
-            qs.append({k: v for k, v in q.items() if k not in ("unlocks", "why")})
-        lean_sections.append({**{k: v for k, v in s.items() if k != "questions"}, "questions": qs})
+            qs.append({k: v for k, v in q.items() if k not in ("unlocks", "why", "app")})
+        lean_sections.append({**{k: v for k, v in s.items() if k not in ("questions", "app")}, "questions": qs})
     lean = {
         "client": {k: spec["client"][k] for k in ("name", "contact", "agency")},
-        "form": spec["form"],
+        "form": {k: v for k, v in spec["form"].items() if k != "app"},
         "sections": lean_sections,
     }
     head = json.dumps({k: lean[k] for k in ("client", "form")}, ensure_ascii=False, indent=1)
@@ -519,13 +541,200 @@ def render_pdf(html_path: Path, pdf_path: Path, spec: dict) -> None:
 
 
 # ---------------------------------------------------------------------------------------------
+# share picture (what shows when the web app's link is sent in a text or WhatsApp message)
+
+
+def share_html(spec: dict) -> str:
+    c = spec["client"]
+    first = spec["parts"][0]["minutes"].split(",")[0]
+    font = data_uri(FONT, "font/woff2")
+    logo = data_uri(LOGO, "image/png")
+    return f"""<!doctype html><meta charset="utf-8">
+<style>
+@font-face {{ font-family: "Atkinson"; src: url("{font}") format("woff2"); font-weight: 200 800; }}
+html, body {{ margin: 0; background: #fff; }}
+.share {{ position: relative; width: 1200px; height: 630px; overflow: hidden; background: #fff;
+  font-family: "Atkinson", system-ui, sans-serif; color: {BLUE_DEEP}; }}
+.logo {{ position: absolute; left: 88px; top: 92px; width: 780px; height: auto; display: block; }}
+.title {{ position: absolute; left: 92px; top: 240px; font-size: 84px; font-weight: 800; letter-spacing: -0.004em; line-height: 1.05; }}
+.sub {{ position: absolute; left: 94px; top: 356px; width: 960px; font-size: 38px; line-height: 1.3; color: {MUTED}; }}
+.by {{ position: absolute; left: 94px; top: 512px; font-size: 32px; color: {MUTED}; }}
+.by b {{ color: {BLUE_DEEP}; font-weight: 800; letter-spacing: 0.01em; }}
+.strip {{ position: absolute; left: 0; right: 0; bottom: 0; height: 30px; background: {BLUE}; }}
+.strip i {{ position: absolute; left: 0; top: 0; bottom: 0; width: 300px; background: {RED}; }}
+</style>
+<div class="share">
+  <img class="logo" src="{logo}" alt="">
+  <div class="title">Website questions</div>
+  <div class="sub">A few quick facts for the new {esc(c['name'])} website. Part 1 takes {esc(first)}.</div>
+  <div class="by">Prepared by <b>{esc(c['agency'])}</b></div>
+  <div class="strip"><i></i></div>
+</div>"""
+
+
+def render_share(spec: dict, out: Path) -> None:
+    from playwright.sync_api import sync_playwright
+
+    out.parent.mkdir(parents=True, exist_ok=True)
+    with sync_playwright() as p:
+        browser = p.chromium.launch()
+        page = browser.new_page(viewport={"width": 1200, "height": 630}, device_scale_factor=1)
+        page.set_content(share_html(spec))
+        page.evaluate("document.fonts.ready")
+        page.wait_for_timeout(200)
+        page.screenshot(path=str(out), clip={"x": 0, "y": 0, "width": 1200, "height": 630})
+        browser.close()
+    from PIL import Image
+
+    im = Image.open(out).convert("RGB")
+    im = im.quantize(colors=64, method=Image.Quantize.MEDIANCUT, dither=Image.Dither.NONE)
+    im.save(out, optimize=True)
+    print(f"share   {out.relative_to(REPO)}  {out.stat().st_size / 1024:.0f} KiB")
+
+
+# ---------------------------------------------------------------------------------------------
+# web app (ops/questionnaire/app/): the same questions as one self-contained page
+
+APP_DIR = HERE / "app"
+APP_OUT = REPO / "docs" / "questionnaire" / "index.html"
+APP_URL = "https://emblem-nlp.github.io/twireless-site/questionnaire/"
+APP_VERSION = 1  # change it when answers saved on people's devices should no longer be used
+SHARE = HERE / "assets" / "share.png"
+FAVICON = REPO / "src/assets/img/favicon-32.png"
+APP_LOGO = REPO / "src/assets/img/t-wireless-logo-480.png"
+PART_PREFIX = re.compile(r"^Part \d+ of \d+:\s*")
+TEAM_ONLY = ("unlocks", "why", "app")  # notes for us; they never go to the client's device
+
+
+def app_screens(spec: dict) -> list[dict]:
+    """Group the form's pages into the screens of the web app.
+
+    Every page becomes a screen, with two exceptions. A page whose answer can jump past the pages after it
+    (Repairs: "No") is shown together with them: they appear once the answer says they apply. A gate page (the two
+    "keep going or finish later" pages) is a stop between the parts, and "finish later" goes to the send screen.
+    """
+    secs = spec["sections"]
+    ids = [s["id"] for s in secs]
+    out: list[dict] = []
+    i = 0
+    while i < len(secs):
+        s = secs[i]
+        if s.get("gate"):
+            q = s["questions"][0]
+            for label, target in (q.get("goto") or {}).items():
+                if target not in ("@submit", "@next") and ids.index(target) != i + 1:
+                    raise ValueError(f"{q['id']}: from a gate, '{label}' must end the form or go to the next page")
+            out.append({"id": s["id"], "kind": "stop", "part": s["part"], "title": s["title"],
+                        "description": (s.get("app") or {}).get("description") or s.get("description", ""),
+                        "pages": [s["id"]]})
+            i += 1
+            continue
+        end = i
+        for q in s["questions"]:
+            for target in (q.get("goto") or {}).values():
+                if target == "@next":
+                    continue
+                if target.startswith("@"):
+                    raise ValueError(f"{q['id']}: only a gate page can end the form in the web app")
+                end = max(end, ids.index(target) - 1)
+        group = secs[i : end + 1]
+        for later in group[1:]:
+            if later.get("gate") or later["part"] != s["part"] or any(q.get("goto") for q in later["questions"]):
+                raise ValueError(f"{later['id']}: a page that a jump can skip must be plain and in the same part")
+        out.append({"id": s["id"], "kind": "section", "part": s["part"], "title": PART_PREFIX.sub("", s["title"]),
+                    "description": s.get("description", ""), "pages": [g["id"] for g in group]})
+        i = end + 1
+    return out
+
+
+def app_model(spec: dict, endpoint: str = "") -> dict:
+    """Everything the page needs, without the notes that are only for the team."""
+    form = spec["form"]
+    paras = [p for p in form["description"].split("\n\n") if p.strip()]
+    byline = paras.pop() if paras and paras[-1].startswith("Prepared by") else ""
+    words = form.get("app") or {}
+    parts = []
+    for n, p in enumerate(spec["parts"], 1):
+        minutes = p["minutes"].split(",")[0].strip()
+        parts.append({"id": p["id"], "n": n, "of": len(spec["parts"]), "title": PART_PREFIX.sub("", p["title"]),
+                      "minutes": minutes, "mins": int(re.search(r"\d+", minutes).group()),
+                      "optional": "optional" in p["minutes"].lower()})
+    pages = []
+    for s in spec["sections"]:
+        qs = []
+        for q in s["questions"]:
+            lean = {k: v for k, v in q.items() if k not in TEAM_ONLY}
+            lean.update(q.get("app") or {})
+            qs.append(lean)
+        pages.append({"id": s["id"], "title": s["title"], "description": s.get("description", ""), "questions": qs})
+    return {
+        "version": APP_VERSION,
+        "client": {k: spec["client"][k] for k in ("slug", "name", "contact", "agency")},
+        "title": form["title"],
+        "intro": paras,
+        "byline": byline,
+        "done": words.get("done") or form["confirmation"].split("\n\n")[0],
+        "partial": words.get("partial") or "Here is what you have answered so far.",
+        "endpoint": endpoint,
+        "logo": data_uri(APP_LOGO, "image/png"),
+        "parts": parts,
+        "screens": app_screens(spec),
+        "pages": pages,
+    }
+
+
+def content_security_policy(endpoint: str) -> str:
+    """The page makes no requests of its own, so say so. Only a send address, if one is set, may be reached."""
+    connect = "'none'"
+    if endpoint:
+        host = urlparse(endpoint)
+        connect = f"{host.scheme}://{host.netloc}"
+        if host.netloc == "script.google.com":  # Apps Script answers from a second address
+            connect += " https://script.googleusercontent.com"
+    return ("default-src 'none'; img-src data:; font-src data:; style-src 'unsafe-inline'; "
+            f"script-src 'unsafe-inline'; connect-src {connect}; base-uri 'none'; form-action 'none'")
+
+
+def build_app(spec: dict, out: Path, url: str = APP_URL, endpoint: str = "") -> None:
+    model = app_model(spec, endpoint)
+    description = model["intro"][1] if len(model["intro"]) > 1 else model["title"]
+    share = ""
+    if SHARE.exists():
+        image = url.rstrip("/") + "/share.png"
+        share = (f'<meta property="og:image" content="{esc(image)}">\n<meta name="twitter:card" content="summary_large_image">\n'
+                 f'<meta name="twitter:image" content="{esc(image)}">')
+        out.parent.mkdir(parents=True, exist_ok=True)
+        (out.parent / "share.png").write_bytes(SHARE.read_bytes())
+    # JSON inside a script element: "</" would end it, and U+2028/9 are line breaks to a script.
+    blob = json.dumps(model, ensure_ascii=False, separators=(",", ":"))
+    blob = blob.replace("</", "<\\/").replace("\u2028", "\\u2028").replace("\u2029", "\\u2029")
+    css = (APP_DIR / "app.css").read_text(encoding="utf-8")
+    css = css.replace("%%FONT%%", data_uri(FONT, "font/woff2")).replace("%%DIGITS%%", data_uri(DIGITS, "font/woff2"))
+    values = {
+        "TITLE": esc(model["title"]), "DESCRIPTION": esc(description), "CSP": esc(content_security_policy(endpoint)),
+        "CLIENT": esc(spec["client"]["name"]), "AGENCY": esc(spec["client"]["agency"]), "URL": esc(url),
+        "SHARE": share, "FAVICON": data_uri(FAVICON, "image/png"), "CSS": css, "SPEC": blob,
+        "JS": (APP_DIR / "app.js").read_text(encoding="utf-8"),
+    }
+    page = re.sub(r"%%(\w+)%%", lambda m: values[m.group(1)], (APP_DIR / "template.html").read_text(encoding="utf-8"))
+    out.parent.mkdir(parents=True, exist_ok=True)
+    out.write_text(page, encoding="utf-8")
+    shown = out.relative_to(REPO) if REPO in out.resolve().parents else out
+    stops = sum(1 for s in model["screens"] if s["kind"] == "stop")
+    print(f"app     {shown}  {out.stat().st_size / 1024:.0f} KiB  ({len(model['screens']) - stops} sections, {stops} stops)")
+
+
+# ---------------------------------------------------------------------------------------------
 
 
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("step", choices=["check", "banner", "script", "preview", "all"])
+    ap.add_argument("step", choices=["check", "banner", "script", "preview", "app", "all"])
     ap.add_argument("--data", type=Path, default=HERE / "twireless.questionnaire.json")
     ap.add_argument("--out", type=Path, default=HERE, help="where the .gs, .html and .pdf go")
+    ap.add_argument("--app-out", type=Path, default=APP_OUT, help="where the web app's index.html goes")
+    ap.add_argument("--url", default=APP_URL, help="the public address of the web app (for link previews)")
+    ap.add_argument("--endpoint", default="", help="an address the web app can send the answers to (optional)")
     ns = ap.parse_args()
 
     spec = load(ns.data)
@@ -536,8 +745,8 @@ def main() -> int:
             print("  -", p)
         return 3
     n = counts(spec)
-    print(f"data    {ns.data.name}: {n['sections']} pages, {n['questions']} questions "
-          f"({', '.join(f'{p['id']} {n[p['id']]}' for p in spec['parts'])})")
+    per_part = ", ".join(p["id"] + " " + str(n[p["id"]]) for p in spec["parts"])
+    print(f"data    {ns.data.name}: {n['sections']} pages, {n['questions']} questions ({per_part})")
     if ns.step == "check":
         return 0
 
@@ -545,6 +754,7 @@ def main() -> int:
     banner = HERE / "assets" / "header.png"
     if ns.step in ("banner", "all"):
         render_banner(spec, banner)
+        render_share(spec, SHARE)
     if ns.step in ("script", "all"):
         gs = ns.out / f"create_{slug}_form.gs"
         build_script(spec, banner, gs, ns.data.name)
@@ -554,6 +764,8 @@ def main() -> int:
         page = ns.out / f"{slug}-questionnaire-preview.html"
         page.write_text(preview_html(spec, banner), encoding="utf-8")
         render_pdf(page, ns.out / f"{slug}-questionnaire-preview.pdf", spec)
+    if ns.step in ("app", "all"):
+        build_app(spec, ns.app_out, ns.url, ns.endpoint)
     return 0
 
 

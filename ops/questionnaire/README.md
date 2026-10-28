@@ -1,17 +1,55 @@
 # Website questionnaire kit
 
-A questionnaire a client fills in before their site goes live, built as a Google Form from one data file. This copy is for T Wireless (Ali is the contact). It asks only for facts the site would otherwise have to guess, and each question says what the public listings show, so the client can answer "yes, that's right" instead of writing from scratch.
+A questionnaire a client fills in before their site goes live. One data file makes two things: a **web app** the client opens from a link (sections, a progress bar, answers saved on the client's phone), and a Google Form script for anyone who prefers a form. This copy is for T Wireless (Ali is the contact). It asks only for facts the site would otherwise have to guess, and each question says what the public listings show, so the client can answer "yes, that's right" instead of writing from scratch.
 
 | File | What it is |
 | --- | --- |
 | `twireless.questionnaire.json` | The questionnaire: every page, question, help line, option and jump, plus (for us only) which part of the site each answer unlocks. Edit this, then rebuild. |
-| `build_questionnaire.py` | Checks the data, then makes the three files below. |
+| `build_questionnaire.py` | Checks the data, then makes everything below. |
+| `app/` | The web app's parts: `template.html` (the page), `app.css`, `app.js`, and `check_app.py`, the browser test (see below). The build joins them and the data into one file. |
+| `../../docs/questionnaire/index.html` | The web app, built: one self-contained page (fonts, logo and styles inside it, about 180 KiB) that GitHub Pages serves at <https://emblem-nlp.github.io/twireless-site/questionnaire/>. `demo.py` rebuilds it. |
+| `assets/share.png` | The 1200 by 630 picture that shows when the web app's link is shared in a message. |
 | `create_twireless_form.gs` | A Google Apps Script that builds the whole form in the account that runs it. The banner is inside it. |
 | `assets/header.png` | The 1600 by 400 banner: the T Wireless logo, the street, "Prepared by EMBLEM-NLP", a red and blue strip. |
 | `twireless-questionnaire-preview.pdf` | What the client will see, 17 pages, for reading on a phone. It is printed from an `.html` file the build also writes, which git ignores. |
 | `check_form_script.js` | A dry run of the script against a stand-in for Google Forms (see below). |
 
-## Put the form in a Google account (about three minutes, at a computer)
+## The web app (what Ali opens)
+
+Send Ali the link. Ali sees a welcome screen, then 18 short sections, one per screen, with a progress bar along the top and a Next button along the bottom. The bar has one segment per section, grouped by part, and says about how many minutes are left in the part. Most answers are one tap. A "Sections" button opens a list for jumping back; sections not reached yet are locked, so nothing is skipped by accident.
+
+- **Same questions, same logic.** Every question, help line, option and "Other" box comes from the data file. "No" to repairs or to business customers hides the details that follow (answers typed earlier come back if the answer is changed back). The two "keep going or finish later" pages become stops between the parts.
+- **Saved on the phone.** Every answer is saved in the browser as Ali goes, so Ali can close the page and open the link again later. The welcome screen then says "Welcome back" and offers to carry on or to erase everything. Saved answers live only in that browser: clearing the browser's data, or opening the link on another device, starts over, and some browsers clear it on their own after a week or more without a visit.
+- **Required answers.** A required question that is empty stops Next, shows a message in words, and moves focus to it. The page also announces, in a live region, how many questions need an answer.
+- **Sending.** The last screen lists every answer, with an Edit button on each section (after an edit, the bottom button reads "Back to my answers"). It offers **Send my answers** (the phone's share sheet: Ali picks Messages, WhatsApp or email and a person), **Copy my answers** and **Save as a file**. The text it sends is plain and readable, with Part 1, 2 and 3 marked finished or not started. "Finish later" at either stop goes straight to this screen, so Ali can send what there is so far; Part 1 alone is enough for Phase 1 of the site.
+- **Nothing is sent by the page itself.** It has no email address inside it and, by its content security policy, no way to contact any server, so a person has to press Send and choose the recipient. The tradeoff is that nothing arrives unless Ali does. To have answers arrive on their own, build the page with an address that accepts them: `python3 ops/questionnaire/build_questionnaire.py app --endpoint https://example.com/receive`. Send then posts one JSON message (`form`, `version`, `sent_at`, `complete`, `answers` by question id, and the readable `text`) as `text/plain`, so the receiver needs CORS but no pre-flight. The page's policy then allows that one address and no other. This path has been tried only against a stand-in receiver on this computer, never a real one.
+- **Unlisted, not private.** The page says `noindex`, so search engines that respect it leave it out. Anyone with the link can open it, and the repository is public, so don't put anything secret in the questions.
+
+To change wording, edit `twireless.questionnaire.json` and run `python3 demo.py` (or `build_questionnaire.py app`). The data file has a few fields only the web app reads, all optional:
+
+| Field | Meaning |
+| --- | --- |
+| `form.app.done`, `form.app.partial` | The line under the thank-you heading when everything is done, and when Ali is sending only part of it. |
+| section `app.description` | Replaces the page description in the web app. Used on the two stops, where the Google Form's text talks about "Edit your response". |
+| question `app.exclusive` | Options that clear the other ticks when chosen (such as "None of these"). |
+| question `app.autocomplete`, `app.inputmode` | Hints for the phone's keyboard and autofill. |
+
+`APP_VERSION` in `build_questionnaire.py` is part of the key the answers are saved under. Raise it when a change to the questions means answers saved on people's phones should no longer be used.
+
+### The browser test
+
+```sh
+python3 ops/questionnaire/app/check_app.py              # builds the page to a temporary folder and tests that
+python3 ops/questionnaire/app/check_app.py --axe PATH   # also runs axe-core's accessibility rules (PATH is its axe.min.js)
+```
+
+It needs Playwright for Python with Chromium. It acts like Ali: taps through all 20 screens, leaves required answers empty, picks "No" at the gates, reloads and comes back, tries the Other boxes and the "choose up to" limits, presses Copy, Save and Share, and checks that the text it produces holds every answer in order. It also checks that nothing sticks out sideways on any screen from 320 to 1280 px wide, that every tap target is at least 44 px tall, that the page asks the network for nothing but itself, and that the send address works against a local stand-in. It exits with 1 if any check fails.
+
+What it can't tell you: how Safari on an iPhone draws and scrolls the page, how a screen reader reads it, what the share sheet offers on Ali's phone, or whether a real receiver accepts the post. Those need a real phone. Open the link on one before sending it, and send yourself a test.
+
+## Optional: the same questions as a Google Form (about three minutes, at a computer)
+
+The web app doesn't need this. Use it if you'd rather send a Google Form.
 
 1. Go to <https://script.google.com> and choose **New project**. Delete the sample code, paste in the whole of `create_twireless_form.gs`, and press Save. (On a phone, open the file's **Raw** view on GitHub, select all, copy.)
 2. Choose **createQuestionnaireForm** in the function menu and press **Run**. Google asks for permission to create and edit Google Forms and nothing else. It warns that the app isn't verified because it's your own new script: choose **Advanced**, then **Go to** the project, then **Allow**.
@@ -44,13 +82,14 @@ Top level: `client`, `form` (title, description, confirmation, theme, settings),
 | `rows`, `cols` | For a grid. |
 | `max_choices` | For a checkbox: "choose up to N". |
 | `goto` | `{ "option text": "section id" }` to skip ahead, `"@submit"` to end the form. Jumps only go forward. |
-| `unlocks`, `why` | For us only, left out of the script: tags such as `check:4` (item 4 of the README's "Before launch"), `phase1:business`, `confirm:languages`, and a note on why we ask. They drive the coverage tables in the research notes. |
+| `unlocks`, `why` | For us only, left out of the script and the web app: tags such as `check:4` (item 4 of the README's "Before launch"), `phase1:business`, `confirm:languages`, and a note on why we ask. They drive the coverage tables in the research notes. |
+| `app` | Optional hints for the web app only (see above), also left out of the script. |
 
-`python3 ops/questionnaire/build_questionnaire.py check` validates the file (unique ids, real jump targets, no empty options, nothing too long for Forms). `all` rebuilds the banner, the script (and runs the dry run) and the preview.
+`python3 ops/questionnaire/build_questionnaire.py check` validates the file (unique ids, real jump targets, no empty options, nothing too long for Forms). `all` rebuilds the banner, the share picture, the script (and runs the dry run), the preview and the web app.
 
 ### For another client
 
-Copy the data file, change `client` and the questions, and run `build_questionnaire.py all --data your-file.json`. The banner uses the logo in `src/assets/img/`; point `LOGO` in the script at theirs. The script, the preview and the dry run don't depend on T Wireless.
+Copy the data file, change `client` and the questions, and run `build_questionnaire.py all --data your-file.json`. The banner uses the logo in `src/assets/img/`; point `LOGO` in the script at theirs, and `APP_LOGO`, `FAVICON` and `APP_URL` for the web app. The web app's fonts are in `designs/design-2/assets/fonts/`. The script, the preview, the web app and the dry run don't otherwise depend on T Wireless, but `check_app.py` names this questionnaire's questions, so change those checks to match.
 
 ## What the dry run checks, and what it doesn't
 

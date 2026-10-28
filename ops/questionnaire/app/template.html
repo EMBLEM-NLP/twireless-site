@@ -1,0 +1,52 @@
+<!doctype html>
+<!-- Made by ops/questionnaire/build_questionnaire.py from twireless.questionnaire.json: edit those, not this file.
+     The fonts inside are Atkinson Hyperlegible Next (Braille Institute) and Public Sans (digits only), both under
+     the SIL Open Font License 1.1. Their licence texts are in designs/design-2/assets/fonts/ in the same repository. -->
+<html lang="en-CA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>%%TITLE%%</title>
+<meta name="description" content="%%DESCRIPTION%%">
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#00549a">
+<meta http-equiv="Content-Security-Policy" content="%%CSP%%">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="%%CLIENT%%">
+<meta property="og:title" content="%%TITLE%%">
+<meta property="og:description" content="%%DESCRIPTION%%">
+<meta property="og:url" content="%%URL%%">
+%%SHARE%%
+<link rel="icon" type="image/png" sizes="32x32" href="%%FAVICON%%">
+<noscript><style>.boot { display: none; }</style></noscript>
+<style>
+%%CSS%%
+</style>
+</head>
+<body>
+<div class="app" id="app">
+  <header class="top" id="top" hidden></header>
+  <main class="main" id="main" tabindex="-1">
+    <div class="boot" id="boot">
+      <p>Loading the questions…</p>
+      <p class="boot__late">This is taking longer than it should. If this message stays, this browser can’t run the page. Tell %%AGENCY%% and we’ll send the questions another way.</p>
+    </div>
+  </main>
+  <footer class="foot" id="foot" hidden></footer>
+</div>
+<div class="menu" id="menu" hidden></div>
+<p class="sr-only" id="live" role="status"></p>
+<noscript>
+  <div class="nojs">
+    <p><strong>This page needs JavaScript to show the questions.</strong></p>
+    <p>Turn JavaScript on in your browser settings, or tell %%AGENCY%% and we’ll send the questions another way.</p>
+  </div>
+</noscript>
+<script type="application/json" id="spec">%%SPEC%%</script>
+<script>
+%%JS%%
+</script>
+</body>
+</html>

@@ -20,16 +20,16 @@ The store's content is written once (`src/site.json` and the page copy) and offe
 | `dist/` | Design 1, finished. Upload this folder to your host. Built by `build.py`, not stored in git. |
 | `dist-design-2/` | Design 2, finished (`python3 build.py --design design-2`). Not stored in git. |
 | `dist-design-3/` | Design 3, finished (`python3 build.py --design design-3`). Not stored in git. |
-| `docs/` | The public demo that GitHub Pages serves: design 1 at the root, designs 2 and 3 in `docs/design-2/` and `docs/design-3/`. Built by `demo.py`. |
+| `docs/` | The public demo that GitHub Pages serves: design 1 at the root, designs 2 and 3 in `docs/design-2/` and `docs/design-3/`, and the questionnaire web app in `docs/questionnaire/`. Built by `demo.py`. |
 | `src/site.json` | Store details, hours, the Bell family cards, offers, repairs and FAQ, shared by every design. Most edits happen here. |
 | `src/pages/`, `src/partials/`, `src/assets/` | Design 1's page copy, shared parts, styles, script, fonts and logos. The script, logos and icons are shared with the other designs. |
 | `designs/design-2/` | Design 2: `design.json`, page copy (`pages/`), `content.json` (its own wording for the carrier lines, repairs and FAQ), its own parts (`partials/`), styles and fonts (`assets/`), photos (`assets/img/photos/`), `design.py` for its photo and logo blocks, and `imagery/` (where each photo came from, its licence, crops and any retouching). |
 | `designs/design-3/` | Design 3: the same file layout as design 2 (`design.json`, `pages/`, `content.json`, `partials/`, `assets/`, `design.py`), plus `imagery/` with the photo sources and three scripts: `logo_light.py` re-inks the store's logo in champagne gold, `ornaments.py` draws the engine-turned patterns from a formula, and `fonts.py` slims the two typefaces for the web. |
 | `src/_headers` | Security and caching headers (Netlify and Cloudflare Pages read this file). |
 | `build.py` | Builds one design. Needs Python 3.8 or newer, nothing else. |
-| `demo.py` | Builds the GitHub Pages demo of every design into `docs/`. |
+| `demo.py` | Builds the GitHub Pages demo of every design, and the questionnaire web app, into `docs/`. |
 | `rsi/` | The WEB-DESIGN-RSI-2.0 design test: harness, imagery tool, a contract per design and the measured runs. |
-| `ops/questionnaire/` | The website questionnaire for the store: the questions as data, a script that builds them as a Google Form, the form's banner and a PDF preview. See its own README. |
+| `ops/questionnaire/` | The website questionnaire for the store: the questions as data, a web app that asks them one section at a time with a progress bar (`app/`), a script that builds them as a Google Form instead, the form's banner and a PDF preview. See its own README. |
 
 ## Pages
 
@@ -190,6 +190,7 @@ The demos for showing the store owner are served from the `docs/` folder of this
 - Design 1: **https://emblem-nlp.github.io/twireless-site/**
 - Design 2: **https://emblem-nlp.github.io/twireless-site/design-2/**
 - Design 3: **https://emblem-nlp.github.io/twireless-site/design-3/**
+- The questions for Ali, a separate page and not a design: **https://emblem-nlp.github.io/twireless-site/questionnaire/**. Ali answers one section at a time with a progress bar, the answers are saved on the phone, and the last screen sends them back through the phone's share sheet. It is marked `noindex`, so search engines should leave it out, but anyone with the link can open it. See `ops/questionnaire/README.md`.
 
 The yellow preview bar at the top of every page links to the same page in the other design ("Compare designs: Design 1 Design 2 Design 3"), so the owner can flip between them on a phone.
 

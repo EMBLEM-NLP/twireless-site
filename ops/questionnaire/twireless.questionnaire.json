@@ -13,7 +13,11 @@
     "description": "Hi Ali,\n\nWe’re building the new T Wireless website. We want it to say only what’s true about your store, so we need your help with a few facts.\n\nMost questions are one tap. If you’re not sure, choose “Not sure” and we’ll work it out together. Nothing goes on the website until you’ve seen it and said yes.\n\nThere are three parts. Part 1 (about 10 minutes) is what we need first. Parts 2 and 3 are shorter, and you can stop at the end of any part.\n\nPrepared by EMBLEM-NLP.",
     "confirmation": "Thank you, Ali. We’ll update the draft with your answers and send it back for you to check. Nothing goes on the website until you say yes.\n\nIf you stopped early, use “Edit your response” below to carry on whenever you like.",
     "theme": { "color": "#00549A", "background": "#E6EEF7", "font": "Basic" },
-    "settings": { "progress_bar": true, "allow_edits": true, "show_respond_again": false }
+    "settings": { "progress_bar": true, "allow_edits": true, "show_respond_again": false },
+    "app": {
+      "done": "We’ll update the draft with your answers and send it back for you to check. Nothing goes on the website until you say yes.",
+      "partial": "You can send it now and carry on later. Your answers stay saved on this device."
+    }
   },
   "parts": [
     { "id": "p1", "title": "Part 1 of 3: What we need first", "minutes": "about 10 minutes", "required_for": "the first new pages (phones, repairs, business) and the web address" },
@@ -27,7 +31,7 @@
       "title": "Part 1 of 3: About you",
       "description": "This part is what we need first. It takes about 10 minutes.",
       "questions": [
-        { "id": "name", "type": "text", "required": true, "title": "Your name" },
+        { "id": "name", "type": "text", "required": true, "title": "Your name", "app": { "autocomplete": "name" } },
         {
           "id": "role", "type": "choice", "required": true,
           "title": "Which best describes you?",
@@ -377,6 +381,7 @@
       "part": "p1",
       "title": "Part 1 is done. Thank you.",
       "description": "Parts 2 and 3 are shorter. You can carry on now or come back later. If you stop here, use “Edit your response” on the next page to come back.",
+      "app": { "description": "Parts 2 and 3 are shorter. You can carry on now or come back later. Your answers are saved on this device, so you can open this link again to pick up where you left off." },
       "gate": true,
       "questions": [
         {
@@ -562,6 +567,7 @@
       "part": "p2",
       "title": "Part 2 is done. Thank you.",
       "description": "Part 3 is optional. It covers trade-ins, accessories, your story and your social accounts. If you stop here, use “Edit your response” on the next page to come back.",
+      "app": { "description": "Part 3 is optional. It covers trade-ins, accessories, your story and your social accounts. You can carry on now or come back later." },
       "gate": true,
       "questions": [
         {
@@ -686,6 +692,7 @@
         {
           "id": "opened", "type": "text", "required": false,
           "title": "In what year did the store open?",
+          "app": { "inputmode": "numeric" },
           "help": "Leave blank if you’d rather not say.",
           "unlocks": ["phase2:about"]
         },
@@ -794,6 +801,7 @@
             "None of these",
             "Not sure"
           ],
+          "app": { "exclusive": ["None of these", "Not sure"] },
           "unlocks": ["phase3:accessibility"]
         },
         {
@@ -813,6 +821,7 @@
           "id": "social", "type": "checkbox", "required": false,
           "title": "Which social accounts does the store use?",
           "options": ["Facebook", "Instagram", "TikTok", "YouTube", "X", "WhatsApp", "LinkedIn", "None"],
+          "app": { "exclusive": ["None"] },
           "unlocks": ["phase3:social", "confirm:social"]
         },
         {
