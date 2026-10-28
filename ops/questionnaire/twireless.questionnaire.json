@@ -638,6 +638,7 @@
         {
           "id": "accessories", "type": "checkbox", "required": false, "other": true,
           "title": "Which accessories do you sell?",
+          "help": "The draft Phones page says you sell cases and screen protectors, and that you’ll check what you have for a customer’s model.",
           "options": [
             "Phone cases",
             "Screen protectors",
@@ -648,13 +649,13 @@
             "Smartwatches and bands",
             "Memory cards"
           ],
-          "unlocks": ["phase2:accessories"]
+          "unlocks": ["phase2:accessories", "check:26"]
         },
         {
           "id": "fit", "type": "choice", "required": false,
           "title": "Do you fit screen protectors in the store?",
           "options": ["Yes, free with the purchase", "Yes, for a fee", "No"],
-          "unlocks": ["phase2:accessories"]
+          "unlocks": ["phase2:accessories", "check:26"]
         },
         {
           "id": "payments", "type": "checkbox", "required": false, "other": true,

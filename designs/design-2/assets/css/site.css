@@ -355,6 +355,8 @@ h2 + .cards, h2 + .handover { margin-top: 20px; }
 .shelf--names .shelf__item:last-child:nth-child(odd) { grid-column: 1 / -1; }
 .shelf--names .shelf__name { font-size: var(--fs-md); }
 .shelf + .buttons { margin-top: 22px; }
+.shelf + .notice { margin-top: 18px; }
+.notice + .buttons { margin-top: 22px; }
 
 .band { padding-block: clamp(40px, 6vw, 72px); background: var(--ink); color: #fff; }
 .band__grid { display: grid; gap: 20px; }
