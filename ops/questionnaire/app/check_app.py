@@ -7,7 +7,9 @@
 It builds the app from the data file, serves it on localhost and then does what a person does: taps through
 every screen, skips them all, leaves answers empty, picks "No" where a question skips others, finishes a part
 and stops, closes the page and comes back, presses Copy, Save and Share, and rotates through phone, tablet and
-desktop widths. It fails (exit 1) if any check fails.
+desktop widths. It also rehearses sending the answers to a receiver (a stand-in on this computer, then a stand-in for
+Google's Apps Script address and its redirect) and runs receive_answers.gs against what the page really posts.
+It fails (exit 1) if any check fails.
 
 It builds the page twice. The first is the data file as written, where (apart from the choices at the stops)
 nothing is required, because the questionnaire is a first approach to a business that never asked for it. The
@@ -114,6 +116,8 @@ class Collector(http.server.BaseHTTPRequestHandler):
     bodies: list[tuple[str, str]] = []
     status = 200
     delay = 0.0
+    reply = b'{"ok":true}'  # what the real receiver says when it has kept the answers
+    ctype = "application/json; charset=utf-8"
 
     def log_message(self, *args) -> None:
         pass
@@ -133,8 +137,9 @@ class Collector(http.server.BaseHTTPRequestHandler):
         time.sleep(Collector.delay)
         self.send_response(Collector.status)
         self._cors()
+        self.send_header("Content-Type", Collector.ctype)
         self.end_headers()
-        self.wfile.write(b"ok")
+        self.wfile.write(Collector.reply)
 
 
 # ---------------------------------------------------------------------------------------------
@@ -169,13 +174,14 @@ class Session:
     """One browser context and page, with a log of console errors and requests."""
 
     def __init__(self, browser, base: str, width: int = 390, height: int = 844, share: bool = False, state: dict | None = None,
-                 reduced: bool = False, clipboard: bool = False, path: str = "/index.html") -> None:
+                 reduced: bool = False, clipboard: bool = False, path: str = "/index.html", ignore_https_errors: bool = False) -> None:
         mobile = width < 700
         self.ctx = browser.new_context(
             viewport={"width": width, "height": height}, device_scale_factor=2 if mobile else 1,
             is_mobile=mobile, has_touch=mobile, accept_downloads=True,
             reduced_motion="reduce" if reduced else "no-preference",
             permissions=["clipboard-read", "clipboard-write"] if clipboard else [],
+            ignore_https_errors=ignore_https_errors,
         )
         if share:
             self.ctx.add_init_script("window.__shared = null; navigator.share = function (d) { window.__shared = d; return Promise.resolve(); };")
@@ -372,6 +378,48 @@ def scenario_build(k: Known) -> None:
             refused(lambda c: c["form"]["app"].update(preview={"label": "See the drafts", "url": "http://example.com/"})))
     R.check("and one with no label", refused(lambda c: c["form"]["app"].update(preview={"label": " ", "url": "https://example.com/"})))
     R.check("and an unknown word under form.app", refused(lambda c: c["form"]["app"].update(surprise="x")))
+    consumer = "https://script.google.com/macros/s/AKfycbxAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/exec"
+    workspace = "https://script.google.com/a/macros/example.com/s/AKfycbxAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/exec"
+    for ok_url in (consumer, workspace, ""):
+        R.check(f"the data check accepts a receiver address: {ok_url[:48] or '(none)'}", not refused(lambda c, u=ok_url: c["form"]["app"].update(endpoint=u)))
+    for bad_url, why in (
+        (consumer[:-5] + "/dev", "a /dev address, which only the script's owner can use"),
+        (consumer.replace("https", "http"), "one that isn't https"),
+        (consumer.replace("script.google.com", "example.com"), "another host"),
+        (consumer.replace("AKfycbxAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA", "short"), "one with no real id"),
+        (consumer + "?x=1", "one with a query"),
+        (consumer + "/", "one with a trailing slash"),
+        ("https://script.google.com/macros/s/AKfycbxAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/exec#a b", "one with a space"),
+        (7, "a number"),
+    ):
+        R.check(f"the data check refuses {why}", refused(lambda c, u=bad_url: c["form"]["app"].update(endpoint=u)))
+    R.check("the /dev mistake gets a hint", any("/exec" in m for m in refused(lambda c: c["form"]["app"].update(endpoint=consumer[:-5] + "/dev"))))
+    R.check("an address asked for on the command line wins, and an empty one means none",
+            bq.endpoint_of(spec, "https://x.test/y") == "https://x.test/y" and bq.endpoint_of(spec, "") == "")
+    with_data = json.loads(json.dumps(spec))
+    with_data["form"]["app"]["endpoint"] = consumer
+    R.check("otherwise the data file's address is used", bq.endpoint_of(with_data, None) == consumer)
+    plain = json.loads(json.dumps(spec))
+    plain["form"]["app"].pop("endpoint", None)
+    R.check("and no address when neither is set", bq.endpoint_of(plain, None) == "")
+    with tempfile.TemporaryDirectory() as tmp:
+        bq.build_app(with_data, Path(tmp) / "a.html")
+        bq.build_app(with_data, Path(tmp) / "b.html", endpoint="")
+        a_html, b_html = ((Path(tmp) / n).read_text(encoding="utf-8") for n in ("a.html", "b.html"))
+        R.check("a build uses the data file's address, and its policy reaches only Google's two",
+                consumer in a_html and "connect-src https://script.google.com https://script.googleusercontent.com;" in bq.content_security_policy(consumer)
+                and bq.esc(bq.content_security_policy(consumer)) in a_html)
+        R.check("a build with an empty address has no address and a policy that reaches nothing",
+                consumer not in b_html and "connect-src 'none';" in bq.content_security_policy("") and bq.esc(bq.content_security_policy("")) in b_html)
+    R.check("the data file's address never reaches the Google Form's script or its preview",
+            consumer not in bq.script_spec(with_data) and "endpoint" not in bq.script_spec(with_data))
+    shipped = bq.APP_OUT
+    if shipped.exists():
+        page = shipped.read_text(encoding="utf-8")
+        want = bq.endpoint_of(spec)
+        R.check("the page that is published matches the data file's address (rebuild it if not)",
+                bq.esc(bq.content_security_policy(want)) in page and (want in page if want else "script.google.com" not in page),
+                want or "no address set")
     for bad, why in (
         ({"sections": [{"id": "a", "part": "p", "title": "A", "questions": [{"id": "q", "type": "choice", "options": ["x", "y"], "goto": {"x": "@submit"}}]}]},
          "a question outside a gate ending the form"),
@@ -831,6 +879,9 @@ def scenario_share_and_endpoint(browser, base: str, k: Known) -> None:
             R.check("sent as text/plain, so no pre-flight request is needed", ctype.startswith("text/plain"), ctype)
         R.check("success is shown", "Sent. Thank you." in s.page.inner_text(".send__status"), s.page.inner_text(".send__status"))
         R.check("the saved state records it", s.saved().get("sent"))
+        how = s.page.inner_text(".send__how")
+        R.check("the send screen says what goes, and what doesn't",
+                spec["client"]["agency"] in how and "aren’t part of it" in how and "who sent you this link" not in how, how)
 
         # two quick taps are one message
         Collector.bodies.clear()
@@ -849,6 +900,38 @@ def scenario_share_and_endpoint(browser, base: str, k: Known) -> None:
         R.check("the page's policy allows only that address", f"connect-src {endpoint.rsplit('/', 1)[0]}" in csp, csp)
         s.close()
 
+        # a good status is not enough: the receiver has to say yes. A sign-in page, an error page or a plain "ok" can all
+        # come back with status 200 and not have kept anything.
+        for what, reply, ctype in (
+            ("plain text", b"ok", "text/plain"),
+            ("a sign-in page", b"<!doctype html><title>Sign in</title><p>Sign in to continue.", "text/html; charset=utf-8"),
+            ("JSON that says no", b'{"ok":false,"error":"busy"}', "application/json"),
+            ("JSON that is not an answer", b"[true]", "application/json"),
+            ("JSON null", b"null", "application/json"),
+            ("an empty reply", b"", "application/json"),
+            ("ok as the text \"true\"", b'{"ok":"true"}', "application/json"),
+        ):
+            Collector.status, Collector.reply, Collector.ctype = 200, reply, ctype
+            s = Session(browser, ebase, state=dict(k.complete))
+            s.page.on("console", lambda m: None)
+            s.go("send")
+            s.page.get_by_role("button", name="Send my answers").click()
+            until(s.page, "() => { const t = document.querySelector('.send__status').textContent; return t.length > 0 && !/Sending/.test(t); }", what="the send result")
+            status = s.page.inner_text(".send__status")
+            R.check(f"not taken as sent when the reply is {what}", "didn’t go through" in status and "Sent." not in status, status)
+            R.check(f"and not remembered as sent: {what}", not s.saved().get("sent"))
+            R.check(f"and the text is opened so it can be copied: {what}", s.page.locator("details.raw[open]").count() == 1)
+            s.close()
+        Collector.status, Collector.reply, Collector.ctype = 200, b'{"ok":true,"note":"extra keys are fine"}', "application/json"
+        s = Session(browser, ebase, state=dict(k.complete))
+        s.page.on("console", lambda m: None)
+        s.go("send")
+        s.page.get_by_role("button", name="Send my answers").click()
+        until(s.page, "() => { const t = document.querySelector('.send__status').textContent; return t.length > 0 && !/Sending/.test(t); }", what="the send result")
+        R.check("a yes with other keys beside it is still a yes", "Sent. Thank you." in s.page.inner_text(".send__status"))
+        s.close()
+        Collector.reply, Collector.ctype = b'{"ok":true}', "application/json; charset=utf-8"
+
         # a question left on Other with nothing typed is not a finished answer: say so, don't claim "complete"
         Collector.status = 200
         Collector.bodies.clear()
@@ -861,6 +944,187 @@ def scenario_share_and_endpoint(browser, base: str, k: Known) -> None:
         s.close()
         web.shutdown()
     srv.shutdown()
+
+
+GOOGLE_EXEC = "https://script.google.com/macros/s/AKfycbxTESTTESTTESTTESTTESTTESTTESTTESTTESTTEST/exec"
+GOOGLE_ECHO = "https://script.googleusercontent.com/macros/echo?user_content_key=abc123&lib=xyz"
+CORS = {"Access-Control-Allow-Origin": "*"}
+
+
+class GoogleStandIn(http.server.BaseHTTPRequestHandler):
+    """Stands in for script.google.com (the receiver's address) and script.googleusercontent.com (where an Apps Script web
+    app's reply is served), over HTTPS from this computer. It answers the way Apps Script web apps are documented and
+    widely used: a POST to /exec is answered with a redirect to the second address, and a GET there returns what the
+    script returned, as JSON. It has no doOptions, so a pre-flight request is refused, as Google would refuse it."""
+
+    seen: list[tuple] = []
+    mode = "redirect"  # redirect | direct | forbidden | hangup
+    redirect_cors = True  # the redirect itself carries Access-Control-Allow-Origin
+    echo_cors = True
+    echo_body = b'{"ok":true}'
+    echo_ctype = "application/json; charset=utf-8"
+    redirect_to = GOOGLE_ECHO
+
+    def log_message(self, *args) -> None:
+        pass
+
+    def _send(self, status: int, headers: dict, body: bytes = b"") -> None:
+        self.send_response(status)
+        for key, value in headers.items():
+            self.send_header(key, value)
+        self.send_header("Content-Length", str(len(body)))
+        self.end_headers()
+        self.wfile.write(body)
+
+    def _note(self, method: str, body: str = "") -> None:
+        GoogleStandIn.seen.append(((self.headers.get("Host") or "").split(":")[0], method, self.path, self.headers.get("Content-Type", ""), body))
+
+    def do_OPTIONS(self) -> None:  # noqa: N802
+        self._note("OPTIONS")
+        self._send(405, {"Content-Type": "text/html"}, b"Method Not Allowed")
+
+    def do_POST(self) -> None:  # noqa: N802
+        self._note("POST", self.rfile.read(int(self.headers.get("Content-Length", 0))).decode("utf-8"))
+        cls = GoogleStandIn
+        if cls.mode == "hangup":
+            self.close_connection = True
+            return
+        if cls.mode == "forbidden":
+            self._send(403, {"Content-Type": "text/html", **CORS}, b"Forbidden")
+        elif cls.mode == "direct":
+            self._send(200, {"Content-Type": cls.echo_ctype, **CORS}, cls.echo_body)
+        else:
+            self._send(302, {"Location": cls.redirect_to, **(CORS if cls.redirect_cors else {})})
+
+    def do_GET(self) -> None:  # noqa: N802
+        self._note("GET")
+        cls = GoogleStandIn
+        self._send(200, {"Content-Type": cls.echo_ctype, **(CORS if cls.echo_cors else {})}, cls.echo_body)
+
+
+def scenario_google_endpoint(p, k: Known) -> None:
+    """The way the answers are meant to travel: a POST to script.google.com, which answers with a redirect to
+    script.googleusercontent.com, which answers with the receiver's JSON. Google itself is not contacted: a Chromium of
+    its own is pointed at a stand-in on this computer (with a certificate made for the test) that answers in the shape
+    Apps Script web apps are known to use. So this shows how the page and the browser cope with that shape, including the
+    page's content security policy and the browser's cross-origin rules, and with each way it can go wrong. It does not
+    show that Google really answers this way."""
+    import ssl
+    import subprocess
+
+    R.section("The Google path: a POST, a redirect to a second address, and nowhere else")
+    spec = k.spec
+    with tempfile.TemporaryDirectory() as tmp:
+        tmp_path = Path(tmp)
+        hosts = ("script.google.com", "script.googleusercontent.com", "evil.example")
+        subprocess.run(["openssl", "req", "-x509", "-newkey", "rsa:2048", "-nodes", "-days", "2", "-subj", f"/CN={hosts[0]}",
+                        "-keyout", str(tmp_path / "key.pem"), "-out", str(tmp_path / "cert.pem"),
+                        "-addext", "subjectAltName=" + ",".join(f"DNS:{h}" for h in hosts)], check=True, capture_output=True)
+        google = http.server.ThreadingHTTPServer(("127.0.0.1", 0), GoogleStandIn)
+        tls = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
+        tls.load_cert_chain(tmp_path / "cert.pem", tmp_path / "key.pem")
+        google.socket = tls.wrap_socket(google.socket, server_side=True)
+        threading.Thread(target=google.serve_forever, daemon=True).start()
+        port = google.server_address[1]
+        (tmp_path / "page").mkdir()
+        bq.build_app(spec, tmp_path / "page" / "index.html", endpoint=GOOGLE_EXEC)
+        web, base = serve(tmp_path / "page")
+        # The browser's own proxy is a dead end except for the three stand-in hosts, so nothing here can reach the real Google.
+        chromium = p.chromium.launch(proxy={"server": "http://127.0.0.1:9", "bypass": ",".join(hosts) + ",127.0.0.1"},
+                                     args=["--host-resolver-rules=" + ", ".join(f"MAP {h} 127.0.0.1:{port}" for h in hosts)])
+
+        def rehearse(**settings):
+            """One press of Send, with the stand-in set up as given. Returns what the page said and what the stand-in saw."""
+            defaults = dict(mode="redirect", redirect_cors=True, echo_cors=True, echo_body=b'{"ok":true}',
+                            echo_ctype="application/json; charset=utf-8", redirect_to=GOOGLE_ECHO)
+            for key, value in {**defaults, **settings}.items():
+                setattr(GoogleStandIn, key, value)
+            GoogleStandIn.seen = []
+            s = Session(chromium, base, state=dict(k.complete), ignore_https_errors=True)
+            s.go("send")
+            s.page.get_by_role("button", name="Send my answers").click()
+            until(s.page, "() => { const t = document.querySelector('.send__status').textContent; return t.length > 0 && !/Sending/.test(t); }",
+                  timeout=10.0, what="the send result")
+            out = (s.page.inner_text(".send__status"), list(GoogleStandIn.seen), bool(s.saved().get("sent")))
+            s.close()
+            return out
+
+        try:
+            status, seen, sent = rehearse()
+            posts = [x for x in seen if x[1] == "POST"]
+            R.check("through Google's redirect the page reads the receiver's yes, says Sent and remembers it", "Sent. Thank you." in status and sent, status)
+            R.check("it made one POST to the first address, as text/plain",
+                    len(posts) == 1 and posts[0][0] == "script.google.com" and posts[0][3].lower().startswith("text/plain"), str(seen)[:300])
+            R.check("then one GET to the second address", [(x[0], x[1]) for x in seen if x[1] == "GET"] == [("script.googleusercontent.com", "GET")], str(seen)[:300])
+            R.check("and no pre-flight request, which Google would refuse", not any(x[1] == "OPTIONS" for x in seen), str(seen)[:300])
+            R.check("what it posted is this questionnaire's answers", bool(posts) and json.loads(posts[0][4])["form"] == spec["client"]["slug"])
+            R.check("nothing else was contacted", {x[0] for x in seen} <= {"script.google.com", "script.googleusercontent.com"}, str(seen)[:300])
+
+            cases = (
+                ("an answer straight from the first address, with no redirect", dict(mode="direct"), True),
+                ("a redirect that ends in a JSON yes with other keys", dict(echo_body=b'{"ok":true,"note":"x"}'), True),
+                ("a redirect whose final answer has no cross-origin permission", dict(echo_cors=False), False),
+                ("a redirect to a sign-in page", dict(echo_body=b"<!doctype html><title>Sign in</title>", echo_ctype="text/html; charset=utf-8"), False),
+                ("a redirect to a JSON no", dict(echo_body=b'{"ok":false,"error":"busy"}'), False),
+                ("a first address that answers 403", dict(mode="forbidden"), False),
+                ("a first address that hangs up", dict(mode="hangup"), False),
+                ("a redirect to an address outside Google's two", dict(redirect_to="https://evil.example/echo"), False),
+            )
+            for what, settings, should_send in cases:
+                status, seen, sent = rehearse(**settings)
+                if should_send:
+                    R.check(f"{what}: sent", "Sent. Thank you." in status and sent, status)
+                else:
+                    R.check(f"{what}: not taken as sent", "didn’t go through" in status and "Sent." not in status and not sent, status)
+                if "outside" in what:
+                    R.check("the page's policy stopped the request before it left", all(x[0] != "evil.example" for x in seen), str(seen)[:300])
+            status, seen, sent = rehearse(redirect_cors=False)
+            print(f"  note  with no cross-origin permission on the redirect itself, Chromium {'sends' if sent else 'does not send'} the answers on: {status[:40]}")
+        finally:
+            chromium.close()
+            web.shutdown()
+            google.shutdown()
+
+
+def real_message(browser, k: Known, state: dict) -> str:
+    """The message the page really posts when Send is pressed, caught by a stand-in receiver."""
+    Collector.bodies.clear()
+    Collector.status, Collector.delay = 200, 0.0
+    Collector.reply, Collector.ctype = b'{"ok":true}', "application/json; charset=utf-8"
+    srv = http.server.ThreadingHTTPServer(("127.0.0.1", 0), Collector)
+    threading.Thread(target=srv.serve_forever, daemon=True).start()
+    try:
+        with tempfile.TemporaryDirectory() as tmp:
+            bq.build_app(k.spec, Path(tmp) / "index.html", endpoint=f"http://127.0.0.1:{srv.server_address[1]}/collect")
+            web, base = serve(Path(tmp))
+            s = Session(browser, base, state=state)
+            s.go("send")
+            s.page.get_by_role("button", name="Send my answers").click()
+            until(s.page, "() => /Sent|didn/.test(document.querySelector('.send__status').textContent)", what="the send result")
+            s.close()
+            web.shutdown()
+    finally:
+        srv.shutdown()
+    return Collector.bodies[0][1] if Collector.bodies else ""
+
+
+def scenario_receiver(browser, k: Known) -> None:
+    R.section("The receiving script (receive_answers.gs), against a stand-in for Google's services")
+    import subprocess
+
+    with tempfile.TemporaryDirectory() as tmp:
+        data = Path(tmp) / "data.json"
+        data.write_text(json.dumps(k.spec), encoding="utf-8")
+        for what, state in (("every question answered", dict(k.complete)),
+                            ("one answered and the rest skipped", dict(k.complete, answers={"postal": "L6X 0G3"}))):
+            body = real_message(browser, k, state)
+            R.check(f"the page posted a message ({what})", body.startswith("{"), body[:80])
+            msg = Path(tmp) / "message.json"
+            msg.write_text(body, encoding="utf-8")
+            r = subprocess.run(["node", str(bq.HERE / "check_receiver.js"), str(bq.RECEIVER), str(data), "--body", str(msg)],
+                               capture_output=True, text=True)
+            R.check(f"the script keeps that message and passes its own checks ({what})",
+                    r.returncode == 0 and "including a message made by the real page" in r.stdout, (r.stdout + r.stderr).strip()[-400:])
 
 
 def scenario_resume_and_history(browser, base: str, k: Known) -> None:
@@ -1330,7 +1594,7 @@ def fix_markup_in_data(browser, base: str, k: Known, axe: Path | None) -> None:
     # no closing "-->" or "</script>": that is the form that leaves a browser reading to the end of the page
     evil["sections"][0]["questions"][0]["help"] = "<!-- <script>window.__evil = 1; a & b <b>not bold</b>"
     with tempfile.TemporaryDirectory() as tmp:
-        bq.build_app(evil, Path(tmp) / "index.html")
+        bq.build_app(evil, Path(tmp) / "index.html", endpoint="")
         html = (Path(tmp) / "index.html").read_text(encoding="utf-8")
         blob = re.search(r'<script type="application/json" id="spec">(.*?)</script>', html, re.S).group(1)
         R.check("the data inside the page contains no '<', '>' or '&' of its own", not any(c in blob for c in "<>&"))
@@ -1379,8 +1643,8 @@ def main() -> int:
     strict = strict_variant(spec)
     k, ks = Known(spec), Known(strict)
     with tempfile.TemporaryDirectory() as tmp, tempfile.TemporaryDirectory() as tmp_strict:
-        bq.build_app(spec, Path(tmp) / "index.html")
-        bq.build_app(strict, Path(tmp_strict) / "index.html")
+        bq.build_app(spec, Path(tmp) / "index.html", endpoint="")  # the scenarios that need an endpoint build their own
+        bq.build_app(strict, Path(tmp_strict) / "index.html", endpoint="")
         srv, base = serve(Path(tmp))
         ssrv, sbase = serve(Path(tmp_strict))
         with sync_playwright() as p:
@@ -1411,6 +1675,10 @@ def main() -> int:
                 attempt(scenario_everything, browser, sbase, ks, ns.axe, "every question required", optional=False)
             if wanted("share"):
                 attempt(scenario_share_and_endpoint, browser, base, k)
+            if wanted("google"):
+                attempt(scenario_google_endpoint, p, k)
+            if wanted("receiver"):
+                attempt(scenario_receiver, browser, k)
             if wanted("resume"):
                 attempt(scenario_resume_and_history, browser, base, k)
             if wanted("edit"):

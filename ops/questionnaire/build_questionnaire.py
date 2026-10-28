@@ -7,6 +7,8 @@ From it this script makes:
 
   assets/header.png                  the branded banner (1600 x 400) for the top of the form
   create_<slug>_form.gs              a Google Apps Script that builds the whole Google Form
+  receive_answers.gs                 (written by hand, dry-run here) the Apps Script that receives the web app's answers
+                                     when form.app.endpoint is set: a row in a Google Sheet and an email
   <slug>-questionnaire-preview.pdf   what the client will see, for a quick read on a phone
   (the .html it is printed from is kept next to it)
   assets/share.png                   the 1200 x 630 picture that shows when the web app's link is shared
@@ -15,7 +17,7 @@ From it this script makes:
 
   python3 ops/questionnaire/build_questionnaire.py check      validate the data file
   python3 ops/questionnaire/build_questionnaire.py banner     also makes assets/share.png
-  python3 ops/questionnaire/build_questionnaire.py script     also dry-runs the script in Node
+  python3 ops/questionnaire/build_questionnaire.py script     also dry-runs both scripts in Node
   python3 ops/questionnaire/build_questionnaire.py preview
   python3 ops/questionnaire/build_questionnaire.py app        needs only the Python standard library
   python3 ops/questionnaire/build_questionnaire.py all
@@ -50,8 +52,10 @@ LINE = "#d3dde8"
 TINT = "#e6eef7"
 
 TYPES = {"text", "paragraph", "choice", "checkbox", "grid"}
-# Words only the web app, the banner and the share picture read. All optional; each has a default.
-FORM_APP_KEYS = ("done", "partial", "summary", "answers_title", "banner_title", "share_title", "preview")
+# Words and settings only the web app, the banner and the share picture read. All optional; each has a default.
+FORM_APP_KEYS = ("done", "partial", "summary", "answers_title", "banner_title", "share_title", "preview", "endpoint")
+# Where the web app may send the answers: the "Web app" address of receive_answers.gs once it is deployed.
+RECEIVER_URL = re.compile(r"^https://script\.google\.com/(?:macros/s/|a/macros/[A-Za-z0-9.-]+/s/)[A-Za-z0-9_-]{20,}/exec$")
 
 
 # ---------------------------------------------------------------------------------------------
@@ -73,6 +77,12 @@ def validate(spec: dict) -> list[str]:
     for key in ("done", "partial", "summary", "answers_title", "banner_title", "share_title"):
         if key in words and not str(words[key]).strip():
             bad.append(f"form.app.{key} is empty")
+    if "endpoint" in words and words["endpoint"] != "":
+        where = words["endpoint"]
+        if not isinstance(where, str) or not RECEIVER_URL.match(where):
+            hint = " (a /dev address only works for the script's owner; use the one that ends in /exec)" if str(where).endswith("/dev") else ""
+            bad.append("form.app.endpoint is the Web app address of receive_answers.gs: "
+                       f"https://script.google.com/macros/s/<id>/exec{hint}")
     if "preview" in words:
         link = words["preview"]
         host = urlparse(link.get("url", "")) if isinstance(link, dict) else None
@@ -440,6 +450,18 @@ def dry_run(script: Path, spec: dict) -> bool:
     return r.returncode == 0
 
 
+RECEIVER = HERE / "receive_answers.gs"
+
+
+def dry_run_receiver(data: Path) -> bool:
+    """Run receive_answers.gs against a stand-in for Google's services (check_receiver.js)."""
+    r = subprocess.run(["node", str(HERE / "check_receiver.js"), str(RECEIVER), str(data)], capture_output=True, text=True)
+    print(r.stdout.rstrip())
+    if r.returncode:
+        print(r.stderr.rstrip())
+    return r.returncode == 0
+
+
 # ---------------------------------------------------------------------------------------------
 # preview (what the client sees)
 
@@ -745,7 +767,16 @@ def content_security_policy(endpoint: str) -> str:
             f"script-src 'unsafe-inline'; connect-src {connect}; base-uri 'none'; form-action 'none'")
 
 
-def build_app(spec: dict, out: Path, url: str = APP_URL, endpoint: str = "") -> None:
+def endpoint_of(spec: dict, given: str | None = None) -> str:
+    """The address the web app sends answers to. One asked for by the caller wins (an empty one means none); otherwise
+    the data file's form.app.endpoint; otherwise none, and the person sends the answers themselves."""
+    if given is not None:
+        return given
+    return (spec["form"].get("app") or {}).get("endpoint", "")
+
+
+def build_app(spec: dict, out: Path, url: str = APP_URL, endpoint: str | None = None) -> None:
+    endpoint = endpoint_of(spec, endpoint)
     model = app_model(spec, endpoint)
     description = form_words(spec)["summary"]
     share = ""
@@ -774,7 +805,8 @@ def build_app(spec: dict, out: Path, url: str = APP_URL, endpoint: str = "") -> 
     out.write_text(page, encoding="utf-8")
     shown = out.relative_to(REPO) if REPO in out.resolve().parents else out
     stops = sum(1 for s in model["screens"] if s["kind"] == "stop")
-    print(f"app     {shown}  {out.stat().st_size / 1024:.0f} KiB  ({len(model['screens']) - stops} sections, {stops} stops)")
+    sends = f", answers go to {urlparse(endpoint).netloc}" if endpoint else ""
+    print(f"app     {shown}  {out.stat().st_size / 1024:.0f} KiB  ({len(model['screens']) - stops} sections, {stops} stops{sends})")
 
 
 # ---------------------------------------------------------------------------------------------
@@ -787,7 +819,9 @@ def main() -> int:
     ap.add_argument("--out", type=Path, default=HERE, help="where the .gs, .html and .pdf go")
     ap.add_argument("--app-out", type=Path, default=APP_OUT, help="where the web app's index.html goes")
     ap.add_argument("--url", default=APP_URL, help="the public address of the web app (for link previews)")
-    ap.add_argument("--endpoint", default="", help="an address the web app can send the answers to (optional)")
+    ap.add_argument("--endpoint", default=None,
+                    help="an address the web app sends the answers to. Overrides form.app.endpoint in the data file; "
+                         "--endpoint '' builds the app without one")
     ns = ap.parse_args()
 
     spec = load(ns.data)
@@ -812,6 +846,8 @@ def main() -> int:
         gs = ns.out / f"create_{slug}_form.gs"
         build_script(spec, banner, gs, ns.data.name)
         if not dry_run(gs, spec):
+            return 3
+        if not dry_run_receiver(ns.data):
             return 3
     if ns.step in ("preview", "all"):
         page = ns.out / f"{slug}-questionnaire-preview.html"

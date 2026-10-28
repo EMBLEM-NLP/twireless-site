@@ -169,7 +169,7 @@
         {
           "id": "next", "type": "choice", "required": false, "other": true,
           "title": "What would you like us to do next?",
-          "help": "We’ll reply wherever you send your answers.",
+          "help": "If you want a reply, we’ll use the store’s phone number or email. To be reached another way, choose Other and tell us how.",
           "options": [
             "Send me the updated drafts",
             "Call or text me to talk it over",

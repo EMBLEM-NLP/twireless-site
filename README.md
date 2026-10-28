@@ -29,7 +29,7 @@ The store's content is written once (`src/site.json` and the page copy) and offe
 | `build.py` | Builds one design. Needs Python 3.8 or newer, nothing else. |
 | `demo.py` | Builds the GitHub Pages demo of every design, and the questionnaire web app, into `docs/`. |
 | `rsi/` | The WEB-DESIGN-RSI-2.0 design test: harness, imagery tool, a contract per design and the measured runs. |
-| `ops/questionnaire/` | The website questionnaire for the store, written as a first approach to a business that never asked for one (every question optional): the questions as data, a web app that asks them one section at a time with a progress bar (`app/`), a script that builds them as a Google Form instead, the form's banner and a PDF preview. See its own README. |
+| `ops/questionnaire/` | The website questionnaire for the store, written as a first approach to a business that never asked for one (every question optional): the questions as data, a web app that asks them one section at a time with a progress bar (`app/`), a script that builds them as a Google Form instead, a small Google script that receives the answers the web app posts (`receive_answers.gs`), the form's banner and a PDF preview. See its own README. |
 
 ## Pages
 

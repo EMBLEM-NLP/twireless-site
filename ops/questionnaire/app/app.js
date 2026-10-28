@@ -1150,11 +1150,17 @@
       form: SPEC.client.slug, version: SPEC.version, sent_at: new Date().toISOString(),
       complete: allDone(), answers: answersById(), text: exportText()
     });
+    // "Sent" is only said when the receiver says so. A web address can answer 200 and still not have taken the answers
+    // (a sign-in page, an error page), so the reply has to be {"ok":true}, not just a good status.
     fetch(SPEC.endpoint, { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: body, signal: ctl ? ctl.signal : undefined })
       .then(function (r) {
+        if (!r.ok) throw new Error('status ' + r.status);
+        return r.json();
+      })
+      .then(function (reply) {
+        if (!reply || reply.ok !== true) throw new Error('the receiver did not accept it');
         window.clearTimeout(timer);
         sending = false;
-        if (!r.ok) throw new Error('status ' + r.status);
         state.sent = Date.now();
         save();
         setStatus('Sent. Thank you.');
@@ -1211,7 +1217,7 @@
     actions.appendChild(button('Save as a file', doSave, false, 'save'));
     card.appendChild(actions);
     var how = SPEC.endpoint
-      ? 'This sends your answers to ' + SPEC.client.agency + '.'
+      ? 'This sends your answers and the time to ' + SPEC.client.agency + '. Your name, number and email aren’t part of it unless you wrote them in an answer.'
       : (CAN_SHARE
         ? 'Tap Send my answers, choose a text, WhatsApp or email, and send it to the person who sent you this link.'
         : 'Copy your answers, then paste them into a text, WhatsApp or email to the person who sent you this link.');
