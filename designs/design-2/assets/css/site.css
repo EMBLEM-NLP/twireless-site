@@ -442,7 +442,6 @@ h2 + .cards, h2 + .handover { margin-top: 20px; }
   .hero__grid { gap: 16px; }
   .hero__text { gap: 14px; }
   .hero__text .lead { font-size: 1.125rem; line-height: 1.45; }
-  .hero__photo img { aspect-ratio: 16 / 10; }
   .hero .buttons .button { padding-inline: 16px; }
   .deals--compact { grid-auto-flow: column; grid-auto-columns: 84%; overflow-x: auto; scroll-snap-type: x mandatory; margin-inline: calc(-1 * var(--gutter)); padding: 2px var(--gutter) 8px; scroll-padding-inline: var(--gutter); scrollbar-width: none; }
   .deals--compact::-webkit-scrollbar { display: none; }
@@ -469,6 +468,8 @@ h2 + .cards, h2 + .handover { margin-top: 20px; }
 }
 @media (min-width: 600px) {
   .form__row { grid-template-columns: 1fr 1fr; }
+  /* The home photo is cut for each screen (see design.py): 5:4 on a phone, the 2:1 banner here, a square from 900px. */
+  .hero__photo img { aspect-ratio: 2 / 1; }
 }
 /* Short phones (a 320 x 568 screen): a smaller first screen so the call button clears the bar below it. */
 @media (max-width: 899px) and (max-height: 620px) {
@@ -491,6 +492,10 @@ h2 + .cards, h2 + .handover { margin-top: 20px; }
   .top { position: relative; }
   .dock { bottom: calc(6px + env(safe-area-inset-bottom, 0px)); gap: 4px; padding: 3px; border-radius: 22px; }
   .dock a { grid-auto-flow: column; justify-content: center; align-items: center; gap: 8px; min-height: 44px; padding-block: 2px; }
+  /* The photo sits beside the headline, so the headline and the call button are on the first screen. */
+  .hero__grid { grid-template-columns: 1fr 1fr; align-items: center; gap: 24px; padding-top: 4px; }
+  .hero__media { order: 2; margin-inline: 0; }
+  .hero__photo img { aspect-ratio: 5 / 4; }
 }
 @media (max-width: 380px) {
   .hero .buttons { gap: 8px; }
@@ -514,7 +519,7 @@ h2 + .cards, h2 + .handover { margin-top: 20px; }
 @media (min-width: 900px) {
   .hero__grid { grid-template-columns: 7fr 5fr; gap: 56px; align-items: center; padding-top: 40px; }
   .hero__media { order: 2; margin-inline: 0; }
-  .hero__photo img { aspect-ratio: 4 / 5; }
+  .hero__photo img { aspect-ratio: 1 / 1; }
   .hero__text { gap: 22px; }
   .providers { grid-template-columns: repeat(3, 1fr); gap: 28px; }
   .provider { grid-template-columns: 1fr; align-items: start; align-content: start; gap: 18px; }

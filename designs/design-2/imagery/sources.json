@@ -12,6 +12,15 @@
         "Don't use a photo as part of a trademark, design mark, trade name, business name or service mark.",
         "Don't sell unaltered copies or redistribute the photos on stock or wallpaper platforms."
       ]
+    },
+    "AI-generated, terms not confirmed": {
+      "url": null,
+      "commercial": false,
+      "attribution_required": false,
+      "conditions": [
+        "The person who supplied this picture described it as AI-generated. Which tool made it, and what that tool's terms allow, were not given.",
+        "Confirm that those terms let the store use it on its website, and that showing Apple's app icons on its screen is acceptable, or replace it, before the site goes live."
+      ]
     }
   },
   "allowed_hosts": [
@@ -36,24 +45,37 @@
   },
   "photos": [
     {
-      "id": "hand-blue-phone",
-      "provider": "Pexels",
-      "provider_id": "11772521",
-      "page_url": "https://www.pexels.com/photo/a-person-holding-a-smartphone-11772521/",
-      "download_url": "https://images.pexels.com/photos/11772521/pexels-photo-11772521.jpeg",
-      "author": "Imad Clicks",
-      "author_url": "https://www.pexels.com/@imadclicks/",
-      "license": "Pexels License",
-      "retrieved": "2026-10-26",
-      "original": "originals/pexels-11772521.jpg",
+      "id": "foldable-in-hand",
+      "provider": "Supplied by the client",
+      "license": "AI-generated, terms not confirmed",
+      "retrieved": "2026-10-28",
+      "supplied_note": "Sent by EMBLEM-NLP on October 28, 2026 as design 2's home page image, and described by them as AI-generated. The tool that made it and the terms it came with were not given.",
+      "ai_generated": true,
+      "original": "originals/supplied-foldable-in-hand.png",
       "people": "no faces",
-      "people_note": "one hand",
-      "description": "A hand holding a blue smartphone with garden plants and flowers blurred behind it",
-      "alt": "A hand holding up a blue phone, with flowers and plants blurred behind it.",
+      "people_note": "an AI-generated hand, so nobody real; a cartoon avatar in a map widget on the phone's screen",
+      "description": "An AI-generated image of a hand holding a small folding phone up against a pale blue sky; its screen shows a home screen of app icons and two widgets",
+      "alt": "An AI-generated picture of a hand holding a small folding phone up against a pale blue sky. The phone's screen shows a home screen of app icons.",
+      "grade": {
+        "saturation": 1.0,
+        "contrast": 1.0
+      },
       "crops": {
-        "4x5": {
+        "5x4": {
           "focus": [
-            0.5,
+            0.6177,
+            0.5
+          ],
+          "widths": [
+            480,
+            720,
+            960,
+            1099
+          ]
+        },
+        "2x1": {
+          "focus": [
+            0.6,
             0.5
           ],
           "widths": [
@@ -61,13 +83,25 @@
             720,
             960,
             1280,
-            1600
+            1600,
+            1758
+          ]
+        },
+        "1x1": {
+          "focus": [
+            0.685,
+            0.5
+          ],
+          "widths": [
+            480,
+            720,
+            879
           ]
         },
         "40x21": {
           "focus": [
-            0.5,
-            0.38
+            0.62,
+            0.5
           ],
           "widths": [
             1200
@@ -77,22 +111,21 @@
           ]
         }
       },
-      "original_sha256": "3cd43461de72810327e1629896152d76e2e60f99b9ac0eb7c7a4f9587aa6a6b5",
+      "original_sha256": "cd2c4f775f939f3691a7dd7f67595fe2c4e557e815f7d2c53229fb9caa94785e",
       "original_size": [
-        6336,
-        7920
+        1942,
+        809
       ],
-      "retouch": [
-        {
-          "box": [
-            3010,
-            4850,
-            3780,
-            5110
-          ],
-          "why": "maker's name, faintly printed on the back of the phone"
-        }
-      ]
+      "faces_allowed": {
+        "count": 1,
+        "why": "a cartoon avatar in a map widget on the phone's screen, which the face detector reads as a face; nobody real appears"
+      },
+      "extend": {
+        "top": 70,
+        "soften": 5,
+        "blend": 24,
+        "why": "70 px of plain sky added above the phone (the rows below it, mirrored and softened) so the open/closed chip clears the phone"
+      }
     },
     {
       "id": "two-phones",

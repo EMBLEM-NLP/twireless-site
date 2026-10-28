@@ -2,147 +2,351 @@
   "schema": "web.design.imagery.manifest.v1",
   "measurement_series": "WEB-DESIGN-RSI-2.0",
   "design_id": "design-2",
-  "generated": "2026-10-26",
+  "generated": "2026-10-28",
   "photos": {
-    "hand-blue-phone": {
+    "foldable-in-hand": {
       "source": {
-        "provider": "Pexels",
-        "provider_id": "11772521",
-        "page_url": "https://www.pexels.com/photo/a-person-holding-a-smartphone-11772521/",
-        "author": "Imad Clicks",
-        "author_url": "https://www.pexels.com/@imadclicks/",
-        "license": "Pexels License",
-        "license_url": "https://www.pexels.com/license/",
-        "retrieved": "2026-10-26"
+        "provider": "Supplied by the client",
+        "provider_id": null,
+        "page_url": null,
+        "author": null,
+        "author_url": null,
+        "license": "AI-generated, terms not confirmed",
+        "license_url": null,
+        "retrieved": "2026-10-28",
+        "note": "Sent by EMBLEM-NLP on October 28, 2026 as design 2's home page image, and described by them as AI-generated. The tool that made it and the terms it came with were not given.",
+        "ai_generated": true
       },
-      "alt": "A hand holding up a blue phone, with flowers and plants blurred behind it.",
+      "alt": "An AI-generated picture of a hand holding a small folding phone up against a pale blue sky. The phone's screen shows a home screen of app icons.",
       "people": "no faces",
       "logo_safe": true,
-      "description": "A hand holding a blue smartphone with garden plants and flowers blurred behind it",
+      "description": "An AI-generated image of a hand holding a small folding phone up against a pale blue sky; its screen shows a home screen of app icons and two widgets",
       "retouched": [
-        "maker's name, faintly printed on the back of the phone"
+        "70 px of plain sky added above the phone (the rows below it, mirrored and softened) so the open/closed chip clears the phone"
       ],
       "logos": [],
       "kind": "photo",
       "crops": {
-        "4x5": {
-          "aspect": 0.8,
+        "5x4": {
+          "aspect": 1.25,
           "box": [
+            650,
             0,
-            0,
-            6336,
-            7920
+            1749,
+            879
           ],
           "files": {
             "avif": [
               {
-                "file": "hand-blue-phone-4x5-480.avif",
+                "file": "foldable-in-hand-5x4-480.avif",
                 "w": 480,
-                "h": 600,
-                "bytes": 10414,
-                "sha256": "2e2eb560ad72b9290dcf0517c3684d94a3e2ae166922f77f15c4c1209bca59e7"
+                "h": 384,
+                "bytes": 8355,
+                "sha256": "6014642128985c298336c14f93b37eff2eeb68af78ad72da14dfd45668895d81"
               },
               {
-                "file": "hand-blue-phone-4x5-720.avif",
+                "file": "foldable-in-hand-5x4-720.avif",
                 "w": 720,
-                "h": 900,
-                "bytes": 16580,
-                "sha256": "b26723d9dd6f86855ae4a4fcf88f56bc681bdd72ac29f0f5c592a5c2bb428bf5"
+                "h": 576,
+                "bytes": 15140,
+                "sha256": "3673c73d2474c3a09b4722a9002460ef201e0625b8af79be28b6b49fc6a15b83"
               },
               {
-                "file": "hand-blue-phone-4x5-960.avif",
+                "file": "foldable-in-hand-5x4-960.avif",
                 "w": 960,
-                "h": 1200,
-                "bytes": 23258,
-                "sha256": "c6100d23558d61476c8bca8b29f03ed95a62be8f5f44483aef74ca74ff3d8329"
+                "h": 768,
+                "bytes": 22718,
+                "sha256": "1d72ffef8d2c88e7c2ef31a3df4fd50e808e75c327f10c906a4db4447dad68a7"
               },
               {
-                "file": "hand-blue-phone-4x5-1280.avif",
-                "w": 1280,
-                "h": 1600,
-                "bytes": 32918,
-                "sha256": "54856c880c62c4a8a17579eb03967906df05965aaa91d3c3d85355e3c1723cac"
-              },
-              {
-                "file": "hand-blue-phone-4x5-1600.avif",
-                "w": 1600,
-                "h": 2000,
-                "bytes": 42945,
-                "sha256": "aba359dc2f89089dd3bf2e518fc4cd88d9d0dd35b4dd38e3a566b5be4cd7841b"
+                "file": "foldable-in-hand-5x4-1099.avif",
+                "w": 1099,
+                "h": 879,
+                "bytes": 27908,
+                "sha256": "493321c473587bd898f6354ec25ee30d5cff1e32445b09a1577b376650bf8663"
               }
             ],
             "webp": [
               {
-                "file": "hand-blue-phone-4x5-480.webp",
+                "file": "foldable-in-hand-5x4-480.webp",
                 "w": 480,
-                "h": 600,
-                "bytes": 14190,
-                "sha256": "d7ab6a84e6a43f4a02b057102bf7bd8110553e56e8b8becbbd6441e21e417be8"
+                "h": 384,
+                "bytes": 12528,
+                "sha256": "2fb2a1900c1c999e84e9c6f02eaca4bc4363831845d9443494018ef7a8d96c5f"
               },
               {
-                "file": "hand-blue-phone-4x5-720.webp",
+                "file": "foldable-in-hand-5x4-720.webp",
                 "w": 720,
-                "h": 900,
-                "bytes": 22794,
-                "sha256": "0cfd114be130626459d0aedebfdc39558bdd81183abd836ef3ce1c13943b7b21"
+                "h": 576,
+                "bytes": 22330,
+                "sha256": "08542214db5121e115d0048c9071aad541ed621052d674d14cc599785c032cb5"
               },
               {
-                "file": "hand-blue-phone-4x5-960.webp",
+                "file": "foldable-in-hand-5x4-960.webp",
                 "w": 960,
-                "h": 1200,
-                "bytes": 31834,
-                "sha256": "c97894cad4d904ba09c6b937df9d59973cf263cff5194c774c05a296b8cbfc52"
+                "h": 768,
+                "bytes": 33202,
+                "sha256": "5fc86f5ff5e8b1998674c64dc5fd24ab0437c8994e12fdc7b32a3ae621270b40"
               },
               {
-                "file": "hand-blue-phone-4x5-1280.webp",
-                "w": 1280,
-                "h": 1600,
-                "bytes": 45992,
-                "sha256": "4745fd8aac86736494cf4f17cde6665b843f5623294cb7ef86a644cd34cc363b"
-              },
-              {
-                "file": "hand-blue-phone-4x5-1600.webp",
-                "w": 1600,
-                "h": 2000,
-                "bytes": 60342,
-                "sha256": "19c6d802af945ab5722e6fd5217e517dc1488bb03185bc30b7884160ae32219c"
+                "file": "foldable-in-hand-5x4-1099.webp",
+                "w": 1099,
+                "h": 879,
+                "bytes": 40732,
+                "sha256": "97f6fec90cc57ea60c98673a1dfe4e06f2713878f890ceffe893fbff2939c2bf"
               }
             ],
             "jpg": [
               {
-                "file": "hand-blue-phone-4x5-480.jpg",
+                "file": "foldable-in-hand-5x4-480.jpg",
                 "w": 480,
-                "h": 600,
-                "bytes": 29592,
-                "sha256": "b5e569d8b20a66f594e692a09b9008bbacb02531b0b43ca26534c3a6f158599d"
+                "h": 384,
+                "bytes": 22814,
+                "sha256": "177f839216e0fb1d24ee40ad06cb9b311ae4904b85d1e88258ec8024827d2a5a"
               },
               {
-                "file": "hand-blue-phone-4x5-720.jpg",
+                "file": "foldable-in-hand-5x4-720.jpg",
                 "w": 720,
-                "h": 900,
-                "bytes": 52335,
-                "sha256": "fece4180402203b9dea588ec8427e1733a6db70cb87ae86a1c835790018b27ad"
+                "h": 576,
+                "bytes": 42728,
+                "sha256": "6aeef51303938f7278cc224cf02d435935f87bf01286d534649f5d91d4eaaa89"
               },
               {
-                "file": "hand-blue-phone-4x5-960.jpg",
+                "file": "foldable-in-hand-5x4-960.jpg",
                 "w": 960,
-                "h": 1200,
-                "bytes": 78714,
-                "sha256": "b7e9ce812c951585ec51909c2cf525d63148ae6ea0eb43f9afc9e75866939df1"
+                "h": 768,
+                "bytes": 68068,
+                "sha256": "a3f8eb4557c6c6664e940f2953423bdc9a54f13250d775c0706f35eebd8e4c9f"
               },
               {
-                "file": "hand-blue-phone-4x5-1280.jpg",
+                "file": "foldable-in-hand-5x4-1099.jpg",
+                "w": 1099,
+                "h": 879,
+                "bytes": 83589,
+                "sha256": "00bcbe55b581db62cd692f6d045fe63181bffce88cdda97570a1a72c8c785fc2"
+              }
+            ]
+          }
+        },
+        "2x1": {
+          "aspect": 2.0,
+          "box": [
+            184,
+            0,
+            1942,
+            879
+          ],
+          "files": {
+            "avif": [
+              {
+                "file": "foldable-in-hand-2x1-480.avif",
+                "w": 480,
+                "h": 240,
+                "bytes": 4885,
+                "sha256": "db4a9acf7e0582ad0185c80a512aedaa7383119c001474c5d808eadd400ebebd"
+              },
+              {
+                "file": "foldable-in-hand-2x1-720.avif",
+                "w": 720,
+                "h": 360,
+                "bytes": 8044,
+                "sha256": "8ae533e8a65b0222826bfab9982cc02d6071287ef0122137c0a57d7c41964507"
+              },
+              {
+                "file": "foldable-in-hand-2x1-960.avif",
+                "w": 960,
+                "h": 480,
+                "bytes": 12024,
+                "sha256": "aed8436b4c94f83e29bd46505bd4dfa51539b76304d9833895dc1e846ae7f1f3"
+              },
+              {
+                "file": "foldable-in-hand-2x1-1280.avif",
                 "w": 1280,
-                "h": 1600,
-                "bytes": 119635,
-                "sha256": "0a982d98664952fcea0908028e4811970a1745b84f4e0135c89e950ef76a3e56"
+                "h": 640,
+                "bytes": 18443,
+                "sha256": "f7c78e8f8eba7d18fbfe215bba679511a4fe609a8e5a88f117f0fe2107d10c17"
               },
               {
-                "file": "hand-blue-phone-4x5-1600.jpg",
+                "file": "foldable-in-hand-2x1-1600.avif",
                 "w": 1600,
-                "h": 2000,
-                "bytes": 167072,
-                "sha256": "41343459cea4892df459784aab717c8fd84d2307aa2de4446fb7776cb691a04c"
+                "h": 800,
+                "bytes": 25486,
+                "sha256": "f71cb1af06e9d0a4d0348a97f11af47418220d0463bba3b817169b686eeb8a6c"
+              },
+              {
+                "file": "foldable-in-hand-2x1-1758.avif",
+                "w": 1758,
+                "h": 879,
+                "bytes": 29228,
+                "sha256": "6fa4436105736be69006d912b972f7333812ef8ca5ed8d3bb73f18b18b6f166e"
+              }
+            ],
+            "webp": [
+              {
+                "file": "foldable-in-hand-2x1-480.webp",
+                "w": 480,
+                "h": 240,
+                "bytes": 6870,
+                "sha256": "1fe087936ddc158c5ab67e6d4979398b3d92762fceacff3f1f9a7a3cfa6b1137"
+              },
+              {
+                "file": "foldable-in-hand-2x1-720.webp",
+                "w": 720,
+                "h": 360,
+                "bytes": 12192,
+                "sha256": "0b8bb7993130ad38049d87b521772c3885f20a85abeb89ba2393b383d04e693e"
+              },
+              {
+                "file": "foldable-in-hand-2x1-960.webp",
+                "w": 960,
+                "h": 480,
+                "bytes": 17988,
+                "sha256": "d1b4fb7fb76fa8eeb6efdb044ca29c95da99c8ae7bde948e7e562e01b8df77f4"
+              },
+              {
+                "file": "foldable-in-hand-2x1-1280.webp",
+                "w": 1280,
+                "h": 640,
+                "bytes": 27470,
+                "sha256": "c05826e8e86c9300990d80143e63a4e3e1716ed20e060a7b2df330c00200390e"
+              },
+              {
+                "file": "foldable-in-hand-2x1-1600.webp",
+                "w": 1600,
+                "h": 800,
+                "bytes": 37406,
+                "sha256": "e178431b58e8e4f317324cae64b2c9d05dced978e720b30a04560fda132d2773"
+              },
+              {
+                "file": "foldable-in-hand-2x1-1758.webp",
+                "w": 1758,
+                "h": 879,
+                "bytes": 43578,
+                "sha256": "1d12266ed7d9fd5f66422f065c742b9d46a97e654fbc4d6b58618c79f0cbfe0f"
+              }
+            ],
+            "jpg": [
+              {
+                "file": "foldable-in-hand-2x1-480.jpg",
+                "w": 480,
+                "h": 240,
+                "bytes": 12581,
+                "sha256": "4ff0963303919ee9a2c96d78e39c69dc892b1d43a267f27374f4327773266be4"
+              },
+              {
+                "file": "foldable-in-hand-2x1-720.jpg",
+                "w": 720,
+                "h": 360,
+                "bytes": 22843,
+                "sha256": "3e7523b1fb8fd4c9c930ccbbf5221879d15c84ef5d6f30fbb825f12da09dd9a3"
+              },
+              {
+                "file": "foldable-in-hand-2x1-960.jpg",
+                "w": 960,
+                "h": 480,
+                "bytes": 35613,
+                "sha256": "d288c150f69a77d6e6265ea40d4da71490c5c52aeb0688177123ef0a6a052902"
+              },
+              {
+                "file": "foldable-in-hand-2x1-1280.jpg",
+                "w": 1280,
+                "h": 640,
+                "bytes": 56402,
+                "sha256": "d1aafae41d66e735057f65a1462dd68b2afa54bdc29dd091b1dbdd9cb38d9f79"
+              },
+              {
+                "file": "foldable-in-hand-2x1-1600.jpg",
+                "w": 1600,
+                "h": 800,
+                "bytes": 80128,
+                "sha256": "6555fec2da09e801dc0c6e66d5e9caa763c59b7b4c0b1e5cac8b572298380100"
+              },
+              {
+                "file": "foldable-in-hand-2x1-1758.jpg",
+                "w": 1758,
+                "h": 879,
+                "bytes": 93120,
+                "sha256": "b0078bdb29d773544a2fbe3bb0046d17d9513fe3fce6a3fc635f5179efefc5c1"
+              }
+            ]
+          }
+        },
+        "1x1": {
+          "aspect": 1.0,
+          "box": [
+            891,
+            0,
+            1770,
+            879
+          ],
+          "files": {
+            "avif": [
+              {
+                "file": "foldable-in-hand-1x1-480.avif",
+                "w": 480,
+                "h": 480,
+                "bytes": 11237,
+                "sha256": "2c4c1c83ae74cd43e2e2137b18a31e63f92eac7a9f976bdc8c88670c99116a42"
+              },
+              {
+                "file": "foldable-in-hand-1x1-720.avif",
+                "w": 720,
+                "h": 720,
+                "bytes": 20825,
+                "sha256": "365444989c374314e58c2d1f42f587783a04e6029d11f7aeaec35ead9bd6e19d"
+              },
+              {
+                "file": "foldable-in-hand-1x1-879.avif",
+                "w": 879,
+                "h": 879,
+                "bytes": 27940,
+                "sha256": "ac684802ff03a011d3e9b563addf242ff89fd43e7b4eba32f4980ff788a45fbb"
+              }
+            ],
+            "webp": [
+              {
+                "file": "foldable-in-hand-1x1-480.webp",
+                "w": 480,
+                "h": 480,
+                "bytes": 16916,
+                "sha256": "0819148807973cefa8dbeebaa56192be289362c2f2b00781fd5192863387afec"
+              },
+              {
+                "file": "foldable-in-hand-1x1-720.webp",
+                "w": 720,
+                "h": 720,
+                "bytes": 30646,
+                "sha256": "1599f83295068b4a913a6ea042283deecc68cd061deb40d1d05e9ad45dd330c4"
+              },
+              {
+                "file": "foldable-in-hand-1x1-879.webp",
+                "w": 879,
+                "h": 879,
+                "bytes": 40374,
+                "sha256": "15cb99b33fd361bb24d9177d646565186423496f010b69ac05e9c4bfd526ce88"
+              }
+            ],
+            "jpg": [
+              {
+                "file": "foldable-in-hand-1x1-480.jpg",
+                "w": 480,
+                "h": 480,
+                "bytes": 31235,
+                "sha256": "4c02c9a9060f0bd3d88679d0add2a3f2f87c87ee96f85109eec348d27f8ccc1a"
+              },
+              {
+                "file": "foldable-in-hand-1x1-720.jpg",
+                "w": 720,
+                "h": 720,
+                "bytes": 58570,
+                "sha256": "d9e94e91c2c9d6ae07bdfd92922fa12017c6a72e0a50fa6cbe1925165b2cc16b"
+              },
+              {
+                "file": "foldable-in-hand-1x1-879.jpg",
+                "w": 879,
+                "h": 879,
+                "bytes": 80989,
+                "sha256": "1667d40378ab465fcd07181ac337f4a15a6137c8ea184f3180166096ff74ab75"
               }
             ]
           }
@@ -150,19 +354,19 @@
         "40x21": {
           "aspect": 1.90476,
           "box": [
+            268,
             0,
-            1346,
-            6336,
-            4673
+            1942,
+            879
           ],
           "files": {
             "jpg": [
               {
-                "file": "hand-blue-phone-40x21-1200.jpg",
+                "file": "foldable-in-hand-40x21-1200.jpg",
                 "w": 1200,
                 "h": 630,
-                "bytes": 49389,
-                "sha256": "b2a9567e18966bc59bc3bfa9879ba44cfa21a411d7b0d57ecefa4de918991b74"
+                "bytes": 54620,
+                "sha256": "abe399391e14b22d5183fdbfedd85c185269647008992519dba4278ee6dc546c"
               }
             ]
           }

@@ -13,7 +13,6 @@ OFFER_PHOTO = {("Bell", "mobile"): "two-phones", ("Virgin Plus", "mobile"): "con
                ("Lucky Mobile", "mobile"): "train", ("Bell", "home"): "living-room",
                ("T Wireless", "repairs"): "cracked-screen"}
 SIZES = {
-    "hero": "(min-width: 900px) 480px, calc(100vw - 16px)",
     "provider": "(min-width: 900px) 360px, 40vw",
     "wide": "(min-width: 900px) 660px, calc(100vw - 32px)",
     "half": "(min-width: 900px) 560px, calc(100vw - 32px)",
@@ -131,16 +130,61 @@ def extend(p, kit):
         f'<td data-label="You notice">{esc(kit["render"](r["notice"], p, "repairs", escape=False))}</td>'
         f'<td data-label="We do">{esc(kit["render"](r["fix"], p, "repairs", escape=False))}</td></tr>' for r in data["repairs"])
 
-    credits = []
+    # The home page photo: a phone in a hand, cut three ways. A phone gets a 5:4 crop with the phone right of
+    # centre (the open/closed chip sits in the sky to its left), a tablet the full banner (2:1), a desktop a square
+    # around the phone beside the headline, and a phone on its side the 5:4 crop beside the headline.
+    hero_photo = photos.picture(
+        "foldable-in-hand", "5x4", root, "calc(100vw - 16px)", cls="hero__photo", priority=True,
+        art=[("(max-width: 899px) and (max-height: 500px) and (orientation: landscape)", "5x4", "calc(50vw - 40px)"),
+             ("(min-width: 900px)", "1x1", "(min-width: 1100px) 443px, 42vw"),
+             ("(min-width: 600px)", "2x1", "calc(100vw - 16px)")])
+
+    credits, supplied, generated = [], False, False
     for c in photos.credits():
+        if c["provider"] == "Supplied by the client":
+            supplied = True
+            if c.get("ai_generated"):
+                generated = True
+                by = ('<p>An AI-generated image, supplied for this preview. Which tool made it, and what that tool’s terms '
+                      'allow, are not confirmed yet, so it will be replaced or cleared before the site goes live.</p>')
+            else:
+                by = ('<p>Supplied for this preview. Where it came from and what it may be used for are not confirmed yet, '
+                      'so it will be replaced or cleared before the site goes live.</p>')
+        else:
+            by = (f'<p>Photo by <a href="{esc(c["author_url"] or c["page_url"])}">{esc(c["author"])}</a> on '
+                  f'<a href="{esc(c["page_url"])}">{esc(c["provider"])}</a>, used under the '
+                  f'<a href="{esc(c["license_url"])}">{esc(c["license"])}</a>.</p>')
         credits.append(
             f'<li class="credit">\n'
             f'  {pic(c["id"], next(iter(photos.m["photos"][c["id"]]["crops"])), "thumb", alt="")}\n'
             f'  <div><p class="credit__what">{esc(c["alt"])}</p>\n'
-            f'  <p>Photo by <a href="{esc(c["author_url"] or c["page_url"])}">{esc(c["author"])}</a> on '
-            f'<a href="{esc(c["page_url"])}">{esc(c["provider"])}</a>, used under the '
-            f'<a href="{esc(c["license_url"])}">{esc(c["license"])}</a>.</p></div>\n'
+            f'  {by}</div>\n'
             f'</li>')
+    if generated:
+        credits_lead = ("Every photo on this website is a stock photo, apart from one AI-generated image on the home page, marked "
+                        "below. None of them shows our store, our staff or our customers. Thank you to the photographers who "
+                        "share their work.")
+    elif supplied:
+        credits_lead = ("Every photo on this website is a stock photo, apart from the one marked as supplied. None of them shows "
+                        "our store, our staff or our customers. Thank you to the photographers who share their work.")
+    else:
+        credits_lead = ("Every photo on this website is a stock photo, so none of them show our store, our staff or our customers. "
+                        "Thank you to the photographers who share their work.")
+    credits_note = ("We cropped and resized the photos, and lightly colour-matched most of them. In some of them we also removed small "
+                    "printed brand names, logos and emblems, and a phone picture printed on a retail carton: on phones and a phone case, "
+                    "a card, a repair mat and its parts, a shirt, a wristband, a ticket machine and a carton. We set the Bell, Virgin Plus "
+                    "and Lucky Mobile logos on white plates over some of the photos. Bell, Virgin Plus and Lucky Mobile are trademarks of "
+                    "their respective owners."
+                    + (f" The app icons and widgets on the screen of the phone in the home page {'image' if generated else 'photo'} "
+                       "belong to their respective owners." if supplied else ""))
+    # The footer's one-line disclosure about the photos stays true while a supplied or generated picture is on the home page.
+    if generated:
+        footer_photos = ("Our pictures are stock photos and one AI-generated image, so none of them show the store, our staff "
+                         "or our customers.")
+    elif supplied:
+        footer_photos = "Our photos are stock or supplied images, so none of them show the store, our staff or our customers."
+    else:
+        footer_photos = "Our photos are stock photos, so none of them show the store, our staff or our customers."
 
     # While any offer is still an example, the Offers page says so in words, so that its headline is not read as a promise.
     example_note = ""
@@ -160,10 +204,13 @@ def extend(p, kit):
         "deals_all": "\n".join(deal(o, True) for o in data["offers"]),
         "repair_rows": repair_rows,
         "credits_list": "\n".join(credits),
+        "credits_lead": credits_lead,
+        "credits_note": credits_note,
+        "footer_photos": footer_photos,
         "hero_plates": hero_plates,
         "provider_strip": provider_strip,
         "pic": {
-            "hero": pic("hand-blue-phone", "4x5", "hero", cls="hero__photo", priority=True),
+            "hero": hero_photo,
             "living_wide": pic("living-room", "16x10", "wide"),
             "hand_bill": pic("seniors-phone", "16x10", "card", alt=""),
             "hand_repair": pic("cracked-screen", "16x9", "card", alt=""),

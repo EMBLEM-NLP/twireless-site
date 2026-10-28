@@ -10,8 +10,12 @@
 
 Layout for a design folder (designs/design-2/ for example):
   imagery/sources.json      what each photo is, where it came from, its licence and its crops
-  imagery/originals/        downloaded originals; not committed, `fetch` restores and checks them
+  imagery/originals/        downloaded originals; not committed, `fetch` restores and checks them. A photo the
+                            client supplied ("provider": "Supplied by the client") has no download link, so its
+                            original can't be restored: keep the file the client sent, its hash is in sources.json
   imagery/screens/*.html    what a phone screen in a photo shows (logos included)
+  A photo can also list "extend" (add room beyond a smooth edge, with the reason) and "faces_allowed" (a drawn
+  face, such as a cartoon avatar on a screen, that the face detector finds; with the reason).
   imagery/cards/*.html      composed images (HTML rendered to a picture); design 2 has none, its link
                             preview is a plain crop of the hero photo ("formats": ["jpg"] on that crop)
   assets/img/photos/        rendered files plus photos.json, shipped with the site
@@ -45,6 +49,10 @@ MANIFEST_SCHEMA = "web.design.imagery.manifest.v1"
 REPO = Path(__file__).resolve().parent.parent
 FORMATS = ("avif", "webp", "jpg")
 PREMIUM_HOSTS = {"plus.unsplash.com"}  # Unsplash+ is a paid licence, never free to use
+# A photo the client sent, whose source and licence nobody has confirmed. It needs only its own file and a note;
+# its licence entry says commercial use is not confirmed, so the audit fails it on purpose until the real source
+# and licence are recorded (or the photo is replaced). Nothing here makes such a photo pass.
+SUPPLIED = "Supplied by the client"
 # Who can be seen in a photo. Logos may only sit on photos where nobody can be recognised, so no
 # one appears to endorse the store (a condition of the Pexels and Unsplash licences).
 PEOPLE = ("none", "no faces", "identifiable")
@@ -90,10 +98,15 @@ def fetch(design: Path, refresh: bool = False) -> list[str]:
     allowed = set(src.get("allowed_hosts", []))
     notes, changed = [], False
     for p in src["photos"]:
-        host = urlparse(p["download_url"]).netloc
-        if host in PREMIUM_HOSTS or host not in allowed:
-            raise ImageryError(f"{p['id']}: {host} is not an allowed host")
         dest = design / "imagery" / p["original"]
+        if p.get("provider") == SUPPLIED:
+            if not dest.is_file():
+                raise ImageryError(f"{p['id']}: this photo was supplied, so it can't be downloaded; put the file the client sent at {dest}")
+            host = ""
+        else:
+            host = urlparse(p["download_url"]).netloc
+        if p.get("provider") != SUPPLIED and (host in PREMIUM_HOSTS or host not in allowed):
+            raise ImageryError(f"{p['id']}: {host} is not an allowed host")
         if dest.exists() and not refresh:
             data = dest.read_bytes()
         else:
@@ -480,6 +493,49 @@ def retouch(im: Image.Image, fixes: list) -> Image.Image:
     return Image.fromarray(cv2.cvtColor(out, cv2.COLOR_BGR2RGB))
 
 
+def extend(im: Image.Image, spec: dict) -> Image.Image:
+    """Add room beyond an edge of a smooth backdrop (a sky) by mirroring the rows next to it, so a crop can
+    leave space above or beside the subject for the open/closed chip and the logo bar. `spec` gives the
+    pixels to add as top, bottom, left and right, and `why`. Only a plain, soft area should be extended. The
+    mirror is taken from the `from_px` pixels next to the edge (48 by default), which must hold nothing but
+    the backdrop (the subject's edge must lie further in, or it would be mirrored too); the mirrored band is
+    blurred (`soften`, 5 by default) and blended into the real pixels over `blend` rows (24 by default) so no
+    seam shows."""
+    import cv2
+    import numpy as np
+    t, b, l, r = (int(spec.get(k, 0)) for k in ("top", "bottom", "left", "right"))
+    if not (t or b or l or r):
+        return im
+    src = np.asarray(im).astype(np.float32)
+    k = int(spec.get("from_px", 48))
+    out = src
+    if t:
+        out = np.concatenate([np.pad(out[:k], ((t, 0), (0, 0), (0, 0)), mode="reflect")[:t], out], axis=0)
+    if b:
+        out = np.concatenate([out, np.pad(out[-k:], ((0, b), (0, 0), (0, 0)), mode="reflect")[-b:]], axis=0)
+    if l:
+        out = np.concatenate([np.pad(out[:, :k], ((0, 0), (l, 0), (0, 0)), mode="reflect")[:, :l], out], axis=1)
+    if r:
+        out = np.concatenate([out, np.pad(out[:, -k:], ((0, 0), (0, r), (0, 0)), mode="reflect")[:, -r:]], axis=1)
+    soft = cv2.GaussianBlur(out, (0, 0), float(spec.get("soften", 5)))
+    blend = int(spec.get("blend", 24))
+    h, w = out.shape[:2]
+
+    def edge_weight(n, lo, hi):
+        """1 across the added pixels, falling to 0 over `blend` pixels of the real picture."""
+        idx = np.arange(n, dtype=np.float32)
+        weight = np.zeros(n, np.float32)
+        if lo:
+            weight = np.maximum(weight, np.clip(1 - (idx - (lo - 1)) / blend, 0, 1))
+        if hi:
+            weight = np.maximum(weight, np.clip(1 - ((n - hi) - idx) / blend, 0, 1))
+        return weight
+    wy, wx = edge_weight(h, t, b), edge_weight(w, l, r)
+    weight = np.maximum(wy[:, None], wx[None, :])[..., None]
+    mixed = soft * weight + out * (1 - weight)
+    return Image.fromarray(np.clip(mixed + 0.5, 0, 255).astype(np.uint8))
+
+
 def tone(im: Image.Image, spec: dict) -> Image.Image:
     """Map the photo's tones onto a three-colour palette (shadows, mid-tones, highlights) and blend the
     result with the original by `strength`. For a photo whose colours fight the rest of a design (a blue
@@ -645,9 +701,14 @@ def encode(im: Image.Image, fmt: str, settings: dict) -> bytes:
 
 def credit_of(p: dict, licenses: dict) -> dict:
     lic = licenses.get(p["license"], {})
-    return {"provider": p["provider"], "provider_id": p.get("provider_id"), "page_url": p["page_url"],
-            "author": p["author"], "author_url": p.get("author_url"), "license": p["license"],
-            "license_url": lic.get("url"), "retrieved": p.get("retrieved")}
+    out = {"provider": p["provider"], "provider_id": p.get("provider_id"), "page_url": p.get("page_url"),
+           "author": p.get("author"), "author_url": p.get("author_url"), "license": p["license"],
+           "license_url": lic.get("url"), "retrieved": p.get("retrieved")}
+    if p.get("supplied_note"):  # the next two are written only when present, so ordinary photos' manifests don't change
+        out["note"] = p["supplied_note"]
+    if p.get("ai_generated"):
+        out["ai_generated"] = True
+    return out
 
 
 # ---------------------------------------------------------------- render
@@ -678,9 +739,11 @@ def render(design: Path, only: list[str] | None = None) -> dict:
             if p.get("original_sha256") and sha256_file(orig) != p["original_sha256"]:
                 raise ImageryError(f"{p['id']}: original does not match its recorded hash")
             im = grade(retouch(to_srgb(Image.open(orig)), p.get("retouch", [])), {**src.get("grade", {}), **p.get("grade", {})})
+            if p.get("extend"):
+                im = extend(im, p["extend"])
             entry = {"source": credit_of(p, src.get("licenses", {})), "alt": p["alt"], "people": p.get("people"),
                      "logo_safe": p.get("people") in LOGO_SAFE_PEOPLE,
-                     "description": p.get("description"), "retouched": list(dict.fromkeys(f["why"] for f in p.get("retouch", []))),
+                     "description": p.get("description"), "retouched": list(dict.fromkeys([f["why"] for f in p.get("retouch", [])] + ([p["extend"]["why"]] if p.get("extend") else []))),
                      "logos": [], "kind": "photo", "crops": {}}
             if p.get("screen"):
                 quad, mask = find_screen(im)
@@ -756,25 +819,33 @@ def audit(design: Path, require_originals: bool = False) -> dict:
     allowed = set(src.get("allowed_hosts", []))
     for p in src["photos"]:
         pid = p["id"]
-        for key in ("provider", "page_url", "download_url", "author", "license", "alt", "retrieved", "people"):
+        supplied = p.get("provider") == SUPPLIED
+        keys = ("provider", "license", "alt", "retrieved", "people", "supplied_note") if supplied else \
+               ("provider", "page_url", "download_url", "author", "license", "alt", "retrieved", "people")
+        for key in keys:
             if not p.get(key):
                 errors.append(f"{pid}: {key} missing")
         if p.get("license") not in licenses:
             errors.append(f"{pid}: licence {p.get('license')!r} is not one this design allows")
         elif not licenses[p["license"]].get("commercial"):
-            errors.append(f"{pid}: licence does not allow commercial use")
-        host = urlparse(p.get("download_url", "")).netloc
-        if host in PREMIUM_HOSTS:
-            errors.append(f"{pid}: {host} is a paid licence")
-        elif host not in allowed:
-            errors.append(f"{pid}: {host} is not an allowed host")
-        if not str(p.get("page_url", "")).startswith("https://"):
-            errors.append(f"{pid}: page_url must be an https link to the photo's page")
+            errors.append(f"{pid}: licence does not allow commercial use" + (" (a supplied picture: what its terms allow is not confirmed)" if supplied else ""))
+        if not supplied:
+            host = urlparse(p.get("download_url", "")).netloc
+            if host in PREMIUM_HOSTS:
+                errors.append(f"{pid}: {host} is a paid licence")
+            elif host not in allowed:
+                errors.append(f"{pid}: {host} is not an allowed host")
+            if not str(p.get("page_url", "")).startswith("https://"):
+                errors.append(f"{pid}: page_url must be an https link to the photo's page")
         for fix in p.get("retouch", []):
             if not fix.get("why") or not (len(fix.get("box", [])) == 4 or (len(fix.get("poly", [])) >= 3 and fix.get("fill") == "marks")):
                 errors.append(f"{pid}: each retouch needs a box (or, for fill 'marks', a polygon) and a reason")
         if p.get("people") not in PEOPLE:
             errors.append(f"{pid}: people must be one of {', '.join(PEOPLE)}")
+        if p.get("extend") and not p["extend"].get("why"):
+            errors.append(f"{pid}: extend needs a reason (what is added, and why the crop needs it)")
+        if p.get("faces_allowed") is not None and (not (p["faces_allowed"] or {}).get("why") or not isinstance(p["faces_allowed"].get("count"), int)):
+            errors.append(f"{pid}: faces_allowed needs a count and the reason (for example a cartoon avatar on a phone's screen)")
         if p.get("screen") and p.get("people") not in LOGO_SAFE_PEOPLE:
             errors.append(f"{pid}: logos are put on this photo's screen, but someone in it can be recognised")
         orig = design / "imagery" / p.get("original", "")
@@ -785,6 +856,8 @@ def audit(design: Path, require_originals: bool = False) -> dict:
                 errors.append(f"{pid}: original does not match its recorded hash")
         elif require_originals:
             errors.append(f"{pid}: original missing")
+        elif supplied:
+            warnings.append(f"{pid}: original not present here (it was supplied: ask for the file again)")
         else:
             warnings.append(f"{pid}: original not present here (fetch restores it)")
     out_dir = design / "assets" / "img" / "photos"
@@ -825,7 +898,10 @@ def audit(design: Path, require_originals: bool = False) -> dict:
                     path = out_dir / biggest["file"]
                     if path.is_file():
                         n = count_faces(path)
-                        if n:
+                        # `faces_allowed` is a recorded exception for drawings the detector reads as faces
+                        # (a cartoon avatar on a phone's screen): up to `count`, with the reason on record.
+                        ok = (p.get("faces_allowed") or {}).get("count", 0) if (p.get("faces_allowed") or {}).get("why") else 0
+                        if n > ok:
                             errors.append(f"{p['id']} {crop_name}: marked '{p['people']}' but {n} face(s) found")
             elif p.get("people") in LOGO_SAFE_PEOPLE:
                 warnings.append(f"{p['id']}: face model missing, faces not checked")
@@ -863,7 +939,7 @@ def sheet(design: Path, out: Path, cell: int = 300) -> Path:
             biggest = max(crop["files"]["jpg"], key=lambda f: f["w"])
             im = Image.open(design / "assets" / "img" / "photos" / biggest["file"]).convert("RGB")
             im.thumbnail((cell, cell))
-            tiles.append((im, f"{p['id']} {crop_name}", f"{p['author']}, {p['provider']}", p["license"]
+            tiles.append((im, f"{p['id']} {crop_name}", f"{p.get('author') or 'author not given'}, {p['provider']}", p["license"]
                           + (f"; logos: {', '.join(e['logos'])}" if e["logos"] else "")))
     cols = 4
     rows = (len(tiles) + cols - 1) // cols

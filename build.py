@@ -193,26 +193,36 @@ class Photos:
     def __init__(self, path):
         self.m = json.loads(path.read_text(encoding="utf-8")) if path and path.exists() else {"photos": {}, "cards": {}}
 
-    def picture(self, pid, crop, root, sizes, alt=None, cls="", priority=False):
-        """<picture> with AVIF and WebP sources and a JPEG fallback. Lazy unless it's the priority image."""
+    def picture(self, pid, crop, root, sizes, alt=None, cls="", priority=False, art=None):
+        """<picture> with AVIF and WebP sources and a JPEG fallback. Lazy unless it's the priority image.
+
+        `art` gives other screens their own crop of the same photo: a list of (media query, crop name, sizes),
+        most specific first. Each gets AVIF, WebP and JPEG sources, so a browser that can't read AVIF or WebP
+        still gets that crop; `crop` and `sizes` serve every screen that matches none of them."""
         entry = self.m["photos"].get(pid)
         if not entry or crop not in entry["crops"]:
             raise SystemExit(f"Photo {pid} ({crop}) isn't in photos.json: run python3 rsi/imagery.py render")
-        files = entry["crops"][crop]["files"]
 
-        def srcset(fmt):
+        def srcset(files, fmt):
             return ", ".join(f'{root}assets/img/photos/{esc(f["file"])} {f["w"]}w' for f in files[fmt])
+        files = entry["crops"][crop]["files"]
         big = max(files["jpg"], key=lambda f: f["w"])
         fallback = min(files["jpg"], key=lambda f: abs(f["w"] - 800))
         text = entry["alt"] if alt is None else alt
-        img = [f'src="{root}assets/img/photos/{esc(fallback["file"])}"', f'srcset="{srcset("jpg")}"',
+        sources = []
+        for media, art_crop, art_sizes in art or []:
+            if art_crop not in entry["crops"]:
+                raise SystemExit(f"Photo {pid} ({art_crop}) isn't in photos.json: run python3 rsi/imagery.py render")
+            art_files = entry["crops"][art_crop]["files"]
+            for fmt, mime in (("avif", "image/avif"), ("webp", "image/webp"), ("jpg", "image/jpeg")):
+                sources.append(f'<source media="{esc(media)}" type="{mime}" srcset="{srcset(art_files, fmt)}" sizes="{esc(art_sizes)}">')
+        for fmt, mime in (("avif", "image/avif"), ("webp", "image/webp")):
+            sources.append(f'<source type="{mime}" srcset="{srcset(files, fmt)}" sizes="{esc(sizes)}">')
+        img = [f'src="{root}assets/img/photos/{esc(fallback["file"])}"', f'srcset="{srcset(files, "jpg")}"',
                f'sizes="{esc(sizes)}"', f'width="{big["w"]}"', f'height="{big["h"]}"', f'alt="{esc(text)}"',
                'decoding="async"', 'fetchpriority="high"' if priority else 'loading="lazy"']
         cls_attr = f' class="{esc(cls)}"' if cls else ""
-        return (f'<picture{cls_attr}>'
-                f'<source type="image/avif" srcset="{srcset("avif")}" sizes="{esc(sizes)}">'
-                f'<source type="image/webp" srcset="{srcset("webp")}" sizes="{esc(sizes)}">'
-                f'<img {" ".join(img)}></picture>')
+        return f'<picture{cls_attr}>{"".join(sources)}<img {" ".join(img)}></picture>'
 
     def credits(self):
         """One entry per photo: who took it, where it's from and its licence."""
