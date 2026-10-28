@@ -113,7 +113,10 @@
             <h3 id="business-title">Bell for business</h3>
             <p>Small firms can set up Bell phones and mobile plans for their whole staff here. Business smartphones qualify for SmartPay as well: 24 monthly payments, nothing down, on an eligible 2-year plan and subject to Bell’s credit approval.</p>
             <p>Say how many phones you need and bring your company details.</p>
-            <p><a class="button" href="tel:{{ store.phone_e164 }}">Call {{ store.phone_display }}</a></p>
+            <div class="buttons">
+              <a class="button" href="business.html">Business solutions</a>
+              <a class="button button--quiet" href="tel:{{ store.phone_e164 }}">Call {{ store.phone_display }}</a>
+            </div>
           </div>
         </article>
       </div>

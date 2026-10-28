@@ -51,6 +51,7 @@
   "mobile.html": "mobile",
   "internet-tv.html": "home_services",
   "repairs.html": "repairs",
+  "business.html": "business",
   "visit.html": "visit"
  },
  "required_page_roles": [
@@ -94,7 +95,9 @@
     "Bell Authorised Retailer",
     "647-707-1093",
     "Virgin Plus",
-    "Lucky Mobile"
+    "Lucky Mobile",
+    "In store now",
+    "Buying for a team\\?"
    ],
    "brand_family": [
     "Bell",
@@ -112,7 +115,11 @@
     "Bell",
     "Virgin Plus",
     "Lucky Mobile",
-    "keep your (phone )?number"
+    "keep your (phone )?number",
+    "In store now",
+    "iPhone",
+    "Samsung Galaxy",
+    "Google Pixel"
    ],
    "home_services": [
     "[Ii]nternet",
@@ -122,12 +129,22 @@
    "repairs": [
     "[Ss]creen",
     "[Bb]atter",
-    "quote"
+    "quote",
+    "iPhone",
+    "Samsung",
+    "Google Pixel",
+    "iPad"
    ],
    "visit": [
     "965 Bovaird",
     "647-707-1093",
     "10\\sa\\.m\\.\\sto\\s8\\sp\\.m\\."
+   ],
+   "business": [
+    "Bell",
+    "[Bb]usiness",
+    "647-707-1093",
+    "[Nn]umbers"
    ]
   },
   "hide_in_screenshots": [
@@ -152,7 +169,8 @@
    "mobile": 4,
    "home_services": 3,
    "repairs": 2,
-   "visit": 0
+   "visit": 0,
+   "business": 1
   },
   "formats": [
    "avif",

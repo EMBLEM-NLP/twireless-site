@@ -16,6 +16,12 @@
       "demo": "This is a preview of the new website, so nothing was sent. To reach the store, call {phone}."
     }
   },
+  "phone_brands": [
+    {"id": "iphone", "name": "iPhone", "line": "Apple\u2019s phones. They run iOS."},
+    {"id": "samsung-galaxy", "name": "Samsung Galaxy", "line": "Samsung\u2019s phones. They run Android."},
+    {"id": "google-pixel", "name": "Google Pixel", "line": "Google\u2019s own phones. They run Android."}
+  ],
+  "repair_brands": ["iPhone", "Samsung", "Google Pixel", "iPad"],
   "repairs": [
     {
       "title": "Screens and glass",

@@ -42,6 +42,10 @@
             <dt>Dropping off a repair</dt>
             <dd>Bring the phone or tablet. If you can, copy its photos and files somewhere safe first.</dd>
           </div>
+          <div>
+            <dt>Buying for a team</dt>
+            <dd>Say how many phones you need, and bring your company’s details.</dd>
+          </div>
         </dl>
         <p>Easier to talk it over? Ask for {{ store.contact_name }} on <a href="tel:{{ store.phone_e164 }}">{{ store.phone_display }}</a>, or write to <a href="mailto:{{ store.email }}">{{ store.email }}</a>.</p>
         <p>Google rates us {{ store.rating.value }} out of 5 ({{ store.rating.count }} reviews, {{ store.rating.as_of_text }}). <a href="{{ store.reviews_url }}">Read what they wrote</a>.</p>
@@ -67,6 +71,7 @@
             <label class="choice"><input type="checkbox" name="about_number" value="Moving my number"><span>Moving my number</span></label>
             <label class="choice"><input type="checkbox" name="about_home" value="Home internet or TV"><span>Home internet or TV</span></label>
             <label class="choice"><input type="checkbox" name="about_repair" value="Dropping off a repair"><span>Dropping off a repair</span></label>
+            <label class="choice"><input type="checkbox" name="about_team" value="Phones for a team"><span>Phones for a team</span></label>
             <label class="choice"><input type="checkbox" name="about_other" value="Something else"><span>Something else</span></label>
           </div>
         </fieldset>

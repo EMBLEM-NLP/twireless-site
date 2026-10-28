@@ -216,7 +216,7 @@
           "title": "Which phone brands do you usually have in the store?",
           "help": "Yellow Pages lists iPhone, Android and HTC.",
           "options": ["iPhone (Apple)", "Samsung Galaxy", "Google Pixel", "Motorola"],
-          "unlocks": ["phase1:phones", "confirm:availability"]
+          "unlocks": ["phase1:phones", "confirm:availability", "check:23"]
         },
         {
           "id": "kinds", "type": "checkbox", "required": false,
@@ -239,7 +239,7 @@
             "Show a short list of current models. I’ll tell you when it changes",
             "Don’t mention specific phones"
           ],
-          "unlocks": ["phase1:phones", "confirm:availability", "check:9"]
+          "unlocks": ["phase1:phones", "confirm:availability", "check:9", "check:23"]
         },
         {
           "id": "services", "type": "grid", "required": false,
@@ -288,7 +288,7 @@
           "title": "Which brands do you repair?",
           "help": "We’ll list these in plain text on the website.",
           "options": ["iPhone", "Samsung", "Google Pixel", "iPad", "Other tablets", "Laptops", "Game consoles"],
-          "unlocks": ["phase1:repairs"]
+          "unlocks": ["phase1:repairs", "check:6"]
         },
         {
           "id": "repair_types", "type": "checkbox", "required": true, "other": true,
@@ -344,17 +344,31 @@
             "Moving a team’s numbers from another provider",
             "Business internet",
             "Business TV and phone",
+            "Paying for team phones over time (Bell SmartPay for business)",
             "One person to call about the account",
             "Repairs for staff phones"
           ],
-          "unlocks": ["phase1:business"]
+          "unlocks": ["phase1:business", "check:24"]
+        },
+        {
+          "id": "biz_bring", "type": "checkbox", "required": true, "other": true,
+          "title": "What should a business have ready when it comes to you?",
+          "help": "Our draft says: how many phones it needs, the company’s details and, if it’s moving numbers, a recent bill from its current provider. Tick what you really ask for.",
+          "options": [
+            "How many phones it needs",
+            "The company’s name and details",
+            "A recent bill from its current provider (to move numbers)",
+            "Photo ID for the person who signs",
+            "Nothing in particular"
+          ],
+          "unlocks": ["phase1:business", "check:10", "check:24"]
         },
         {
           "id": "biz_contact", "type": "choice", "required": true,
           "title": "How should a business get in touch?",
           "help": "This sets what the “Buying for a team?” button does.",
           "options": ["Call the store", "Email", "Fill in a form on the website", "Any of these"],
-          "unlocks": ["phase1:business"]
+          "unlocks": ["phase1:business", "check:24"]
         }
       ]
     },

@@ -196,6 +196,7 @@ table { border-collapse: collapse; }
 /* ---------- sections */
 .section { padding-block: clamp(44px, 7vw, 88px); }
 .section--tight { padding-top: clamp(24px, 4vw, 40px); }
+.section--snug { padding-bottom: clamp(20px, 3vw, 32px); }
 .section--mist { background: var(--mist); }
 .head { display: grid; gap: 10px; max-width: 46rem; margin-bottom: 26px; }
 .head p { color: var(--ink-2); }
@@ -335,9 +336,21 @@ h2 + .cards, h2 + .handover { margin-top: 20px; }
 .name:hover .name__title a { text-decoration: underline; text-decoration-thickness: 2px; }
 .name__body p { color: var(--ink-2); }
 
+/* The phone brands (Home, Phones) and the brands the store repairs (Repairs): plain-text tiles with no logos and no
+   photographs, so nothing on the page suggests that a particular model is on the shelf. */
+.shelf { display: grid; gap: 12px; }
+.shelf__item { display: grid; gap: 4px; align-content: center; min-height: 76px; padding: 16px 20px; border-radius: 18px; background: var(--mist); }
+.section--mist .shelf__item { background: var(--paper); box-shadow: inset 0 0 0 1px var(--line); }
+.shelf__name { font-size: var(--fs-lg); font-weight: 800; line-height: 1.15; letter-spacing: -0.01em; }
+.shelf__item p { color: var(--ink-2); }
+.shelf--names { grid-template-columns: 1fr 1fr; }
+.shelf--names .shelf__item { min-height: 64px; }
+.shelf--names .shelf__name { font-size: var(--fs-md); }
+.shelf + .buttons { margin-top: 22px; }
+
 .band { padding-block: clamp(40px, 6vw, 72px); background: var(--ink); color: #fff; }
 .band__grid { display: grid; gap: 20px; }
-.band p { margin-top: 8px; color: #d3dce8; }
+.band p { margin-top: 8px; color: #d3dce8; text-wrap: balance; }
 
 .visit { display: grid; gap: 28px; }
 .address { margin-top: 12px; font-size: var(--fs-md); font-weight: 700; }
@@ -424,6 +437,7 @@ h2 + .cards, h2 + .handover { margin-top: 20px; }
 .foot__title { margin-bottom: 10px; font-size: var(--fs-sm); }
 .foot__links { display: grid; gap: 10px; }
 .foot__links--two { grid-template-columns: 1fr 1fr; }
+.foot__ask { margin-top: 18px; }
 .foot__small { display: grid; gap: 8px; margin-top: 28px; padding-top: 18px; border-top: 1px solid var(--line); color: var(--ink-2); }
 .foot__small a { display: inline-flex; align-items: center; min-height: 44px; margin-right: 14px; }
 
@@ -513,10 +527,16 @@ h2 + .cards, h2 + .handover { margin-top: 20px; }
   .cards--two { grid-template-columns: repeat(2, 1fr); align-items: stretch; }
   .cards--two .card__body { display: flex; flex-direction: column; }
   .cards--two .card__body > p:has(> .button):last-child { margin-top: auto; padding-top: 4px; }
+  .cards--two .card__body > .buttons:last-child { margin-top: auto; padding-top: 4px; }
+  .shelf { grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .shelf--names { grid-template-columns: 1fr 1fr; }
+  .shelf__item { padding: 24px 26px; }
+  .shelf__name { font-size: var(--fs-md); }
   .cards--lead { grid-template-columns: repeat(2, 1fr); align-items: stretch; }
   .cards--lead .card--wide { grid-column: 1 / -1; }
 }
 @media (min-width: 900px) {
+  .shelf--names { grid-template-columns: repeat(4, 1fr); }
   .hero__grid { grid-template-columns: 7fr 5fr; gap: 56px; align-items: center; padding-top: 40px; }
   .hero__media { order: 2; margin-inline: 0; }
   .hero__photo img { aspect-ratio: 1 / 1; }
@@ -573,6 +593,7 @@ h2 + .cards, h2 + .handover { margin-top: 20px; }
 }
 @media (min-width: 1100px) {
   .deals > .deal { flex-basis: calc((100% - 36px) / 3); }
+  .shelf__name { font-size: var(--fs-lg); }
 }
 @media (prefers-reduced-motion: no-preference) {
   html { scroll-behavior: smooth; }
@@ -592,7 +613,7 @@ h2 + .cards, h2 + .handover { margin-top: 20px; }
 @media (max-width: 899px) {
   .store .status { order: -2; }
   .store .buttons { order: -1; }
-  .head__link, .facts a, .map__note a, .foot__logo, .foot__links a { display: inline-flex; align-items: center; min-height: 44px; }
+  .head__link, .facts a, .map__note a, .foot__logo, .foot__links a, .foot__ask a { display: inline-flex; align-items: center; min-height: 44px; }
   .foot__links { gap: 0; }
   .foot__links a { display: flex; }
   .store__list { gap: 18px; }

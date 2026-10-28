@@ -71,7 +71,18 @@
     </div>
   </section>
 
-  <section class="section section--mist" aria-labelledby="providers-title">
+  <section class="section section--mist" aria-labelledby="instore-title">
+    <div class="wrap">
+      <div class="head">
+        <h2 id="instore-title">In store now</h2>
+        <p>iPhone, Samsung Galaxy and Google Pixel. Tell us the model you want and we’ll check it’s here before you make the trip.</p>
+        <a class="head__link" href="mobile.html#in-store">More about phones</a>
+      </div>
+      {{{ shelf }}}
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="providers-title">
     <div class="wrap">
       <div class="head">
         <h2 id="providers-title">One network, three ways in</h2>
@@ -82,7 +93,7 @@
     </div>
   </section>
 
-  <section class="section" aria-labelledby="deals-title">
+  <section class="section section--mist" aria-labelledby="deals-title">
     <div class="wrap">
       <div class="head">
         <h2 id="deals-title">On offer this month</h2>
@@ -90,6 +101,19 @@
       </div>
       <div class="deals deals--compact">
         {{{ deals_preview }}}
+      </div>
+    </div>
+  </section>
+
+  <section class="band" aria-labelledby="team-title">
+    <div class="wrap band__grid">
+      <div>
+        <h2 id="team-title">Buying for a team?</h2>
+        <p>Bell phones and mobile plans for your staff, set up at our counter. Tell us how many phones you need.</p>
+      </div>
+      <div class="buttons">
+        <a class="button button--light" href="business.html">Business solutions</a>
+        <a class="button button--outline-light" href="tel:{{ store.phone_e164 }}">Call {{ store.phone_display }}</a>
       </div>
     </div>
   </section>

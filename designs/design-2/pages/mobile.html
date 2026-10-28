@@ -1,7 +1,7 @@
 <!--page
 {
   "title": "Phones and plans in Brampton: Bell, Virgin Plus and Lucky Mobile | T Wireless",
-  "description": "Pick a phone and a plan in person: iPhone and Android, on Bell, Virgin Plus or Lucky Mobile. Keep your number when you switch. T Wireless, 965 Bovaird Dr W, Brampton.",
+  "description": "Pick a phone and a plan in person: iPhone, Samsung Galaxy and Google Pixel, on Bell, Virgin Plus or Lucky Mobile. Keep your number when you switch. T Wireless, 965 Bovaird Dr W, Brampton.",
   "nav": "mobile"
 }
 -->
@@ -16,7 +16,20 @@
     </div>
   </section>
 
-  <section class="section section--tight" aria-labelledby="start-title">
+  <section class="section section--mist" id="in-store" aria-labelledby="instore-title">
+    <div class="wrap">
+      <div class="head">
+        <h2 id="instore-title">In store now</h2>
+        <p>iPhone, Samsung Galaxy and Google Pixel. The range changes, so tell us the model you’re after and we’ll check it’s here before you make the trip.</p>
+      </div>
+      {{{ shelf }}}
+      <div class="buttons">
+        <a class="button" href="tel:{{ store.phone_e164 }}"><svg class="icon" aria-hidden="true"><use href="#i-call"></use></svg>Call {{ store.phone_display }}</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="start-title">
     <div class="wrap">
       <h2 id="start-title">Two ways to start</h2>
       <div class="cards cards--two">
@@ -24,7 +37,7 @@
           <div class="card__media">{{{ pic.new_phones_wide }}}</div>
           <div class="card__body">
             <h3 id="newphone-title">A new phone</h3>
-            <p>iPhone and Android phones are both sold here. Have one model in mind? Ring ahead and we’ll check it’s in.</p>
+            <p>Pick a brand from the shelf above, then work out how to pay for it.</p>
             <ul class="ticks">
               <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg><span><strong>Pay it off over time.</strong> Bell SmartPay splits a phone’s price into 24 monthly payments, with nothing down and no interest. It needs an eligible 2-year plan, and Bell checks your credit. Ending the plan early leaves the balance on the phone to pay.</span></li>
               <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg><span><strong>Trade in.</strong> Ask whether the phone in your pocket can earn credit.</span></li>
@@ -93,7 +106,7 @@
         <p>Bell phones and mobile plans for your staff can be arranged right here. Call or come in, and tell us how many phones you need.</p>
         <div class="buttons">
           <a class="button" href="tel:{{ store.phone_e164 }}">Call {{ store.phone_display }}</a>
-          <a class="button button--quiet" href="brands.html#business">What Bell offers businesses</a>
+          <a class="button button--quiet" href="business.html">Business solutions</a>
         </div>
       </div>
     </div>

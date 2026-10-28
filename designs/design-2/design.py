@@ -130,6 +130,14 @@ def extend(p, kit):
         f'<td data-label="You notice">{esc(kit["render"](r["notice"], p, "repairs", escape=False))}</td>'
         f'<td data-label="We do">{esc(kit["render"](r["fix"], p, "repairs", escape=False))}</td></tr>' for r in data["repairs"])
 
+    # The phone brands on the shelf, and the brands the store repairs, as plain text: no logos and no photographs. A stock
+    # photo of "an iPhone" would claim that a particular model is here, and the phone makers' logos are not ours to show.
+    shelf = ('<ul class="shelf">\n' + "\n".join(
+        f'  <li class="shelf__item">\n    <h3 class="shelf__name">{esc(b["name"])}</h3>\n    <p>{esc(b["line"])}</p>\n  </li>'
+        for b in data["phone_brands"]) + "\n</ul>")
+    repair_brands = ('<ul class="shelf shelf--names">\n' + "\n".join(
+        f'  <li class="shelf__item"><span class="shelf__name">{esc(name)}</span></li>' for name in data["repair_brands"]) + "\n</ul>")
+
     # The home page photo: a phone in a hand, cut three ways. A phone gets a 5:4 crop with the phone right of
     # centre (the open/closed chip sits in the sky to its left), a tablet the full banner (2:1), a desktop a square
     # around the phone beside the headline, and a phone on its side the 5:4 crop beside the headline.
@@ -203,6 +211,8 @@ def extend(p, kit):
         "deals_preview": "\n".join(deal(o, False) for o in data["offers"][:3]),
         "deals_all": "\n".join(deal(o, True) for o in data["offers"]),
         "repair_rows": repair_rows,
+        "shelf": shelf,
+        "repair_brands": repair_brands,
         "credits_list": "\n".join(credits),
         "credits_lead": credits_lead,
         "credits_note": credits_note,
@@ -223,6 +233,7 @@ def extend(p, kit):
             "new_phones_wide": pic("unboxing", "16x10", "half"),
             "video_call_wide": pic("video-call", "16x10", "half"),
             "cafe_wide": pic("cafe-business", "16x10", "half"),
+            "cafe_wide_top": pic("cafe-business", "16x10", "wide", priority=True),
             "train_half": pic("train", "16x9", "half", alt=""),
             "card_bell": pic("two-phones", "16x9", "card", alt=""),
             "card_virgin": pic("concert", "16x9", "card", alt=""),

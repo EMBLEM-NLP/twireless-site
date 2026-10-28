@@ -1,0 +1,94 @@
+<!--page
+{
+  "title": "Business phones and mobile plans in Brampton, set up in store | T Wireless",
+  "description": "Buying phones for a team? T Wireless, a Bell Authorised Retailer at 965 Bovaird Dr W, Brampton, sets up Bell business phones and mobile plans. Call 647-707-1093.",
+  "nav": "business"
+}
+-->
+<main id="main">
+  <section class="intro intro--photo" aria-labelledby="page-title">
+    <div class="wrap intro__grid">
+      <div class="intro__text">
+        <h1 id="page-title">Buying for a team? Tell us how many phones.</h1>
+        <p class="lead">Bell phones and mobile plans for your staff can be set up right here at the counter. Come in or call, and we’ll go through the choices with you.</p>
+        <div class="buttons">
+          <a class="button" href="tel:{{ store.phone_e164 }}">Call {{ store.phone_display }}</a>
+          <a class="button button--quiet" href="{{ booking_href }}">Book a visit</a>
+        </div>
+      </div>
+      <div class="intro__media">{{{ pic.cafe_wide_top }}}</div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="setup-title">
+    <div class="wrap">
+      <div class="head">
+        <h2 id="setup-title">What we can set up for a business</h2>
+      </div>
+      <ul class="tiles">
+        <li class="tile">
+          <svg class="icon" aria-hidden="true"><use href="#i-phone"></use></svg>
+          <h3>Phones for your staff</h3>
+          <p>Bell phones and mobile plans for the people on your team, chosen together and set up at the counter.</p>
+        </li>
+        <li class="tile">
+          <svg class="icon" aria-hidden="true"><use href="#i-card"></use></svg>
+          <h3>Pay over time</h3>
+          <p>Business smartphones can qualify for Bell SmartPay: 24 monthly payments, nothing down, on an eligible 2-year plan and subject to Bell’s credit approval.</p>
+        </li>
+        <li class="tile">
+          <svg class="icon" aria-hidden="true"><use href="#i-swap"></use></svg>
+          <h3>Keep your numbers</h3>
+          <p>Changing provider? In Canada your numbers can come with you. Ask how it works for a whole team.</p>
+        </li>
+        <li class="tile">
+          <svg class="icon" aria-hidden="true"><use href="#i-wrench"></use></svg>
+          <h3>Staff phone repairs</h3>
+          <p>A staff phone that cracks or won’t charge can come to us. The price comes first, then the repair.</p>
+          <p><a href="repairs.html">What we repair</a></p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section section--mist" aria-labelledby="ready-title">
+    <div class="wrap">
+      <div class="head">
+        <h2 id="ready-title">What to have ready</h2>
+        <p>Bring what you can. We’ll tell you if anything else is needed.</p>
+      </div>
+      <div class="handover">
+        <div class="handover__col">
+          <h3>You bring</h3>
+          <ul class="ticks">
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg><span>How many phones you need</span></li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg><span>Your company’s details</span></li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg><span>The latest bill from the provider you’re leaving, if your numbers are moving</span></li>
+          </ul>
+        </div>
+        <div class="handover__col">
+          <h3>We take care of</h3>
+          <ul class="ticks">
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg><span>Going through Bell’s business phones and plans with you</span></li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg><span>Setting up the plans and phones you choose</span></li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg><span>Moving your numbers across, if you’re switching</span></li>
+          </ul>
+        </div>
+      </div>
+      <p class="note">Bell sets its own prices and conditions, and these can change. Check the current terms with us before you sign anything.</p>
+    </div>
+  </section>
+
+  <section class="band" aria-labelledby="talk-title">
+    <div class="wrap band__grid">
+      <div>
+        <h2 id="talk-title">Ready to talk it through?</h2>
+        <p>Call the store, or tell us when you’d like to come in.</p>
+      </div>
+      <div class="buttons">
+        <a class="button button--light" href="tel:{{ store.phone_e164 }}">Call {{ store.phone_display }}</a>
+        <a class="button button--outline-light" href="{{ booking_href }}">Book a visit</a>
+      </div>
+    </div>
+  </section>
+</main>

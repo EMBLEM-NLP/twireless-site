@@ -23,7 +23,9 @@ images from src/assets), an optional design.py whose extend(page_context, kit) a
 own snippets, and an optional content.json: the design's own wording for the shared lists (repairs,
 FAQ) and its small pieces of microcopy, which replace those keys of src/site.json for that design
 only. Facts (store, hours, site, carriers, offers) stay in src/site.json and can't be overridden.
-design.json can also relabel the navigation ("nav": {"mobile": "Phones"}).
+design.json can also relabel the navigation ("nav": {"mobile": "Phones"}). A navigation entry whose
+page a design doesn't have is left out of that design's menu and footer (business.html exists only in
+design 2 so far), so a new page can be added to one design at a time.
 Photos come from assets/img/photos/photos.json, written by rsi/imagery.py.
 
 Carrier logos: put the official files in src/assets/img/brands/ as bell, virgin-plus and
@@ -59,6 +61,7 @@ NAV = [
     ("mobile", "mobile.html", "Mobile"),
     ("internet-tv", "internet-tv.html", "Internet and TV"),
     ("repairs", "repairs.html", "Repairs"),
+    ("business", "business.html", "Business solutions"),
     ("visit", "visit.html", "Visit us"),
 ]
 OFFER_ART = {"mobile": "art-mobile", "home": "art-home", "repairs": "art-repair"}
@@ -398,18 +401,23 @@ def jsonld(data, base):
     return f'<script type="application/ld+json">\n{body}\n</script>'
 
 
-def nav_html(current, root, labels=None):
+def nav_entries(pages=None):
+    """The navigation list for one design: every entry whose page the design has (all of them when pages is None)."""
+    return [(key, href, label) for key, href, label in NAV if pages is None or href in pages]
+
+
+def nav_html(current, root, labels=None, pages=None):
     labels = labels or {}
     items = []
-    for key, href, label in NAV:
+    for key, href, label in nav_entries(pages):
         here = ' aria-current="page"' if key == current else ""
         items.append(f'<li><a href="{root}{href}"{here}>{esc(labels.get(key, label))}</a></li>')
     return "<ul>\n" + "\n".join(items) + "\n</ul>"
 
 
-def footer_nav(root, labels=None):
+def footer_nav(root, labels=None, pages=None):
     labels = labels or {}
-    links = [("index.html", labels.get("index", "Home"))] + [(href, labels.get(key, label)) for key, href, label in NAV]
+    links = [("index.html", labels.get("index", "Home"))] + [(href, labels.get(key, label)) for key, href, label in nav_entries(pages)]
     return "\n".join(f'<li><a href="{root}{href}">{esc(label)}</a></li>' for href, label in links)
 
 
@@ -550,7 +558,8 @@ def main():
         for f in data["faq"])
 
     booking = data["site"].get("booking_url") or "visit.html#book"
-    kit = {"esc": esc, "render": render, "logos": logos, "photos": photos, "data": data, "nav": NAV,
+    available = {p.name for p in design["pages"].glob("*.html")}  # which navigation entries this design has a page for
+    kit = {"esc": esc, "render": render, "logos": logos, "photos": photos, "data": data, "nav": nav_entries(available),
            "day_span": day_span, "design": design, "demo": demo}
     built, sitemap = [], []
     for path in sorted(design["pages"].glob("*.html")):
@@ -570,8 +579,8 @@ def main():
             "page": page,
             "root": root,
             "booking_href": booking if booking.startswith("http") else root + booking,
-            "nav": nav_html(page["nav"], root, design["nav"]),
-            "footer_nav": footer_nav(root, design["nav"]),
+            "nav": nav_html(page["nav"], root, design["nav"], available),
+            "footer_nav": footer_nav(root, design["nav"], available),
             "head_extra": head_extra(base, path.name, meta.get("noindex") or demo, design["og_image"], public_url),
             "sprite": partials["sprite"],
         })
